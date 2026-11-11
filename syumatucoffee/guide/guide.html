@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ご利用ガイド | 週末珈琲便</title>
+  <meta name="description" content="初めての方向けに、注文から届くまでの流れ・焙煎度の違い・おいしい淹れ方をご紹介。">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+  <header class="l-header">
+	<div class="l-header__inner">
+		<h1 class="l-header__logo">
+			<a href="../index.html"><img src="../images/logo.png" alt="週末珈琲便"></a>
+		</h1>
+		<nav class="l-header__nav" aria-label="メインナビゲーション">
+			<ul>
+				<li><a href="../about/about.html" class="l-header__nav-link">ABOUT</a></li>
+				<li><a href="../beans/beans.html" class="l-header__nav-link">BEANS</a></li>
+				<li><a href="guide.html" class="l-header__nav-link is-current">GUIDE</a></li>
+				<li><a href="../plan/plan.html" class="l-header__nav-link">PLAN</a></li>
+				<li><a href="../news/news.html" class="l-header__nav-link">NEWS</a></li>
+				<li><a href="../contact/contact.html" class="l-header__nav-link">CONTACT</a></li>
+			</ul>
+		</nav>
+		<a href="../online-shop/shop.html" class="l-header__cta">ONLINE STORE</a>
+		<button class="l-header__hamburger" aria-label="メニューを開く">
+			<span></span><span></span><span></span>
+		</button>
+	</div>
+</header>
+
+<!-- Drawer (SP) -->
+<div class="l-drawer__overlay" id="drawerOverlay"></div>
+<nav class="l-drawer" id="drawer" aria-label="モバイルナビゲーション">
+	<div class="l-drawer__nav">
+		<a href="../index.html" class="l-drawer__nav-link">HOME</a>
+		<a href="../about/about.html" class="l-drawer__nav-link">ABOUT</a>
+		<a href="../beans/beans.html" class="l-drawer__nav-link">BEANS</a>
+		<a href="guide.html" class="l-drawer__nav-link">GUIDE</a>
+		<a href="../plan/plan.html" class="l-drawer__nav-link">PLAN</a>
+		<a href="../news/news.html" class="l-drawer__nav-link">NEWS</a>
+		<a href="../contact/contact.html" class="l-drawer__nav-link">CONTACT</a>
+	</div>
+	<a href="../online-shop/shop.html" class="l-drawer__cta">ONLINE STORE</a>
+	<div class="l-drawer__sns">
+		<a href="#" class="l-drawer__sns-link" aria-label="X"><img src="../images/Xicon.svg" alt="X"></a>
+		<a href="#" class="l-drawer__sns-link" aria-label="Instagram"><img src="../images/instagram.svg" alt="Instagram"></a>
+	</div>
+</nav>
+
+  <main>
+    <section class="c-page-hero c-page-hero--video">
+				<video class="c-page-hero__video"
+		autoplay
+		muted
+		loop
+		playsinline
+		preload="metadata"
+		poster="../images/firstview1.webp">
+						<source src="../video/guide.mp4" type="video/mp4">
+						<!-- 必要ならWebMも追加 --> 
+						<!-- <source src="../videos/beans-hero.webm" type="video/webm"> --> 
+						お使いのブラウザは動画再生に対応していません。 </video>
+				<div class="c-page-hero__overlay" aria-hidden="true"></div>
+		</section>
+
+    <!-- ORDER STEPS -->
+    <section class="guide-steps c-bg-deco c-bg-deco--left" id="guide-steps">
+      <div class="l-inner">
+        <div class="c-section-heading"><span class="c-section-heading__en">How to Order</span><h2 class="c-section-heading__ja">ご注文の流れ</h2></div>
+        <div class="guide-steps__row">
+          <div class="guide-steps__item">
+            <span class="guide-steps__num">STEP 01</span>
+            <div class="guide-steps__icon">📋</div>
+            <h3 class="guide-steps__label">プランを選ぶ</h3>
+            <p class="guide-steps__desc">ライト・スタンダード・プレミアムの3つからお選びください</p>
+          </div>
+          <div class="guide-steps__arrow">→</div>
+          <div class="guide-steps__item">
+            <span class="guide-steps__num">STEP 02</span>
+            <div class="guide-steps__icon">💳</div>
+            <h3 class="guide-steps__label">お申し込み</h3>
+            <p class="guide-steps__desc">フォームから簡単にお申し込みいただけます</p>
+          </div>
+          <div class="guide-steps__arrow">→</div>
+          <div class="guide-steps__item">
+            <span class="guide-steps__num">STEP 03</span>
+            <div class="guide-steps__icon">🔥</div>
+            <h3 class="guide-steps__label">金曜焙煎</h3>
+            <p class="guide-steps__desc">毎週金曜にあなたのために焙煎スタート</p>
+          </div>
+          <div class="guide-steps__arrow">→</div>
+          <div class="guide-steps__item">
+            <span class="guide-steps__num">STEP 04</span>
+            <div class="guide-steps__icon">🚚</div>
+            <h3 class="guide-steps__label">週末届く</h3>
+            <p class="guide-steps__desc">土日にご自宅のポストへお届けします</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROAST LEVEL -->
+    <section class="guide-roast" id="guide-roast">
+      <div class="l-inner">
+        <div class="c-section-heading"><span class="c-section-heading__en">Roast Level</span><h2 class="c-section-heading__ja">焙煎度ガイド</h2></div>
+        <div class="guide-roast__visual">
+          <div class="guide-roast__item">
+            <div class="guide-roast__circle guide-roast__circle--light"></div>
+            <h3 class="guide-roast__name">浅煎り</h3>
+            <p class="guide-roast__flavor">酸味が強く<br>フルーティー</p>
+          </div>
+          <div class="guide-roast__item">
+            <div class="guide-roast__circle guide-roast__circle--medium"></div>
+            <h3 class="guide-roast__name">中煎り</h3>
+            <p class="guide-roast__flavor">バランス型<br>甘みとコク</p>
+          </div>
+          <div class="guide-roast__item">
+            <div class="guide-roast__circle guide-roast__circle--dark"></div>
+            <h3 class="guide-roast__name">深煎り</h3>
+            <p class="guide-roast__flavor">苦味が強く<br>重厚なコク</p>
+          </div>
+        </div>
+        <div class="guide-roast__btn-wrap">
+          <button class="c-btn" id="modalOpen" type="button">View more</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="guide-modal-overlay" id="modalOverlay">
+      <div class="guide-modal" role="dialog" aria-label="焙煎度の違い">
+        <button class="guide-modal__close" id="modalClose" type="button" aria-label="閉じる">✕</button>
+        <h3 class="guide-modal__title">焙煎度の違い</h3>
+        <div class="guide-modal__grid">
+          <div class="guide-modal__item">
+            <div class="guide-modal__circle guide-roast__circle--light" style="width:56px;height:56px;border-radius:50%;margin:0 auto 8px;background:#C08050;"></div>
+            <p class="guide-modal__name">浅煎り（Light）</p>
+            <p class="guide-modal__text">酸味が強く、果実のようなフルーティーな風味が特徴。紅茶のような軽やかな口当たり。</p>
+          </div>
+          <div class="guide-modal__item">
+            <div class="guide-modal__circle" style="width:56px;height:56px;border-radius:50%;margin:0 auto 8px;background:#8B5E3C;"></div>
+            <p class="guide-modal__name">中煎り（Medium）</p>
+            <p class="guide-modal__text">酸味と苦味のバランスが良く、ナッツやチョコレートのような甘みとコクが楽しめます。</p>
+          </div>
+          <div class="guide-modal__item">
+            <div class="guide-modal__circle" style="width:56px;height:56px;border-radius:50%;margin:0 auto 8px;background:#3E2723;"></div>
+            <p class="guide-modal__name">深煎り（Dark）</p>
+            <p class="guide-modal__text">苦味が強く、力強いコクとスモーキーな余韻が特徴。ミルクとの相性も抜群です。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BREWING TIPS -->
+    <section class="guide-brewing" id="guide-brewing">
+      <div class="l-inner">
+        <div class="c-section-heading"><span class="c-section-heading__en">Brewing Tips</span><h2 class="c-section-heading__ja">おいしい淹れ方</h2></div>
+        <div class="guide-brewing__grid">
+          <article class="guide-brewing__item">
+            <div class="guide-brewing__icon">💧</div>
+            <h3 class="guide-brewing__title">ハンドドリップ</h3>
+            <p class="guide-brewing__text">お湯の温度は90〜92℃がベスト。中心からゆっくり「の」の字を描くように注ぎ、蒸らし30秒で旨みを引き出します。</p>
+          </article>
+          <article class="guide-brewing__item">
+            <div class="guide-brewing__icon">🫖</div>
+            <h3 class="guide-brewing__title">フレンチプレス</h3>
+            <p class="guide-brewing__text">粗挽きの豆を使い、お湯を注いだら4分間じっくり抽出。豆の油分まで楽しめる、コクのある一杯に。</p>
+          </article>
+          <article class="guide-brewing__item">
+            <div class="guide-brewing__icon">☕</div>
+            <h3 class="guide-brewing__title">エスプレッソ</h3>
+            <p class="guide-brewing__text">細挽きの深煎り豆で、高圧で短時間抽出。クレマの層が美しい、濃厚な一杯をお楽しみください。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="c-cta-section" id="guide-cta">
+      <div class="l-inner">
+        <p class="c-cta-section__heading">さっそく始めてみる</p>
+        <p class="c-cta-section__text">あなたのライフスタイルに合ったプランをお選びください。</p>
+        <a href="../plan/plan.html" class="c-btn c-btn--white">View plan</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="l-footer">
+	<div class="l-footer__inner">
+		<div class="l-footer__logo-wrap">
+			<img src="../images/logo.png" alt="週末珈琲便" class="l-footer__logo">
+		</div>
+		<div class="c-deco-line l-footer__deco"><span class="c-deco-line__icon"><img src="../images/coffeebeans.svg" alt="コーヒー豆"></span></div>
+		<nav class="l-footer__nav" aria-label="フッターナビゲーション">
+			<ul>
+				<li><a href="../about/about.html" class="l-footer__nav-link">ABOUT</a></li>
+				<li><a href="../beans/beans.html" class="l-footer__nav-link">BEANS</a></li>
+				<li><a href="guide.html" class="l-footer__nav-link">GUIDE</a></li>
+				<li><a href="../plan/plan.html" class="l-footer__nav-link">PLAN</a></li>
+				<li><a href="../news/news.html" class="l-footer__nav-link">NEWS</a></li>
+				<li><a href="../contact/contact.html" class="l-footer__nav-link">CONTACT</a></li>
+			</ul>
+		</nav>
+		<div class="l-footer__sns">
+			<a href="#" class="l-footer__sns-link" aria-label="X">
+				<img src="../images/Xicon.svg" alt="X"><span class="l-footer__sns-name">X</span>
+			</a>
+			<a href="#" class="l-footer__sns-link" aria-label="Instagram">
+				<img src="../images/instagram.svg" alt="Instagram"><span class="l-footer__sns-name">Instagram</span>
+			</a>
+			<a href="#" class="l-footer__sns-link" aria-label="YouTube">
+				<img src="../images/youtube.svg" alt="YouTube"><span class="l-footer__sns-name">Youtube</span>
+			</a>
+		</div>
+		<div class="l-footer__bottom">
+			<p class="l-footer__disclaimer">※ 当サイトはweb制作実習用の架空のコーヒーロースターです。</p>
+			<p class="l-footer__copyright">&copy; 2026 週末珈琲便</p>
+		</div>
+	</div>
+</footer>
+	
+  <script>
+    // Drawer
+    var h=document.querySelector('.l-header__hamburger'),d=document.getElementById('drawer'),o=document.getElementById('drawerOverlay');function t(){h.classList.toggle('is-open');d.classList.toggle('is-open');o.classList.toggle('is-open');document.body.style.overflow=d.classList.contains('is-open')?'hidden':'';}h.addEventListener('click',t);o.addEventListener('click',t);document.querySelectorAll('.l-drawer__nav-link,.l-drawer__cta').forEach(function(l){l.addEventListener('click',function(){if(d.classList.contains('is-open'))t();});});
+    // Modal
+    var mOpen=document.getElementById('modalOpen'),mOverlay=document.getElementById('modalOverlay'),mClose=document.getElementById('modalClose');
+    mOpen.addEventListener('click',function(){mOverlay.classList.add('is-open');document.body.style.overflow='hidden';});
+    mClose.addEventListener('click',function(){mOverlay.classList.remove('is-open');document.body.style.overflow='';});
+    mOverlay.addEventListener('click',function(e){if(e.target===mOverlay){mOverlay.classList.remove('is-open');document.body.style.overflow='';}});
+  </script>
+</body>
+</html>

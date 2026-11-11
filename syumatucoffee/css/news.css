@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+.c-page-hero.c-page-hero--video {
+		position: relative;
+		min-height: 670px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		background: #2B1D14; /* 動画が読み込まれる前の保険 */
+		padding: 0 20px;
+}
+.c-page-hero__video {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover; /* 画面いっぱいに敷く */
+		z-index: 0;
+}
+.c-page-hero__overlay {
+		position: absolute;
+		inset: 0;
+		background: rgba(43, 29, 20, 0.22); /* 文字を読みやすくする暗幕 */
+		z-index: 1;
+}
+/*NEWS PAGE*/
+
+.news-list {
+  padding: 100px 0;
+  background: #fff;
+}
+
+.news-list__items {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.news-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid #e8e0d6;
+  transition: background 0.2s;
+}
+
+.news-list__item:first-child {
+  padding-top: 0;
+}
+
+.news-list__item:hover {
+  background: rgba(242, 234, 219, 0.3);
+  margin: 0 -12px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 6px;
+	cursor: pointer;
+}
+
+.news-list__date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  color: #A45A22;
+  white-space: nowrap;
+  min-width: 100px;
+  letter-spacing: 1px;
+  padding-top: 2px;
+}
+
+.news-list__cat {
+  display: inline-block;
+  background: #2B1D14;
+  color: #F2EADB;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 4px;
+  min-width: 80px;
+  text-align: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.news-list__cat--beans {
+  background: #A45A22;
+}
+
+.news-list__cat--campaign {
+  background: #C08050;
+}
+
+.news-list__cat--column {
+  background: #8B5E3C;
+}
+
+.news-list__cat--event {
+  background: #5a4535;
+}
+
+.news-list__title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #2B1D14;
+  line-height: 1.6;
+  flex: 1;
+  line-break: strict;
+  text-wrap: pretty;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media screen and (max-width: 768px) {
+	.c-page-hero.c-page-hero--video {
+		width: 100%;
+				min-height: 30vh;
+		}
+  .news-list {
+    padding: 64px 0;
+  }
+
+  .news-list__item {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .news-list__meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .news-list__date {
+    font-size: 13px;
+    min-width: auto;
+  }
+
+  .news-list__title {
+    font-size: 15px;
+    max-width: 30em;
+  }
+}

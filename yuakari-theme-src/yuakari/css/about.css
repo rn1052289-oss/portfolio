@@ -1,0 +1,897 @@
+/* ================================================
+   about.css
+   ABOUTページ専用スタイル
+
+   【このファイルの役割】
+   ・パンくずナビ
+   ・ABOUTファーストビュー帯
+   ・PHILOSOPHY セクション（想い）
+   ・STORY セクション（タイムライン）
+   ・FEATURES セクション（4カラムカード＋モーダル）
+   ・PAUSE セクション（コンセプト帯）
+   ・CTA帯（ツアーを見る）
+   ・ナビゲーションの現在ページ表示
+
+   【カラーパレット（湯煙と格子）】
+   白磁 #FAF7F2 … ベース背景
+   濃鼠 #3D3D3D … ダークセクション背景
+   煉瓦 #A23B2C … CTAボタン専用
+   蜂蜜 #BF8A24 … ラベル・リンク・装飾線
+   炭   #2D2D2D … 本文テキスト
+   ================================================ */
+
+
+/* ================================================
+   About FV 差別化
+   ================================================
+   テーマ：哲学・静けさ・信頼感
+   ・高さを拡大して余白をとり、上質な静けさを演出
+   ・オーバーレイ：中央を抜いたラジアルグラデーション
+   ・テキストを縦中央寄りに配置
+   ・タイトル上に小さな「eyebrow」ラベルを追加
+   ================================================ */
+
+/* FV 高さを拡大（PC）*/
+.about-page .sub-firstview {
+  height: 560px;
+}
+
+/* オーバーレイ：中央を残して四辺を暗くする（静かな雰囲気）*/
+.about-page .sub-firstview-overlay {
+  background: radial-gradient(
+    ellipse at 50% 42%,
+    rgba(18, 14, 10, 0.20) 0%,
+    rgba(18, 14, 10, 0.46) 55%,
+    rgba(18, 14, 10, 0.66) 100%
+  );
+}
+
+/* テキストエリアを縦中央寄りに移動 */
+.about-page .sub-firstview-inner {
+  bottom: auto;
+  top: 50%;
+  transform: translateX(-50%) translateY(-45%);
+}
+
+/* タイトルを少し大きく、文字間を広げて哲学的な重みを出す */
+.about-page .sub-firstview-title {
+  font-size: 46px;
+  letter-spacing: 0.14em;
+  line-height: 1.3;
+}
+
+/* 蜂蜜線を短く・細く（静けさの演出）*/
+.about-page .sub-firstview-line {
+  width: 40px;
+  height: 1px;
+  opacity: 0.7;
+}
+
+/* FV リード文 */
+.about-page .sub-firstview-lead {
+  color: rgba(250, 247, 242, 0.9);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  line-height: 1.9;
+}
+
+/* SP */
+@media screen and (max-width: 768px) {
+  .about-page .sub-firstview {
+    height: 380px;
+  }
+  .about-page .sub-firstview-inner {
+    bottom: 28px;
+    top: auto;
+    /*transform: translateX(-50%);*/
+	transform: none;
+  }
+  .about-page .sub-firstview-title {
+    font-size: 30px;
+  }
+}
+
+
+/* ================================
+   ナビゲーション：現在ページの表示
+   ================================ */
+.global-nav-list a.is-current {
+  color: #a23b2c;
+}
+
+.global-nav-list a.is-current::after {
+  width: 100%;
+  background-color: #a23b2c;
+}
+
+
+/* ================================
+   PHILOSOPHY セクション（私たちの想い）
+   ================================ */
+.philosophy-section {
+  padding: 100px 0;
+  background-color: #faf7f2;
+}
+
+.philosophy-inner {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.philosophy-text-area {
+  flex: 1;
+  min-width: 0;
+}
+
+.philosophy-body {
+  font-size: 16px;
+  line-height: 2.1;
+  letter-spacing: 0.04em;
+  color: #444;
+  margin-bottom: 24px;
+}
+
+.philosophy-body:last-of-type {
+  margin-bottom: 0;
+}
+
+.philosophy-image-area {
+  flex: 0 0 55%;
+  max-width: 580px;
+  position: relative;
+}
+
+/* --- スライダー --- */
+.philosophy-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background-color: #e8e2d8;
+}
+
+.philosophy-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.philosophy-slide.is-active {
+  opacity: 1;
+}
+
+.philosophy-slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.philosophy-slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px 12px;
+  background: linear-gradient(transparent, rgba(30, 30, 30, 0.6));
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: rgba(250, 247, 242, 0.85);
+  text-align: right;
+}
+
+/* --- ドットインジケーター --- */
+.philosophy-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.philosophy-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #bf8a24;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.philosophy-dot:hover {
+  background-color: rgba(191, 138, 36, 0.3);
+}
+
+.philosophy-dot.is-active {
+  background-color: #bf8a24;
+}
+
+.philosophy-slider-toggle {
+  display: block;
+  min-width: 112px;
+  min-height: 44px;
+  margin: 14px auto 0;
+  padding: 8px 14px;
+  border: 1px solid #7a5516;
+  background: transparent;
+  color: #5f4211;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
+.philosophy-slider-toggle:hover {
+  background: rgba(122, 85, 22, 0.08);
+}
+
+.philosophy-slider-toggle:focus-visible {
+  outline: 3px solid #7a5516;
+  outline-offset: 3px;
+}
+
+
+/* ================================
+   STORY セクション（タイムライン）
+   ================================ */
+.story-section {
+  padding: 100px 0;
+  background-color: #3d3d3d;
+}
+
+.story-inner {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.timeline {
+  margin-top: 16px;
+  position: relative;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 中央の縦線 */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 100%;
+  background-color: rgba(250, 247, 242, 0.15);
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  padding-bottom: 48px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+/* 左：年代ラベル */
+.timeline-year {
+  flex: 0 0 calc(50% - 20px);
+  text-align: right;
+  padding-right: 24px;
+}
+
+.timeline-year-label {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #bf8a24;
+  line-height: 1.6;
+}
+
+/* 中央：ドット */
+.timeline-dot {
+  flex: 0 0 12px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #bf8a24;
+  margin-top: 4px;
+  position: relative;
+  z-index: 2;
+}
+
+/* 右：内容テキスト */
+.timeline-content {
+  flex: 1;
+  padding-left: 24px;
+}
+
+.timeline-title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #faf7f2;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.timeline-en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  color: rgba(250, 247, 242, 0.78);
+}
+
+
+/* ================================
+   FEATURES セクション（湯灯温泉の魅力）
+   ================================
+   border枠線で囲んだカード型。
+   画像とテキストの間に蜂蜜色の上線。
+   DETAILSボタン付き。
+   ================================ */
+.features-section {
+  padding: 100px 0;
+  background-color: #faf7f2;
+}
+
+.features-inner {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 8px;
+}
+
+/* --- 各カード（border枠線で囲む） --- */
+.feature-card {
+  border: 1px solid #d6d0c6;
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease;
+}
+
+.feature-card:hover {
+  border-color: #bf8a24;
+}
+
+/* --- カード画像 --- */
+.feature-card-thumb {
+  position: relative;
+  overflow: hidden;
+  background-color: #e8e2d8;
+}
+
+/* ホバー時の薄いオーバーレイ */
+.feature-card-thumb::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(45, 45, 45, 0.15);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.feature-card:hover .feature-card-thumb::after {
+  opacity: 1;
+}
+
+.feature-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.feature-card:hover .feature-card-img {
+  transform: scale(1.04);
+  display: block;
+  background-color: #e8e2d8;
+}
+
+/* --- カードテキスト部分 --- */
+.feature-card-body {
+  padding: 48px 28px 24px 56px;
+  border-top: 2px solid #bf8a24;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.feature-card-title {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #2d2d2d;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.feature-card-en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: #8b8075;
+  margin-bottom: 18px;
+}
+
+.feature-card-desc {
+  font-size: 15px;
+  line-height: 2.0;
+  color: #555;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+}
+
+/* --- DETAILSボタン --- */
+.feature-card-btn {
+  display: inline-block;
+  align-self: flex-end;
+  margin-top: auto;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #bf8a24;
+  background: none;
+  border: none;
+  padding: 10px 0;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.feature-card-btn:hover {
+  color: #a08020;
+  letter-spacing: 0.24em;
+}
+
+
+/* ================================
+   FEATURES モーダル
+   ================================
+   オーバーレイ＋中央配置のモーダル。
+   画像を大きく表示し、下にタイトル＋説明文。
+   ================================ */
+
+/* --- オーバーレイ --- */
+.feature-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(18, 15, 12, 0.75);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.feature-modal-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- モーダル本体 --- */
+.feature-modal {
+  background-color: #faf7f2;
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.feature-modal-overlay.is-active .feature-modal {
+  transform: translateY(0);
+}
+
+/* --- 閉じるボタン --- */
+.feature-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #888;
+  background-color: rgba(250, 247, 242, 0.85);
+  border: 1px solid #d6d0c6;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-modal-close:hover {
+  color: #2d2d2d;
+  border-color: #999;
+}
+
+/* --- モーダル画像 --- */
+.feature-modal-image-area {
+  width: 100%;
+  overflow: hidden;
+  background-color: #e8e2d8;
+}
+
+.feature-modal-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- モーダルテキスト --- */
+.feature-modal-body {
+  padding: 28px 32px 32px;
+  border-top: 2px solid #bf8a24;
+}
+
+.feature-modal-title {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #2d2d2d;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.feature-modal-en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  color: #8b8075;
+  margin-bottom: 16px;
+}
+
+.feature-modal-desc {
+  font-size: 16px;
+  line-height: 2;
+  color: #555;
+  letter-spacing: 0.04em;
+}
+
+/* --- モーダル本文（複数段落対応） --- */
+.feature-modal-text {
+  font-size: 16px;
+  line-height: 2.1;
+  color: #555;
+  letter-spacing: 0.04em;
+}
+
+.feature-modal-text p {
+  margin-bottom: 20px;
+}
+
+.feature-modal-text p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ================================
+   PAUSE セクション（コンセプト帯）
+   ================================ */
+.about-pause-section {
+  padding: 80px 5%;
+  background-color: #3d3d3d;
+  text-align: center;
+}
+
+.about-pause-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.about-pause-title {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #faf7f2;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.about-pause-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: rgba(250, 247, 242, 0.82);
+  margin-bottom: 24px;
+}
+
+.about-pause-text {
+  font-size: 15px;
+  color: rgba(250, 247, 242, 0.88);
+  line-height: 2;
+  letter-spacing: 0.08em;
+}
+
+
+/* ================================
+   CTA帯（ツアーを見る）
+   ================================ */
+.about-cta-section {
+  padding: 56px 5%;
+  background-color: #a23b2c;
+  text-align: center;
+}
+
+.about-cta-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.about-cta-heading {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.about-cta-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.86);
+  margin-bottom: 28px;
+}
+
+.about-cta-btn {
+  display: inline-block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #a23b2c;
+  background-color: #fff;
+  padding: 18px 52px;
+  min-width: 240px;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.about-cta-btn:hover {
+  background-color: transparent;
+  color: #fff;
+  letter-spacing: 0.23em;
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+
+/* ================================
+   タブレット（1024px以下）
+   ================================ */
+@media screen and (max-width: 1024px) {
+
+  .philosophy-inner {
+    gap: 40px;
+  }
+
+  .philosophy-image-area {
+    flex: 0 0 50%;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+
+/* ================================
+   SP（768px以下）
+   ================================ */
+@media screen and (max-width: 768px) {
+
+
+  /* --- PHILOSOPHY SP --- */
+  .philosophy-section {
+    padding: 64px 0;
+  }
+
+  .philosophy-inner {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .philosophy-text-area {
+    padding-top: 0;
+  }
+
+  .philosophy-body {
+    font-size: 15px;
+  }
+
+  .philosophy-body br {
+    display: none;
+  }
+
+  .philosophy-image-area {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .philosophy-slider {
+    aspect-ratio: 16 / 10;
+  }
+
+  .philosophy-slide-caption {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .philosophy-dots {
+    margin-top: 12px;
+    gap: 8px;
+  }
+
+  .philosophy-dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  /* --- STORY SP --- */
+  .story-section {
+    padding: 64px 0;
+  }
+
+  .timeline {
+    max-width: 100%;
+  }
+
+  .timeline::before {
+    left: 6px;
+    transform: none;
+  }
+
+  .timeline-item {
+    flex-wrap: nowrap;
+    padding-bottom: 36px;
+  }
+
+  .timeline-year {
+    display: none;
+  }
+
+  .timeline-dot {
+    flex: 0 0 12px;
+    margin-top: 4px;
+  }
+
+  .timeline-content {
+    flex: 1;
+    padding-left: 20px;
+  }
+
+  .timeline-title {
+    font-size: 15px;
+  }
+
+  .timeline-en {
+    font-size: 12px;
+  }
+
+  /* SP用：年代をタイトル前に表示 */
+  .timeline-item .timeline-content::before {
+    font-family: "Shippori Mincho", "Noto Serif JP", serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #bf8a24;
+    letter-spacing: 0.04em;
+    margin-bottom: 2px;
+    display: block;
+  }
+
+  .timeline-item:nth-child(1) .timeline-content::before { content: "大正期"; }
+  .timeline-item:nth-child(2) .timeline-content::before { content: "昭和中期"; }
+  .timeline-item:nth-child(3) .timeline-content::before { content: "予後衰期"; }
+  .timeline-item:nth-child(4) .timeline-content::before { content: "転換"; }
+  .timeline-item:nth-child(5) .timeline-content::before { content: "現在"; }
+
+  /* --- FEATURES SP --- */
+  .features-section {
+    padding: 64px 0;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .feature-card-img {
+    aspect-ratio: 16 / 10;
+  }
+
+  .feature-card-body {
+    padding: 20px 18px 20px 24px;
+  }
+
+  .feature-card-title {
+    font-size: 18px;
+  }
+
+  .feature-card-desc {
+    font-size: 14px;
+  }
+
+  .feature-card-desc br {
+    display: none;
+  }
+
+  /* --- モーダル SP --- */
+  .feature-modal-overlay {
+    padding: 16px;
+  }
+
+  .feature-modal {
+    max-width: 100%;
+    flex-direction: column;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .feature-modal-image-area {
+    flex: none;
+    max-width: 100%;
+  }
+
+  .feature-modal-img {
+    aspect-ratio: 16 / 10;
+    height: auto;
+  }
+
+  .feature-modal-title {
+    font-size: 22px;
+  }
+}
+/* ===== SP メディアクエリ終了 ===== */

@@ -1,0 +1,19 @@
+/*
+Theme Name: 湯灯商會 YUAKARI & Co.
+Theme URI: https://yuakari.co.jp/
+Author: 中越 理来
+Author URI: https://yuakari.co.jp/
+Description: 山間の温泉街「湯灯温泉」の観光体験ツアーサイト。和モダン・レトロブランディングを軸にしたカスタムWordPressテーマ。
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.5
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: yuakari
+Tags: japanese, tourism, custom-theme, responsive
+*/
+
+/*
+  ※ CSSの実装は css/common.css および各ページ専用CSSに分けて管理しています。
+     このファイルはWordPressがテーマを認識するために必要なヘッダーコメントのみ記載しています。
+*/

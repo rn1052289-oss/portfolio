@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#D63426">
+<meta name="description" content="お問い合わせの受付、管理画面の検索、CSV出力、認証付きAPIを実装。提供されたBlade画面を用いたLaravelバックエンド開発の学習事例です。">
+<meta name="robots" content="index,follow">
+<title>お問い合わせ管理アプリ｜Laravel開発 Case Study｜Riku</title>
+
+<link rel="canonical" href="https://rnportfolio.xsrv.jp/works-contact-form.html">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Riku｜Web Design &amp; Front-end">
+<meta property="og:title" content="お問い合わせ管理アプリ｜Laravel開発 Case Study｜Riku">
+<meta property="og:description" content="お問い合わせの受付、管理画面の検索、CSV出力、認証付きAPIを実装。提供されたBlade画面を用いたLaravelバックエンド開発の学習事例です。">
+<meta property="og:url" content="https://rnportfolio.xsrv.jp/works-contact-form.html">
+<meta property="og:image" content="https://rnportfolio.xsrv.jp/images/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="お問い合わせ管理アプリ｜Laravel開発 Case Study｜Riku">
+<meta name="twitter:description" content="お問い合わせの受付、管理画面の検索、CSV出力、認証付きAPIを実装。提供されたBlade画面を用いたLaravelバックエンド開発の学習事例です。">
+<meta name="twitter:image" content="https://rnportfolio.xsrv.jp/images/og.png">
+
+<link rel="stylesheet" href="css/common.css?v=20261111-icons-1">
+<link rel="stylesheet" href="css/app-story.css?v=20261111-1">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23D63426'/></svg>">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rnportfolio.xsrv.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "Works", "item": "https://rnportfolio.xsrv.jp/works.html" },
+    { "@type": "ListItem", "position": 3, "name": "BookShelf", "item": "https://rnportfolio.xsrv.jp/works-contact-form.html" }
+  ]
+}
+</script>
+</head>
+<body class="case-story">
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header class="header scrolled">
+		<div class="header__inner"><a href="index.html" class="header__logo"><span class="header__logo-dot" aria-hidden="true"></span>Riku</a>
+				<nav aria-label="グローバルナビゲーション">
+						<ul class="nav__list"><li><a href="index.html" class="nav__link">Home</a></li><li><a href="works.html" class="nav__link nav__link--active" aria-current="page">Works</a></li><li><a href="pricing.html" class="nav__link">Price</a></li><li><a href="about.html" class="nav__link">About</a></li><li><a href="contact.html" class="nav__link nav__link--cta">Contact</a></li></ul>
+				</nav>
+				<button type="button" class="hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-nav"><span class="hamburger__line" aria-hidden="true"></span><span class="hamburger__line" aria-hidden="true"></span><span class="hamburger__line" aria-hidden="true"></span></button>
+		</div>
+</header>
+<nav class="mobile-nav" id="mobile-nav" aria-label="モバイルメニュー"><a href="index.html" class="mobile-nav__link">Home</a><a href="works.html" class="mobile-nav__link" aria-current="page">Works</a><a href="pricing.html" class="mobile-nav__link">Price</a><a href="about.html" class="mobile-nav__link">About</a><a href="contact.html" class="mobile-nav__link mobile-nav__link--cta">Contact</a></nav>
+<main id="main" tabindex="-1"><header class="cs-hero cs-wrap"><p class="cs-kicker">Laravel バックエンド開発</p><h1>お問い合わせ管理アプリ</h1><p class="cs-hero__subtitle">受付から検索・CSV出力まで</p><p class="cs-hero__lead">公開フォームで受け付けたお問い合わせを、管理者が検索・確認できるアプリです。提供されたBlade画面に対し、DB設計、入力検証、管理機能、APIとテストを実装しました。</p><div class="cs-actions"><a class="cs-button cs-button--primary" href="https://github.com/rn1052289-oss/contact-form-app" target="_blank" rel="noopener noreferrer">GitHubでコードを見る<svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="cs-button" href="#search-export">実装の工夫を読む<svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p class="cs-scope">COACHTECH 確認テスト ／ バックエンド実装・DB設計・テスト</p><figure class="cs-hero-shot"><img src="images/case-studies/contact-admin.jpg" alt="お問い合わせ管理アプリの実際の一覧画面。検索、タグ、CSVエクスポートを表示" width="1320" height="600" fetchpriority="high"><figcaption>実際の管理画面を撮影。表示内容は撮影用のサンプルデータです。</figcaption></figure></header><section class="cs-audience cs-wrap" aria-labelledby="audience-title"><div class="cs-audience__head"><h2 id="audience-title">ターゲット・ペルソナ</h2><p>要件書と画面に基づく想定</p></div><dl><div><dt>ターゲット</dt><dd>問い合わせを送るサイト利用者と、内容を確認・管理する担当者</dd></div><div><dt>ペルソナ</dt><dd>複数の問い合わせから必要な内容を探し、検索結果をCSVで取り出したい管理担当者。</dd></div></dl></section><section id="search-export" class="cs-section cs-section--light"><div class="cs-wrap"><div class="cs-section-heading"><p class="cs-kicker">管理画面の検索とCSV</p><h2>探した内容を、そのまま出力</h2><p class="cs-section-lead">名前・メール・性別・カテゴリー・日付で検索。ページを移動しても条件を保ち、同じ条件でCSVを出力します。</p></div><figure class="cs-screen"><img src="images/case-studies/contact-filtered.jpg" alt="商品についての問い合わせ3件に絞り込んだ実際の管理画面" width="1320" height="400" loading="lazy" decoding="async"><figcaption>「商品について」で検索した実画面。エクスポートにも同じカテゴリー条件が引き継がれます。</figcaption></figure></div></section><section class="cs-section cs-wrap cs-overview"><div><p class="cs-kicker">検索と出力の一貫性</p><h2>検索条件を共通化</h2></div><div class="cs-prose"><p>一覧表示とCSV出力で、Contactモデルの同じ検索処理を使っています。一覧は7件ずつ表示し、CSVは条件に一致する全件を新着順で出力します。</p><p>CSVには列名を付け、性別やカテゴリーはIDではなく名称で表示。Excelで扱う際の文字化けを抑えるため、UTF-8のBOMも付けています。</p><a class="cs-source" href="https://github.com/rn1052289-oss/contact-form-app/blob/6943b3fc8e8feef5ecd0fae999e07e7e5c6fecfd/app/Http/Controllers/ContactController.php" target="_blank" rel="noopener noreferrer">CSV出力の実装<svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></section><section class="cs-section cs-section--light"><div class="cs-wrap cs-detail-grid"><figure class="cs-screen"><img src="images/case-studies/contact-form.jpg" alt="氏名、連絡先、カテゴリーと複数タグを入力する実際の問い合わせフォーム" width="760" height="930" loading="lazy" decoding="async"><figcaption>提供されたBladeを利用した入力画面。画面デザインは担当範囲に含みません。</figcaption></figure><div class="cs-prose"><p class="cs-kicker">公開フォーム</p><h2>確認してから送信</h2><p>必須項目や電話番号、カテゴリー・タグの存在を検証し、通過した内容を確認画面に表示します。「修正」で戻った際は、入力内容を保持します。</p><p>問い合わせとタグは中間テーブルで関連付けています。管理画面では、問い合わせ時に選ばれたタグを確認できます。</p><a class="cs-source" href="https://github.com/rn1052289-oss/contact-form-app/blob/6943b3fc8e8feef5ecd0fae999e07e7e5c6fecfd/app/Http/Controllers/ContactController.php" target="_blank" rel="noopener noreferrer">確認・保存処理を見る<svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div></section><section class="cs-section cs-wrap cs-overview"><div><p class="cs-kicker">認証付きAPI</p><h2>APIにもアクセス制御</h2></div><div class="cs-prose"><p>一覧・詳細・登録・更新・削除のAPIを実装し、すべてSanctumのトークン認証で保護しています。管理者の公開登録は無効にし、利用するアカウントはシーダーで作成します。</p><p>APIから問い合わせとタグを登録・更新する処理は、トランザクションでまとめています。Resourceで返却形式を揃え、未認証時は401、不正な入力は422を返します。</p><a class="cs-source" href="https://github.com/rn1052289-oss/contact-form-app/blob/6943b3fc8e8feef5ecd0fae999e07e7e5c6fecfd/routes/api.php" target="_blank" rel="noopener noreferrer">APIの認証設定を見る<svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></section><section class="cs-section cs-wrap cs-overview"><div><p class="cs-kicker">実装を支えるテスト</p><h2>正常系とエラーを確認</h2></div><div class="cs-prose"><p>フォームの入力検証、検索・ページネーション、タグ管理、APIの認証とCRUDにテストを用意しています。トークン発行の回数制限や、失効したトークンの再利用も検証対象です。</p><p>今回は既存テストの内容を確認し、撮影用環境で管理画面の検索と条件の引継ぎを操作確認しました。テストスイート全体は再実行していません。</p><a class="cs-source" href="https://github.com/rn1052289-oss/contact-form-app/blob/6943b3fc8e8feef5ecd0fae999e07e7e5c6fecfd/tests/Feature/Api/V1/TokenApiTest.php" target="_blank" rel="noopener noreferrer">トークン認証のテストを見る<svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></section><section class="cs-section cs-wrap cs-record"><div><p class="cs-kicker">制作範囲と使用技術</p><h2>制作概要</h2></div><div><dl class="cs-facts"><div><dt>制作形態</dt><dd>COACHTECHの基礎学習ターム確認テスト。要件書と完成済みBladeテンプレートが提供されています。</dd></div><div><dt>担当</dt><dd>DB設計・Webルート・入力検証・管理機能・認証付きAPI・テスト。画面デザインは担当範囲に含みません。</dd></div><div><dt>開発履歴</dt><dd>2026年7〜10月（Gitの履歴に基づく）</dd></div><div><dt>技術</dt><dd>PHP / Laravel 10 / MySQL / Fortify / Sanctum / PHPUnit / Docker</dd></div><div><dt>公開範囲</dt><dd>GitHubでコードを公開。操作できる公開デモはありません。</dd></div></dl><p class="cs-note">学習プロジェクトであり、商用運用の実績ではありません。画面は既存コードを一時環境で起動して撮影しました。</p></div></section><section class="cs-end"><div class="cs-wrap"><p>実装とテストの詳細は、GitHubで確認できます。</p><div class="cs-actions"><a class="cs-button cs-button--primary" href="https://github.com/rn1052289-oss/contact-form-app" target="_blank" rel="noopener noreferrer">GitHubでコードを見る<svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="cs-button" href="works.html?type=app#works-list-title">Webアプリ一覧へ<svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div></section></main><footer class="cs-footer"><div class="cs-wrap"><a href="index.html" class="cs-footer__brand">Riku</a><p>© 2026 Riku</p><a href="works.html">Works一覧へ <svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></footer>
+<script src="js/common.js?v=20260719-2" defer></script>
+</body>
+</html>

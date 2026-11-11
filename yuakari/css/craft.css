@@ -1,0 +1,555 @@
+/* ================================================
+   craft.css
+   CRAFTページ専用スタイル
+
+   【構成】
+   1. CRAFTカードセクション（3列グリッド）
+   2. カード個別スタイル
+   3. CTA帯（煉瓦色）
+   4. タブレットレスポンシブ（1024px）
+   5. SPレスポンシブ（768px）
+
+   【注意】
+   パンくず → common.css の .sub-breadcrumb を使用
+   ファーストビュー → common.css の .sub-firstview を使用
+   背景画像はHTMLの inline style で指定
+
+   【カラーパレット（湯煙と格子）】
+   白磁 #FAF7F2 … ベース背景
+   濃鼠 #3D3D3D … ダークセクション背景
+   煉瓦 #A23B2C … CTAボタン専用
+   蜂蜜 #BF8A24 … ラベル・リンク・装飾線
+   炭   #2D2D2D … 本文テキスト
+   ================================================ */
+
+
+/* ================================================
+   Craft FV 差別化
+   ================================================
+   テーマ：素材感・職人感・手しごとの静けさ
+   ・オーバーレイを深く落ち着いた暗さにして集中感を出す
+   ・タイトルの文字間を詰めて、職人の緊張感を表現
+   ・蜂蜜線を短く・細くして、素材の繊細さを暗示
+   ================================================ */
+
+/* オーバーレイ：深く、素材感のある暗さ */
+.craft-page .sub-firstview-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(6,  5,  4,  0.60) 0%,
+    rgba(6,  5,  4,  0.36) 35%,
+    rgba(6,  5,  4,  0.76) 100%
+  );
+}
+
+/* タイトル：文字間を詰めて、工芸の密度感 */
+.craft-page .sub-firstview-title {
+  font-size: 42px;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
+/* 蜂蜜線：短く細く（素材感・繊細さ）*/
+.craft-page .sub-firstview-line {
+  width: 36px;
+  height: 1px;
+  opacity: 0.65;
+}
+
+/* リード文：落ち着いたトーン */
+.craft-page .sub-firstview-lead {
+  color: rgba(250, 247, 242, 0.68);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  line-height: 1.9;
+}
+
+/* SP */
+@media screen and (max-width: 768px) {
+  .craft-page .sub-firstview-title {
+    font-size: 28px;
+  }
+}
+
+
+/* ================================
+   1. CRAFTカードセクション
+   ================================
+   白磁背景。セクションラベル＋3列カードグリッド。
+   ================================ */
+.craft-cards-section {
+  padding: 80px 0 100px;
+  background-color: #faf7f2;
+}
+
+.craft-cards-inner {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* セクションラベルの下マージン */
+.craft-cards-section .section-label {
+  margin-bottom: 48px;
+}
+
+/* 3列グリッド */
+.craft-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+
+/* ================================
+   2. カード個別
+   ================================ */
+.craft-card {
+  background-color: #faf7f2;
+}
+
+.craft-card:hover {
+  /* カード全体は動かさない — 画像オーバーレイで演出 */
+}
+
+/* --- サムネイルエリア --- */
+.craft-card-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ホバー時の薄いオーバーレイ */
+.craft-card-thumb::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(45, 45, 45, 0.15);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.craft-card:hover .craft-card-thumb::after {
+  opacity: 1;
+}
+
+.craft-card-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background-color: #c8c2b4;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.craft-card:hover .craft-card-img {
+  transform: scale(1.04);
+}
+
+/* 画像下部のダーク帯オーバーレイ */
+.craft-card-thumb-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: #2d2d2d;
+}
+
+/* --- テキストエリア --- */
+.craft-card-body {
+  padding: 28px 24px 32px;
+}
+
+.craft-card-title {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  color: #2d2d2d;
+  margin-bottom: 6px;
+}
+
+.craft-card-en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: #888;
+  margin-bottom: 18px;
+}
+
+.craft-card-desc {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* DETAIL → リンク（蜂蜜色） */
+.craft-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: #bf8a24;
+  transition: opacity 0.3s ease;
+}
+
+.craft-card-link:hover {
+  opacity: 1;
+}
+
+.craft-card-arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.craft-card-link:hover .craft-card-arrow {
+  transform: translateX(4px);
+}
+
+
+/* ================================
+   3. CTA帯（煉瓦色）
+   ================================ */
+.craft-cta-section {
+  padding: 64px 5%;
+  background-color: #a23b2c;
+  text-align: center;
+}
+
+.craft-cta-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.craft-cta-heading {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.craft-cta-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.06em;
+  margin-bottom: 28px;
+}
+
+.craft-cta-btn {
+  display: inline-block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #a23b2c;
+  background-color: #faf7f2;
+  padding: 18px 52px;
+  min-width: 240px;
+  border: 1px solid #faf7f2;
+  border-radius: 2px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.craft-cta-btn:hover {
+  background-color: transparent;
+  color: #fff;
+  letter-spacing: 0.23em;
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+
+/* ================================
+   4. タブレット（1024px以下）
+   ================================ */
+@media screen and (max-width: 1024px) {
+
+  /* カード2列に切り替え */
+  .craft-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .craft-cards-section {
+    padding: 64px 0 80px;
+  }
+
+  .craft-cta-heading {
+    font-size: 28px;
+  }
+}
+
+
+/* ================================
+   5. SP（768px以下）
+   ================================ */
+@media screen and (max-width: 768px) {
+
+  /* カード1列化 */
+  .craft-cards-section {
+    padding: 48px 0 64px;
+  }
+
+  .craft-cards-section .section-label {
+    margin-bottom: 32px;
+  }
+
+  .craft-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .craft-card-body {
+    padding: 22px 20px 28px;
+  }
+
+  .craft-card-title {
+    font-size: 20px;
+  }
+
+  .craft-card-en {
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+
+  .craft-card-desc {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .craft-card-link {
+    font-size: 14px;
+  }
+
+  /* CTA帯 */
+  .craft-cta-section {
+    padding: 48px 5%;
+  }
+
+  .craft-cta-heading {
+    font-size: 24px;
+  }
+
+  .craft-cta-sub {
+    font-size: 13px;
+    margin-bottom: 22px;
+  }
+
+  .craft-cta-btn {
+    font-size: 15px;
+    padding: 16px 36px;
+    min-width: 220px;
+  }
+}
+
+
+/* ================================
+   CRAFTモーダル
+   ================================ */
+
+/* オーバーレイ（全画面暗幕）
+   hidden属性に頼らず、visibility + pointer-events で制御する。
+   hidden だと display:none になるためフェードアニメーションが効かないため。
+   【構造の注意】このオーバーレイは <main> の外（get_footer() 直後）に配置すること。
+   common.css で main に transform アニメーションが適用されており、
+   transform を持つ祖先内に position:fixed を置くと、
+   fixed がビューポート基準でなくその祖先基準になる CSS 仕様があるため。 */
+.craft-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(29, 24, 20, 0.75);
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.craft-modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* モーダル本体 */
+.craft-modal {
+  position: relative;
+  background: #faf7f2;
+  width: 100%;
+  max-width: 800px;
+  max-height: calc(100vh - 48px); /* 上下 padding 24px×2 分を引いた最大高さ */
+  overflow-y: auto;
+  transform: translateY(12px);
+  transition: transform 0.3s ease;
+}
+
+.craft-modal-overlay.is-open .craft-modal {
+  transform: translateY(0);
+}
+
+/* 閉じるボタン */
+.craft-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #2d2d2d;
+  cursor: pointer;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.craft-modal-close:hover {
+  opacity: 1;
+}
+
+/* 内部レイアウト（左:画像 / 右:テキスト） */
+.craft-modal-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.craft-modal-img-wrap {
+  overflow: hidden;
+}
+
+.craft-modal-img {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+/* テキストエリア */
+.craft-modal-body {
+  padding: 40px 32px 40px;
+}
+
+.craft-modal-label {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: #bf8a24;
+  margin-bottom: 10px;
+}
+
+.craft-modal-title {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #2d2d2d;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.craft-modal-en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  color: #888;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+
+/* メタ情報 */
+.craft-modal-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(61,61,61,0.12);
+}
+
+.craft-modal-meta-item {
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.craft-modal-meta-item dt {
+  color: #bf8a24;
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 0.08em;
+  min-width: 64px;
+  font-style: normal;
+}
+
+.craft-modal-meta-item dd {
+  color: #2d2d2d;
+  margin: 0;
+}
+
+/* 説明文 */
+.craft-modal-desc {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #555;
+  margin-bottom: 28px;
+}
+
+/* CTAリンク */
+.craft-modal-cta {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #a23b2c;
+  color: #faf7f2;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.craft-modal-cta:hover {
+  background: #8a3124;
+}
+
+
+/* ================================
+   モーダル SP対応（768px以下）
+   ================================ */
+@media screen and (max-width: 768px) {
+  .craft-modal-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .craft-modal-img {
+    min-height: 200px;
+  }
+
+  .craft-modal-body {
+    padding: 28px 24px 32px;
+  }
+
+  .craft-modal-title {
+    font-size: 19px;
+  }
+}

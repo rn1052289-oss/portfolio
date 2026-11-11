@@ -1,0 +1,767 @@
+/* ================================================
+   contact.css
+   お問い合わせページ専用スタイル
+
+   【カラーパレット】
+   白磁 #FAF7F2 … ベース背景
+   濃鼠 #3D3D3D … firstview背景・ダークセクション
+   煉瓦 #A23B2C … 送信ボタン・必須マーク（CTA専用）
+   蜂蜜 #BF8A24 … ラベル・アクセント線
+   炭   #2D2D2D … 本文テキスト
+   ================================================ */
+
+
+/* 背景画像 */
+
+/* 暗いオーバーレイ */
+
+/* テキストエリア */
+
+
+/* 大見出し */
+
+/* 英語サブタイトル */
+
+/* 下線（蜂蜜色） */
+
+
+/* ================================
+   CONTACT MAIN（フォーム＋サイドバー）
+   ================================ */
+.contact-main-section {
+  background-color: #faf7f2;
+  padding: 80px 0 100px;
+}
+
+.contact-main-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+
+/* ================================
+   LEFT: フォームエリア
+   ================================ */
+.contact-form-area {
+  flex: 1;
+  min-width: 0;
+}
+
+/* フォームヘッダー */
+.contact-form-header {
+  margin-bottom: 40px;
+}
+
+.contact-form-label-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.contact-form-label-en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #bf8a24;
+}
+
+.contact-form-label-line {
+  display: inline-block;
+  width: 48px;
+  height: 1px;
+  background-color: #bf8a24;
+  margin-left: 12px;
+}
+
+.contact-form-title {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #2d2d2d;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  text-wrap: balance;
+}
+
+.contact-form-title .u-keep,
+.contact-cta-heading .u-keep {
+  margin-inline-end: 0.18em;
+}
+
+.contact-form-desc {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #555;
+  letter-spacing: 0.03em;
+}
+
+.contact-demo-notice {
+  display: grid;
+  gap: 6px;
+  margin-top: 20px;
+  padding: 18px 20px;
+  border-left: 3px solid #a23b2c;
+  background: #f2ece4;
+  color: #3d3d3d;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.contact-demo-notice strong {
+  font-family: "Cormorant Garamond", serif;
+  color: #812f24;
+  letter-spacing: 0.18em;
+}
+
+.contact-demo-notice a {
+  width: fit-content;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: #7d2d22;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.contact-assurance-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.contact-assurance-list li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 1px solid rgba(128, 87, 20, 0.32);
+  color: #554420;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+/* ---- フォーム本体 ---- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* 行単位のラッパー */
+.contact-form-row {
+  margin-bottom: 0;
+}
+
+/* 2列グリッド */
+.contact-form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 40px;
+}
+
+/* ---- フィールド共通 ---- */
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 28px;
+}
+
+/* ラベル */
+.contact-field-label {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #2d2d2d;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* 必須マーク */
+.contact-required {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 12px;
+  color: #a23b2c;
+  letter-spacing: 0;
+}
+
+/* input / select / textarea 共通 */
+.contact-field-input {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 15px;
+  color: #2d2d2d;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  padding: 10px 12px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.3s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 48px;
+}
+
+.contact-field-input::placeholder {
+  color: #aaa;
+  font-size: 14px;
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 0.06em;
+}
+
+.contact-field-input:focus {
+  border-color: #bf8a24;
+}
+
+.contact-field-input:focus-visible {
+  outline: 3px solid #7a5516;
+  outline-offset: 2px;
+}
+
+.contact-field-input.is-invalid {
+  border-color: #a23b2c;
+  box-shadow: 0 0 0 1px #a23b2c;
+}
+
+.contact-field-error {
+  min-height: 1.5em;
+  padding-top: 4px;
+  color: #812f24;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* テキストエリア */
+.contact-field-textarea {
+  resize: vertical;
+  min-height: 200px;
+  line-height: 1.8;
+  padding: 10px 12px;
+}
+
+/* セレクト用ラッパー（矢印表示のため） */
+.contact-select-wrap {
+  position: relative;
+}
+
+.contact-field-select {
+  cursor: pointer;
+  padding-right: 24px;
+}
+
+/* セレクト矢印 */
+.contact-select-arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #888;
+  pointer-events: none;
+}
+
+/* ---- プライバシーポリシー ---- */
+.contact-privacy-row {
+  padding-bottom: 32px;
+}
+
+.contact-privacy-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  min-height: 44px;
+  padding-block: 8px;
+}
+
+.contact-privacy-check {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  accent-color: #a23b2c;
+  cursor: pointer;
+}
+
+.contact-privacy-check:focus-visible {
+  outline: 3px solid #7a5516;
+  outline-offset: 3px;
+}
+
+.contact-privacy-text {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.25em;
+  font-size: 14px;
+  color: #555;
+  letter-spacing: 0.03em;
+  line-height: 1.6;
+}
+
+.contact-privacy-text a {
+  color: #7a5516;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+html[lang="en"] .contact-privacy-agree {
+  order: 1;
+}
+
+html[lang="en"] .contact-privacy-text a {
+  order: 2;
+}
+
+html[lang="en"] .contact-privacy-text .contact-required {
+  order: 3;
+}
+
+/* ---- 送信ボタン ---- */
+.contact-submit-row {
+  padding-top: 4px;
+}
+
+.contact-submit-btn {
+  display: inline-block;
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: #faf7f2;
+  background-color: #a23b2c;
+  border: none;
+  padding: 18px 0;
+  width: 260px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-submit-btn:hover {
+  background-color: #8a3225;
+}
+
+
+/* ================================
+   RIGHT: サイドバー
+   ================================ */
+.contact-sidebar {
+  flex: 0 0 300px;
+  width: 300px;
+  padding-top: 82px; /* フォームヘッダー高さに合わせて揃える */
+}
+
+/* DIRECT CONTACT */
+.contact-direct {
+  margin-bottom: 24px;
+}
+
+.contact-direct-header {
+  margin-bottom: 16px;
+}
+
+.contact-direct-title-en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #bf8a24;
+  margin-bottom: 4px;
+}
+
+.contact-direct-title-ja {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #2d2d2d;
+  margin-bottom: 12px;
+}
+
+.contact-direct-border {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #bf8a24;
+}
+
+/* DIRECT CONTACT ボックス */
+.contact-direct-box {
+  border: 1px solid rgba(191, 138, 36, 0.3);
+  border-left: 3px solid #bf8a24;
+  background-color: #fff;
+  padding: 24px 20px;
+}
+
+.contact-direct-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.contact-direct-item {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(45, 45, 45, 0.06);
+}
+
+.contact-direct-item:first-child {
+  padding-top: 0;
+}
+
+.contact-direct-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.contact-direct-item-label {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #bf8a24;
+  margin-bottom: 6px;
+}
+
+.contact-direct-item-value {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #2d2d2d;
+  letter-spacing: 0.03em;
+}
+
+.contact-direct-item-value a {
+  color: #2d2d2d;
+  transition: opacity 0.3s ease;
+}
+
+.contact-direct-item-value a:hover {
+  opacity: 0.7;
+}
+
+.contact-direct-note {
+  font-size: 13px;
+  color: #888;
+  letter-spacing: 0.02em;
+}
+
+/* FOLLOW US ボックス */
+.contact-follow {
+  margin-bottom: 24px;
+}
+
+.contact-follow-box {
+  border: 1px solid rgba(191, 138, 36, 0.3);
+  background-color: #fff;
+  padding: 20px;
+}
+
+.contact-follow-label {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #bf8a24;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.contact-follow-links {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 16px;
+  color: #2d2d2d;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.contact-follow-divider {
+  color: #ccc;
+  margin: 0 8px;
+}
+
+.contact-follow-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  color: #595959;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+}
+
+/* 返信目安テキスト */
+.contact-reply-note {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #555;
+  letter-spacing: 0.03em;
+}
+
+.contact-reply-note strong {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2d2d2d;
+}
+
+
+/* ================================
+   CTA BAND（煉瓦色帯）
+   ================================ */
+.contact-cta-section {
+  padding: 64px 5%;
+  background-color: #a23b2c;
+  text-align: center;
+}
+
+.contact-cta-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-cta-heading {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin-bottom: 6px;
+  text-wrap: balance;
+}
+
+.contact-cta-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.86);
+  margin-bottom: 28px;
+}
+
+.contact-cta-btn {
+  display: inline-block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #a23b2c;
+  background-color: #fff;
+  padding: 18px 52px;
+  min-width: 240px;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-right: 16px;
+}
+
+.contact-cta-btn:hover {
+  background-color: transparent;
+  color: #fff;
+  letter-spacing: 0.23em;
+  opacity: 1;
+}
+
+.contact-cta-info {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.82);
+  margin-top: 18px;
+}
+
+.contact-cta-info a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* ================================
+   タブレット（1024px以下）
+   ================================ */
+@media screen and (max-width: 1024px) {
+
+
+  .contact-main-inner {
+    gap: 40px;
+  }
+
+  .contact-sidebar {
+    flex: 0 0 260px;
+    width: 260px;
+  }
+
+  .contact-form-row-2col {
+    gap: 0 24px;
+  }
+
+  .contact-cta-heading {
+    font-size: 28px;
+  }
+}
+
+
+/* ================================
+   SP（768px以下）
+   ================================ */
+@media screen and (max-width: 768px) {
+
+  /* main */
+  .contact-main-section {
+    padding: 56px 0 72px;
+  }
+
+  /* フォーム＋サイドバーを縦積み */
+  .contact-main-inner {
+    flex-direction: column;
+    gap: 52px;
+  }
+
+  .contact-sidebar {
+    flex: none;
+    width: 100%;
+    padding-top: 0;
+  }
+
+  /* 2列 → 1列 */
+  .contact-form-row-2col {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .contact-form-title {
+    font-size: 22px;
+  }
+
+  .contact-form-header {
+    margin-bottom: 32px;
+  }
+
+  /* テキストエリア */
+  .contact-field-textarea {
+    min-height: 160px;
+  }
+
+  /* 送信ボタン full width */
+  .contact-submit-btn {
+    width: 100%;
+  }
+
+  /* CTA */
+  .contact-cta-section {
+    padding: 48px 5%;
+  }
+
+  .contact-cta-heading {
+    font-size: 26px;
+  }
+
+  .contact-cta-btn {
+    display: block;
+    margin: 0 auto 0;
+    max-width: 260px;
+  }
+
+  .contact-cta-info {
+    font-size: 12px;
+    margin-top: 14px;
+  }
+
+  /* サイドバー横並び解除 */
+  .contact-direct-title-en {
+    font-size: 18px;
+  }
+
+  .contact-direct-title-ja {
+    font-size: 18px;
+  }
+
+  .contact-direct-item-value {
+    font-size: 15px;
+  }
+
+  .contact-follow-links {
+    font-size: 15px;
+  }
+}
+
+/* ================================
+   送信完了メッセージ
+   ================================ */
+.contact-thanks {
+  padding: 80px 40px;
+  text-align: center;
+}
+.contact-thanks:focus-visible {
+  outline: 2px solid #96691c;
+  outline-offset: 6px;
+}
+.contact-thanks-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 0.25em;
+  color: #BF8A24;
+  margin-bottom: 16px;
+}
+.contact-thanks-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 24px;
+  color: #2D2D2D;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.contact-thanks-text {
+  font-size: 15px;
+  color: #2D2D2D;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+.contact-thanks-btn {
+  display: inline-block;
+  padding: 14px 40px;
+  background: #3D3D3D;
+  color: #FAF7F2;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.contact-thanks-btn:hover {
+  background: #A23B2C;
+}
+
+.contact-thanks-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-left: 20px;
+  color: #4a4a4a;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media screen and (max-width: 480px) {
+  .contact-thanks {
+    padding: 56px 16px;
+  }
+
+  .contact-thanks-btn,
+  .contact-thanks-link {
+    width: 100%;
+    margin: 0;
+  }
+
+  .contact-thanks-link {
+    margin-top: 12px;
+  }
+}

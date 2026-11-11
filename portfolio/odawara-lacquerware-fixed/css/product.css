@@ -1,0 +1,127 @@
+@import "collection.css?v=20260727-1";
+
+/* 商品詳細では、共通CSSの読込状態にかかわらず購入UIの高さを確保する */
+.pd-actions .add-to-cart {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  height: auto;
+  padding: 10px 16px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   商品ストーリーセクション
+   ============================================================ */
+.pd-story {
+  padding: 80px var(--pad-side);
+  background: var(--color-bg-sub);
+}
+.pd-story-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.pd-story-inner h2 {
+  font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+  font-weight: 300;
+  letter-spacing: .1em;
+  color: var(--color-text);
+  margin-bottom: 52px;
+}
+.pd-story-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.pd-story-num {
+  font-family: var(--font-en);
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: var(--color-line);
+  line-height: 1;
+  margin-bottom: 16px;
+  letter-spacing: .04em;
+}
+.pd-story-item h3 {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text);
+  letter-spacing: .06em;
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+.pd-story-item p {
+  font-size: 13px;
+  line-height: 2.2;
+  color: var(--color-sub);
+}
+
+/* ============================================================
+   レビューセクション
+   ============================================================ */
+.pd-reviews {
+  padding: 80px var(--pad-side);
+}
+.pd-reviews-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.pd-reviews-inner h2 {
+  font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+  font-weight: 300;
+  letter-spacing: .1em;
+  color: var(--color-text);
+  margin-bottom: 12px;
+}
+.pd-reviews-sub {
+  font-size: 13px;
+  color: var(--color-muted);
+  margin-bottom: 48px;
+  letter-spacing: .04em;
+}
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.review-card {
+  background: var(--color-bg-sub);
+  padding: 28px 24px;
+  border: 1px solid var(--color-line);
+  border-radius: 2px;
+  transition: border-color .3s ease;
+}
+.review-card:hover { border-color: var(--color-accent); }
+.review-stars {
+  color: var(--color-accent);
+  font-size: .85rem;
+  margin-bottom: 14px;
+  display: flex;
+  gap: 3px;
+}
+.review-kicker {
+	color: var(--color-accent);
+	font-family: var(--font-en);
+	font-size: 12px;
+	font-style: italic;
+	letter-spacing: .12em;
+	margin-bottom: 14px;
+}
+.review-text {
+  font-size: 13px;
+  line-height: 2.1;
+  color: var(--color-sub);
+  margin-bottom: 16px;
+}
+.review-author {
+  font-size: 11px;
+  color: var(--color-muted);
+  letter-spacing: .06em;
+}
+
+@media (max-width: 768px) {
+  .pd-story-grid { grid-template-columns: 1fr; gap: 32px; }
+  .review-grid { grid-template-columns: 1fr; }
+  .pd-story, .pd-reviews { padding: 56px var(--pad-side); }
+}

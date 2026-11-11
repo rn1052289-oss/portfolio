@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ | 週末珈琲便</title>
+<meta name="description" content="週末珈琲便へのお問い合わせはこちらから。ご質問・ご要望をお気軽にお寄せください。">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="l-header">
+	<div class="l-header__inner">
+		<h1 class="l-header__logo">
+			<a href="../index.html"><img src="../images/logo.png" alt="週末珈琲便"></a>
+		</h1>
+		<nav class="l-header__nav" aria-label="メインナビゲーション">
+			<ul>
+				<li><a href="../about/about.html" class="l-header__nav-link">ABOUT</a></li>
+				<li><a href="../beans/beans.html" class="l-header__nav-link">BEANS</a></li>
+				<li><a href="../guide/guide.html" class="l-header__nav-link">GUIDE</a></li>
+				<li><a href="../plan/plan.html" class="l-header__nav-link">PLAN</a></li>
+				<li><a href="../news/news.html" class="l-header__nav-link">NEWS</a></li>
+				<li><a href="contact.html" class="l-header__nav-link is-current">CONTACT</a></li>
+			</ul>
+		</nav>
+		<a href="../online-shop/shop.html" class="l-header__cta">ONLINE STORE</a>
+		<button class="l-header__hamburger" aria-label="メニューを開く">
+			<span></span><span></span><span></span>
+		</button>
+	</div>
+</header>
+
+<!-- Drawer (SP) -->
+<div class="l-drawer__overlay" id="drawerOverlay"></div>
+<nav class="l-drawer" id="drawer" aria-label="モバイルナビゲーション">
+	<div class="l-drawer__nav">
+		<a href="../index.html" class="l-drawer__nav-link">HOME</a>
+		<a href="../about/about.html" class="l-drawer__nav-link">ABOUT</a>
+		<a href="../beans/beans.html" class="l-drawer__nav-link">BEANS</a>
+		<a href="../guide/guide.html" class="l-drawer__nav-link">GUIDE</a>
+		<a href="../plan/plan.html" class="l-drawer__nav-link">PLAN</a>
+		<a href="../news/news.html" class="l-drawer__nav-link">NEWS</a>
+		<a href="contact.html" class="l-drawer__nav-link">CONTACT</a>
+	</div>
+	<a href="../online-shop/shop.html" class="l-drawer__cta">ONLINE STORE</a>
+	<div class="l-drawer__sns">
+		<a href="#" class="l-drawer__sns-link" aria-label="X"><img src="../images/Xicon.svg" alt="X"></a>
+		<a href="#" class="l-drawer__sns-link" aria-label="Instagram"><img src="../images/instagram.svg" alt="Instagram"></a>
+	</div>
+</nav>
+
+<main>
+
+	<!-- PAGE HERO -->
+	<!--<section class="c-page-hero">
+		<div class="c-page-hero__content">
+			<h1 class="c-page-hero__en">CONTACT</h1>
+		</div>
+	</section>-->
+
+	<!-- ============================================================
+	     CONTACT FORM（背景: #fff）
+	     カンプ: 見出し下に装飾ライン
+	     ============================================================ -->
+	<section class="contact-form" id="contact-form">
+		<div class="l-inner">
+			<div class="c-section-heading">
+				<span class="c-section-heading__en">Contact Form</span>
+				<h2 class="c-section-heading__ja">お問い合わせ</h2>
+			</div>
+			<div class="c-deco-line"><span class="c-deco-line__icon"><img src="../images/coffeebeans.svg" alt="コーヒー豆"></span></div>
+			<form method="post" action="#" class="contact-form__body">
+				<div class="contact-form__group">
+					<label for="contact-name" class="contact-form__label">お名前<span class="contact-form__required">必須</span></label>
+					<input type="text" id="contact-name" name="name" class="contact-form__input" placeholder="山田太郎" required>
+				</div>
+				<div class="contact-form__group">
+					<label for="contact-email" class="contact-form__label">メールアドレス<span class="contact-form__required">必須</span></label>
+					<input type="email" id="contact-email" name="email" class="contact-form__input" placeholder="example@email.com" required>
+				</div>
+				<div class="contact-form__group">
+					<label for="contact-tel" class="contact-form__label">電話番号</label>
+					<input type="tel" id="contact-tel" name="tel" class="contact-form__input" placeholder="090-0000-0000">
+				</div>
+				<div class="contact-form__group">
+					<label for="contact-category" class="contact-form__label">お問い合わせ種別<span class="contact-form__required">必須</span></label>
+					<select id="contact-category" name="category" class="contact-form__select" required>
+						<option value="" selected disabled>選択してください。</option>
+						<option value="plan">定期便について</option>
+						<option value="roast">焙煎について</option>
+						<option value="delivery">配送について</option>
+						<option value="other">その他</option>
+					</select>
+				</div>
+				<div class="contact-form__group">
+					<label for="contact-message" class="contact-form__label">お問い合わせ内容<span class="contact-form__required">必須</span></label>
+					<textarea id="contact-message" name="message" class="contact-form__textarea" placeholder="お問い合わせ内容をご入力ください" required></textarea>
+				</div>
+				<input type="submit" value="送信する" class="contact-form__submit">
+			</form>
+		</div>
+	</section>
+
+	<!-- ============================================================
+	     FAQ（背景: #F2EADB）
+	     カンプ: カードなし、シンプルなQ/A表示
+	     ============================================================ -->
+	<section class="contact-faq" id="contact-faq">
+		<div class="l-inner">
+			<div class="c-section-heading">
+				<span class="c-section-heading__en">FAQ</span>
+				<h2 class="c-section-heading__ja">よくあるご質問</h2>
+			</div>
+			<div class="contact-faq__list">
+				<div class="contact-faq__item">
+					<div class="contact-faq__q">
+						<span class="contact-faq__q-icon">Q.</span>
+						<p>定期便はいつでも解約できますか？</p>
+					</div>
+					<div class="contact-faq__a">
+						<span class="contact-faq__a-icon">A.</span>
+						<p>はい、マイページからいつでも解約可能です。次回配送日の3日前までにお手続きください。</p>
+					</div>
+				</div>
+				<div class="contact-faq__item">
+					<div class="contact-faq__q">
+						<span class="contact-faq__q-icon">Q.</span>
+						<p>届く豆の焙煎度は選べますか？</p>
+					</div>
+					<div class="contact-faq__a">
+						<span class="contact-faq__a-icon">A.</span>
+						<p>スタンダードプラン以上で焙煎度の選択が可能です。ライトプランはおまかせとなります。</p>
+					</div>
+				</div>
+				<div class="contact-faq__item">
+					<div class="contact-faq__q">
+						<span class="contact-faq__q-icon">Q.</span>
+						<p>配送日の指定はできますか？</p>
+					</div>
+					<div class="contact-faq__a">
+						<span class="contact-faq__a-icon">A.</span>
+						<p>毎週金曜焙煎・土日お届けのスケジュールとなります。日時指定は承っておりません。</p>
+					</div>
+				</div>
+				<div class="contact-faq__item">
+					<div class="contact-faq__q">
+						<span class="contact-faq__q-icon">Q.</span>
+						<p>支払い方法は何がありますか？</p>
+					</div>
+					<div class="contact-faq__a">
+						<span class="contact-faq__a-icon">A.</span>
+						<p>クレジットカード（VISA / Master / JCB）のみ対応しております。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================================
+	     COMPANY TABLE（背景: #fff）
+	     カンプ: 装飾ライン付き
+	     ============================================================ -->
+	<section class="contact-company" id="contact-company">
+		<div class="l-inner">
+			<div class="c-section-heading">
+				<span class="c-section-heading__en">Company</span>
+				<h2 class="c-section-heading__ja">会社情報</h2>
+			</div>
+			<div class="c-deco-line"><span class="c-deco-line__icon"><img src="../images/coffeebeans.svg" alt="コーヒー豆"></span></div>
+			<table class="contact-company__table">
+				<tr>
+					<th>屋号</th>
+					<td>週末珈琲便</td>
+				</tr>
+				<tr>
+					<th>所在地</th>
+					<td>〒000-0000 東京都渋谷区○○1-2-3</td>
+				</tr>
+				<tr>
+					<th>営業時間</th>
+					<td>10:00 〜 18:00（土日祝休み）</td>
+				</tr>
+				<tr>
+					<th>電話番号</th>
+					<td>03-0000-0000</td>
+				</tr>
+				<tr>
+					<th>メール</th>
+					<td>info@shumatsu-coffee.jp</td>
+				</tr>
+			</table>
+		</div>
+	</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="l-footer">
+	<div class="l-footer__inner">
+		<div class="l-footer__logo-wrap">
+			<img src="../images/logo.png" alt="週末珈琲便" class="l-footer__logo">
+		</div>
+		<div class="c-deco-line l-footer__deco"><span class="c-deco-line__icon"><img src="../images/coffeebeans.svg" alt="コーヒー豆"></span></div>
+		<nav class="l-footer__nav" aria-label="フッターナビゲーション">
+			<ul>
+				<li><a href="../about/about.html" class="l-footer__nav-link">ABOUT</a></li>
+				<li><a href="../beans/beans.html" class="l-footer__nav-link">BEANS</a></li>
+				<li><a href="../guide/guide.html" class="l-footer__nav-link">GUIDE</a></li>
+				<li><a href="../plan/plan.html" class="l-footer__nav-link">PLAN</a></li>
+				<li><a href="../news/news.html" class="l-footer__nav-link">NEWS</a></li>
+				<li><a href="contact.html" class="l-footer__nav-link">CONTACT</a></li>
+			</ul>
+		</nav>
+		<div class="l-footer__sns">
+			<a href="#" class="l-footer__sns-link" aria-label="X">
+				<img src="../images/Xicon.svg" alt="X"><span class="l-footer__sns-name">X</span>
+			</a>
+			<a href="#" class="l-footer__sns-link" aria-label="Instagram">
+				<img src="../images/instagram.svg" alt="Instagram"><span class="l-footer__sns-name">Instagram</span>
+			</a>
+			<a href="#" class="l-footer__sns-link" aria-label="YouTube">
+				<img src="../images/youtube.svg" alt="YouTube"><span class="l-footer__sns-name">Youtube</span>
+			</a>
+		</div>
+		<div class="l-footer__bottom">
+			<p class="l-footer__disclaimer">※ 当サイトはweb制作実習用の架空のコーヒーロースターです。</p>
+			<p class="l-footer__copyright">&copy; 2026 週末珈琲便</p>
+		</div>
+	</div>
+</footer>
+
+<script>var h=document.querySelector('.l-header__hamburger'),d=document.getElementById('drawer'),o=document.getElementById('drawerOverlay');function t(){h.classList.toggle('is-open');d.classList.toggle('is-open');o.classList.toggle('is-open');document.body.style.overflow=d.classList.contains('is-open')?'hidden':'';}h.addEventListener('click',t);o.addEventListener('click',t);document.querySelectorAll('.l-drawer__nav-link,.l-drawer__cta').forEach(function(l){l.addEventListener('click',function(){if(d.classList.contains('is-open'))t();});});</script>
+</body>
+</html>

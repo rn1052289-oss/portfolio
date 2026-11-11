@@ -1,0 +1,748 @@
+@charset "utf-8";
+/* ============================================================
+   COMMON CSS ── header / footer / base / utility
+   週末珈琲便 共通スタイル
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap');
+/* ============================================================
+   BASE
+   ============================================================ */
+html {
+		font-size: 100%;
+		scroll-behavior: smooth;
+}
+body {
+		font-family: 'Noto Sans JP', sans-serif;
+		font-size: 16px;
+		line-height: 1.8;
+		color: #2B1D14;
+		background-color: #FFFDF9;
+		padding-top: 120px; /* ヘッダー高さ分 */
+}
+.is-drawer-open,
+.is-drawer-open body {
+		overflow: hidden;
+}
+img {
+		max-width: 100%;
+		height: auto;
+		vertical-align: bottom;
+}
+a {
+		transition: opacity 0.3s ease, color 0.3s ease;
+}
+a:hover {
+		opacity: 0.75;
+}
+.c-skip-link {
+		position: fixed;
+		top: 8px;
+		left: 8px;
+		z-index: 1200;
+		padding: 10px 16px;
+		background: #fff;
+		color: #2B1D14;
+		font-weight: 700;
+		transform: translateY(-160%);
+		transition: transform 0.2s ease;
+}
+.c-skip-link:focus {
+		transform: translateY(0);
+}
+.u-keep {
+		display: inline-block;
+		white-space: nowrap;
+}
+h1, h2, h3,
+.c-section-heading__ja,
+.c-cta-section__heading {
+		line-break: strict;
+		text-wrap: balance;
+}
+p {
+		text-wrap: pretty;
+}
+.u-visually-hidden {
+		position: absolute !important;
+		width: 1px !important;
+		height: 1px !important;
+		padding: 0 !important;
+		margin: -1px !important;
+		overflow: hidden !important;
+		clip: rect(0, 0, 0, 0) !important;
+		white-space: nowrap !important;
+		border: 0 !important;
+}
+.c-demo-banner {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		padding: 10px 20px;
+		background: #fff3d6;
+		border-bottom: 1px solid #e5c77e;
+		color: #593d17;
+		font-size: 13px;
+		line-height: 1.6;
+		text-align: center;
+}
+.c-demo-banner strong {
+		flex: 0 0 auto;
+		padding: 2px 8px;
+		border-radius: 4px;
+		background: #7a431c;
+		color: #fff;
+		font-size: 12px;
+		letter-spacing: 0.05em;
+}
+.c-demo-inline-note {
+		max-width: 800px;
+		margin: 0 auto 32px;
+		padding: 12px 16px;
+		border-left: 4px solid #A45A22;
+		background: #fff8e8;
+		color: #68451f;
+		font-size: 13px;
+		line-height: 1.7;
+}
+.is-demo-disabled {
+			cursor: default !important;
+			opacity: 0.55;
+}
+.c-media-toggle {
+			position: absolute;
+			right: 24px;
+			bottom: 24px;
+			z-index: 3;
+			min-width: 112px;
+			min-height: 44px;
+			padding: 8px 14px;
+			border: 2px solid rgba(255, 255, 255, 0.9);
+			border-radius: 6px;
+			background: rgba(43, 29, 20, 0.82);
+			color: #fff;
+			font: 700 14px/1.4 'Inter', 'Noto Sans JP', sans-serif;
+			cursor: pointer;
+}
+.c-media-toggle:hover {
+			background: rgba(43, 29, 20, 0.96);
+}
+.c-media-toggle:focus-visible {
+			outline: 3px solid #fff;
+			outline-offset: 3px;
+}
+section {
+		padding: 100px 80px;
+}
+/* ── Layout wrapper ── */
+.l-inner {
+		max-width: 1440px;
+		margin: 0 auto;
+		padding: 0 40px;
+}
+/* ============================================================
+   Section heading（見出し）
+   ============================================================ */
+.c-section-heading {
+		text-align: center;
+		margin-bottom: 48px;
+}
+/* 英語見出し：Inter 64px bold */
+.c-section-heading__en {
+		font-family: 'Inter', sans-serif;
+		font-size: 64px;
+		font-weight: 700;
+		color: #7B5544;
+		letter-spacing: 3px;
+		text-transform: capitalize;
+		display: block;
+		margin-bottom: 4px;
+}
+/* 日本語見出し：Noto Sans JP 40px bold */
+.c-section-heading__ja {
+		font-family: 'Noto Sans JP', sans-serif;
+		font-size: 40px;
+		font-weight: 700;
+		color: #000;
+		letter-spacing: 2px;
+}
+/* ============================================================
+   CTA button（View more 等）
+   ============================================================
+   背景: #BD6767 → hover: #F8A5A5
+   フォント: Oooh Baby（筆記体）
+   ============================================================ */
+.c-btn {
+		display: inline-block;
+		background: #BD6767;
+		color: #fff;
+		font-family: 'Noto Serif JP', serif;
+		font-size: 40px;
+		font-weight: 400;
+		letter-spacing: 1px;
+		padding: 12px 80px;
+		border-radius: 16px;
+		text-align: center;
+		transition: background 0.3s ease, transform 0.2s ease;
+}
+.c-btn:hover {
+		background: #F8A5A5;
+		opacity: 1;
+		transform: translateY(-2px);
+}
+/* ============================================================
+   Decorative line（コーヒー豆あしらい）
+   ── 線 ─ coffeebeans.svg ─ 線 ──
+   ============================================================ */
+.c-deco-line {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 16px;
+		margin: 48px 0;
+}
+.c-deco-line::before, .c-deco-line::after {
+		content: '';
+		width: 80px;
+		height: 1px;
+		background: #D4C5B0;
+}
+.c-deco-line__icon {
+		width: 24px;
+		height: 24px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+}
+.c-deco-line__icon img {
+		width: 24px;
+		height: 24px;
+}
+/* ============================================================
+   HEADER ── 背景: #2B1D14
+   ============================================================ */
+.l-header {
+		width: 100%;
+		background: #2B1D14;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 1000;
+}
+.l-header__inner {
+		width: 100%;
+		margin: 0 auto;
+		padding: 0 40px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 120px;
+}
+.l-header__logo {
+		flex-shrink: 0;
+}
+.l-header__logo img {
+		width: auto;
+		height: 120px;
+		padding: 10px;
+}
+/* ── ナビゲーション ── */
+.l-header__nav {
+		display: flex;
+		align-items: center;
+}
+.l-header__nav ul {
+		display: flex;
+		align-items: center;
+		gap: 40px;
+}
+.l-header__nav-link {
+		font-family: 'Inter', sans-serif;
+		font-size: 20px;
+		font-weight: 700;
+		letter-spacing: 2px;
+		color: #fff;
+		position: relative;
+		padding-bottom: 4px;
+}
+.l-header__nav-link::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background: #A45A22;
+		transition: width 0.3s ease;
+}
+.l-header__nav-link:hover {
+		color: #A45A22;
+		opacity: 1;
+}
+.l-header__nav-link:hover::after {
+		width: 100%;
+}
+.l-header__nav-link.is-current {
+		color: #A45A22;
+}
+.l-header__nav-link.is-current::after {
+		width: 100%;
+}
+/* ── Header CTA ── */
+.l-header__cta {
+		display: inline-block;
+		background: #A45A22;
+		color: #fff;
+		font-family: 'Inter', sans-serif;
+		font-size: 20px;
+		font-weight: 700;
+		letter-spacing: 1px;
+		padding: 12px 24px;
+		border-radius: 20px;
+		transition: background 0.3s ease;
+		white-space: nowrap;
+}
+.l-header__cta:hover {
+		background: #803D0B;
+		opacity: 1;
+}
+/* ── Hamburger (SP) ── */
+.l-header__hamburger {
+		display: none;
+		width: 44px;
+		height: 44px;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 7px;
+		cursor: pointer;
+		position: relative;
+		z-index: 1010;
+}
+.l-header__hamburger span {
+		display: block;
+		width: 28px;
+		height: 2px;
+		background: #fff;
+		border-radius: 1px;
+		transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.l-header__hamburger.is-open span:nth-child(1) {
+		transform: translateY(9px) rotate(45deg);
+}
+.l-header__hamburger.is-open span:nth-child(2) {
+		opacity: 0;
+}
+.l-header__hamburger.is-open span:nth-child(3) {
+		transform: translateY(-9px) rotate(-45deg);
+}
+/* ── Drawer (SP) ── */
+.l-drawer {
+		display: none;
+}
+/* ============================================================
+   CTA SECTION ── 背景: #2B1D14
+   ============================================================ */
+.c-cta-section {
+		background: #2B1D14;
+		padding: 100px 80px;
+		text-align: center;
+}
+.c-cta-section__heading {
+		font-family: 'Noto Sans JP', sans-serif;
+		font-size: 40px;
+		font-weight: 700;
+		color: #F2EADB;
+		margin-bottom: 16px;
+		letter-spacing: 2px;
+}
+.c-cta-section__text {
+		font-size: 20px;
+		font-weight: 700;
+		color: rgba(242, 234, 219, 0.8);
+		margin-bottom: 40px;
+		line-height: 1.8;
+}
+/* ============================================================
+   SNS SECTION ── 背景: #F2EADB
+   ============================================================ */
+.c-sns-section {
+		background: #F2EADB;
+		padding: 100px 80px;
+		text-align: center;
+}
+.c-sns-section__text {
+		font-size: 20px;
+		font-weight: 700;
+		color: #666;
+		margin-bottom: 40px;
+}
+.c-sns-section__links {
+		display: flex;
+		gap: 48px;
+		justify-content: center;
+		margin-bottom: 16px;
+}
+.c-sns-section__link {
+		width: 180px;
+		height: 180px;
+		background: #F2EADB;
+		border-radius: 50%;
+		border: 2px solid #2B1D14;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: background 0.3s ease, transform 0.2s ease;
+}
+.c-sns-section__link:hover {
+		background: #e8dcc8;
+		opacity: 1;
+		transform: translateY(-3px);
+}
+.c-sns-section__link.is-demo-disabled:hover {
+		background: #F2EADB;
+		transform: none;
+}
+.c-sns-section__link img {
+		width: 100px;
+		height: 100px;
+}
+.c-sns-section__names {
+		font-family: 'Inter', sans-serif;
+		font-size: 20px;
+		font-weight: 700;
+		color: #2B1D14;
+		margin-top: 16px;
+		letter-spacing: 2px;
+}
+/* ============================================================
+   BACKGROUND DECORATIONS（あしらい）
+   ============================================================ */
+.c-bg-deco {
+		position: relative;
+		overflow: hidden;
+}
+.c-bg-deco::before {
+		content: '';
+		position: absolute;
+		width: 300px;
+		height: 300px;
+		border-radius: 50%;
+		background: rgba(164, 90, 34, 0.04);
+		pointer-events: none;
+}
+.c-bg-deco::after {
+		content: '';
+		position: absolute;
+		width: 180px;
+		height: 180px;
+		border-radius: 50%;
+		background: rgba(212, 197, 176, 0.15);
+		pointer-events: none;
+}
+.c-bg-deco--left::before {
+		top: -80px;
+		left: -100px;
+}
+.c-bg-deco--left::after {
+		bottom: -60px;
+		right: -40px;
+}
+.c-bg-deco--right::before {
+		top: -80px;
+		right: -100px;
+}
+.c-bg-deco--right::after {
+		bottom: -60px;
+		left: -40px;
+}
+/* ============================================================
+   FOOTER ── 背景: #2B1D14（カンプ通り: 縦中央揃え）
+   ============================================================ */
+.l-footer {
+		width: 100%;
+		background: #2B1D14;
+		color: #F2EADB;
+		padding: 60px 0 32px;
+		text-align: center;
+}
+.l-footer__inner {
+		max-width: 1440px;
+		margin: 0 auto;
+		padding: 0 40px;
+}
+/* ロゴ中央 */
+/*.l-footer__logo-wrap {
+	margin-bottom: 16px;
+}*/
+.l-footer__logo {
+		height: 200px;
+		width: auto;
+		filter: brightness(1.2);
+}
+/* 装飾ライン */
+.l-footer__deco {
+		margin-top: 0;
+		margin-bottom: 24px;
+}
+/* ナビ横一列 */
+.l-footer__nav {
+		margin-bottom: 24px;
+}
+.l-footer__nav ul {
+		display: flex;
+		gap: 40px;
+		justify-content: center;
+		flex-wrap: wrap;
+}
+.l-footer__nav-link {
+		display: inline-flex;
+		align-items: center;
+		min-height: 44px;
+		font-family: 'Inter', sans-serif;
+		font-size: 20px;
+		font-weight: 700;
+		letter-spacing: 2px;
+		color: #F2EADB;
+}
+.l-footer__nav-link:hover {
+		color: #A45A22;
+		opacity: 1;
+}
+/* SNS横一列 */
+.l-footer__sns {
+		display: flex;
+		gap: 20px;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 32px;
+}
+.l-footer__sns-link {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 4px;
+		color: #F2EADB;
+}
+.l-footer__sns-link img {
+		width: 40px;
+		height: 40px;
+		display: block;
+		padding: 8px;
+		background: #F2EADB;
+		border: 1px solid #A45A22;
+		border-radius: 50%;
+		transition: transform 0.2s ease, background 0.3s ease, border-color 0.3s ease;
+}
+.l-footer__sns-link:hover img {
+		background: #fff;
+		border-color: #A45A22;
+		transform: translateY(-2px);
+}
+.l-footer__sns-link.is-demo-disabled:hover img {
+		background: #F2EADB;
+		border-color: #A45A22;
+		transform: none;
+}
+.l-footer__sns-name {
+		font-family: 'Inter', sans-serif;
+		font-size: 12px;
+		color: rgba(242, 234, 219, 0.6);
+}
+/* Bottom */
+.l-footer__bottom {
+		border-top: 1px solid rgba(242, 234, 219, 0.12);
+		padding-top: 24px;
+}
+.l-footer__disclaimer {
+		font-size: 12px;
+		color: #A45A22;
+		margin-bottom: 8px;
+}
+.l-footer__copyright {
+		font-size: 11px;
+		color: #ccc;
+}
+/* ============================================================
+   RESPONSIVE ── 768px以下
+   ============================================================ */
+@media screen and (max-width: 768px) {
+		body {
+				font-size: 14px;
+				padding-top: 60px;
+		}
+		section {
+				padding: 50px 20px;
+		}
+		.c-demo-banner {
+				align-items: flex-start;
+				gap: 8px;
+				padding: 8px 12px;
+				font-size: 12px;
+				text-align: left;
+		}
+		
+		.l-inner {
+				padding: 0 20px;
+		}
+		.c-section-heading {
+				margin-bottom: 32px;
+		}
+		.c-section-heading__en {
+				font-size: 32px;
+		}
+		.c-section-heading__ja {
+				font-size: 24px;
+		}
+		.c-btn {
+				font-size: 24px;
+				padding: 10px 40px;
+		}
+		/* Header */
+		.l-header__inner {
+				height: 60px;
+				padding: 0 16px;
+		}
+		.l-header__logo img {
+				height: 80px;
+				padding: 5px;
+		}
+		.l-header__nav {
+				display: none;
+		}
+		.l-header__cta {
+				display: none;
+		}
+		.l-header__hamburger {
+				display: flex;
+		}
+		/* Drawer */
+		.l-drawer {
+				display: block;
+				position: fixed;
+				top: 0;
+				right: -100%;
+				width: 80%;
+				max-width: 320px;
+				height: 100vh;
+				background: #2B1D14;
+				z-index: 1005;
+				padding: 80px 32px 40px;
+				transition: right 0.4s ease;
+				overflow-y: auto;
+		}
+		.l-drawer.is-open {
+				right: 0;
+		}
+		.l-drawer__overlay {
+				display: block;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100vh;
+				background: rgba(0, 0, 0, 0.5);
+				z-index: 1004;
+				opacity: 0;
+				visibility: hidden;
+				transition: all 0.4s ease;
+		}
+		.l-drawer__overlay.is-open {
+				opacity: 1;
+				visibility: visible;
+		}
+		.l-drawer__nav {
+				display: flex;
+				flex-direction: column;
+		}
+		.l-drawer__nav-link {
+				display: flex;
+				align-items: center;
+				min-height: 48px;
+				font-size: 15px;
+				font-weight: 700;
+				color: #F2EADB;
+				letter-spacing: 2px;
+				padding: 16px 0;
+				border-bottom: 1px solid rgba(242, 234, 219, 0.1);
+		}
+		.l-drawer__nav-link:hover {
+				color: #A45A22;
+				opacity: 1;
+		}
+		.l-drawer__cta {
+				display: block;
+				margin-top: 24px;
+				background: #A45A22;
+				color: #fff;
+				font-size: 14px;
+				font-weight: 700;
+				padding: 14px;
+				min-height: 48px;
+				border-radius: 6px;
+				text-align: center;
+		}
+		.l-drawer__sns {
+				display: flex;
+				gap: 12px;
+				margin-top: 32px;
+		}
+		.l-drawer__sns-link {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 44px;
+				height: 44px;
+		}
+		.l-drawer__sns-link img {
+				width: 24px;
+				height: 24px;
+		}
+		/* CTA / SNS */
+		.c-cta-section {
+				padding: 56px 20px;
+		}
+		.c-cta-section__heading {
+				font-size: 24px;
+		}
+		.c-sns-section {
+				padding: 56px 20px;
+		}
+		.c-sns-section__links {
+				gap: 16px;
+		}
+		.c-sns-section__link {
+				width: 100px;
+				height: 100px;
+		}
+		.c-sns-section__link img {
+				width: 56px;
+				height: 56px;
+		}
+		/* Footer */
+		.l-footer {
+				padding: 40px 0 24px;
+		}
+		.l-footer__inner {
+				padding: 0 20px;
+		}
+		.l-footer__nav ul {
+				gap: 16px;
+				font-size: 14px;
+		}
+		.l-footer__nav-link {
+				font-size: 14px;
+		}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	*, *::before, *::after {
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+	}
+}

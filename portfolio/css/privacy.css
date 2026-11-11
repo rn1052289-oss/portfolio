@@ -1,0 +1,100 @@
+.privacy-hero {
+	padding: calc(var(--header-h) + var(--section-y)) 0 clamp(3rem, 7vw, 6rem);
+	border-bottom: 1px solid rgba(45, 41, 38, .18)
+}
+.privacy-hero h1 {
+	margin-top: clamp(1.25rem, 3vw, 2rem);
+	font-family: 'Space Grotesk', sans-serif;
+	font-size: clamp(1.2rem, 4.4vw, 3.7rem);
+	line-height: 1.4;
+	letter-spacing: -.05em
+}
+.privacy-hero h1 span {
+	color: var(--accent-text)
+}
+.privacy-hero p {
+	max-width: 620px;
+	margin-top: clamp(1.5rem, 3vw, 2.25rem);
+	font-size: clamp(.95rem, 1.2vw, 1.05rem);
+	line-height: 2;
+	color: var(--muted-text)
+}
+.privacy-content {
+	padding: clamp(4rem, 9vw, 8rem) 0
+}
+.privacy-layout {
+	max-width: 980px
+}
+.privacy-updated {
+	margin-bottom: clamp(2rem, 5vw, 4rem);
+	font-family: 'DM Mono', monospace;
+	font-size: .72rem;
+	letter-spacing: .08em;
+	color: var(--muted-text);
+	text-align: right
+}
+.privacy-section {
+	display: grid;
+	grid-template-columns: 72px 1fr;
+	gap: clamp(1.25rem, 4vw, 3rem);
+	padding: clamp(2rem, 5vw, 3.25rem) 0;
+	border-top: 1px solid rgba(45, 41, 38, .18)
+}
+.privacy-section:last-of-type {
+	border-bottom: 1px solid rgba(45, 41, 38, .18)
+}
+.privacy-section__num {
+	font-family: 'DM Mono', monospace;
+	font-size: .75rem;
+	letter-spacing: .14em;
+	color: var(--accent-text)
+}
+.privacy-section h2 {
+	margin-bottom: 1rem;
+	font-family: 'Space Grotesk', sans-serif;
+	font-size: clamp(1.25rem, 2.3vw, 1.75rem)
+}
+.privacy-section p:not(.privacy-section__num) {
+	font-size: clamp(.9rem, 1.1vw, 1rem);
+	line-height: 2;
+	color: var(--muted-text)
+}
+.privacy-section a {
+	color: var(--accent-text);
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+	text-decoration: underline;
+	text-underline-offset: .2em
+}
+.privacy-cta {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.5rem;
+	margin-top: clamp(3rem, 6vw, 5rem);
+	padding: clamp(1.5rem, 4vw, 2.5rem);
+	background: rgba(214, 52, 38, .05);
+	border: 1px solid rgba(214, 52, 38, .22)
+}
+.privacy-cta p {
+	font-weight: 600
+}
+.footer__brand-dot {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	margin-right: .4rem;
+	border-radius: 50%;
+	background: #D63426
+}
+@media (max-width: 640px) {
+	.privacy-section {
+		grid-template-columns: 1fr;
+		gap: .75rem
+	}
+	.privacy-cta {
+		align-items: flex-start;
+		flex-direction: column
+	}
+}

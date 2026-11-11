@@ -1,0 +1,231 @@
+@charset "utf-8";
+/* ============================================================
+   ABOUT PAGE ── about/about.html
+   カンプ: ABOUTpage.png に忠実
+   ============================================================ */
+.c-page-hero.c-page-hero--video {
+		position: relative;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		background: #2B1D14; /* 動画が読み込まれる前の保険 */
+		padding: 0 20px;
+}
+.c-page-hero__video {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover; /* 画面いっぱいに敷く */
+		z-index: 0;
+}
+.c-page-hero__overlay {
+		position: absolute;
+		inset: 0;
+		background: rgba(43, 29, 20, 0.22); /* 文字を読みやすくする暗幕 */
+		z-index: 1;
+}
+/* ── OUR STORY ── 背景: #F2EADB */
+.about-story {
+		padding: 100px 80px;
+		background: #F2EADB;
+}
+.about-story__wrap {
+		display: flex;
+		gap: 48px;
+		align-items: center;
+		position: relative;
+		z-index: 1;
+}
+.about-story__img {
+		flex: 0 0 400px;
+		height: 300px;
+		background: linear-gradient(135deg, #d4c5b0, #a89279);
+		border-radius: 16px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 14px;
+		color: #fff;
+}
+.about-story__img img {
+		width: 100%;
+		height: 100%;
+		border-radius: 16px;
+		object-fit: cover;
+}
+.about-story__body {
+		flex: 1;
+}
+/* 本文: 24px regular */
+.about-story__text {
+		font-size: 20px;
+		line-height: 2;
+		color: #555;
+}
+/* ── COMMITMENT ── 背景: #fff */
+.about-commitment {
+		padding: 100px 80px;
+		background: #fff;
+}
+.about-commitment__grid {
+		display: flex;
+		gap: 32px;
+		justify-content: center;
+		position: relative;
+		z-index: 1;
+}
+.about-commitment__item {
+		flex: 1;
+		background: #F2EADB;
+		border-radius: 16px;
+		max-width: 467px;
+		padding-bottom: 24px;
+		text-align: center;
+}
+/* カンプ: 写真に薄い枠線 */
+.about-commitment__img {
+		width: 304px;
+		height: 277px;
+		background: linear-gradient(135deg, #d4c5b0, #a89279);
+		border: 1px solid #d4c5b0;
+		border-radius: 16px;
+		margin-bottom: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #fff;
+		font-size: 14px;
+		overflow: hidden;
+		margin: 0 auto;
+		margin-top: 10px;
+}
+.about-commitment__img img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+}
+/* 見出し3: 32px bold */
+.about-commitment__title {
+		font-family: 'Noto Sans JP', sans-serif;
+		font-size: 24px;
+		font-weight: 700;
+		margin-bottom: 12px;
+		color: #2B1D14;
+}
+/* 説明文: 20px bold */
+.about-commitment__text {
+		font-size: 16px;
+		color: #666;
+		line-height: 1.8;
+		text-align: center;
+}
+/* ── ROASTER ── 背景: #F2EADB */
+.about-roaster {
+		padding: 100px 80px;
+		background: #F2EADB;
+}
+.about-roaster__wrap {
+		display: flex;
+		gap: 48px;
+		align-items: center;
+		max-width: 900px;
+		margin: 0 auto;
+		position: relative;
+		z-index: 1;
+}
+/* カンプ: 丸は枠線のみ（塗りなし）、大きめ */
+.about-roaster__photo {
+		width: 220px;
+		height: 220px;
+		border: 2px solid #2B1D14;
+		border-radius: 50%;
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #999;
+		font-size: 14px;
+		overflow: hidden;
+		background: #F2EADB;
+}
+.about-roaster__photo img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 50%;
+}
+.about-roaster__name {
+		font-family: 'Noto Sans JP', sans-serif;
+		font-size: 24px;
+		font-weight: 700;
+		margin-bottom: 12px;
+		color: #2B1D14;
+}
+.about-roaster__desc {
+		font-size: 16px;
+		color: #555;
+		line-height: 2;
+}
+/* ── CTA ── カンプ: 背景#fff（白）、テキスト+装飾ライン+View plan */
+#about-cta {
+		background: #fff;
+		padding: 100px 80px;
+		text-align: center;
+}
+#about-cta .c-cta-section__heading {
+		color: #2B1D14;
+}
+#about-cta .c-cta-section__text {
+		color: #666;
+}
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media screen and (max-width: 768px) {
+		.c-page-hero.c-page-hero--video {
+			width: 100%;
+				min-height: 30vh;
+		}
+		.about-story, .about-commitment, .about-roaster {
+				padding: 50px 20px;
+		}
+		.about-story__wrap {
+				flex-direction: column;
+				gap: 24px;
+		}
+		.about-story__img {
+				flex: none;
+				width: 100%;
+				height: 220px;
+		}
+		.about-story__text {
+				font-size: 16px;
+		}
+		.about-commitment__grid {
+				flex-direction: column;
+				align-items: center;
+		}
+		.about-commitment__item {
+				max-width: 100%;
+			width: 100%;
+		}
+		.about-commitment__img {
+			width: min(304px, calc(100% - 20px));
+		}
+		.about-roaster__wrap {
+				flex-direction: column;
+				text-align: center;
+				gap: 20px;
+		}
+		.about-roaster__photo {
+				width: 160px;
+				height: 160px;
+				margin: 0 auto;
+		}
+		#about-cta {
+				padding: 50px 20px;
+		}
+}

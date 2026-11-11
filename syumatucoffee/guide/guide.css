@@ -1,0 +1,365 @@
+@charset "utf-8";
+
+.c-page-hero.c-page-hero--video {
+		position: relative;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		background: #2B1D14; /* 動画が読み込まれる前の保険 */
+		padding: 0 20px;
+}
+.c-page-hero__video {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover; /* 画面いっぱいに敷く */
+		z-index: 0;
+}
+.c-page-hero__overlay {
+		position: absolute;
+		inset: 0;
+		background: rgba(43, 29, 20, 0.22); /* 文字を読みやすくする暗幕 */
+		z-index: 1;
+}
+
+/* ── ORDER STEPS ── */
+.guide-steps {
+  padding: 100px 0;
+  background: #fff;
+}
+
+.guide-steps__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.guide-steps__item {
+  text-align: center;
+  flex: 1;
+  max-width: 240px;
+}
+
+.guide-steps__num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  color: #A45A22;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.guide-steps__icon {
+  width: 88px;
+  height: 88px;
+  background: #F2EADB;
+  border: 2px solid #A45A22;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  margin: 0 auto 12px;
+}
+
+.guide-steps__label {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2B1D14;
+  margin-bottom: 6px;
+}
+
+.guide-steps__desc {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.6;
+}
+
+.guide-steps__arrow {
+  font-size: 24px;
+  color: #A45A22;
+  margin-top: 48px;
+  flex-shrink: 0;
+}
+
+/* ── ROAST LEVEL ── */
+.guide-roast {
+  padding: 100px 0;
+  background: #F2EADB;
+  position: relative;
+  overflow: hidden;
+}
+
+.guide-roast::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 300px;
+  height: 300px;
+  background: rgba(164, 90, 34, 0.05);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.guide-roast__visual {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.guide-roast__item {
+  text-align: center;
+}
+
+.guide-roast__circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 12px rgba(43, 29, 20, 0.1);
+}
+
+.guide-roast__circle--light {
+  background: #C08050;
+}
+
+.guide-roast__circle--medium {
+  background: #8B5E3C;
+}
+
+.guide-roast__circle--dark {
+  background: #3E2723;
+}
+
+.guide-roast__name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #2B1D14;
+}
+
+.guide-roast__flavor {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.6;
+}
+
+.guide-roast__btn-wrap {
+  text-align: center;
+}
+
+/* ── MODAL ── */
+.guide-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.guide-modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.guide-modal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 560px;
+  width: 90%;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s;
+}
+
+.guide-modal-overlay.is-open .guide-modal {
+  transform: translateY(0);
+}
+
+.guide-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+  background: none;
+  line-height: 1;
+}
+
+.guide-modal__close:hover {
+  color: #2B1D14;
+}
+
+.guide-modal__title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 24px;
+  color: #2B1D14;
+}
+
+.guide-modal__grid {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.guide-modal__item {
+  flex: 1;
+  text-align: center;
+}
+
+.guide-modal__circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin: 0 auto 8px;
+}
+
+.guide-modal__name {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.guide-modal__text {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* ── BREWING TIPS ── */
+.guide-brewing {
+  padding: 100px 0;
+  background: #fff;
+}
+
+.guide-brewing__grid {
+  display: flex;
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.guide-brewing__item {
+  flex: 1;
+  text-align: center;
+  padding: 32px 20px;
+  background: rgba(242, 234, 219, 0.35);
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.guide-brewing__item:hover {
+  transform: translateY(-4px);
+}
+
+.guide-brewing__icon {
+  width: 64px;
+  height: 64px;
+  border: 2px solid #A45A22;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin: 0 auto 16px;
+  background: #fff;
+}
+
+.guide-brewing__title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #2B1D14;
+}
+
+.guide-brewing__text {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.8;
+}
+
+#guide-cta {
+	background: #F2EADB;
+}
+
+#guide-cta .c-cta-section__heading,.c-cta-section__text {
+	color: #232323;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media screen and (max-width: 768px) {
+	.c-page-hero.c-page-hero--video {
+		width: 100%;
+				min-height: 30vh;
+		}
+  .guide-steps,
+  .guide-roast,
+  .guide-brewing {
+    padding: 64px 0;
+  }
+
+  .guide-steps__row {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .guide-steps__arrow {
+    transform: rotate(90deg);
+    margin-top: 0;
+  }
+
+  .guide-steps__icon {
+    width: 68px;
+    height: 68px;
+    font-size: 28px;
+  }
+
+  .guide-roast__visual {
+    gap: 20px;
+  }
+
+  .guide-roast__circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .guide-brewing__grid {
+    flex-direction: column;
+  }
+
+  .guide-modal {
+    padding: 24px;
+  }
+
+  .guide-modal__grid {
+    flex-direction: column;
+    gap: 16px;
+  }
+}

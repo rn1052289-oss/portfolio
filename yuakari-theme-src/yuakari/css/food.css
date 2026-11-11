@@ -1,0 +1,702 @@
+/* ================================================
+   food.css
+   食べ歩き・グルメページ専用スタイル
+
+   【構成】
+   1. パンくず
+   2. ファーストビュー帯（ダーク背景 #3D3D3D）
+   3. FOODカードグリッド（白背景）
+   4. CTA帯（煉瓦色 #A23B2C）
+   5. モーダル＋スライダー
+   6. ナビ現在地ハイライト
+   7. 英語モード調整
+   8. タブレットレスポンシブ（1024px以下）
+   9. SPレスポンシブ（768px以下）
+   ================================================ */
+
+
+/* ================================================
+   Food FV 差別化
+   ================================================
+   テーマ：温かさ・湯上がり感・食べ歩きの楽しさ
+   ・オーバーレイを軽く、親しみやすい明るさ
+   ・タイトルの文字間を少し詰めて、くだけた親近感
+   ・蜂蜜線は標準の長さ（食の豊かさを表現）
+   ================================================ */
+
+/* オーバーレイ：やや明るく、温かみのある暗さ */
+.food-page .sub-firstview-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(18, 12, 6,  0.36) 0%,
+    rgba(18, 12, 6,  0.16) 38%,
+    rgba(18, 12, 6,  0.56) 100%
+  );
+}
+
+/* タイトル：少し軽やかに */
+.food-page .sub-firstview-title {
+  font-size: 42px;
+  letter-spacing: 0.10em;
+}
+
+/* リード文：温かく、親しみやすいトーン */
+.food-page .sub-firstview-lead {
+  color: rgba(250, 247, 242, 0.75);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  line-height: 1.9;
+}
+
+/* SP */
+@media screen and (max-width: 768px) {
+  .food-page .sub-firstview-title {
+    font-size: 26px;
+    letter-spacing: 0.05em;
+    word-break: normal;
+    overflow-wrap: normal;
+    line-break: strict;
+    text-wrap: balance;
+  }
+
+  .food-page .sub-firstview-lead {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    overflow-wrap: break-word;
+  }
+}
+
+
+/* ================================
+   ナビ現在地ハイライト
+   ================================ */
+.global-nav-list a.is-current {
+  color: #a23b2c;
+}
+
+.global-nav-list a.is-current::after {
+  width: 100%;
+  background-color: #a23b2c;
+}
+
+
+/* ================================
+   3. FOOD カードグリッド
+   ================================ */
+.food-section {
+  padding: 80px 0 120px;
+  background-color: #faf7f2;
+}
+
+.food-inner {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.food-section .section-label {
+  margin-bottom: 40px;
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 24px;
+}
+
+.food-card {
+  background-color: #faf7f2;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 1枚目のカードを2列分の幅にしてフィーチャー化 */
+.food-card:first-child {
+  grid-column: span 2;
+}
+
+.food-card:first-child .food-card-img {
+  aspect-ratio: 16 / 9;
+}
+
+.food-card-thumb {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: #cec6b8;
+}
+
+/* ホバー時の薄いオーバーレイ */
+.food-card-thumb::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(45, 45, 45, 0.15);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.food-card:hover .food-card-thumb::after {
+  opacity: 1;
+}
+
+.food-card-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  background-color: #cec6b8;
+  transition: transform 0.4s ease;
+}
+
+.food-card:hover .food-card-img {
+  transform: scale(1.04);
+}
+
+.food-card-body {
+  padding: 20px 4px 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.food-card-title {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  color: #2d2d2d;
+  margin-bottom: 4px;
+}
+
+.food-card-en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: #8b8075;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+.food-card-desc {
+  font-size: 15px;
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+  color: #5f564d;
+  margin-bottom: 16px;
+}
+
+/* MORE → ボタン（<button>に変更したので追加スタイル） */
+.food-modal-btn {
+  margin-top: auto;
+  text-align: left;
+  padding: 0;
+}
+
+.food-card .text-link {
+  margin-top: auto;
+}
+
+
+/* ================================
+   4. CTA帯
+   ================================ */
+.food-cta-section {
+  background-color: #a23b2c;
+  padding: 72px 5%;
+  text-align: center;
+}
+
+.food-cta-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.food-cta-title {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.food-cta-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 32px;
+}
+
+.food-cta-btn {
+  display: inline-block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #a23b2c;
+  background-color: #faf7f2;
+  padding: 18px 52px;
+  min-width: 240px;
+  border: 1px solid #faf7f2;
+  border-radius: 2px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.food-cta-btn:hover {
+  background-color: transparent;
+  color: #fff;
+  border-color: #fff;
+  letter-spacing: 0.23em;
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+
+/* ================================
+   5. モーダル＋スライダー
+   ================================
+   about.js のモーダルと同じ開閉パターン。
+   モーダル内にクロスフェードスライダーを搭載。
+   ================================ */
+
+/* --- オーバーレイ（背景暗幕） --- */
+.food-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.food-modal-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- モーダル本体 --- */
+.food-modal {
+  position: relative;
+  background-color: #faf7f2;
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 2px;
+  transform: translateY(20px);
+  transition: transform 0.35s ease;
+}
+
+.food-modal-overlay.is-active .food-modal {
+  transform: translateY(0);
+}
+
+/* --- 閉じるボタン --- */
+.food-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #faf7f2;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  line-height: 1;
+}
+
+.food-modal-close:hover {
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+/* --- スライダーエリア --- */
+.food-modal-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-color: #cec6b8;
+  overflow: hidden;
+}
+
+/* スライド画像：クロスフェード */
+.food-modal-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.food-modal-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.food-modal-slide.is-active {
+  opacity: 1;
+}
+
+/* --- 前へ / 次へ ボタン --- */
+.food-modal-prev,
+.food-modal-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #faf7f2;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  line-height: 1;
+}
+
+.food-modal-prev {
+  left: 12px;
+}
+
+.food-modal-next {
+  right: 12px;
+}
+
+.food-modal-prev:hover,
+.food-modal-next:hover {
+  background-color: rgba(0, 0, 0, 0.55);
+}
+
+/* --- ドットインジケーター --- */
+.food-modal-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  gap: 8px;
+}
+
+.food-modal-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(250, 247, 242, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+.food-modal-dot.is-active {
+  background-color: #faf7f2;
+}
+
+.food-modal-dot:hover {
+  background-color: rgba(250, 247, 242, 0.7);
+}
+
+/* --- モーダルテキストエリア --- */
+.food-modal-body {
+  padding: 32px 36px 36px;
+}
+
+.food-modal-title {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  color: #2d2d2d;
+  margin-bottom: 4px;
+}
+
+.food-modal-en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: #8b8075;
+  margin-bottom: 20px;
+}
+
+.food-modal-desc {
+  font-size: 15px;
+  line-height: 2;
+  letter-spacing: 0.03em;
+  color: #444;
+  margin-bottom: 28px;
+}
+
+/* --- 基本情報テーブル --- */
+.food-modal-info {
+  border-top: 1px solid #e5e0d6;
+  padding-top: 20px;
+}
+
+.food-modal-info-row {
+  display: flex;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.food-modal-info-row:last-child {
+  border-bottom: none;
+}
+
+.food-modal-info-row dt {
+  flex: 0 0 100px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #bf8a24;
+}
+
+.food-modal-info-row dd {
+  flex: 1;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+}
+
+
+/* ================================
+   6. 英語モード調整
+   ================================ */
+.is-en .food-card-title {
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+}
+
+.is-en .food-card-desc {
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  letter-spacing: 0.02em;
+  line-height: 1.9;
+}
+
+.is-en .food-cta-title {
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  letter-spacing: 0.04em;
+}
+
+.is-en .food-modal-title {
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  font-size: 24px;
+  letter-spacing: 0.02em;
+}
+
+.is-en .food-modal-desc {
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  letter-spacing: 0.02em;
+  line-height: 1.9;
+}
+
+
+/* ================================
+   7. タブレット（1024px以下）
+   ================================ */
+@media screen and (max-width: 1024px) {
+
+
+  .food-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px 20px;
+  }
+
+  .food-card-title {
+    font-size: 20px;
+  }
+
+  .food-card-desc {
+    font-size: 14px;
+  }
+
+  .food-cta-title {
+    font-size: 30px;
+  }
+
+  /* モーダル */
+  .food-modal {
+    max-width: 640px;
+  }
+
+  .food-modal-body {
+    padding: 28px 28px 32px;
+  }
+
+  .food-modal-title {
+    font-size: 24px;
+  }
+}
+
+
+/* ================================
+   8. SP（768px以下）
+   ================================ */
+@media screen and (max-width: 768px) {
+
+  /* パンくず */
+
+
+  /* ファーストビュー帯 */
+
+
+  /* FOODセクション */
+  .food-section {
+    padding: 56px 0 80px;
+  }
+
+  .food-section .section-label {
+    margin-bottom: 28px;
+  }
+
+  .food-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  /* SP: フィーチャーカードのcolspan解除 */
+  .food-card:first-child {
+    grid-column: span 1;
+  }
+
+  .food-card:first-child .food-card-img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .food-card-title {
+    font-size: 20px;
+  }
+
+  .food-card-en {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .food-card-desc {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .food-card-desc br {
+    display: none;
+  }
+
+  /* CTA帯 */
+  .food-cta-section {
+    padding: 56px 5%;
+  }
+
+  .food-cta-title {
+    font-size: 26px;
+  }
+
+  .food-cta-sub {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  /* --- モーダルSP --- */
+  .food-modal-overlay {
+    padding: 12px;
+    align-items: flex-start;
+    padding-top: 56px;
+  }
+
+  .food-modal {
+    max-width: 100%;
+    max-height: calc(100vh - 68px);
+  }
+
+  .food-modal-slider {
+    aspect-ratio: 16 / 10;
+  }
+
+  .food-modal-close {
+    top: 8px;
+    right: 8px;
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .food-modal-prev,
+  .food-modal-next {
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+  }
+
+  .food-modal-prev {
+    left: 8px;
+  }
+
+  .food-modal-next {
+    right: 8px;
+  }
+
+  .food-modal-body {
+    padding: 24px 20px 28px;
+  }
+
+  .food-modal-title {
+    font-size: 22px;
+  }
+
+  .food-modal-en {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .food-modal-desc {
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 24px;
+  }
+
+  .food-modal-info-row dt {
+    flex: 0 0 80px;
+    font-size: 12px;
+  }
+
+  .food-modal-info-row dd {
+    font-size: 14px;
+  }
+
+  /* 英語モードSP */
+  .is-en .food-card-title {
+    font-size: 18px;
+  }
+
+  .is-en .food-modal-title {
+    font-size: 20px;
+  }
+}

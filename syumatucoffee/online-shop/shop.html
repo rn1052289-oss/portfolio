@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>オンラインショップ | 週末珈琲便</title>
+<meta name="description" content="週末珈琲便のコーヒー豆をオンラインでご購入いただけます。定期便以外の単品購入はこちらから。">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="online-shop.css">
+</head>
+<body>
+<!-- HEADER -->
+<header class="l-header">
+		<div class="l-header__inner">
+				<h1 class="l-header__logo"> <a href="../index.html"><img src="../images/logo.png" alt="週末珈琲便"></a> </h1>
+				<nav class="l-header__nav" aria-label="メインナビゲーション">
+						<ul>
+								<li><a href="../about/about.html" class="l-header__nav-link">ABOUT</a></li>
+								<li><a href="../beans/beans.html" class="l-header__nav-link">BEANS</a></li>
+								<li><a href="../guide/guide.html" class="l-header__nav-link">GUIDE</a></li>
+								<li><a href="../plan/plan.html" class="l-header__nav-link">PLAN</a></li>
+								<li><a href="../news/news.html" class="l-header__nav-link">NEWS</a></li>
+								<li><a href="../contact/contact.html" class="l-header__nav-link">CONTACT</a></li>
+						</ul>
+				</nav>
+				<a href="#" class="l-header__cta">購入手続きへ<span class="cart-badge" id="cartBadge">0</span></a>
+				<button class="l-header__hamburger" aria-label="メニューを開く"> <span></span><span></span><span></span> </button>
+		</div>
+</header>
+
+<!-- Drawer (SP) -->
+<div class="l-drawer__overlay" id="drawerOverlay"></div>
+<nav class="l-drawer" id="drawer" aria-label="モバイルナビゲーション">
+		<div class="l-drawer__nav"> <a href="../index.html" class="l-drawer__nav-link">HOME</a> <a href="../about/about.html" class="l-drawer__nav-link">ABOUT</a> <a href="../beans/beans.html" class="l-drawer__nav-link">BEANS</a> <a href="../guide/guide.html" class="l-drawer__nav-link">GUIDE</a> <a href="../plan/plan.html" class="l-drawer__nav-link">PLAN</a> <a href="../news/news.html" class="l-drawer__nav-link">NEWS</a> <a href="../contact/contact.html" class="l-drawer__nav-link">CONTACT</a> </div>
+		<a href="shop.html" class="l-drawer__cta">ONLINE STORE</a>
+		<div class="l-drawer__sns"> <a href="#" class="l-drawer__sns-link" aria-label="X"><img src="../images/Xicon.svg" alt="X"></a> <a href="#" class="l-drawer__sns-link" aria-label="Instagram"><img src="../images/instagram.svg" alt="Instagram"></a> </div>
+</nav>
+<main>
+		
+		
+		<!-- INTRO -->
+		<section class="shop-intro" id="shop-intro">
+				<div class="l-inner">
+						<div class="c-section-heading"><span class="c-section-heading__en">Coffee Beans</span>
+								<h2 class="c-section-heading__ja">オンラインショップ</h2>
+						</div>
+						<p class="shop-intro__text">定期便だけでなく、お好きな豆を単品でもご購入いただけます。<br>
+								金曜焙煎した新鮮な豆を、週末にお届けします。</p>
+				</div>
+		</section>
+		
+		<!-- PRODUCTS -->
+		<section class="shop-products" id="shop-products">
+				<div class="l-inner">
+						<div class="shop-products__grid">
+								<article class="shop-card">
+										<div class="shop-card__img"><span class="shop-card__badge shop-card__badge--popular">人気</span><img src="../images/shop1.webp" alt="エチオピア イルガチェフェ"></div>
+										<div class="shop-card__body"> <span class="shop-card__tag">浅煎り</span>
+												<h3 class="shop-card__name">エチオピア イルガチェフェ</h3>
+												<p class="shop-card__desc">フローラル・柑橘系の華やかなフレーバー</p>
+												<div class="shop-card__price-row">
+														<p class="shop-card__price">¥1,280<span class="shop-card__price-unit"> / 100g</span></p>
+														<span class="shop-card__cart-btn">カートに入れる</span> </div>
+										</div>
+								</article>
+								<article class="shop-card">
+										<div class="shop-card__img"><img src="../images/shop2.webp" alt="グアテマラ アンティグア"></div>
+										<div class="shop-card__body"> <span class="shop-card__tag">中煎り</span>
+												<h3 class="shop-card__name">グアテマラ アンティグア</h3>
+												<p class="shop-card__desc">チョコレートとナッツの甘み</p>
+												<div class="shop-card__price-row">
+														<p class="shop-card__price">¥1,180<span class="shop-card__price-unit"> / 100g</span></p>
+														<span class="shop-card__cart-btn">カートに入れる</span> </div>
+										</div>
+								</article>
+								<article class="shop-card">
+										<div class="shop-card__img"><img src="../images/shop3.webp" alt="ブラジル サントス"></div>
+										<div class="shop-card__body"> <span class="shop-card__tag">深煎り</span>
+												<h3 class="shop-card__name">ブラジル サントス</h3>
+												<p class="shop-card__desc">重厚なコクとビターな余韻</p>
+												<div class="shop-card__price-row">
+														<p class="shop-card__price">¥1,080<span class="shop-card__price-unit"> / 100g</span></p>
+														<span class="shop-card__cart-btn">カートに入れる</span> </div>
+										</div>
+								</article>
+								<article class="shop-card">
+										<div class="shop-card__img"><span class="shop-card__badge shop-card__badge--new">NEW</span><img src="../images/shop4.webp" alt="コロンビア スプレモ"></div>
+										<div class="shop-card__body"> <span class="shop-card__tag">中煎り</span>
+												<h3 class="shop-card__name">コロンビア スプレモ</h3>
+												<p class="shop-card__desc">まろやかでバランスの良い味わい</p>
+												<div class="shop-card__price-row">
+														<p class="shop-card__price">¥1,380<span class="shop-card__price-unit"> / 100g</span></p>
+														<span class="shop-card__cart-btn">カートに入れる</span> </div>
+										</div>
+								</article>
+								<article class="shop-card">
+										<div class="shop-card__img"><img src="../images/shop5.webp" alt="ケニア AA"></div>
+										<div class="shop-card__body"> <span class="shop-card__tag">浅煎り</span>
+												<h3 class="shop-card__name">ケニア AA</h3>
+												<p class="shop-card__desc">ジューシーな酸味とベリーの香り</p>
+												<div class="shop-card__price-row">
+														<p class="shop-card__price">¥1,480<span class="shop-card__price-unit"> / 100g</span></p>
+														<span class="shop-card__cart-btn">カートに入れる</span> </div>
+										</div>
+								</article>
+								<article class="shop-card">
+										<div class="shop-card__img"><img src="../images/shop6.webp" alt="はじめてドリッパーセット"></div>
+										<div class="shop-card__body"> <span class="shop-card__tag">器具</span>
+												<h3 class="shop-card__name">はじめてドリッパーセット</h3>
+												<p class="shop-card__desc">ドリッパー＋フィルター＋計量スプーン</p>
+												<div class="shop-card__price-row">
+														<p class="shop-card__price">¥2,980<span class="shop-card__price-unit"> / セット</span></p>
+														<span class="shop-card__cart-btn">カートに入れる</span> </div>
+										</div>
+								</article>
+						</div>
+				</div>
+		</section>
+		
+		<!-- FEATURES -->
+		<section class="shop-features" id="shop-features">
+				<div class="l-inner">
+						<div class="shop-features__grid">
+								<div class="shop-features__item">
+										<p class="shop-features__icon">🚚</p>
+										<h3 class="shop-features__title">全品送料無料</h3>
+										<p class="shop-features__text">ご注文金額にかかわらず、全商品送料無料でお届けします。</p>
+								</div>
+								<div class="shop-features__item">
+										<p class="shop-features__icon">🔥</p>
+										<h3 class="shop-features__title">注文後焙煎</h3>
+										<p class="shop-features__text">ご注文をいただいてから焙煎。最高の鮮度でお届けします。</p>
+								</div>
+								<div class="shop-features__item">
+										<p class="shop-features__icon">💝</p>
+										<h3 class="shop-features__title">ギフト対応</h3>
+										<p class="shop-features__text">大切な方への贈り物に。ギフト包装も承ります。</p>
+								</div>
+						</div>
+				</div>
+		</section>
+		
+		<!-- NOTICE -->
+		<section class="shop-notice" id="shop-notice">
+				<div class="l-inner">
+						<div class="shop-notice__box">
+								<h3 class="shop-notice__title">ご購入にあたって</h3>
+								<p class="shop-notice__text"> ・お届けまで通常3〜5営業日いただいております。<br>
+										・お支払いはクレジットカード（VISA / Master / JCB）のみとなります。<br>
+										・商品到着後7日以内であれば、未開封に限り返品を承ります。<br>
+										・定期便をご希望の方は<a href="../plan/plan.html" style="color:#A45A22;text-decoration:underline;">プランページ</a>をご覧ください。 </p>
+						</div>
+				</div>
+		</section>
+		
+		<!-- CTA -->
+		<section class="c-cta-section" id="shop-cta">
+				<div class="l-inner">
+						<p class="c-cta-section__heading">定期便ならもっとお得に</p>
+						<p class="c-cta-section__text">毎月届く定期便なら、単品より最大20%お得。<br>
+								まずはお気軽にお試しください。</p>
+						<a href="../plan/plan.html" class="c-btn c-btn--white">View more</a> </div>
+		</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="l-footer">
+		<div class="l-footer__inner">
+				<div class="l-footer__logo-wrap"> <img src="../images/logo.png" alt="週末珈琲便" class="l-footer__logo"> </div>
+				<div class="c-deco-line l-footer__deco"><span class="c-deco-line__icon"><img src="../images/coffeebeans.svg" alt="コーヒー豆"></span></div>
+				<nav class="l-footer__nav" aria-label="フッターナビゲーション">
+						<ul>
+								<li><a href="../about/about.html" class="l-footer__nav-link">ABOUT</a></li>
+								<li><a href="../beans/beans.html" class="l-footer__nav-link">BEANS</a></li>
+								<li><a href="../guide/guide.html" class="l-footer__nav-link">GUIDE</a></li>
+								<li><a href="../plan/plan.html" class="l-footer__nav-link">PLAN</a></li>
+								<li><a href="../news/news.html" class="l-footer__nav-link">NEWS</a></li>
+								<li><a href="../contact/contact.html" class="l-footer__nav-link">CONTACT</a></li>
+						</ul>
+				</nav>
+				<div class="l-footer__sns"> <a href="#" class="l-footer__sns-link" aria-label="X"> <img src="../images/Xicon.svg" alt="X"><span class="l-footer__sns-name">X</span> </a> <a href="#" class="l-footer__sns-link" aria-label="Instagram"> <img src="../images/instagram.svg" alt="Instagram"><span class="l-footer__sns-name">Instagram</span> </a> <a href="#" class="l-footer__sns-link" aria-label="YouTube"> <img src="../images/youtube.svg" alt="YouTube"><span class="l-footer__sns-name">Youtube</span> </a> </div>
+				<div class="l-footer__bottom">
+						<p class="l-footer__disclaimer">※ 当サイトはweb制作実習用の架空のコーヒーロースターです。</p>
+						<p class="l-footer__copyright">&copy; 2026 週末珈琲便</p>
+				</div>
+		</div>
+</footer>
+<!-- Toast Notification -->
+<div class="toast" id="toast">
+	<span class="toast__icon">✓</span>
+	<span class="toast__text">カートに追加しました</span>
+</div>
+
+<script>var h=document.querySelector('.l-header__hamburger'),d=document.getElementById('drawer'),o=document.getElementById('drawerOverlay');function t(){h.classList.toggle('is-open');d.classList.toggle('is-open');o.classList.toggle('is-open');document.body.style.overflow=d.classList.contains('is-open')?'hidden':'';}h.addEventListener('click',t);o.addEventListener('click',t);document.querySelectorAll('.l-drawer__nav-link,.l-drawer__cta').forEach(function(l){l.addEventListener('click',function(){if(d.classList.contains('is-open'))t();});});</script>
+
+<script>
+// ── Cart interaction with fly-to-cart animation ──
+(function () {
+  var cartCount = 0;
+  var badge = document.getElementById('cartBadge');
+  var toast = document.getElementById('toast');
+  var toastText = toast.querySelector('.toast__text');
+  var cartTarget = document.querySelector('.l-header__cta');
+  var timer = null;
+
+  // Show toast
+  function showToast(name) {
+    toastText.textContent = '「' + name + '」をカートに追加しました';
+    toast.classList.remove('is-show');
+    // Force reflow to restart animation
+    void toast.offsetWidth;
+    toast.classList.add('is-show');
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      toast.classList.remove('is-show');
+    }, 2500);
+  }
+
+  // Badge bounce animation
+  function bounceBadge() {
+    cartCount++;
+    badge.textContent = cartCount;
+    badge.classList.add('is-show');
+    // Remove then re-add to retrigger animation
+    badge.classList.remove('is-bounce');
+    void badge.offsetWidth;
+    badge.classList.add('is-bounce');
+  }
+
+  // Fly image from product to cart
+  function flyToCart(imgEl, callback) {
+    var imgRect = imgEl.getBoundingClientRect();
+    var cartRect = cartTarget.getBoundingClientRect();
+
+    // Create clone
+    var clone = imgEl.cloneNode(true);
+    clone.className = 'fly-img';
+    clone.style.left = imgRect.left + 'px';
+    clone.style.top = imgRect.top + 'px';
+    clone.style.width = imgRect.width + 'px';
+    clone.style.height = imgRect.height + 'px';
+    document.body.appendChild(clone);
+
+    // Target position (center of cart button)
+    var targetX = cartRect.left + cartRect.width / 2 - 15;
+    var targetY = cartRect.top + cartRect.height / 2 - 15;
+
+    // Use requestAnimationFrame to ensure the initial state is painted
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        clone.style.transition = 'all 0.7s cubic-bezier(0.2, 1, 0.3, 1)';
+        clone.style.left = targetX + 'px';
+        clone.style.top = targetY + 'px';
+        clone.style.width = '30px';
+        clone.style.height = '30px';
+        clone.style.opacity = '0.3';
+        clone.style.borderRadius = '50%';
+      });
+    });
+
+    // Cleanup and trigger badge bounce after animation
+    clone.addEventListener('transitionend', function handler() {
+      clone.removeEventListener('transitionend', handler);
+      clone.remove();
+      if (callback) callback();
+    });
+
+    // Fallback: remove after 1s even if transitionend doesn't fire
+    setTimeout(function () {
+      if (clone.parentNode) {
+        clone.remove();
+        if (callback) callback();
+      }
+    }, 1000);
+  }
+
+  // Attach events to all cart buttons
+  document.querySelectorAll('.shop-card__cart-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var card = btn.closest('.shop-card');
+      var name = card.querySelector('.shop-card__name').textContent;
+      var img = card.querySelector('.shop-card__img img');
+
+      // Button feedback
+      btn.textContent = '追加しました ✓';
+      btn.classList.add('is-added');
+
+      // Reset button after 1.5s
+      setTimeout(function () {
+        btn.textContent = 'カートに入れる';
+        btn.classList.remove('is-added');
+      }, 1500);
+
+      // Fly animation → then badge bounce + toast
+      flyToCart(img, function () {
+        bounceBadge();
+        showToast(name);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

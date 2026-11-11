@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>コーヒー豆紹介 | 週末珈琲便</title>
+<meta name="description" content="今月お届けするスペシャルティコーヒー豆の産地・焙煎度・フレーバーノートをご紹介。">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="beans.css">
+</head>
+<body>
+<header class="l-header">
+		<div class="l-header__inner">
+				<h1 class="l-header__logo"> <a href="../index.html"><img src="../images/logo.png" alt="週末珈琲便"></a> </h1>
+				<nav class="l-header__nav" aria-label="メインナビゲーション">
+						<ul>
+								<li><a href="../about/about.html" class="l-header__nav-link">ABOUT</a></li>
+								<li><a href="beans.html" class="l-header__nav-link is-current">BEANS</a></li>
+								<li><a href="../guide/guide.html" class="l-header__nav-link">GUIDE</a></li>
+								<li><a href="../plan/plan.html" class="l-header__nav-link">PLAN</a></li>
+								<li><a href="../news/news.html" class="l-header__nav-link">NEWS</a></li>
+								<li><a href="../contact/contact.html" class="l-header__nav-link">CONTACT</a></li>
+						</ul>
+				</nav>
+				<a href="../online-shop/shop.html" class="l-header__cta">ONLINE STORE</a>
+				<button class="l-header__hamburger" aria-label="メニューを開く"> <span></span><span></span><span></span> </button>
+		</div>
+</header>
+
+<!-- Drawer (SP) -->
+<div class="l-drawer__overlay" id="drawerOverlay"></div>
+<nav class="l-drawer" id="drawer" aria-label="モバイルナビゲーション">
+		<div class="l-drawer__nav"> <a href="../index.html" class="l-drawer__nav-link">HOME</a> <a href="../about/about.html" class="l-drawer__nav-link">ABOUT</a> <a href="beans.html" class="l-drawer__nav-link">BEANS</a> <a href="../guide/guide.html" class="l-drawer__nav-link">GUIDE</a> <a href="../plan/plan.html" class="l-drawer__nav-link">PLAN</a> <a href="../news/news.html" class="l-drawer__nav-link">NEWS</a> <a href="../contact/contact.html" class="l-drawer__nav-link">CONTACT</a> </div>
+		<a href="../online-shop/shop.html" class="l-drawer__cta">ONLINE STORE</a>
+		<div class="l-drawer__sns"> <a href="#" class="l-drawer__sns-link" aria-label="X"><img src="../images/Xicon.svg" alt="X"></a> <a href="#" class="l-drawer__sns-link" aria-label="Instagram"><img src="../images/instagram.svg" alt="Instagram"></a> </div>
+</nav>
+<main>
+		<section class="c-page-hero c-page-hero--video">
+				<video class="c-page-hero__video"
+		autoplay
+		muted
+		loop
+		playsinline
+		preload="metadata"
+		poster="../images/beansweek1.webp">
+						<source src="../video/beans.mp4" type="video/mp4">
+						<!-- 必要ならWebMも追加 --> 
+						<!-- <source src="../videos/beans-hero.webm" type="video/webm"> --> 
+						お使いのブラウザは動画再生に対応していません。 </video>
+				<div class="c-page-hero__overlay" aria-hidden="true"></div>
+		</section>
+		
+		<!-- BEANS LIST -->
+		<section class="beans-list" id="beans-list">
+				<div class="l-inner">
+						<div class="c-section-heading"><span class="c-section-heading__en">This Month</span>
+								<h2 class="c-section-heading__ja">今月のコーヒー豆</h2>
+						</div>
+						<p class="beans-list__intro">2026年2月にお届けする3種のスペシャルティコーヒー</p>
+						<div class="beans-list__grid">
+								<article class="beans-card">
+										<div class="beans-card__img"><img src="../images/beansweek1.webp" alt="エチオピア イルガチェフェ"></div>
+										<div class="beans-card__body"> <span class="beans-card__tag beans-card__tag--light">浅煎り Light</span>
+												<h3 class="beans-card__name">エチオピア イルガチェフェ</h3>
+												<p class="beans-card__detail">産地：エチオピア シダモ地区<br>
+														フレーバー：フローラル・柑橘・ベリー<br>
+														おすすめ抽出：ハンドドリップ</p>
+										</div>
+								</article>
+								<article class="beans-card">
+										<div class="beans-card__img"><img src="../images/beansweek2.webp" alt="グアテマラ アンティグア"></div>
+										<div class="beans-card__body"> <span class="beans-card__tag beans-card__tag--medium">中煎り Medium</span>
+												<h3 class="beans-card__name">グアテマラ アンティグア</h3>
+												<p class="beans-card__detail">産地：グアテマラ アンティグア地区<br>
+														フレーバー：チョコレート・ナッツ<br>
+														おすすめ抽出：ドリップ・フレンチプレス</p>
+										</div>
+								</article>
+								<article class="beans-card">
+										<div class="beans-card__img"><img src="../images/beansweek3.webp" alt="ブラジル サントス"></div>
+										<div class="beans-card__body"> <span class="beans-card__tag beans-card__tag--dark">深煎り Dark</span>
+												<h3 class="beans-card__name">ブラジル サントス</h3>
+												<p class="beans-card__detail">産地：ブラジル サンパウロ州<br>
+														フレーバー：重厚なコク・ビター<br>
+														おすすめ抽出：エスプレッソ</p>
+										</div>
+								</article>
+						</div>
+				</div>
+		</section>
+		
+		<!-- FLAVOR CHART TABLE -->
+		<section class="beans-chart" id="beans-chart">
+				<div class="l-inner">
+						<div class="c-section-heading"><span class="c-section-heading__en">Flavor Chart</span>
+								<h2 class="c-section-heading__ja">味わい比較</h2>
+						</div>
+						<table class="beans-chart__table">
+								<thead>
+										<tr>
+												<th></th>
+												<th>酸味</th>
+												<th>苦味</th>
+												<th>甘み</th>
+												<th>コク</th>
+												<th>香り</th>
+										</tr>
+								</thead>
+								<tbody>
+										<tr>
+												<th>エチオピア イルガチェフェ</th>
+												<td>★★★★★</td>
+												<td>★★</td>
+												<td>★★★★</td>
+												<td>★★★</td>
+												<td>★★★★★</td>
+										</tr>
+										<tr>
+												<th>グアテマラ アンティグア</th>
+												<td>★★★</td>
+												<td>★★★</td>
+												<td>★★★★</td>
+												<td>★★★★</td>
+												<td>★★★★</td>
+										</tr>
+										<tr>
+												<th>ブラジル サントス</th>
+												<td>★★</td>
+												<td>★★★★★</td>
+												<td>★★★</td>
+												<td>★★★★★</td>
+												<td>★★★</td>
+										</tr>
+								</tbody>
+						</table>
+				</div>
+		</section>
+		
+		<!-- CTA -->
+		<section class="c-cta-section" id="beans-cta">
+				<div class="l-inner">
+						<p class="c-cta-section__heading">気になる豆を見つけたら</p>
+						<p class="c-cta-section__text">あなたにぴったりのプランで、最高の一杯を。</p>
+						<a href="../plan/plan.html" class="c-btn c-btn--white">View plan</a> </div>
+		</section>
+</main>
+<footer class="l-footer">
+		<div class="l-footer__inner">
+				<div class="l-footer__logo-wrap"> <img src="../images/logo.png" alt="週末珈琲便" class="l-footer__logo"> </div>
+				<div class="c-deco-line l-footer__deco"><span class="c-deco-line__icon"><img src="../images/coffeebeans.svg" alt="コーヒー豆"></span></div>
+				<nav class="l-footer__nav" aria-label="フッターナビゲーション">
+						<ul>
+								<li><a href="../about/about.html" class="l-footer__nav-link">ABOUT</a></li>
+								<li><a href="beans.html" class="l-footer__nav-link">BEANS</a></li>
+								<li><a href="../guide/guide.html" class="l-footer__nav-link">GUIDE</a></li>
+								<li><a href="../plan/plan.html" class="l-footer__nav-link">PLAN</a></li>
+								<li><a href="../news/news.html" class="l-footer__nav-link">NEWS</a></li>
+								<li><a href="../contact/contact.html" class="l-footer__nav-link">CONTACT</a></li>
+						</ul>
+				</nav>
+				<div class="l-footer__sns"> <a href="#" class="l-footer__sns-link" aria-label="X"> <img src="../images/Xicon.svg" alt="X"><span class="l-footer__sns-name">X</span> </a> <a href="#" class="l-footer__sns-link" aria-label="Instagram"> <img src="../images/instagram.svg" alt="Instagram"><span class="l-footer__sns-name">Instagram</span> </a> <a href="#" class="l-footer__sns-link" aria-label="YouTube"> <img src="../images/youtube.svg" alt="YouTube"><span class="l-footer__sns-name">Youtube</span> </a> </div>
+				<div class="l-footer__bottom">
+						<p class="l-footer__disclaimer">※ 当サイトはweb制作実習用の架空のコーヒーロースターです。</p>
+						<p class="l-footer__copyright">&copy; 2026 週末珈琲便</p>
+				</div>
+		</div>
+</footer>
+<script>var h=document.querySelector('.l-header__hamburger'),d=document.getElementById('drawer'),o=document.getElementById('drawerOverlay');function t(){h.classList.toggle('is-open');d.classList.toggle('is-open');o.classList.toggle('is-open');document.body.style.overflow=d.classList.contains('is-open')?'hidden':'';}h.addEventListener('click',t);o.addEventListener('click',t);document.querySelectorAll('.l-drawer__nav-link,.l-drawer__cta').forEach(function(l){l.addEventListener('click',function(){if(d.classList.contains('is-open'))t();});});</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+@import "common.css?v=20260727-1";
+
+/* ============================================================
+   TOP ページ固有
+   ============================================================ */
+.wrap { overflow:hidden; }
+
+/* ============================================================
+   Instagram ギャラリー
+   ============================================================ */
+.insta-section {
+	padding: 80px var(--pad-side);
+	background: var(--color-bg-sub);
+	text-align: center;
+}
+.insta-header {
+	margin-bottom: 36px;
+}
+.insta-handle {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-family: var(--font-en);
+	font-size: .9rem;
+	font-weight: 400;
+	letter-spacing: .08em;
+	color: var(--color-sub);
+	text-decoration: none;
+	transition: color .3s ease;
+}
+.insta-handle:hover { color: var(--color-accent); }
+.insta-handle .icon-instagram {
+	font-size: .7rem;
+	font-weight: 600;
+	letter-spacing: .04em;
+	color: var(--color-accent);
+}
+.insta-header h2 {
+	font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+	font-weight: 300;
+	letter-spacing: .12em;
+	color: var(--color-text);
+	margin-top: 16px;
+	margin-bottom: 8px;
+}
+.insta-header p {
+	font-size: 13px;
+	color: var(--color-sub);
+	letter-spacing: .04em;
+	line-height: 1.8;
+}
+.insta-grid {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 3px;
+	max-width: var(--max-w);
+	margin: 0 auto 36px;
+}
+.insta-item {
+	position: relative;
+	aspect-ratio: 1 / 1;
+	overflow: hidden;
+	display: block;
+	background: var(--color-line);
+}
+.insta-item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform .5s var(--ease);
+}
+.insta-item:hover img { transform: scale(1.07); }
+.insta-item-overlay {
+	position: absolute;
+	inset: 0;
+	background: rgba(42, 30, 20, 0);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background .35s ease;
+}
+.insta-item:hover .insta-item-overlay {
+	background: rgba(42, 30, 20, .42);
+}
+.insta-item-overlay .icon-instagram {
+	font-family: var(--font-en);
+	font-size: .8rem;
+	font-weight: 600;
+	letter-spacing: .08em;
+	color: rgba(242, 240, 235, 0);
+	transition: color .35s ease;
+}
+.insta-item:hover .insta-item-overlay .icon-instagram {
+	color: rgba(242, 240, 235, .9);
+}
+.insta-cta .icon-instagram {
+	font-size: .65rem;
+	font-weight: 600;
+}
+.insta-cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-family: var(--font-en);
+	font-size: .8rem;
+	letter-spacing: .14em;
+	color: var(--color-muted);
+	text-decoration: none;
+	border-bottom: 1px solid var(--color-line);
+	padding-bottom: 3px;
+	transition: color .3s ease, border-color .3s ease;
+}
+.insta-cta:hover {
+	color: var(--color-accent);
+	border-color: var(--color-accent);
+}
+@media (max-width: 768px) {
+	.insta-section { padding: 56px var(--pad-side); }
+	.insta-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 480px) {
+	.insta-grid { grid-template-columns: repeat(3, 1fr); gap: 2px; }
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="お問い合わせ画面のUIを示す自主制作デモです。入力内容は送信・保存されません。">
+  <title>お問い合わせ画面の設計例 | 小田原漆器 コンセプトスタディ</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="canonical" href="https://rnportfolio.xsrv.jp/odawara-lacquerware-fixed/contact.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&amp;family=Noto+Serif+JP:wght@300;400&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css?v=20260727-1">
+  <link rel="stylesheet" href="css/contact.css?v=20260727-1">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rnportfolio.xsrv.jp/odawara-lacquerware-fixed/contact.html">
+  <meta property="og:title" content="お問い合わせ画面の設計例 | 小田原漆器 コンセプトスタディ">
+  <meta property="og:description" content="お問い合わせ画面のUIを示す自主制作デモです。入力内容は送信されません。">
+  <meta property="og:image" content="https://rnportfolio.xsrv.jp/odawara-lacquerware-fixed/images/hero-top.webp?v=20260727-1">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "お問い合わせ画面の設計例 | 小田原漆器 コンセプトスタディ",
+    "url": "https://rnportfolio.xsrv.jp/odawara-lacquerware-fixed/contact.html",
+    "description": "お問い合わせ画面のUIを示す自主制作デモです。入力内容は送信されません。",
+    "inLanguage": "ja",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "小田原漆器 コンセプトスタディ",
+      "url": "https://rnportfolio.xsrv.jp/odawara-lacquerware-fixed/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <aside id="demo-notice" class="demo-notice" tabindex="-1" aria-label="デモサイトについて"><strong>自主制作のコンセプトサイトです。</strong> 特定の店舗・団体・職人を表すものではありません。予約・購入・送信・SNS等の外部連携は動作しません。</aside>
+  <a class="skip-link" href="#main-content">本文へ移動</a>
+<div class="main">
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo-link">
+        <span class="site-brand" aria-label="小田原漆器 コンセプトスタディ"><span class="site-brand-ja">小田原漆器</span><span class="site-brand-en">CONCEPT STUDY</span></span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">top</a></li>
+          <li><a href="place.html">place</a></li>
+          <li><a href="craft.html">craft</a></li>
+          <li><a href="visit.html">visit</a></li>
+        </ul>
+      </nav>
+      <a href="collection.html" class="cta-btn">器のデザインを見る</a>
+      <button type="button" class="hamburger" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" aria-hidden="true" inert>
+    <button type="button" class="mobile-menu-close" aria-label="メニューを閉じる">✕</button>
+    <a href="index.html">top</a>
+    <a href="place.html">place</a>
+    <a href="craft.html">craft</a>
+    <a href="visit.html">visit</a>
+    <a href="collection.html" class="cta-btn">器のデザインを見る</a>
+  </div>
+
+  <main id="main-content">
+    <div class="sub-hero"><h1>お問い合わせ</h1><p>フォームUIのデザイン例</p></div>
+    <div class="sub-content fade-in">
+      <h2>お問い合わせフォーム</h2>
+      <p>画面設計を確認するためのフォームUIです。自主制作の架空デモのため、入力内容は送信されません。</p>
+
+      <form class="contact-form" onsubmit="return false;">
+        <div class="form-group"><label for="name">お名前 *</label><input type="text" id="name" placeholder="山田 太郎" required></div>
+        <div class="form-group"><label for="email">メールアドレス *</label><input type="email" id="email" placeholder="example@email.com" required></div>
+        <div class="form-group"><label for="phone">電話番号</label><input type="tel" id="phone" placeholder="090-0000-0000"></div>
+        <div class="form-group"><label for="category">お問い合わせ種別</label>
+          <select id="category">
+            <option value="">選択してください</option>
+            <option value="general">一般的なお問い合わせ</option>
+            <option value="visit">見学・体験について（想定）</option>
+            <option value="repair">修理について（想定）</option>
+            <option value="purchase">購入について（想定）</option>
+            <option value="press">取材・メディア掲載</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+        <div class="form-group"><label for="message">お問い合わせ内容 *</label><textarea id="message" placeholder="お気軽にお問い合わせください。" required></textarea></div>
+        <button type="submit" class="form-submit" disabled data-demo-disabled aria-describedby="demo-notice" title="自主制作デモのため送信できません">送信機能はデモです</button>
+      </form>
+
+      <h2 class="contact-other-heading">連絡先UIの表示例</h2>
+      <table class="simple-table">
+        <tr><th>電話</th><td>未設定（電話受付はありません）</td></tr>
+        <tr><th>メール</th><td>未設定（フォーム入力も送信されません）</td></tr>
+        <tr><th>所在地</th><td>未設定（実在する施設ではありません）</td></tr>
+      </table>
+    </div>
+
+    <section class="cta-section">
+      <div class="cta-section-inner">
+        <h2>実際に見て、触れて、知ってください。</h2>
+        <p>暮らしの中ではぐくまれてきた小田原漆器の歩みをご紹介します。</p>
+        <p>自主制作のデザインとして、架空の商品構成をご覧いただけます。</p>
+        <a href="collection.html" class="cta-btn">器のデザインを見る</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <p class="footer-brand-name">小田原漆器 コンセプトスタディ</p>
+        <p>小田原漆器を題材にした、<br>自主制作のコンセプトスタディです。</p>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-col">
+          <p class="footer-heading">Menu</p>
+          <ul>
+            <li><a href="index.html">Top</a></li>
+            <li><a href="place.html">Place</a></li>
+            <li><a href="craft.html">Craft</a></li>
+            <li><a href="visit.html">Visit</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <p class="footer-heading">About</p>
+          <ul>
+            <li><a href="about.html">サイト概要</a></li>
+            <li><a href="activity.html">活動内容</a></li>
+            <li><a href="experience.html">見学・体験案内</a></li>
+            <li><a href="faq.html">よくある質問</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <p class="footer-heading">Concept Study</p>
+        <ul>
+          <li>自主制作のコンセプトサイトです</li>
+          <li>実在の団体・店舗・販売情報ではありません</li>
+          <li class="footer-contact-link"><a href="about.html">サイト概要を見る →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <span class="footer-copyright">&copy; 2026 Odawara Lacquerware. All rights reserved.</span>
+				<span class="footer-note">架空案件・自主課題制作</span>
+        <div class="footer-legal">
+          <a href="access.html">Access</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="site-policy.html">Site Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script src="js/script.js?v=20260727-1"></script>
+</body>
+</html>

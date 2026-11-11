@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#D63426">
+<meta name="format-detection" content="telephone=no">
+
+<meta name="description" content="小規模事業者・店舗・個人ブランド向けに、情報設計・Figma・HTML/CSS/JavaScript実装からWordPressテーマ化まで一貫対応。制作会社の外部パートナー案件もご相談いただけます。">
+<meta name="author" content="Riku">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<title>Riku｜世界観を大切にしたWordPressサイト制作</title>
+
+<link rel="canonical" href="https://rnportfolio.xsrv.jp/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Riku｜Web Design &amp; Front-end">
+<meta property="og:title" content="Riku｜世界観を大切にしたWordPressサイト制作">
+<meta property="og:description" content="小規模事業者・店舗・個人ブランド向けに、設計・静的実装からWordPressテーマ化まで一貫して制作します。">
+<meta property="og:url" content="https://rnportfolio.xsrv.jp/">
+<meta property="og:image" content="https://rnportfolio.xsrv.jp/images/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Riku｜Webデザイン・フロントエンド制作ポートフォリオ">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@torisugari0110">
+<meta name="twitter:creator" content="@torisugari0110">
+<meta name="twitter:title" content="Riku｜Web Design &amp; Front-end">
+<meta name="twitter:description" content="世界観を大切にしたWebサイトを、設計・静的実装からWordPressテーマ化まで。">
+<meta name="twitter:image" content="https://rnportfolio.xsrv.jp/images/og.png">
+<meta name="twitter:image:alt" content="Riku｜Webデザイン・フロントエンド制作ポートフォリオ">
+
+<link rel="stylesheet" href="css/common.css?v=20261111-icons-1">
+<link rel="stylesheet" href="css/style.css?v=20261111-skills-1">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23D63426'/></svg>">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+<!-- Structured Data: Person + Service -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://rnportfolio.xsrv.jp/#person",
+      "name": "Riku",
+      "url": "https://rnportfolio.xsrv.jp/",
+      "image": "https://rnportfolio.xsrv.jp/images/about_myphoto.webp",
+      "jobTitle": "Webデザイナー / フロントエンド・WordPressテーマ制作者",
+      "address": { "@type": "PostalAddress", "addressRegion": "千葉県", "addressCountry": "JP" },
+      "sameAs": [
+        "https://x.com/torisugari0110",
+        "https://www.instagram.com/riku_designworks/",
+        "https://github.com/rn1052289-oss"
+      ],
+      "knowsAbout": ["Figma","Webデザイン","HTML/CSS","JavaScript","レスポンシブ実装","WordPressテーマ制作","PHP"]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://rnportfolio.xsrv.jp/#service",
+      "name": "Webサイト制作・WordPressテーマ実装",
+      "description": "小規模事業者・店舗・個人ブランド向けのWebサイト制作。設計・静的実装からWordPressテーマ化まで対応。",
+      "url": "https://rnportfolio.xsrv.jp/",
+      "image": "https://rnportfolio.xsrv.jp/images/og.png",
+      "areaServed": { "@type": "Country", "name": "Japan" },
+      "provider": { "@id": "https://rnportfolio.xsrv.jp/#person" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://rnportfolio.xsrv.jp/#website",
+      "url": "https://rnportfolio.xsrv.jp/",
+      "name": "Riku｜Web Design & Front-end",
+      "inLanguage": "ja-JP",
+      "publisher": { "@id": "https://rnportfolio.xsrv.jp/#person" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+<div class="grain" aria-hidden="true"></div>
+<header class="header">
+		<div class="header__inner"><a href="index.html" class="header__logo"><span class="header__logo-dot" aria-hidden="true"></span> Riku</a>
+				<nav aria-label="グローバルナビゲーション">
+						<ul class="nav__list">
+								<li><a href="index.html" class="nav__link nav__link--active" aria-current="page">Home</a></li>
+								<li><a href="works.html" class="nav__link">Works</a></li>
+								<li><a href="pricing.html" class="nav__link">Price</a></li>
+								<li><a href="about.html" class="nav__link">About</a></li>
+								<li><a href="contact.html" class="nav__link nav__link--cta">Contact</a></li>
+						</ul>
+				</nav>
+				<button type="button" class="hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-nav"><span class="hamburger__line" aria-hidden="true"></span><span class="hamburger__line" aria-hidden="true"></span><span class="hamburger__line" aria-hidden="true"></span></button>
+		</div>
+</header>
+<nav class="mobile-nav" id="mobile-nav" aria-label="モバイルメニュー"><a href="index.html" class="mobile-nav__link" aria-current="page">Home</a><a href="works.html" class="mobile-nav__link">Works</a><a href="pricing.html" class="mobile-nav__link">Price</a><a href="about.html" class="mobile-nav__link">About</a><a href="contact.html" class="mobile-nav__link mobile-nav__link--cta">Contact</a></nav>
+
+<main id="main">
+<section class="hero">
+		<div class="reg-mark reg-mark--tl" aria-hidden="true"></div>
+		<div class="reg-mark reg-mark--tr" aria-hidden="true"></div>
+		<div class="reg-mark reg-mark--bl" aria-hidden="true"></div>
+		<div class="reg-mark reg-mark--br" aria-hidden="true"></div>
+		<div class="hero__shapes" aria-hidden="true">
+				<div class="hero__shape hero__shape--circle overprint"></div>
+				<div class="hero__shape hero__shape--triangle overprint"></div>
+				<div class="hero__shape hero__shape--square overprint" data-rotate="12deg"></div>
+				<div class="hero__shape hero__shape--overprint"></div>
+		</div>
+		<div class="container hero__content">
+				<div class="stamp hero__label">WEB / FRONT-END / WORDPRESS</div>
+				<h1 class="hero__title"> <span class="hero__title-line"><span>その世界観を、</span></span> <span class="hero__title-line"><span><em class="hero__accent">Web</em>で</span></span> <span class="hero__title-line"><span>届ける。</span></span> </h1>
+				<p class="hero__desc">小規模事業者・店舗・個人ブランドに向けて、情報設計からデザイン、静的コーディング、WordPressテーマ化まで一貫対応。見た目だけで終わらない、伝わりやすく更新しやすいサイトをつくります。</p>
+				<div class="hero__cta"> <a href="contact.html?service=other&amp;source=home-hero#contact-intro" class="btn btn--red btn--large">制作について相談する <span class="btn__arrow" aria-hidden="true">→</span></a> <a href="works-shumatsu-coffee.html" class="btn btn--large">WordPress事例を見る <span class="btn__arrow" aria-hidden="true">→</span></a> </div>
+				<ul class="hero__trust">
+						<li class="hero__trust-item"><span class="hero__trust-icon" aria-hidden="true">✓</span>設計からWordPress化まで一貫</li>
+						<li class="hero__trust-item"><span class="hero__trust-icon" aria-hidden="true">✓</span>PC・スマホの表示と導線を確認</li>
+						<li class="hero__trust-item"><span class="hero__trust-icon" aria-hidden="true">✓</span>制作会社との協業も相談可</li>
+				</ul>
+		</div>
+		<div class="hero__scroll" aria-hidden="true"><span class="hero__scroll-text">Scroll</span>
+				<div class="hero__scroll-line"></div>
+		</div>
+</section>
+
+<!-- Services Overview Section -->
+<section class="services section" aria-labelledby="services-title">
+		<div class="container">
+				<div class="stamp reveal">01 — Services</div>
+				<h2 id="services-title" class="services__title reveal reveal--d1">事業と運用に<span class="keep-together">合わせた<span style="color:#A5281F">制作</span></span></h2>
+				<p class="services__lead reveal reveal--d2">届けたい相手、伝える内容、公開後の更新方法まで整理し、事業に合う制作範囲をご提案します。</p>
+				<div class="services__grid">
+						<div class="service-card reveal">
+								<div class="service-card__icon" aria-hidden="true">
+										<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#D63426" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+												<rect x="4" y="4" width="24" height="18" rx="2"/>
+												<path d="M4 10h24"/>
+												<circle cx="8" cy="7" r="1" fill="#D63426" stroke="none"/>
+												<circle cx="11" cy="7" r="1" fill="#D63426" stroke="none"/>
+												<path d="M8 16h6M8 19h10"/>
+												<rect x="18" y="14" width="6" height="6" rx="1" opacity=".3" fill="#D63426" stroke="none"/>
+										</svg>
+								</div>
+								<div class="service-card__num">01</div>
+								<h3 class="service-card__title">LP制作</h3>
+								<p class="service-card__desc">商品・サービスの魅力を1ページに整理し、問い合わせ・予約・申込みまでの導線を設計。Figmaからレスポンシブ実装まで対応します。</p>
+								<div class="service-card__price">目安 16.5〜33万円（税込）</div>
+								<div class="service-card__price-note">税抜15〜30万円 / ページ量・素材・フォーム仕様により変動</div>
+								<div class="service-card__tags">
+										<span>情報設計</span><span>Figma</span><span>レスポンシブ実装</span>
+								</div>
+						</div>
+						<div class="service-card reveal reveal--d1">
+								<div class="service-card__icon" aria-hidden="true">
+										<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#D63426" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+												<rect x="6" y="2" width="20" height="28" rx="2"/>
+												<path d="M10 8h12M10 12h8M10 16h10"/>
+												<rect x="10" y="21" width="12" height="4" rx="2" fill="#D63426" opacity=".2" stroke="none"/>
+												<path d="M13 23h6" stroke="#D63426" stroke-width="1.2"/>
+										</svg>
+								</div>
+								<div class="service-card__num">02</div>
+								<h3 class="service-card__title">小規模サイト制作</h3>
+								<p class="service-card__desc">店舗や個人ブランドのらしさと、来店・相談に必要な情報を複数ページで整理。世界観を保ちながら迷いにくいサイトに仕上げます。</p>
+								<div class="service-card__price">目安 33〜66万円（税込）</div>
+								<div class="service-card__price-note">税抜30〜60万円 / ページ数・原稿・必要機能により変動</div>
+								<div class="service-card__tags">
+										<span>店舗サイト</span><span>ブランドサイト</span><span>導線設計</span>
+								</div>
+						</div>
+						<div class="service-card reveal reveal--d2">
+								<div class="service-card__icon" aria-hidden="true">
+										<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#D63426" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+												<circle cx="16" cy="16" r="12"/>
+												<path d="M16 4v4M16 24v4M4 16h4M24 16h4"/>
+												<path d="M12 12l2 4h4l-1 3 3 1" stroke-width="1.3"/>
+										</svg>
+								</div>
+								<div class="service-card__num">03</div>
+								<h3 class="service-card__title">WordPressサイト制作</h3>
+								<p class="service-card__desc">静的デザインをオリジナルテーマへ。更新したい情報と運用する人を整理し、公開後も育てていける構成を目指します。</p>
+								<div class="service-card__price">目安 55〜99万円（税込）</div>
+								<div class="service-card__price-note">税抜50〜90万円 / 投稿機能・フォーム・公開環境により変動</div>
+								<div class="service-card__tags">
+										<span>オリジナルテーマ</span><span>PHP</span><span>更新設計</span>
+								</div>
+						</div>
+				</div>
+				<div class="fit-for reveal">
+						<h3 class="fit-for__title">事業者の方も、制作会社の方も</h3>
+						<div class="fit-for__grid">
+								<div class="fit-for__card">
+									<div class="fit-for__tag">世界観まで伝えたい</div>
+									<p class="fit-for__desc">お店やブランドらしい空気感と、問い合わせ・来店につながる情報設計を両立したい方。</p>
+								</div>
+								<div class="fit-for__card">
+									<div class="fit-for__tag">自分たちで更新したい</div>
+									<p class="fit-for__desc">更新する情報と運用方法を整理し、WordPressで育てていけるサイトをつくりたい方。</p>
+								</div>
+								<div class="fit-for__card">
+									<div class="fit-for__tag">実装パートナーを探している</div>
+									<p class="fit-for__desc">Figmaからのコーディングや、静的HTMLのWordPressテーマ化を任せたい制作会社・ディレクターの方。</p>
+								</div>
+						</div>
+				</div>
+				<div class="partner-panel reveal">
+						<div>
+								<div class="partner-panel__eyebrow">制作会社との協業</div>
+								<h3 class="partner-panel__title">制作会社・Webディレクター<span class="keep-together">の方へ</span></h3>
+								<p class="partner-panel__text">支給FigmaからのHTML/CSS/JavaScript実装、レスポンシブ対応、WordPressテーマ化、既存ページ改修をご相談いただけます。スポット・継続ともに、仕様と連携方法を確認して対応します。</p>
+						</div>
+						<a href="contact.html?service=partner&amp;source=home-partner#contact-intro" class="btn btn--red">外部パートナーを相談する <span class="btn__arrow" aria-hidden="true">→</span></a>
+				</div>
+		</div>
+</section>
+
+<section class="works section" aria-labelledby="works-title">
+		<div class="container">
+				<div class="works__header">
+						<div>
+								<div class="stamp reveal">02 — Selected Works</div>
+								<h2 id="works-title" class="works__title reveal reveal--d1">Featured <span style="color:#A5281F">Projects</span></h2>
+						</div>
+						<a href="works.html?type=app#works-list-title" class="btn reveal reveal--d2">Webアプリを見る <span class="btn__arrow" aria-hidden="true">→</span></a><a href="works.html" class="btn reveal reveal--d2">All Works <span class="btn__arrow" aria-hidden="true">→</span></a></div>
+				<div class="works__grid">
+						<a href="works-shumatsu-coffee.html" class="work-card work-card--featured reveal">
+								<div class="work-card__image">
+										<div class="work-card__placeholder" style="background:linear-gradient(135deg,#E8E2D6,#DDD6C8)"><img src="images/firstview1.webp" alt="週末珈琲便のトップページ" loading="lazy" decoding="async" width="1600" height="900"></div>
+										<div class="work-card__ink" aria-hidden="true"></div>
+										<span class="work-card__badge">自主制作 / 架空案件</span>
+								<div class="work-card__hover-info"><span class="work-card__hover-cat">WordPress Theme</span><span class="work-card__hover-title">Case Study →</span></div>
+								</div>
+							<div class="work-card__info"><span class="work-card__cat">WordPress Theme / Concept Work</span>
+										<h3 class="work-card__title">週末珈琲便</h3>
+									<p class="work-card__desc">全8ページの静的実装を、共通パーツとページ別テンプレートを備えたWordPressテーマへ変換した自主制作。</p>
+								</div>
+						</a>
+						<a href="works-kaze-coffee.html" class="work-card reveal reveal--d2">
+								<div class="work-card__image">
+										<div class="work-card__placeholder" style="background:linear-gradient(135deg,#D8E0D0,#C8D4BC)"><img src="images/firstview.webp" alt="KAZE COFFEEのトップページ" loading="lazy" decoding="async" width="1600" height="1000"></div>
+										<div class="work-card__ink" aria-hidden="true"></div>
+										<span class="work-card__badge">自主制作 / 架空案件</span>
+										<div class="work-card__hover-info"><span class="work-card__hover-cat">Brand Website</span><span class="work-card__hover-title">Case Study →</span></div>
+								</div>
+								<div class="work-card__info"><span class="work-card__cat">Brand Website</span>
+										<h3 class="work-card__title">KAZE COFFEE</h3>
+										<p class="work-card__desc">ペルソナ設定から配色・フォント選定まで論理的に設計したカフェサイト。</p>
+								</div>
+						</a>
+						<a href="works-salon.html" class="work-card reveal reveal--d4">
+								<div class="work-card__image">
+										<div class="work-card__placeholder" style="background:linear-gradient(135deg,#2C2520,#BF9B6F)"><img src="images/salon-demo-fv-v2.webp" alt="NAGI HAIR完成デモのファーストビュー（画面内写真はAI生成）" loading="lazy" decoding="async" width="1440" height="900"></div>
+										<div class="work-card__ink" aria-hidden="true"></div>
+										<span class="work-card__badge">自主制作 / 架空案件</span>
+										<div class="work-card__hover-info"><span class="work-card__hover-cat">Landing Page</span><span class="work-card__hover-title">Case Study →</span></div>
+								</div>
+								<div class="work-card__info"><span class="work-card__cat">Landing Page</span>
+										<h3 class="work-card__title">個人サロン デモサイト</h3>
+										<p class="work-card__desc">美容室・個人サロン向けに制作した1ページデモ。Figmaデザインから実装まで一貫対応。</p>
+								</div>
+						</a>
+				</div>
+		</div>
+</section>
+<section class="about-prev section" aria-labelledby="aboutprev-title">
+		<div class="container">
+				<div class="stamp reveal">03 — About Me</div>
+				<h2 id="aboutprev-title" class="visually-hidden">About</h2>
+				<div class="about-prev__kine" style="margin-top:3rem"> <span class="k-word"><span>事業の</span></span><span class="k-word"><span class="k-red">「伝えたい」</span></span><span class="k-word"><span>を、</span></span><br>
+						<span class="k-word"><span>Webで</span></span><span class="k-word"><span class="k-blue">カタチ</span></span><span class="k-word"><span>にする。</span></span> </div>
+				<div class="about-prev__sub reveal reveal--d2">
+						<div class="about-prev__stat">
+								<div class="about-prev__stat-num" style="font-size:clamp(1.8rem,3vw,3rem)">Design → Code</div>
+								<div class="about-prev__stat-label">Figma / HTML / CSS / JavaScript</div>
+						</div>
+						<div class="about-prev__stat">
+								<div class="about-prev__stat-num" style="font-size:clamp(1.8rem,3vw,3rem)">WordPress</div>
+								<div class="about-prev__stat-label">静的サイトからテーマ化</div>
+						</div>
+						<div class="about-prev__stat">
+								<div class="about-prev__stat-num" style="font-size:clamp(1.8rem,3vw,3rem)">Partner Work</div>
+								<div class="about-prev__stat-label">実装・テーマ化・継続改修</div>
+						</div>
+				</div>
+				<a href="about.html" class="btn reveal reveal--d3" style="margin-top:3rem">Read More <span class="btn__arrow" aria-hidden="true">→</span></a> </div>
+</section>
+<section class="skills section" aria-labelledby="skills-title">
+		<div class="container">
+				<div class="stamp reveal">04 — Skills</div>
+				<h2 id="skills-title" class="visually-hidden">Skills</h2>
+				<div class="skills__grid" style="margin-top:3rem">
+<div class="skill-card"><div class="skill-card__num">01</div><h3 class="skill-card__title">デザイン・情報設計</h3><div class="skill-card__tools"><span class="skill-card__tool">Figma</span><span class="skill-card__tool">UI設計</span><span class="skill-card__tool">情報設計</span></div></div>
+<div class="skill-card"><div class="skill-card__num">02</div><h3 class="skill-card__title">フロントエンド</h3><div class="skill-card__tools"><span class="skill-card__tool">HTML</span><span class="skill-card__tool">CSS</span><span class="skill-card__tool">JavaScript</span><span class="skill-card__tool">レスポンシブ</span></div></div>
+<div class="skill-card"><div class="skill-card__num">03</div><h3 class="skill-card__title">WordPressテーマ</h3><div class="skill-card__tools"><span class="skill-card__tool">WordPress</span><span class="skill-card__tool">PHP</span><span class="skill-card__tool">テンプレート設計</span></div></div>
+<div class="skill-card"><div class="skill-card__num">04</div><h3 class="skill-card__title">バックエンド</h3><div class="skill-card__tools"><span class="skill-card__tool">Laravel</span><span class="skill-card__tool">PHP</span><span class="skill-card__tool">MySQL</span><span class="skill-card__tool">REST API</span></div></div>
+<div class="skill-card"><div class="skill-card__num">05</div><h3 class="skill-card__title">テスト・既存コードの改修</h3><div class="skill-card__tools"><span class="skill-card__tool">PHPUnit</span><span class="skill-card__tool">Docker</span><span class="skill-card__tool">Git / GitHub</span><span class="skill-card__tool">Issue / PR</span></div></div>
+<div class="skill-card"><div class="skill-card__num">06</div><h3 class="skill-card__title">AIツールの活用</h3><div class="skill-card__tools"><span class="skill-card__tool">ChatGPT</span><span class="skill-card__tool">Codex</span><span class="skill-card__tool">Claude Code</span></div></div>
+</div><a href="about.html#skills-detail-title" class="btn" style="margin-top:2rem">スキルの詳細を見る <span class="btn__arrow" aria-hidden="true">→</span></a></div>
+</section>
+<section class="cta section" aria-labelledby="cta-title">
+		<div class="container">
+					<h2 id="cta-title" class="cta__title reveal"><span class="keep-together">伝わるデザインを、</span> <span class="cta-red keep-together">確かな実装で。</span></h2>
+					<p class="cta__sub reveal reveal--d1">サイト制作や改修のご相談を受け付けています。目的と必要な機能を伺い、構成・進め方・お見積もりをご提案します。</p>
+					<a href="contact.html?service=other&amp;source=home-footer#contact-intro" class="btn btn--red reveal reveal--d2">案件について相談する <span class="btn__arrow" aria-hidden="true">→</span></a> </div>
+</section>
+</main>
+<footer class="footer">
+		<div class="footer__inner">
+				<div>
+						<div class="footer__brand"><span style="display:inline-block;width:8px;height:8px;background:#D63426;border-radius:50%;margin-right:.4rem" aria-hidden="true"></span>Riku</div>
+							<p class="footer__tagline">世界観を大切にしたWebサイトを、設計からWordPressテーマ化まで。</p>
+				</div>
+				<nav class="footer__links" aria-label="フッターナビゲーション"><a href="index.html" class="footer__link">Home</a><a href="works.html" class="footer__link">Works</a><a href="pricing.html" class="footer__link">Price</a><a href="about.html" class="footer__link">About</a><a href="contact.html" class="footer__link">Contact</a><a href="privacy.html" class="footer__link">Privacy</a><a href="https://x.com/torisugari0110" target="_blank" rel="noopener noreferrer" class="footer__link footer__link--icon" aria-label="X (旧Twitter) を新しいタブで開く"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+  <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+</svg></a><a href="https://www.instagram.com/riku_designworks/" target="_blank" rel="noopener noreferrer" class="footer__link footer__link--icon" aria-label="Instagram を新しいタブで開く"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+  <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+</svg></a><a href="https://github.com/rn1052289-oss" target="_blank" rel="noopener noreferrer" class="footer__link footer__link--icon" aria-label="GitHub を新しいタブで開く"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+</svg></a></nav>
+		</div>
+		<div class="footer__bottom"><span>© 2026 Riku.</span><span>Designed &amp; Coded by Riku</span></div>
+</footer>
+<script src="js/common.js?v=20260719-2" defer></script>
+<script src="js/index.js?v=20260719-2" defer></script>
+<!-- Bootstrap Icons v1.13.1 — https://github.com/twbs/icons
+The MIT License (MIT)
+
+Copyright (c) 2019-2024 The Bootstrap Authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+</body>
+</html>

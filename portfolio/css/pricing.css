@@ -1,0 +1,200 @@
+/* PRICING.CSS — 料金ページ専用スタイル */
+
+/* ===== ページヒーロー（works.cssから移植） ===== */
+.page-hero {
+		padding: calc(var(--header-h) + var(--section-y)) 0 clamp(2rem, 4vw, 3rem);
+		position: relative
+}
+.page-hero__title {
+		font-size: clamp(2.2rem, 7vw, 7rem);
+		overflow: hidden
+}
+.page-hero__title span {
+		display: inline-block;
+		transform: none
+}
+.page-hero__sub {
+		font-size: clamp(.92rem, 1.1vw, 1rem);
+		max-width: min(550px, 100%);
+		margin-top: clamp(1rem, 2vw, 1.5rem);
+		opacity: .76
+}
+
+/* ===== 料金テーブル ===== */
+.pricing-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: clamp(1.25rem, 2.5vw, 2rem);
+		margin-top: clamp(2rem, 4vw, 3rem)
+}
+.pricing-card {
+		border: 1.5px solid rgba(45, 41, 38, .12);
+		padding: clamp(1.75rem, 3vw, 2.5rem) clamp(1.25rem, 2.5vw, 2rem);
+		position: relative;
+		transition: border-color .3s
+}
+.pricing-card:hover {
+		border-color: rgba(214, 52, 38, .4)
+}
+.pricing-card--main {
+		border-color: #D63426;
+		background: rgba(214, 52, 38, .04)
+}
+.pricing-card__badge {
+		position: absolute;
+		top: -1px;
+		left: clamp(1.25rem, 2.5vw, 2rem);
+		background: #D63426;
+		color: #fff;
+		font-size: .7rem;
+		font-family: 'Space Grotesk', sans-serif;
+		letter-spacing: .1em;
+		padding: .3rem .8rem
+}
+.pricing-card__num {
+		font-family: 'Space Grotesk', sans-serif;
+		font-size: .8rem;
+		color: var(--muted-text);
+		margin-bottom: .8rem
+}
+.pricing-card__name {
+		font-family: 'Space Grotesk', sans-serif;
+		font-size: 1.1rem;
+		font-weight: 700;
+		margin-bottom: 1.2rem;
+		line-height: 1.4
+}
+.pricing-card__price {
+		font-family: 'Space Grotesk', sans-serif;
+		font-size: clamp(2rem, 4vw, 2.8rem);
+		font-weight: 700;
+		color: #D63426;
+		margin-bottom: .3rem;
+		line-height: 1.25;
+		overflow-wrap: anywhere
+}
+.pricing-card__price-note {
+		font-size: .8rem;
+		color: var(--muted-text);
+		margin-bottom: 1.5rem
+}
+.pricing-card__desc {
+		font-size: .9rem;
+		line-height: 1.8;
+		color: var(--muted-text);
+		margin-bottom: 1.5rem
+}
+.pricing-card__list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: .6rem
+}
+.pricing-card__list li {
+		font-size: .85rem;
+		padding-left: 1.2rem;
+		position: relative;
+		opacity: .85
+}
+.pricing-card__list li::before {
+		content: '✓';
+		position: absolute;
+		left: 0;
+		color: #D63426;
+		font-weight: 700
+}
+.pricing-note {
+		margin-top: clamp(2rem, 4vw, 2.5rem);
+		padding: clamp(1.2rem, 2.5vw, 1.5rem) clamp(1.2rem, 2.5vw, 2rem);
+		border-left: 3px solid #D63426;
+		font-size: clamp(.85rem, 1vw, .9rem);
+		color: var(--muted-text);
+		line-height: 1.8
+}
+
+/* ===== Process（works.cssから移植） ===== */
+.process {
+		padding: var(--section-y) 0
+}
+.process__title {
+		font-family: 'Space Grotesk', sans-serif;
+		font-size: clamp(1.8rem, 4vw, 3rem);
+		font-weight: 700;
+		margin-bottom: clamp(2.5rem, 6vw, 5rem)
+}
+.process__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		gap: clamp(1rem, 1.8vw, 1.5rem);
+		counter-reset: process-step
+}
+.process__step {
+		padding: clamp(1.75rem, 3vw, 2.5rem) clamp(1.1rem, 2vw, 1.5rem);
+		border: 1.5px solid #2D2926;
+		position: relative;
+		transition: border-color .4s ease
+}
+.process__step:hover {
+		border-color: #D63426
+}
+.process__step-num {
+		font-family: 'DM Mono', monospace;
+		font-size: .6rem;
+		letter-spacing: .2em;
+		color: var(--accent-text);
+		margin-bottom: 1.5rem;
+		opacity: 1
+}
+.process__step-title {
+		font-family: 'Space Grotesk', sans-serif;
+		font-size: .95rem;
+		font-weight: 600;
+		margin-bottom: .8rem
+}
+.process__step-desc {
+		font-size: .82rem;
+		line-height: 1.8;
+		color: var(--muted-text)
+}
+
+/* ===== FAQ ===== */
+.faq-list {
+		margin-top: clamp(2rem, 4vw, 3rem);
+		display: flex;
+		flex-direction: column;
+		gap: clamp(1rem, 2vw, 1.5rem)
+}
+.faq-item {
+		border-bottom: 1px solid rgba(45, 41, 38, .1);
+		padding-bottom: 1.5rem
+}
+.faq-q {
+		font-family: 'Space Grotesk', sans-serif;
+		font-size: 1rem;
+		font-weight: 700;
+		margin-bottom: .8rem;
+		display: flex;
+		gap: 1rem;
+		align-items: flex-start
+}
+.faq-q::before {
+		content: 'Q.';
+		color: var(--accent-text);
+		flex-shrink: 0
+}
+.faq-a {
+		font-size: .9rem;
+		line-height: 1.8;
+		color: var(--muted-text);
+		padding-left: 2rem
+}
+
+/* ===== Responsive =====
+   pricing-grid / process__grid は auto-fit で自動追従 */
+@media(max-width:767px) {
+		.faq-a {
+				padding-left: 0
+		}
+}

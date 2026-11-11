@@ -1,0 +1,1870 @@
+/* ================================================
+   common.css
+   共通スタイル（リセット・header・footer・共通パーツ）
+
+   【このファイルの役割】
+   ・CSSリセット（ブラウザごとの差をなくす）
+   ・body の基本フォント・色・背景色
+   ・全ページ共通のセクションラベル、見出し、テキストリンク
+   ・header と footer のデザイン
+   ・ハンバーガーメニュー（SP用）
+   ・SPレスポンシブの共通部分
+
+   【カラーパレット（湯煙と格子）】
+   白磁 #FAF7F2 … ベース背景
+   濃鼠 #3D3D3D … ダークセクション背景
+   煉瓦 #A23B2C … CTAボタン専用
+   蜂蜜 #BF8A24 … ラベル・リンク・装飾線
+   炭   #2D2D2D … 本文テキスト
+   ================================================ */
+
+
+/* ================================
+   リセット
+   ================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Shippori Mincho", "Noto Serif JP", "游明朝", "Yu Mincho", serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #2d2d2d;
+  background-color: #faf7f2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+html.is-menu-open,
+body.is-menu-open {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+h1,
+h2,
+h3 {
+  line-break: strict;
+  word-break: normal;
+  overflow-wrap: normal;
+  text-wrap: balance;
+}
+
+p,
+li,
+dd {
+  line-break: strict;
+  text-wrap: pretty;
+}
+
+.u-keep {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+a:focus-visible {
+  outline: 2px solid #bf8a24;
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 2000;
+  min-height: 44px;
+  padding: 10px 16px;
+  color: #faf7f2;
+  background: #2d2d2d;
+  transform: translateY(-140%);
+  transition: transform 0.18s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+button:focus-visible {
+  outline: 2px solid #bf8a24;
+  outline-offset: 2px;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+em {
+  font-style: italic;
+}
+
+
+/* ================================
+   共通セクションラベル（01 ── ABOUT）
+   ================================
+   蜂蜜色 #BF8A24 を使用。
+   煉瓦色はCTA専用なので、装飾ラベルには使わない。
+   ================================ */
+.section-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.section-label-num {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: #bf8a24;
+}
+
+.section-label-line {
+  display: inline-block;
+  width: 60px;
+  height: 1px;
+  background-color: #bf8a24;
+  margin: 0 10px;
+}
+
+.section-label-en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #bf8a24;
+}
+
+/* 暗い背景用（Tours セクション等） */
+.section-label-light .section-label-num,
+.section-label-light .section-label-en {
+  color: #d4a84b;
+}
+
+.section-label-light .section-label-line {
+  background-color: #d4a84b;
+}
+
+
+/* ================================
+   共通見出し
+   ================================ */
+.section-heading-ja {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 54px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  color: #2d2d2d;
+  margin-bottom: 4px;
+}
+
+.section-heading-light {
+  color: #faf7f2;
+}
+
+.section-heading-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 32px;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  color: #888;
+  margin-bottom: 32px;
+}
+
+.section-heading-sub-light {
+  color: #999;
+}
+
+
+/* ================================
+   共通テキストリンク（READ MORE → など）
+   ================================
+   蜂蜜色 #BF8A24 を使用。
+   ================================ */
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: #bf8a24;
+  transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.text-link:hover {
+  opacity: 1;
+}
+
+/* 矢印部分のスライドアニメーション */
+.text-link-arrow {
+  display: inline-block;
+  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.text-link:hover .text-link-arrow {
+  transform: translateX(4px);
+}
+
+.text-link-light {
+  color: #d4a84b;
+}
+
+
+/* ================================
+   HEADER
+   ================================ */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(250, 247, 242, 0.60);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(45, 45, 45, 0.06);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 92%;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 72px;
+}
+
+.demo-site-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 48px;
+  margin-top: 72px;
+  padding: 10px max(20px, 4vw);
+  color: #faf7f2;
+  background: #3d3d3d;
+  font-size: 13px;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.demo-site-notice a {
+  flex: 0 0 auto;
+  color: #f2cb78;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.demo-site-notice + .sub-breadcrumb {
+  padding-top: 0;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo-icon {
+  width: 64px;
+  height: auto;
+}
+
+/* --- ナビゲーション --- */
+.global-nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.global-nav-list {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.global-nav-list a {
+  font-family: "Cormorant Garamond", serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: #3d3d3d;
+  position: relative;
+  white-space: nowrap;
+}
+
+.global-nav-list a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #bf8a24;
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.global-nav-list a:hover {
+  opacity: 1;
+}
+
+.global-nav-list a:hover::after,
+.global-nav-list a:focus-visible::after,
+.global-nav-list a[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* 現在ページのナビリンク */
+.global-nav-list a[aria-current="page"] {
+  opacity: 1;
+  color: #2d2d2d;
+}
+
+/* --- ヘッダー右側 --- */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  margin-left: 0;
+}
+
+.lang-switch {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 58px;
+  min-height: 44px;
+  justify-content: center;
+  padding: 8px;
+}
+
+.lang-switch:hover {
+  color: #3d3d3d;
+}
+
+.lang-current {
+  font-weight: 600;
+  color: #3d3d3d;
+}
+
+.lang-divider {
+  color: #ccc;
+}
+
+.header-contact-btn {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #faf7f2;
+  background-color: #a23b2c;
+  padding: 12px 28px;
+  border-radius: 2px;
+  /* 底面の影でボタンを「浮かせる」立体感 */
+  box-shadow: 0 3px 0 #6b2419, 0 4px 10px rgba(0, 0, 0, 0.18);
+  transition: background-color 0.18s ease,
+              transform 0.18s ease,
+              box-shadow 0.18s ease,
+              opacity 0.18s ease;
+  /* シマーエフェクト用 */
+  position: relative;
+  overflow: hidden;
+}
+
+.header-contact-btn:hover {
+  background-color: #8a3225;
+  /* hover で底面の影を薄くしてボタンが沈む演出 */
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #6b2419, 0 2px 6px rgba(0, 0, 0, 0.12);
+  opacity: 1;
+}
+
+.header-contact-btn:active {
+  /* クリック瞬間：さらに沈み込む */
+  transform: translateY(3px);
+  box-shadow: 0 0px 0 #6b2419, 0 1px 3px rgba(0, 0, 0, 0.10);
+}
+
+/* --- ハンバーガーボタン --- */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  z-index: 1100;
+}
+
+.hamburger-line {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background-color: #2d2d2d;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn[aria-expanded="true"] .hamburger-line:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+
+/* ================================
+   FOOTER
+   ================================ */
+.site-footer {
+  background-color: #1e1e1e;
+  color: #bbb;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(32px, 5vw, 72px);
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 64px 0 40px;
+}
+
+.footer-brand {
+  flex: 0 1 240px;
+  min-width: 190px;
+}
+
+.footer-logo-icon {
+  width: 120px;
+  height: auto;
+  margin-bottom: 16px;
+  /* ダーク背景で見えるように白く反転 */
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.footer-logo-ja {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #faf7f2;
+}
+
+.footer-logo-en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: #b7b7b7;
+}
+
+.footer-tagline {
+  font-size: 13px;
+  color: #b7b7b7;
+  letter-spacing: 0.06em;
+}
+
+/* --- フッターナビ --- */
+.footer-nav {
+  flex: 1;
+  min-width: 0;
+  max-width: 760px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(108px, 1fr));
+  gap: 24px clamp(24px, 4vw, 56px);
+}
+
+.footer-nav-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+	text-align: center;
+}
+
+.footer-nav-heading {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #BF8A24;
+  margin-bottom: 10px;
+}
+
+.footer-nav-col a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 17px;
+  color: #FAF7F2;
+  transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.footer-nav-col a:hover {
+  color: #faf7f2;
+  opacity: 1;
+}
+
+/* --- フッター最下部 --- */
+.footer-bottom {
+  border-top: 1px solid #333;
+  padding: 18px 0;
+  text-align: center;
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.footer-copyright {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.footer-note {
+  font-size: 12px;
+  color: #b5b5b5;
+}
+
+
+/* ================================
+   タブレット共通レスポンシブ（1024px以下）
+   ================================ */
+@media screen and (max-width: 1024px) {
+
+  .header-logo-icon {
+    width: 56px;
+  }
+
+  /* ヘッダーナビ：文字サイズ・間隔を縮小して収める */
+  .global-nav-list {
+    gap: 20px;
+  }
+
+  .global-nav-list a {
+    font-size: 14px;
+    letter-spacing: 0.12em;
+  }
+
+  .header-actions {
+    gap: 20px;
+  }
+
+  /* 共通見出しタブレット */
+  .section-heading-ja {
+    font-size: 42px;
+  }
+
+  .section-heading-sub {
+    font-size: 26px;
+    margin-bottom: 28px;
+  }
+
+  /* フッター：ブランド＋ナビを縦並びに、ナビは4カラムグリッドに */
+  .footer-inner {
+    flex-direction: column;
+    gap: 36px;
+    padding: 52px 0 36px;
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px 16px;
+    width: 100%;
+    max-width: none;
+  }
+
+  .footer-nav-heading {
+    font-size: 17px;
+    letter-spacing: 0.15em;
+  }
+
+  .footer-nav-col a {
+    font-size: 14px;
+  }
+
+  .footer-nav-col ul {
+    text-align: left;
+  }
+}
+
+
+/* ================================
+   SP共通レスポンシブ（768px以下）
+   ================================ */
+@media screen and (max-width: 768px) {
+
+  .header-inner {
+    height: 56px;
+  }
+
+  .header-logo-icon {
+    width: 60px;
+  }
+
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .global-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    height: 100dvh;
+    background-color: rgba(250, 247, 242, 0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    transform: translateX(100%);
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1050;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .global-nav.is-open {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .global-nav-list {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .global-nav-list a {
+    font-size: 15px;
+  }
+
+  /* SP：現在ページは蜂蜜色でわかりやすく表示 */
+  .global-nav-list a[aria-current="page"] {
+    color: #bf8a24;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    gap: 16px;
+    margin-left: 0;
+  }
+
+  .header-contact-btn {
+    font-size: 13px;
+    padding: 10px 32px;
+  }
+
+  /* 共通見出しSP */
+  .section-heading-ja {
+    font-size: 32px;
+  }
+
+  .section-heading-sub {
+    font-size: 17px;
+    margin-bottom: 24px;
+  }
+
+  /* フッターSP */
+  .footer-inner {
+    flex-direction: column;
+    gap: 28px;
+    padding: 40px 0 28px;
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 16px;
+  }
+
+  .footer-nav-col {
+    min-width: 0;
+  }
+
+  .footer-nav-heading {
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+  }
+
+  .footer-nav-col a {
+    font-size: 13px;
+  }
+
+  .footer-nav-col .footer-lang-link,
+  .footer-nav-col .sns-link-inactive {
+    min-height: 44px;
+    font-size: 13px;
+  }
+
+  .footer-nav-col ul {
+    gap: 4px;
+  }
+}
+
+
+/* ================================
+   言語切り替え用CSS
+   ================================
+   body.is-en のとき、英語用のフォント調整を行う。
+   日本語の明朝体は英語が読みにくいので、
+   英語モードでは本文をサンセリフ寄りにする。
+
+   【この部分の役割】
+   ・英語モード時にテキストのフォントや文字間を微調整
+   ・ヘッダーの JP/EN ボタンの見た目を制御
+   ・言語切り替えの「ふわっと変わる」アニメーション
+
+   【仕組み】
+   JavaScriptが body に .is-en / .is-ja クラスを付け外しする。
+   CSSはそのクラスを見て、スタイルを切り替える。
+   ================================ */
+
+/* --- テキスト切り替え時のなめらかなアニメーション ---
+   data-ja属性を持つ要素が切り替わるときに、
+   0.3秒かけて opacity（透明度）が変化する。
+   ※ パフォーマンスに影響が少ないプロパティだけ使う */
+[data-ja] {
+  transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* --- 英語モード時のフォント調整 ---
+   日本語のShippori Minchoは英語表示に向かないため、
+   英語モードではセリフ系の英語フォントを優先する */
+.is-en .about-body,
+.is-en .discover-card-text,
+.is-en .pause-text,
+.is-en .access-info-item dd,
+.is-en .contact-sub {
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  letter-spacing: 0.02em;
+  line-height: 1.9;
+}
+
+/* --- 英語モードの見出し調整 ---
+   英語は日本語よりも文字幅が広くなるため、
+   見出しの文字間をやや詰める */
+.is-en .section-heading-ja {
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  letter-spacing: 0.04em;
+}
+
+/* --- ヘッダー言語ボタンのアクティブ状態 ---
+   .lang-current が選択中の言語（濃い色）
+   .lang-other が非選択の言語（薄い色）
+   JavaScriptがクリック時にクラスを付け替える */
+.lang-current {
+  font-weight: 600;
+  color: #3d3d3d;
+}
+
+.lang-other {
+  font-weight: 400;
+  color: #888;
+}
+
+/* --- フッター言語リンクのアクティブ表示 --- */
+.footer-lang-link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: #faf7f2;
+  font-size: 17px;
+  transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.footer-lang-link:hover {
+  color: #d4a84b;
+  opacity: 1;
+}
+
+
+/* ================================================
+   下層ページ共通：パンくずリスト (.sub-breadcrumb)
+   ================================================
+   ヘッダー（72px fixed）の直下に表示。
+   padding-top でヘッダー分を確保する。
+   全下層ページで統一。
+   ================================================ */
+.sub-breadcrumb {
+  padding-top: 72px;
+  background-color: #faf7f2;
+  border-bottom: 1px solid rgba(45, 45, 45, 0.06);
+}
+
+.sub-breadcrumb-inner {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 12px 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: #888;
+}
+
+.sub-breadcrumb-link {
+  color: #bf8a24;
+  font-weight: 600;
+  transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sub-breadcrumb-link:hover {
+  opacity: 0.7;
+}
+
+.sub-breadcrumb-sep {
+  margin: 0 8px;
+  color: #bbb;
+}
+
+.sub-breadcrumb-current {
+  color: #666;
+}
+
+/* リンクなしの中間ノード（INFO など）
+   見た目は通常テキストと同じ。クリック不可であることが自然に伝わるよう
+   cursor をデフォルトに保つ。 */
+.sub-breadcrumb-nolink {
+  color: #999;
+  cursor: default;
+}
+
+
+/* ================================================
+   下層ページ共通：ファーストビュー (.sub-firstview)
+   ================================================
+   高さ固定 480px（PC）。
+   背景画像は各ページのHTMLで inline style 指定。
+   暗いオーバーレイ＋下寄せテキスト。
+   ================================================ */
+.sub-firstview {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+  background-color: #3d3d3d;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* 暗いオーバーレイ */
+.sub-firstview-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 16, 12, 0.35) 0%,
+    rgba(20, 16, 12, 0.25) 40%,
+    rgba(20, 16, 12, 0.60) 100%
+  );
+  z-index: 1;
+}
+
+/* テキストエリア：下寄せ */
+.sub-firstview-inner {
+  position: absolute;
+  bottom: 48px;
+  left: 0;
+  z-index: 2;
+  width: 90%;
+  max-width: 1080px;
+  /* 中央寄せ計算 */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 和文タイトル */
+.sub-firstview-title {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  color: #faf7f2;
+  margin-bottom: 8px;
+}
+
+/* 英文サブタイトル */
+.sub-firstview-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: rgba(250, 247, 242, 0.88);
+  margin-bottom: 20px;
+}
+
+/* 蜂蜜色の短い横線 */
+.sub-firstview-line {
+  display: block;
+  width: 60px;
+  height: 2px;
+  background-color: #bf8a24;
+  margin-bottom: 20px;
+}
+
+/* リード文（あるページのみ使用） */
+.sub-firstview-lead {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.8;
+  color: rgba(250, 247, 242, 0.9);
+}
+
+/* POPULARバッジ（Tour Detailのみ使用） */
+.td-badge {
+  display: inline-block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: #faf7f2;
+  background-color: #a23b2c;
+  padding: 4px 12px;
+  margin-bottom: 14px;
+}
+
+
+/* ================================
+   下層共通：タブレット（1024px以下）
+   ================================ */
+@media screen and (max-width: 1024px) {
+
+  /* パンくず */
+  .sub-breadcrumb {
+    padding-top: 72px;
+  }
+
+  /* ファーストビュー */
+  .sub-firstview {
+    height: 400px;
+  }
+
+  .sub-firstview-inner {
+    bottom: 40px;
+  }
+
+  .sub-firstview-title {
+    font-size: 36px;
+  }
+
+  .sub-firstview-sub {
+    font-size: 16px;
+  }
+
+  .sub-firstview-lead {
+    font-size: 14px;
+  }
+}
+
+
+/* ================================
+   下層共通：SP（768px以下）
+   ================================ */
+@media screen and (max-width: 768px) {
+
+  /* パンくず */
+  .sub-breadcrumb {
+    padding-top: 56px;
+  }
+
+  .sub-breadcrumb-inner {
+    padding: 10px 0;
+    font-size: 12px;
+  }
+
+  /* ファーストビュー */
+  .sub-firstview {
+    height: 320px;
+  }
+
+  /*
+   * SP では left:50% + translateX(-50%) 方式を廃止し、
+   * left/right の固定値でテキストエリアを確保する。
+   * こうすることで .js-fv-reveal の translateY アニメーションと
+   * 干渉せず、テキストのはみ出しも起きない。
+   */
+  .sub-firstview-inner {
+    bottom: 28px;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    max-width: none;
+    transform: none;
+  }
+
+  .sub-firstview-title {
+    font-size: 26px;
+    letter-spacing: 0.05em;
+    word-break: normal;
+    overflow-wrap: normal;
+    line-break: strict;
+    text-wrap: balance;
+  }
+
+  .sub-firstview-sub {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .sub-firstview-line {
+    width: 48px;
+    margin-bottom: 16px;
+  }
+
+  .sub-firstview-lead {
+    font-size: 12px;
+  }
+}
+
+/* ================================
+   ユーティリティ：視覚的非表示（スクリーンリーダー向け）
+   SEO補強用テキストに使用。見た目には表示されないが検索エンジンには読まれる。
+   ================================ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ================================================
+   ヘッダー スクロール状態
+   ================================================
+   script.js が window.scrollY > 60 のときに .is-scrolled を付与する。
+   背景の透明度を上げて、スクロール後に視認性を確保する。
+   ================================================ */
+.site-header.is-scrolled {
+  background-color: rgba(250, 247, 242, 0.96);
+  border-bottom-color: rgba(45, 45, 45, 0.10);
+}
+
+
+/* ================================================
+   スクロールリビールアニメーション
+   ================================================
+   script.js の IntersectionObserver が .is-visible を付与したとき
+   要素がなめらかに現れる。
+
+   クラス一覧:
+   .js-reveal       … 下から上へ + フェードイン
+   .js-reveal-img   … 軽いスケール + フェードイン（画像エリア専用）
+   .js-stagger-item … .js-stagger の子要素。順番にずれて出る
+   .js-fv-reveal    … sub-firstview のテキスト専用
+   ================================================ */
+
+/* --- 共通: 初期状態（非表示） --- */
+.js-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity  0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.js-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- 画像エリア --- */
+.js-reveal-img {
+  opacity: 0;
+  transform: scale(0.97) translateY(16px);
+  transition:
+    opacity  0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.js-reveal-img.is-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* --- stagger 子要素 --- */
+.js-stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity  0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  /* --stagger-i は JS で設定される */
+  transition-delay: calc(var(--stagger-i, 0) * 0.13s);
+}
+
+.js-stagger-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- FV テキスト（ページ遷移直後に出る）--- */
+.js-fv-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity  0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.25s,
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+}
+
+.js-fv-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- prefers-reduced-motion: 全アニメーション無効化 --- */
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal,
+  .js-reveal-img,
+  .js-stagger-item,
+  .js-fv-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* ================================================
+   装飾言語（湯灯商會ブランド共通パーツ）
+   ================================================
+   以下のパーツはどのページでも共通して使えるモチーフ。
+   ・.ornament-line … 蜂蜜色の横線 + 中央に ◇ 装飾
+   ・.koshi-bg      … 格子柄の超薄い背景
+   ・.section-deco-top … セクション上部の装飾線（格子）
+   ================================================ */
+
+/* --- オーナメントライン（◇ を挟んだ水平線）--- */
+.ornament-line {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 0 auto;
+}
+
+.ornament-line::before,
+.ornament-line::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #bf8a24;
+  opacity: 0.45;
+}
+
+.ornament-line-diamond {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border: 1px solid #bf8a24;
+  transform: rotate(45deg);
+  margin: 0 14px;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+/* 暗い背景用バリアント */
+.ornament-line--light::before,
+.ornament-line--light::after {
+  background-color: rgba(212, 168, 75, 0.4);
+}
+
+.ornament-line--light .ornament-line-diamond {
+  border-color: rgba(212, 168, 75, 0.6);
+}
+
+
+/* --- 格子背景（section の ::before や背景装飾に使う）---
+   実装は CSS SVG Data URI で格子柄を作る。
+   直接クラスを当てるか、各CSSで ::before に適用する。 */
+.koshi-bg {
+  background-image:
+    linear-gradient(rgba(45, 45, 45, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 45, 45, 0.04) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+/* 暗い背景用の格子 */
+.koshi-bg--dark {
+  background-image:
+    linear-gradient(rgba(250, 247, 242, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(250, 247, 242, 0.04) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+
+/* ================================================
+   下層ファーストビュー：オーバーレイバリアント
+   ================================================
+   各ページの CSS で .sub-firstview-overlay の
+   background を上書きすることでトーンを変える。
+   ================================================ */
+
+/* About: 静けさ・哲学 → 中央を残して四辺を暗く */
+.sub-firstview-overlay--about {
+  background: radial-gradient(
+    ellipse at 50% 45%,
+    rgba(18, 14, 10, 0.22) 0%,
+    rgba(18, 14, 10, 0.48) 60%,
+    rgba(18, 14, 10, 0.65) 100%
+  );
+}
+
+/* Festival: 灯りと高揚感 → 底に温かいグラデーション */
+.sub-firstview-overlay--festival {
+  background: linear-gradient(
+    180deg,
+    rgba(12, 8, 4, 0.52) 0%,
+    rgba(12, 8, 4, 0.28) 38%,
+    rgba(35, 16, 5, 0.72) 100%
+  );
+}
+
+/* Food: 温かさと親しみ → やや明るく軽い */
+.sub-firstview-overlay--food {
+  background: linear-gradient(
+    180deg,
+    rgba(18, 12, 6, 0.38) 0%,
+    rgba(18, 12, 6, 0.18) 38%,
+    rgba(18, 12, 6, 0.58) 100%
+  );
+}
+
+/* Craft: 素材感と職人 → 深く落ち着いた暗さ */
+.sub-firstview-overlay--craft {
+  background: linear-gradient(
+    180deg,
+    rgba(6, 5, 4, 0.62) 0%,
+    rgba(6, 5, 4, 0.38) 35%,
+    rgba(6, 5, 4, 0.75) 100%
+  );
+}
+
+/* Tours: 明快・比較しやすい → 標準だが中央に抜け感 */
+.sub-firstview-overlay--tours {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 12, 8, 0.40) 0%,
+    rgba(15, 12, 8, 0.20) 40%,
+    rgba(15, 12, 8, 0.62) 100%
+  );
+}
+
+
+/* ================================================
+   下層ファーストビュー：追加装飾要素
+   ================================================ */
+
+/* FV 上部の細い蜂蜜色ライン（格子モチーフ）*/
+.sub-firstview-top-rule {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(191, 138, 36, 0.6) 25%,
+    rgba(191, 138, 36, 0.8) 50%,
+    rgba(191, 138, 36, 0.6) 75%,
+    transparent 100%
+  );
+  z-index: 3;
+}
+
+/* FV テキストエリア内：ラベル表示（ページ名英語）*/
+.sub-firstview-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(191, 138, 36, 0.85);
+  margin-bottom: 14px;
+}
+
+.sub-firstview-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background-color: rgba(191, 138, 36, 0.7);
+}
+
+
+/* ================================================
+   CTA ボタン 強化バリアント
+   ================================================ */
+
+/* 煉瓦色ベースの標準CTAボタン（共通） */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.20em;
+  color: #faf7f2;
+  background-color: #a23b2c;
+  border: 1px solid #a23b2c;
+  padding: 14px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), letter-spacing 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #bf8a24;
+  transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-primary:hover {
+  background-color: #8a3225;
+  letter-spacing: 0.25em;
+  opacity: 1;
+}
+
+.btn-primary:hover::after {
+  width: 100%;
+}
+
+/* アウトラインバリアント */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.20em;
+  color: #faf7f2;
+  background-color: transparent;
+  border: 1px solid rgba(250, 247, 242, 0.45);
+  padding: 14px 36px;
+  transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), letter-spacing 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-outline:hover {
+  background-color: rgba(250, 247, 242, 0.10);
+  border-color: rgba(250, 247, 242, 0.80);
+  letter-spacing: 0.25em;
+  opacity: 1;
+}
+
+
+/* ================================================
+   セクション区切り装飾（section-divider）
+   ================================================
+   セクション間に挿入する ◇ ライン区切り。
+
+   使い方（HTML）:
+   <div class="section-divider" aria-hidden="true">
+     <span class="section-divider-gem"></span>
+   </div>
+
+   暗い背景には section-divider--light を追加。
+   ================================================ */
+.section-divider {
+  display: flex;
+  align-items: center;
+  width: 180px;
+  margin: 0 auto;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(191, 138, 36, 0.45) 50%,
+    transparent 100%
+  );
+}
+
+.section-divider-gem {
+  width: 6px;
+  height: 6px;
+  border: 1px solid rgba(191, 138, 36, 0.55);
+  transform: rotate(45deg);
+  margin: 0 14px;
+  flex-shrink: 0;
+}
+
+/* 暗いセクション（炭色背景）上の区切り */
+.section-divider--light::before,
+.section-divider--light::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(212, 168, 75, 0.30) 50%,
+    transparent 100%
+  );
+}
+
+.section-divider--light .section-divider-gem {
+  border-color: rgba(212, 168, 75, 0.38);
+}
+
+
+/* ================================================
+   タイポグラフィ精度 UP
+   ================================================ */
+
+/* 英字サブ見出しをイタリック Cormorant Garamond に統一 */
+.section-heading-sub,
+.section-heading-sub-light {
+  font-style: italic;
+}
+
+/* 本文テキストの行間・字間改善 */
+.about-body,
+.philosophy-body,
+.feature-card-desc,
+.discover-card-text {
+  line-height: 2.0;
+  letter-spacing: 0.04em;
+}
+
+/* セクションラベル番号の数字スタイル洗練 */
+.section-label-num {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+}
+
+
+/* ================================================
+   湯気（steam）装飾アニメーション
+   ================================================
+   PAUSE セクション内の .pause-steam に使用する。
+
+   使い方（HTML）:
+   <div class="pause-steam" aria-hidden="true">
+     <span class="pause-steam-line"></span>
+     <span class="pause-steam-line"></span>
+     <span class="pause-steam-line"></span>
+   </div>
+
+   ※ pause-ornament の上、pause-title の前に配置する。
+   ================================================ */
+.pause-steam {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.pause-steam-line {
+  display: block;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(191, 138, 36, 0.80) 60%,
+    rgba(191, 138, 36, 0.40) 100%
+  );
+}
+
+.pause-steam-line:nth-child(1) { height: 28px; }
+.pause-steam-line:nth-child(2) { height: 42px; }
+.pause-steam-line:nth-child(3) { height: 28px; }
+
+@media not (prefers-reduced-motion: reduce) {
+  .pause-steam-line {
+    animation: steam-rise 3.2s ease-in-out infinite;
+    transform-origin: bottom center;
+  }
+  .pause-steam-line:nth-child(2) {
+    animation-delay: 0.85s;
+  }
+  .pause-steam-line:nth-child(3) {
+    animation-delay: 1.70s;
+  }
+}
+
+@keyframes steam-rise {
+  0%, 100% {
+    opacity: 0.30;
+    transform: translateY(0) scaleX(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: translateY(-10px) scaleX(1.8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pause-steam-line {
+    opacity: 0.45;
+  }
+}
+
+
+/* ================================================
+   下層ページ別 sub-firstview 背景画像クラス
+   ================================================
+   inline style="background-image:..." を廃止し、
+   ページ固有クラスで背景画像を管理する。
+   保守性とWordPress化への対応を向上させる。
+   ================================================ */
+.sub-firstview--about {
+  background-image: url('../img/about_img/about_firstview.webp');
+}
+.sub-firstview--access {
+  background-image: url('../img/access_img/access_firstview.webp');
+}
+.sub-firstview--contact {
+  background-image: url('../img/contact_img/contact_firstview.webp');
+}
+.sub-firstview--food {
+  background-image: url('../img/food_img/food_firstview.webp');
+}
+.sub-firstview--craft {
+  background-image: url('../img/craft_img/craft_firstview.webp');
+}
+.sub-firstview--festival {
+  background-image: url('../img/festival_img/festival_firstview.webp');
+}
+.sub-firstview--tours {
+  background-image: url('../img/tours_img/tours_firstview.webp');
+}
+.sub-firstview--tour-detail {
+  background-image: url('../img/tourdetail_img/tourdetail_firstview.webp');
+}
+.sub-firstview--tour-morning {
+  background-image: url('../img/tourdetail_img/tourdetail_morning.webp');
+}
+.sub-firstview--tour-craft {
+  background-image: url('../img/tourdetail_img/tourdetail_craft.webp');
+}
+.sub-firstview--tour-twilight {
+  background-image: url('../img/tourdetail_img/tourdetail_nightwalk.webp');
+}
+
+
+/* ================================================
+   SNS リンク未設定状態（A-4: ダミーリンク整理）
+   ================================================
+   実URLが未設定のSNSリンクに付与するクラス。
+   クリック不可 + 薄い表示にして、未設定であることを
+   視覚的に示す。href は削除済み。
+   ================================================ */
+.sns-link-inactive {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  opacity: 1;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* フッター内のSNSリンク非活性 */
+.footer-nav-col .sns-link-inactive {
+  color: #b5b5b5;
+  font-size: 15px;
+}
+
+.sns-link-inactive small {
+  margin-left: 0.35em;
+  color: #a8a8a8;
+  font-size: 10px;
+}
+
+
+/* ================================================
+   B-4: 金色（蜂蜜色）テキストのコントラスト改善
+   ================================================
+   #bf8a24 は白背景 (#faf7f2) に対してコントラスト比 ≈ 2.8:1。
+   WCAG AA の「大きい文字 (18pt / 14pt bold)」基準 3:1 を
+   装飾的な大見出しに限定して使用する方針。
+   小さい文字・本文・補助テキストには炭色 (#2d2d2d) を優先。
+   ================================================ */
+
+/* パンくずリストのリンク: 小さいテキスト → コントラスト確保のため強化 */
+.sub-breadcrumb-link {
+  color: #96691c; /* より暗い金 → 白背景で約 4.1:1 */
+}
+
+/* フッターナビ見出しの金色: 暗い背景上なので維持 */
+/* .footer-nav-heading は #bf8a24 on #1e1e1e → 約 6.2:1 で問題なし */
+
+
+/* ================================================
+   C-1: focus-visible 強化（全インタラクティブ要素）
+   ================================================
+   fixed header の高さ分 (72px) を考慮した
+   scroll-margin-top をセクションアンカーに設定。
+   ================================================ */
+
+/* アンカー先にfixed headerが被らないよう余白を確保 */
+section[id],
+div[id] {
+  scroll-margin-top: 80px;
+}
+
+/* テキストリンクの focus-visible */
+.text-link:focus-visible {
+  outline: 2px solid #bf8a24;
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* ヘッダーナビリンクの focus-visible */
+.global-nav-list a:focus-visible {
+  outline: 2px solid #bf8a24;
+  outline-offset: 4px;
+  border-radius: 1px;
+}
+
+/* CTAボタン（煉瓦色）の focus-visible */
+.header-contact-btn:focus-visible,
+.hero-cta-btn:focus-visible,
+.contact-btn:focus-visible,
+.tours-flagship-btn-primary:focus-visible,
+.tours-flagship-btn-secondary:focus-visible,
+.tours-card-btn:focus-visible,
+.pause-cta:focus-visible {
+  outline: 2px solid #d4a84b;
+  outline-offset: 3px;
+}
+
+/* ツアーカード全体にフォーカス対応 */
+.tour-card:focus-within,
+.tours-card:focus-within,
+.discover-card:focus-within {
+  outline: 1px solid #bf8a24;
+  outline-offset: 2px;
+}
+
+
+/* ================================================
+   C-2: touch target size（最小44×44px確保）
+   ================================================
+   モバイルでタップしやすいようにパディングを最小確保。
+   ================================================ */
+@media screen and (max-width: 768px) {
+  .demo-site-notice {
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 56px;
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+
+  .global-nav-list a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .text-link,
+  .tours-compare-book,
+  .tours-compare-name-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .tours-card-btn,
+  .tours-flagship-btn-primary,
+  .tours-flagship-btn-secondary {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ハンバーガーのタップ領域は既に44×44px確保済み */
+}
+
+
+/* ================================================
+   C-3: prefers-reduced-motion 強化
+   ================================================
+   transition が残っている要素についても
+   reduce 指定時は即時切り替えにする。
+   ================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ================================================
+   C-4: ホバーエフェクトの統一
+   ================================================
+   duration / easing を一括で上書き可能な変数で管理。
+   既存スタイルを破壊せず、変数未使用の部分は
+   既存のトランジション値をそのまま維持する。
+   ================================================ */
+:root {
+  --transition-base:   0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast:   0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:   0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ================================================
+   C-5: is-current ナビリンクスタイル統一
+   ================================================
+   JS側 [aria-current="page"] と合わせて
+   静的に class="is-current" を付与しているページでも
+   同じスタイルが適用されるようにする。
+   ================================================ */
+.global-nav-list a.is-current {
+  color: #2d2d2d;
+}
+
+.global-nav-list a.is-current::after {
+  width: 100%;
+}
+
+/* ================================
+   ② セクション装飾ライン スライドイン
+   （section-label.is-visible が付いたときに左→右へ伸びる）
+   prefers-reduced-motion 対応：モーション無効時はそのまま表示
+   ================================ */
+@media not (prefers-reduced-motion: reduce) {
+  .section-label-line {
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
+  }
+
+  .section-label.is-visible .section-label-line {
+    clip-path: inset(0 0% 0 0);
+  }
+}
+
+/* ================================
+   ヘッダー CONTACTボタン シマーエフェクト
+   td-cta-btn と同様の演出（赤ボタン用のホワイトシマー）
+   ================================ */
+@media not (prefers-reduced-motion: reduce) {
+  .header-contact-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(
+      105deg,
+      transparent,
+      rgba(250, 247, 242, 0.18),
+      transparent
+    );
+    transform: skewX(-20deg);
+    pointer-events: none;
+  }
+
+  .header-contact-btn:hover::after {
+    animation: header-btn-shimmer 0.55s ease forwards;
+  }
+
+  @keyframes header-btn-shimmer {
+    to { left: 160%; }
+  }
+}

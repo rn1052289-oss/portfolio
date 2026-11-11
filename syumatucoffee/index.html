@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>週末珈琲便 | 金曜焙煎・週末届く コーヒー定期便</title>
+<meta name="description" content="金曜に焙煎した新鮮なコーヒー豆が週末届く定期便。少量飲み切り設計で、自分好みの一杯を見つけませんか。">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/style.css">
+<!-- Slick Carousel（スライダー用） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+</head>
+<body>
+
+<!--HEADER-->
+<header class="l-header">
+	<div class="l-header__inner">
+		<h1 class="l-header__logo">
+			<a href="index.html"><img src="images/logo.png" alt="週末珈琲便"></a>
+		</h1>
+		<nav class="l-header__nav" aria-label="メインナビゲーション">
+			<ul>
+				<li><a href="about/about.html" class="l-header__nav-link">ABOUT</a></li>
+				<li><a href="beans/beans.html" class="l-header__nav-link">BEANS</a></li>
+				<li><a href="guide/guide.html" class="l-header__nav-link">GUIDE</a></li>
+				<li><a href="plan/plan.html" class="l-header__nav-link">PLAN</a></li>
+				<li><a href="news/news.html" class="l-header__nav-link">NEWS</a></li>
+				<li><a href="contact/contact.html" class="l-header__nav-link">CONTACT</a></li>
+			</ul>
+		</nav>
+		<a href="online-shop/shop.html" class="l-header__cta">ONLINE STORE</a>
+		<button class="l-header__hamburger" aria-label="メニューを開く">
+			<span></span><span></span><span></span>
+		</button>
+	</div>
+</header>
+
+<!-- Drawer (SP) -->
+<div class="l-drawer__overlay" id="drawerOverlay"></div>
+<nav class="l-drawer" id="drawer" aria-label="モバイルナビゲーション">
+	<div class="l-drawer__nav">
+		<a href="index.html" class="l-drawer__nav-link">HOME</a>
+		<a href="about/about.html" class="l-drawer__nav-link">ABOUT</a>
+		<a href="beans/beans.html" class="l-drawer__nav-link">BEANS</a>
+		<a href="guide/guide.html" class="l-drawer__nav-link">GUIDE</a>
+		<a href="plan/plan.html" class="l-drawer__nav-link">PLAN</a>
+		<a href="news/news.html" class="l-drawer__nav-link">NEWS</a>
+		<a href="contact/contact.html" class="l-drawer__nav-link">CONTACT</a>
+	</div>
+	<a href="online-shop/shop.html" class="l-drawer__cta">ONLINE STORE</a>
+	<div class="l-drawer__sns">
+		<a href="#" class="l-drawer__sns-link" aria-label="X"><img src="images/Xicon.svg" alt="X"></a>
+		<a href="#" class="l-drawer__sns-link" aria-label="Instagram"><img src="images/instagram.svg" alt="Instagram"></a>
+	</div>
+</nav>
+
+<main>
+
+	<!--HERO-->
+	<section class="top-hero" id="hero">
+		<div class="top-hero__inner">
+			<p class="top-hero__catch">金曜焙煎、週末届く。</p>
+			<p class="top-hero__sub"><span class="top-hero__treat">"かおりのピーク"</span>で届くコーヒー定期便</p>
+		</div>
+	</section>
+
+	<!--ABOUT（背景: #fff）-->
+	<section class="c-bg-deco c-bg-deco--left" id="about">
+		<div class="l-inner">
+			<div class="c-section-heading">
+				<span class="c-section-heading__en">About</span>
+				<h2 class="c-section-heading__ja">週末珈琲便とは</h2>
+			</div>
+			<div class="top-about__grid">
+				<div class="top-about__item">
+					<div class="top-about__contents">
+						<div class="top-about__icon"><img src="images/coffee.svg" alt="コーヒーカップ"></div>
+						<h3 class="top-about__title">金曜焙煎</h3>
+						<p class="top-about__text">注文を受けてから毎週金曜に<br>少量ずつ丁寧に焙煎します</p>
+					</div>
+				</div>
+				<div class="top-about__item">
+					<div class="top-about__contents">
+						<div class="top-about__icon"><img src="images/delivery.svg" alt="配送アイコン"></div>
+						<h3 class="top-about__title">少量飲み切り</h3>
+						<p class="top-about__text">鮮度を保てる100g単位の<br>飲み切りパック設計</p>
+					</div>
+				</div>
+				<div class="top-about__item">
+					<div class="top-about__contents">
+						<div class="top-about__icon"><img src="images/guide.svg" alt="ガイドアイコン"></div>
+						<h3 class="top-about__title">味わいガイド付き</h3>
+						<p class="top-about__text">初心者でも迷わない<br>焙煎度・味わいチャート同封</p>
+					</div>
+				</div>
+			</div>
+			<div class="c-deco-line"><span class="c-deco-line__icon"><img src="images/coffeebeans.svg" alt="コーヒー豆"></span></div>
+			<div class="top-about__btn-wrap">
+				<a href="about/about.html" class="c-btn">View more</a>
+			</div>
+		</div>
+	</section>
+
+	<!--BEANS-->
+	<section class="top-beans" id="beans">
+		<div class="l-inner">
+			<div class="c-section-heading">
+				<span class="c-section-heading__en">Beans</span>
+				<h2 class="c-section-heading__ja">今月のコーヒー豆</h2>
+			</div>
+			<div class="top-beans__slider js-beans-slider">
+				<!-- 1: エチオピア -->
+				<div class="top-beans__card">
+					<div class="top-beans__img"><span><img src="images/beanscard1.webp" alt="エチオピア イルガチェフェの豆"></span></div>
+					<div class="top-beans__body">
+						<span class="top-beans__tag top-beans__tag--light">浅煎り</span>
+						<h3 class="top-beans__name">エチオピア イルガチェフェ</h3>
+						<p class="top-beans__flavor">フローラル・柑橘系のフレーバー</p>
+					</div>
+				</div>
+				<!-- 2: グアテマラ -->
+				<div class="top-beans__card">
+					<div class="top-beans__img"><span><img src="images/beanscard2.webp" alt="グアテマラ アンティグアの豆"></span></div>
+					<div class="top-beans__body">
+						<span class="top-beans__tag top-beans__tag--medium">中煎り</span>
+						<h3 class="top-beans__name">グアテマラ アンティグア</h3>
+						<p class="top-beans__flavor">チョコレート・ナッツの甘み</p>
+					</div>
+				</div>
+				<!-- 3: ブラジル -->
+				<div class="top-beans__card">
+					<div class="top-beans__img"><span><img src="images/beanscard3.webp" alt="ブラジル サントスの豆"></span></div>
+					<div class="top-beans__body">
+						<span class="top-beans__tag top-beans__tag--dark">深煎り</span>
+						<h3 class="top-beans__name">ブラジル サントス</h3>
+						<p class="top-beans__flavor">重厚なコク・ビターな余韻</p>
+					</div>
+				</div>
+				<!-- 4: コロンビア -->
+				<div class="top-beans__card">
+					<div class="top-beans__img"><span><img src="images/beanscard4.webp" alt="コロンビア スプレモの豆"></span></div>
+					<div class="top-beans__body">
+						<span class="top-beans__tag top-beans__tag--medium">中煎り</span>
+						<h3 class="top-beans__name">コロンビア スプレモ</h3>
+						<p class="top-beans__flavor">まろやかでバランスの良い味わい</p>
+					</div>
+				</div>
+				<!-- 5: ケニア -->
+				<div class="top-beans__card">
+					<div class="top-beans__img"><span><img src="images/beanscard5.webp" alt="ケニア AAの豆"></span></div>
+					<div class="top-beans__body">
+						<span class="top-beans__tag top-beans__tag--light">浅煎り</span>
+						<h3 class="top-beans__name">ケニア AA</h3>
+						<p class="top-beans__flavor">ジューシーな酸味とベリーの香り</p>
+					</div>
+				</div>
+				<!-- 6: マンデリン -->
+				<div class="top-beans__card">
+					<div class="top-beans__img"><span><img src="images/beanscard6.webp" alt="マンデリン G1の豆"></span></div>
+					<div class="top-beans__body">
+						<span class="top-beans__tag top-beans__tag--dark">深煎り</span>
+						<h3 class="top-beans__name">マンデリン G1</h3>
+						<p class="top-beans__flavor">スパイシーで力強いコク</p>
+					</div>
+				</div>
+				<!-- 7: コスタリカ -->
+				<div class="top-beans__card">
+					<div class="top-beans__img"><span><img src="images/beanscard7.webp" alt="コスタリカ タラスの豆"></span></div>
+					<div class="top-beans__body">
+						<span class="top-beans__tag top-beans__tag--medium">中煎り</span>
+						<h3 class="top-beans__name">コスタリカ タラス</h3>
+						<p class="top-beans__flavor">ハニーのような甘みとコク</p>
+					</div>
+				</div>
+				<!-- 8: パナマ -->
+				<div class="top-beans__card">
+					<div class="top-beans__img"><span><img src="images/beanscard8.webp" alt="パナマ ゲイシャの豆"></span></div>
+					<div class="top-beans__body">
+						<span class="top-beans__tag top-beans__tag--light">浅煎り</span>
+						<h3 class="top-beans__name">パナマ ゲイシャ</h3>
+						<p class="top-beans__flavor">ジャスミン・桃の華やかな香り</p>
+					</div>
+				</div>
+				<!-- 9: タンザニア -->
+				<div class="top-beans__card">
+					<div class="top-beans__img"><span><img src="images/beanscard9.webp" alt="タンザニア キリマンジャロの豆"></span></div>
+					<div class="top-beans__body">
+						<span class="top-beans__tag top-beans__tag--dark">深煎り</span>
+						<h3 class="top-beans__name">タンザニア キリマンジャロ</h3>
+						<p class="top-beans__flavor">柔らかな苦みとワインのような後味</p>
+					</div>
+				</div>
+				<!-- 10: ルワンダ -->
+				<div class="top-beans__card">
+					<div class="top-beans__img"><span><img src="images/beanscard10.webp" alt="ルワンダ ブルボンの豆"></span></div>
+					<div class="top-beans__body">
+						<span class="top-beans__tag top-beans__tag--medium">中煎り</span>
+						<h3 class="top-beans__name">ルワンダ ブルボン</h3>
+						<p class="top-beans__flavor">カシスとオレンジの爽やかな酸味</p>
+					</div>
+				</div>
+			</div>
+			<div class="c-deco-line"><span class="c-deco-line__icon"><img src="images/coffeebeans.svg" alt="コーヒー豆"></span></div>
+			<div class="top-beans__btn-wrap">
+				<a href="beans/beans.html" class="c-btn">View more</a>
+			</div>
+		</div>
+	</section>
+
+	<!--HOW IT WORKS-->
+	<section class="top-howto c-bg-deco c-bg-deco--right" id="howto">
+		<div class="l-inner">
+			<div class="c-section-heading">
+				<span class="c-section-heading__en">How It Works</span>
+				<h2 class="c-section-heading__ja">届くまでの流れ</h2>
+			</div>
+			<div class="top-howto__steps">
+				<div class="top-howto__step">
+					<span class="top-howto__num">Step.1</span>
+					<div class="top-howto__icon"><img src="images/binder.svg" alt="バインダー"></div>
+					<h3 class="top-howto__label">プランを選ぶ</h3>
+				</div>
+				<div class="top-howto__arrow">→</div>
+				<div class="top-howto__step">
+					<span class="top-howto__num">Step.2</span>
+					<div class="top-howto__icon"><img src="images/fire.svg" alt="焙煎の炎"></div>
+					<h3 class="top-howto__label">金曜に焙煎</h3>
+				</div>
+				<div class="top-howto__arrow">→</div>
+				<div class="top-howto__step">
+					<span class="top-howto__num">Step.3</span>
+					<div class="top-howto__icon"><img src="images/delivery.svg" alt="配送トラック"></div>
+					<h3 class="top-howto__label">週末届く</h3>
+				</div>
+			</div>
+			<div class="c-deco-line"><span class="c-deco-line__icon"><img src="images/coffeebeans.svg" alt="コーヒー豆"></span></div>
+			<div class="top-howto__btn-wrap">
+				<a href="guide/guide.html" class="c-btn">View more</a>
+			</div>
+		</div>
+	</section>
+
+	<!--CTA SECTION-->
+	<section class="c-cta-section" id="cta">
+		<div class="l-inner">
+			<p class="c-cta-section__heading">まずは、1箱頼んでみませんか？</p>
+			<p class="c-cta-section__text">少量だから、気軽に始められる。<br>あなたにぴったりの一杯がきっと見つかります。</p>
+			<a href="plan/plan.html" class="c-btn">View plan</a>
+		</div>
+	</section>
+
+	<!--SNS SECTION-->
+	<section class="c-sns-section" id="sns">
+		<div class="l-inner">
+			<div class="c-section-heading">
+				<span class="c-section-heading__en">Follow Us</span>
+				<h2 class="c-section-heading__ja">SNSで最新情報をチェック</h2>
+			</div>
+			<p class="c-sns-section__text">焙煎の裏側やおすすめの淹れ方を毎日発信中</p>
+			<div class="c-sns-section__links">
+				<a href="#" class="c-sns-section__link" aria-label="X"><img src="images/Xicon.svg" alt="X"></a>
+				<a href="#" class="c-sns-section__link" aria-label="Instagram"><img src="images/instagram.svg" alt="Instagram"></a>
+				<a href="#" class="c-sns-section__link" aria-label="YouTube"><img src="images/youtube.svg" alt="YouTube"></a>
+			</div>
+			<p class="c-sns-section__names">X ・ Instagram ・ Youtube</p>
+			<div class="c-deco-line"><span class="c-deco-line__icon"><img src="images/coffeebeans.svg" alt="コーヒー豆"></span></div>
+			<div style="text-align:center;">
+				<a href="#" class="c-btn">View more</a>
+			</div>
+		</div>
+	</section>
+
+</main>
+
+<!--FOOTER-->
+<footer class="l-footer">
+	<div class="l-footer__inner">
+		<!-- ロゴ中央 -->
+		<div class="l-footer__logo-wrap">
+			<img src="images/logo.png" alt="週末珈琲便" class="l-footer__logo">
+		</div>
+		<!-- 装飾ライン -->
+		<div class="c-deco-line l-footer__deco"><span class="c-deco-line__icon"><img src="images/coffeebeans.svg" alt="コーヒー豆"></span></div>
+		<!-- ナビ -->
+		<nav class="l-footer__nav" aria-label="フッターナビゲーション">
+			<ul>
+				<li><a href="about/about.html" class="l-footer__nav-link">ABOUT</a></li>
+				<li><a href="beans/beans.html" class="l-footer__nav-link">BEANS</a></li>
+				<li><a href="guide/guide.html" class="l-footer__nav-link">GUIDE</a></li>
+				<li><a href="plan/plan.html" class="l-footer__nav-link">PLAN</a></li>
+				<li><a href="news/news.html" class="l-footer__nav-link">NEWS</a></li>
+				<li><a href="contact/contact.html" class="l-footer__nav-link">CONTACT</a></li>
+			</ul>
+		</nav>
+		<!-- SNSアイコン -->
+		<div class="l-footer__sns">
+			<a href="#" class="l-footer__sns-link" aria-label="X">
+				<img src="images/Xicon.svg" alt="X">
+				<span class="l-footer__sns-name">X</span>
+			</a>
+			<a href="#" class="l-footer__sns-link" aria-label="Instagram">
+				<img src="images/instagram.svg" alt="Instagram">
+				<span class="l-footer__sns-name">Instagram</span>
+			</a>
+			<a href="#" class="l-footer__sns-link" aria-label="YouTube">
+				<img src="images/youtube.svg" alt="YouTube">
+				<span class="l-footer__sns-name">Youtube</span>
+			</a>
+		</div>
+		<!-- disclaimer -->
+		<div class="l-footer__bottom">
+			<p class="l-footer__disclaimer">※ 当サイトはweb制作実習用の架空のコーヒーロースターです。</p>
+			<p class="l-footer__copyright">&copy; 2026 週末珈琲便</p>
+		</div>
+	</div>
+</footer>
+
+<!-- jQuery + Slick -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+// ── ハンバーガーメニュー ──
+var hamburger = document.querySelector('.l-header__hamburger');
+var drawer = document.getElementById('drawer');
+var overlay = document.getElementById('drawerOverlay');
+function toggleDrawer() {
+	hamburger.classList.toggle('is-open');
+	drawer.classList.toggle('is-open');
+	overlay.classList.toggle('is-open');
+	document.body.style.overflow = drawer.classList.contains('is-open') ? 'hidden' : '';
+}
+hamburger.addEventListener('click', toggleDrawer);
+overlay.addEventListener('click', toggleDrawer);
+document.querySelectorAll('.l-drawer__nav-link, .l-drawer__cta').forEach(function(link) {
+	link.addEventListener('click', function() {
+		if (drawer.classList.contains('is-open')) toggleDrawer();
+	});
+});
+
+// ── Slickスライダー（BEANS） ──
+$(function() {
+	$('.js-beans-slider').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		infinite: true,
+		arrows: true,
+		dots: false,
+		speed: 400,
+		prevArrow: '<button class="slick-prev" type="button" aria-label="前へ"></button>',
+		nextArrow: '<button class="slick-next" type="button" aria-label="次へ"></button>',
+		responsive: [{
+			breakpoint: 769,
+			settings: { slidesToShow: 1, slidesToScroll: 1,arrows: true }
+		}]
+	});
+});
+</script>
+</body>
+</html>

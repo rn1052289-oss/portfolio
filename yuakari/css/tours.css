@@ -1,0 +1,844 @@
+/* ================================================
+   tours.css
+   Toursページ専用スタイル
+
+   【このファイルの役割】
+   ・パンくずリスト
+   ・ファーストビュー暗色帯
+   ・フラッグシップツアーカード
+   ・3列ツアーカード
+   ・ツアー比較テーブル
+   ・CONTACT CTA帯（style.css から流用、同じクラス名）
+
+   【カラー参照】
+   白磁 #FAF7F2 … ベース背景
+   濃鼠 #3D3D3D … ダークセクション背景
+   煉瓦 #A23B2C … CTAボタン専用
+   蜂蜜 #BF8A24 … ラベル・リンク装飾
+   炭   #2D2D2D … 本文テキスト
+   ================================================ */
+
+
+/* ================================================
+   Tours FV 差別化
+   ================================================
+   テーマ：比較しやすさ・期待感・選びたくなる気持ち
+   ・オーバーレイは清潔感のある程よい暗さ
+   ・FV内にツアー数バッジを表示して「選べる」感を演出
+   ・リード文で「街全体でどう過ごせるか」を示唆
+   ================================================ */
+
+/* オーバーレイ：明快・比較しやすい明るさ */
+.tours-page .sub-firstview-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(14, 11, 8,  0.40) 0%,
+    rgba(14, 11, 8,  0.18) 40%,
+    rgba(14, 11, 8,  0.62) 100%
+  );
+}
+
+/* リード文：案内的で明快 */
+.tours-page .sub-firstview-lead {
+  color: rgba(250, 247, 242, 0.75);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  line-height: 1.9;
+}
+
+/* ツアー数バッジ（FV内 .sub-firstview-inner に続けて配置）*/
+.tours-count-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: rgba(191, 138, 36, 0.80);
+  border: 1px solid rgba(191, 138, 36, 0.35);
+  padding: 6px 16px;
+}
+
+.tours-count-badge::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 1px;
+  background-color: rgba(191, 138, 36, 0.60);
+}
+
+/* SP */
+@media screen and (max-width: 768px) {
+  .tours-page .sub-firstview-title {
+    font-size: 28px;
+  }
+}
+
+
+/* ================================
+   共通部品（style.css にしかない要素の再定義）
+   ================================ */
+.meta-divider {
+  margin: 0 6px;
+  color: #bbb;
+}
+
+
+/* 見出し：54px — TOPの .section-heading-ja と同等 */
+
+/* 英字サブ：イタリック */
+
+/* 蜂蜜色ライン */
+
+/* 説明文 */
+
+
+/* ================================
+   フラッグシップツアー
+   ================================
+   カンプ：白背景セクションの中に、
+   左画像＋右テキストの横並びカード。
+   ================================ */
+.tours-flagship-section {
+  padding: 64px 0 40px;
+  background-color: #faf7f2;
+}
+
+.tours-flagship-inner {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* カード全体：flexで左右分割 */
+.tours-flagship {
+  display: flex;
+  background-color: #faf7f2;
+  border: 1px solid #e5e0d6;
+  overflow: hidden;
+}
+
+/* 左：画像エリア（約45%） */
+.tours-flagship-thumb {
+  position: relative;
+  flex: 0 0 45%;
+  overflow: hidden;
+  background-color: #e8e2d8;
+}
+
+.tours-flagship-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* POPULAR バッジ */
+.tours-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  display: inline-block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: #faf7f2;
+  background-color: #a23b2c;
+  padding: 5px 14px;
+}
+
+/* 右：テキストエリア */
+.tours-flagship-body {
+  flex: 1;
+  padding: 40px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* FLAGSHIP TOUR ラベル（蜂蜜色） */
+.tours-flagship-label {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #bf8a24;
+  margin-bottom: 12px;
+}
+
+/* タイトル */
+.tours-flagship-title {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  color: #2d2d2d;
+  margin-bottom: 8px;
+}
+
+/* 英語名 */
+.tours-flagship-en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: #8b8075;
+  margin-bottom: 20px;
+}
+
+/* 説明文 */
+.tours-flagship-desc {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #555;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+}
+
+/* メタ情報 */
+.tours-flagship-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  color: #7e756d;
+  margin-bottom: 28px;
+}
+
+/* ボタンエリア */
+.tours-flagship-actions {
+  display: flex;
+  gap: 16px;
+}
+
+/* DETAILS → ボタン（煉瓦色 塗り） */
+.tours-flagship-btn-primary {
+  display: inline-block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #faf7f2;
+  background-color: #a23b2c;
+  border: 1px solid #a23b2c;
+  padding: 14px 36px;
+  transition: background-color 0.25s ease, letter-spacing 0.25s ease, opacity 0.25s ease;
+}
+
+.tours-flagship-btn-primary:hover {
+  background-color: #8a3225;
+  border-color: #8a3225;
+  letter-spacing: 0.23em;
+  opacity: 1;
+}
+
+/* BOOK NOW ボタン（アウトライン） */
+.tours-flagship-btn-secondary {
+  display: inline-block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #2d2d2d;
+  background-color: transparent;
+  border: 1px solid #999;
+  padding: 14px 36px;
+  transition: border-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+}
+
+.tours-flagship-btn-secondary:hover {
+  border-color: #2d2d2d;
+  opacity: 1;
+}
+
+
+/* ================================
+   3列ツアーカード
+   ================================
+   カンプ：3列均等、白背景。
+   画像上、テキスト下の縦積みカード。
+   ================================ */
+.tours-cards-section {
+  padding: 24px 0 80px;
+  background-color: #f3efe8;
+}
+
+.tours-cards-inner {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.tours-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* カード */
+.tours-card {
+  background-color: #fff;
+  border: 1px solid #e5e0d6;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.tours-card:hover {
+  border-color: #ccc;
+}
+
+/* カード画像 */
+.tours-card-thumb {
+  position: relative;
+  overflow: hidden;
+  background-color: #e8e2d8;
+}
+
+/* ホバー時の薄いオーバーレイ */
+.tours-card-thumb::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(45, 45, 45, 0.15);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.tours-card:hover .tours-card-thumb::after {
+  opacity: 1;
+}
+
+.tours-card-img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+
+.tours-card:hover .tours-card-img {
+  transform: scale(1.04);
+}
+
+/* カードテキスト */
+.tours-card-body {
+  padding: 24px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* カードタイトル */
+.tours-card-title {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #2d2d2d;
+  margin-bottom: 6px;
+}
+
+/* カード英語名 */
+.tours-card-en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  color: #8b8075;
+  margin-bottom: 16px;
+}
+
+/* カード説明文 */
+.tours-card-desc {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: auto;
+  padding-bottom: 16px;
+}
+
+/* カードメタ */
+.tours-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  color: #7e756d;
+  margin-bottom: 20px;
+}
+
+/* DETAILS → ボタン */
+.tours-card-btn {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #faf7f2;
+  background-color: #a23b2c;
+  border: 1px solid #a23b2c;
+  padding: 12px 28px;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.tours-card-btn:hover {
+  background-color: #8a3225;
+  border-color: #8a3225;
+  letter-spacing: 0.23em;
+  opacity: 1;
+}
+
+
+/* ================================
+   ツアー比較テーブル
+   ================================
+   カンプ：ダーク (#3D3D3D) ヘッダー行＋
+   白い本体行。蜂蜜色のリンクと「● 対応」。
+   ================================ */
+.tours-compare-section {
+  padding: 0 0 80px;
+  background-color: #faf7f2;
+}
+
+.tours-compare-inner {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* 見出し */
+.tours-compare-heading {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #2d2d2d;
+  margin-bottom: 28px;
+}
+
+/* テーブル外枠（SP横スクロール用） */
+.tours-compare-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* テーブル本体 */
+.tours-compare-table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+/* ヘッダー行 */
+.tours-compare-table thead th {
+  background-color: #3d3d3d;
+  color: #faf7f2;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-align: left;
+  padding: 14px 20px;
+  white-space: nowrap;
+}
+
+/* 本体セル */
+.tours-compare-table tbody td {
+  padding: 18px 20px;
+  border-bottom: 1px solid #e5e0d6;
+  color: #2d2d2d;
+  vertical-align: middle;
+  line-height: 1.6;
+}
+
+/* 最初の列（ツアー名）は太め */
+.tours-compare-table tbody td:first-child {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ● 対応（蜂蜜色） */
+.tours-compare-en-yes {
+  color: #bf8a24;
+  font-weight: 500;
+}
+
+/* — 日本語のみ */
+.tours-compare-en-no {
+  color: #999;
+}
+
+/* ツアー名リンク（テーブル内） */
+.tours-compare-name-link {
+  font-weight: 500;
+  color: #2d2d2d;
+  text-decoration: underline;
+  text-decoration-color: rgba(45, 45, 45, 0.25);
+  text-underline-offset: 3px;
+  transition: color 0.25s ease, text-decoration-color 0.25s ease, opacity 0.25s ease;
+}
+
+.tours-compare-name-link:hover {
+  color: #bf8a24;
+  text-decoration-color: #bf8a24;
+  opacity: 1;
+}
+
+/* BOOK → リンク（蜂蜜色） */
+.tours-compare-book {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #bf8a24;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.tours-compare-book:hover {
+  opacity: 0.7;
+}
+
+
+/* ================================
+   CONTACT CTA帯
+   （style.css の .contact-section と同じスタイル。
+     common化してないので tours.css にも記述）
+   ================================ */
+.contact-section {
+  padding: 64px 5%;
+  background-color: #a23b2c;
+  text-align: center;
+}
+
+.contact-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-heading {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.contact-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.1em;
+  margin-bottom: 28px;
+}
+
+.contact-btn {
+  display: inline-block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #a23b2c;
+  background-color: #faf7f2;
+  padding: 18px 52px;
+  min-width: 240px;
+  border: 1px solid #faf7f2;
+  border-radius: 2px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: transparent;
+  color: #faf7f2;
+  letter-spacing: 0.23em;
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+
+/* TEL / Email ライン（煉瓦色背景上） */
+.tours-contact-info {
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+.tours-contact-info a {
+  color: rgba(255, 255, 255, 0.70);
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.tours-contact-info a:hover {
+  color: #faf7f2;
+  opacity: 1;
+}
+
+
+/* ================================
+   タブレット（1024px以下）
+   ================================ */
+@media screen and (max-width: 1024px) {
+
+  /* フラッグシップ：レイアウト維持、パディング調整 */
+  .tours-flagship-body {
+    padding: 32px 28px;
+  }
+
+  .tours-flagship-title {
+    font-size: 28px;
+  }
+
+  /* 3列 → 3列維持（カード幅が狭まるだけ） */
+  .tours-cards-grid {
+    gap: 20px;
+  }
+
+  .tours-card-title {
+    font-size: 20px;
+  }
+}
+
+
+/* ================================
+   SP（768px以下）
+   ================================ */
+@media screen and (max-width: 768px) {
+
+
+  /* --- フラッグシップ --- */
+  .tours-flagship-section {
+    padding: 40px 0 24px;
+  }
+
+  /* 縦積みに変更 */
+  .tours-flagship {
+    flex-direction: column;
+  }
+
+  .tours-flagship-thumb {
+    flex: none;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .tours-flagship-img {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .tours-flagship-body {
+    padding: 24px 20px 28px;
+  }
+
+  .tours-flagship-title {
+    font-size: 24px;
+  }
+
+  .tours-flagship-en {
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+
+  .tours-flagship-desc {
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  .tours-flagship-meta {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .tours-flagship-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tours-flagship-btn-primary,
+  .tours-flagship-btn-secondary {
+    text-align: center;
+    padding: 12px 24px;
+  }
+
+  /* --- 3列カード → 1列 --- */
+  .tours-cards-section {
+    padding: 16px 0 48px;
+  }
+
+  .tours-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* SP: 2枚目の比率変更を解除 */
+  .tours-card:nth-child(2) .tours-card-img {
+    aspect-ratio: 3 / 2;
+  }
+
+  .tours-card-body {
+    padding: 20px 18px 24px;
+  }
+
+  .tours-card-title {
+    font-size: 22px;
+  }
+
+  /* --- 比較テーブル：SPはカードビューに変換 --- */
+  .tours-compare-section {
+    padding: 0 0 48px;
+  }
+
+  .tours-compare-heading {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  /* SP: テーブルをカード形式に変換 */
+  .tours-compare-table-wrap {
+    overflow-x: visible;
+  }
+
+  .tours-compare-table,
+  .tours-compare-table thead,
+  .tours-compare-table tbody,
+  .tours-compare-table th,
+  .tours-compare-table td,
+  .tours-compare-table tr {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* ヘッダー行を非表示（ラベルはdata-label属性で各セルに表示） */
+  .tours-compare-table thead tr {
+    display: none;
+  }
+
+  /* 各行をカード化 */
+  .tours-compare-table tbody tr {
+    background-color: #fff;
+    border: 1px solid #e5e0d6;
+    margin-bottom: 14px;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  /* 各セル：ラベル左・値右の2カラム */
+  .tours-compare-table tbody td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0ece4;
+    font-size: 14px;
+    gap: 8px;
+  }
+
+  .tours-compare-table tbody td:last-child {
+    border-bottom: none;
+  }
+
+  /* data-label でSP用カラムラベルを表示 */
+  .tours-compare-table tbody td::before {
+    content: attr(data-label);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: #8b8075;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 80px;
+  }
+
+  /* ツアー名セル（最初のセル）は全幅ブロック */
+  .tours-compare-table tbody td:first-child {
+    background-color: #3d3d3d;
+    color: #faf7f2;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .tours-compare-table tbody td:first-child::before {
+    display: none;
+  }
+
+  .tours-compare-table tbody td:first-child .tours-compare-name-link {
+    color: #faf7f2;
+    text-decoration-color: rgba(250, 247, 242, 0.4);
+    font-weight: 500;
+  }
+
+  .tours-compare-table tbody td:first-child .tours-compare-name-link:hover {
+    color: #d4a84b;
+    text-decoration-color: #d4a84b;
+  }
+
+  /* --- CONTACT CTA --- */
+  .contact-section {
+    padding: 48px 5%;
+  }
+
+  .contact-heading {
+    font-size: 28px;
+  }
+
+  .contact-sub {
+    font-size: 14px;
+  }
+}
+
+/* ================================
+   ③ ツアーカード・フラッグシップ DETAILSオーバーレイ
+   ::after はホバー暗幕で使用済みのため ::before を使用
+   z-index: 2 で ::after(z-index:1) より手前に表示
+   ================================ */
+.tours-card-thumb::before,
+.tours-flagship-thumb::before {
+  content: 'DETAILS →';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  letter-spacing: 0.22em;
+  color: #faf7f2;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s ease 0.05s, transform 0.35s ease 0.05s;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tours-flagship-thumb::before {
+  font-size: 16px;
+}
+
+.tours-card:hover .tours-card-thumb::before,
+.tours-flagship:hover .tours-flagship-thumb::before {
+  opacity: 1;
+  transform: translateY(0);
+}

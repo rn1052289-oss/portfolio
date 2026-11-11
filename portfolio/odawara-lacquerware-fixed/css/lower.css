@@ -1,0 +1,327 @@
+@import "common.css?v=20260727-1";
+/* ============================================================
+   下層ページ共通スタイル — Direction B: Wabi Interface
+   ============================================================ */
+
+.sub-hero {
+	margin-top: 0;
+	background: var(--color-bg-sub);
+	padding: 72px var(--pad-side);
+	text-align: center;
+	border-bottom: 1px solid var(--color-line);
+}
+.sub-hero h1 {
+	font-size: clamp(1.4rem, 2.8vw, 2rem);
+	color: var(--color-text);
+	letter-spacing: .2em;
+	font-weight: 300;
+	margin-bottom: 14px;
+}
+.sub-hero p {
+	font-family: var(--font-en);
+	font-style: italic;
+	font-size: 15px;
+	color: var(--color-muted);
+	letter-spacing: .06em;
+}
+
+.sub-content {
+	max-width: var(--max-w-sm);
+	margin: 0 auto;
+	padding: 72px var(--pad-side);
+}
+.inline-text-link {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+	color: var(--color-accent);
+	text-decoration: underline;
+	text-underline-offset: .2em;
+}
+.sub-content h2 {
+	font-size: clamp(1rem, 2vw, 1.35rem);
+	color: var(--color-text);
+	margin-top: 48px;
+	margin-bottom: 20px;
+	padding-bottom: 18px;
+	border-bottom: 1px solid var(--color-line);
+	letter-spacing: .1em;
+	font-weight: 300;
+	position: relative;
+}
+.sub-content h2:first-child { margin-top: 0; }
+
+/* h2 の左端にアクセントライン */
+.sub-content h2::after {
+	content: '';
+	position: absolute;
+	bottom: -1px;
+	left: 0;
+	width: 28px;
+	height: 1px;
+	background: var(--color-accent);
+}
+.sub-content h3 {
+	font-size: 14px;
+	color: var(--color-text);
+	font-weight: 400;
+	margin: 36px 0 12px;
+	letter-spacing: .06em;
+}
+.sub-content p {
+	font-size: 14px;
+	line-height: 2.2;
+	margin-bottom: 18px;
+	color: var(--color-sub);
+}
+.sub-content ul { margin-bottom: 24px; }
+.sub-content ul li {
+	font-size: 14px;
+	line-height: 2.1;
+	padding-left: 1.4em;
+	position: relative;
+	color: var(--color-sub);
+}
+.sub-content ul li::before {
+	content: "—";
+	position: absolute;
+	left: 0;
+	color: var(--color-muted);
+	font-size: 11px;
+	top: .15em;
+}
+
+/* 定義リスト風 */
+.dl-row {
+	display: flex;
+	gap: 16px;
+	padding: 16px 0;
+	border-bottom: 1px solid var(--color-line);
+}
+.dl-row dt {
+	flex: 0 0 120px;
+	font-size: 12px;
+	font-weight: 400;
+	color: var(--color-muted);
+	letter-spacing: .06em;
+}
+.dl-row dd {
+	flex: 1;
+	font-size: 14px;
+	line-height: 1.9;
+	color: var(--color-sub);
+}
+
+/* テーブル */
+.simple-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 32px;
+}
+.simple-table th,
+.simple-table td {
+	padding: 14px 0;
+	font-size: 13px;
+	border-bottom: 1px solid var(--color-line);
+	text-align: left;
+	line-height: 1.9;
+	vertical-align: top;
+}
+.simple-table th {
+	background: transparent;
+	font-weight: 400;
+	color: var(--color-muted);
+	font-size: 11px;
+	letter-spacing: .08em;
+	width: 28%;
+	padding-right: 16px;
+}
+.simple-table td { color: var(--color-sub); }
+
+/* お問い合わせフォーム — ボーダーボトムスタイル */
+.contact-form { max-width: 560px; }
+.form-group { margin-bottom: 32px; }
+.form-group label {
+	display: block;
+	font-size: 10px;
+	font-weight: 400;
+	color: var(--color-muted);
+	margin-bottom: 10px;
+	letter-spacing: .2em;
+	text-transform: uppercase;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+	width: 100%;
+	padding: 12px 0;
+	background: transparent;
+	border: none;
+	border-bottom: 1px solid var(--color-line);
+	border-radius: 0;
+	font-family: var(--font-jp);
+	font-size: 14px;
+	color: var(--color-text);
+	outline: none;
+	transition: border-color 0.35s ease;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+	border-bottom-color: var(--color-accent);
+}
+.form-group input:focus-visible,
+.form-group textarea:focus-visible,
+.form-group select:focus-visible {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 4px;
+	border-bottom-color: transparent;
+}
+.form-group textarea {
+	min-height: 140px;
+	resize: vertical;
+	padding-top: 8px;
+}
+.form-submit {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 180px;
+	height: 44px;
+	padding: 0 32px;
+	background: transparent;
+	color: var(--color-accent);
+	border: 1px solid var(--color-accent);
+	border-radius: 2px;
+	font-family: var(--font-jp);
+	font-weight: 400;
+	font-size: 11px;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: background .35s ease, color .35s ease;
+}
+.form-submit:hover {
+	background: var(--color-accent);
+	color: var(--color-bg);
+}
+.form-submit:active { opacity: .75; }
+
+/* アクセスマップ */
+.map-container {
+	width: 100%;
+	aspect-ratio: 16/9;
+	overflow: hidden;
+	margin-bottom: 28px;
+	background: var(--color-bg-sub);
+	border: 1px solid var(--color-line);
+}
+.map-container iframe {
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+.map-placeholder {
+	width: 100%;
+	height: 100%;
+	min-height: 260px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: 32px;
+	text-align: center;
+	background:
+		linear-gradient(90deg, transparent 49.8%, rgba(139,26,26,.08) 50%, transparent 50.2%),
+		linear-gradient(0deg, transparent 49.8%, rgba(139,26,26,.08) 50%, transparent 50.2%);
+}
+.map-placeholder-mark {
+	width: 18px;
+	height: 18px;
+	border: 1px solid var(--color-accent);
+	border-radius: 50% 50% 50% 0;
+	transform: rotate(-45deg);
+}
+.map-placeholder-label {
+	margin: 10px 0 0 !important;
+	font-family: var(--font-en);
+	font-size: 11px !important;
+	letter-spacing: .2em;
+	color: var(--color-accent) !important;
+}
+.map-placeholder p:last-child {
+	max-width: 420px;
+	margin: 0 !important;
+	font-size: 13px;
+}
+.faq-demo-note {
+	padding: 18px 20px;
+	border: 1px solid var(--color-line);
+	background: var(--color-bg-sub);
+}
+
+/* FAQ */
+.faq-item {
+	border-bottom: 1px solid var(--color-line);
+	padding: 28px 0;
+}
+.faq-q {
+	font-size: 14px;
+	font-weight: 400;
+	color: var(--color-text);
+	padding-left: 32px;
+	position: relative;
+	margin-bottom: 12px;
+	letter-spacing: .04em;
+	line-height: 1.8;
+}
+.faq-q::before {
+	content: "Q";
+	position: absolute;
+	left: 0;
+	color: var(--color-accent);
+	font-family: var(--font-en);
+	font-style: italic;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+}
+.faq-a {
+	font-size: 13px;
+	line-height: 2.2;
+	padding-left: 32px;
+	position: relative;
+	color: var(--color-sub);
+}
+.faq-a::before {
+	content: "A";
+	position: absolute;
+	left: 0;
+	color: var(--color-muted);
+	font-family: var(--font-en);
+	font-style: italic;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+/* 下層ページ CTA ボタンラップ */
+.sub-content .cta-btn-wrap { margin-top: 32px; }
+
+@media (max-width:768px) {
+	.sub-hero {
+		margin-top: 0;
+		padding: 52px 24px;
+	}
+	.sub-content {
+		padding: 52px 24px;
+	}
+	.dl-row {
+		flex-direction: column;
+		gap: 4px;
+	}
+	.dl-row dt { flex: none; }
+}

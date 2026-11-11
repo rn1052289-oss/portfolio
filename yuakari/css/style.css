@@ -1,0 +1,1940 @@
+/* ================================
+   HERO
+   ================================
+   ファーストビューで画面全体を覆う写真スライダー。
+   写真の上にオーバーレイ（暗い半透明）を重ねて、
+   白文字のキャッチコピーを読みやすくしている。
+
+   【構造】
+   .hero-section … 全体の枠。100vhで画面いっぱい
+     .hero-slider … 写真を重ねて置くエリア（position: absolute）
+       .hero-slide … 各写真。opacity 0/1 で切り替え
+     .hero-overlay … 暗い半透明の膜
+     .hero-content … テキストとボタン（z-indexで最前面）
+     .hero-scroll … 下部のSCROLLインジケーター
+   ================================ */
+.hero-section {
+		position: relative;
+		width: 100%;
+		min-height: 100vh;
+		min-height: 100dvh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		background-color: #1a1a1a;
+}
+.hero-slider {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+}
+.hero-slide {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center 40%;
+		opacity: 0;
+			transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		transform: scale(1);
+		transform-origin: center center;
+}
+.hero-slide.is-active {
+		opacity: 1;
+}
+
+/* ken-burns：スライドごとに異なる方向 */
+.hero-slide:nth-child(1).is-active { animation: hero-kb-1 9s ease-out both; }
+.hero-slide:nth-child(2).is-active { animation: hero-kb-2 9s ease-out both; }
+.hero-slide:nth-child(3).is-active { animation: hero-kb-3 9s ease-out both; }
+.hero-slide:nth-child(4).is-active { animation: hero-kb-4 9s ease-out both; }
+.hero-slide:nth-child(5).is-active { animation: hero-kb-5 9s ease-out both; }
+
+@keyframes hero-kb-1 {
+		from { transform: scale(1)    translate(0,     0)    translateZ(0); }
+		to   { transform: scale(1.07) translate(0,     0)    translateZ(0); }
+}
+@keyframes hero-kb-2 {
+		from { transform: scale(1.05) translate(-1.5%, 1.5%) translateZ(0); }
+		to   { transform: scale(1)    translate(0,     0)    translateZ(0); }
+}
+@keyframes hero-kb-3 {
+		from { transform: scale(1.05) translate(1.5%, -1.5%) translateZ(0); }
+		to   { transform: scale(1)    translate(0,     0)    translateZ(0); }
+}
+@keyframes hero-kb-4 {
+		from { transform: scale(1.06) translateX(2%)         translateZ(0); }
+		to   { transform: scale(1)    translateX(-1%)        translateZ(0); }
+}
+@keyframes hero-kb-5 {
+		from { transform: scale(1.05) translate(1%,   1%)    translateZ(0); }
+		to   { transform: scale(1)    translate(0,    0)     translateZ(0); }
+}
+.hero-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(180deg, rgba(18, 15, 12, 0.52) 0%, rgba(18, 15, 12, 0.28) 40%, rgba(18, 15, 12, 0.62) 100%);
+		z-index: 2;
+}
+.hero-content {
+		position: relative;
+		z-index: 3;
+		text-align: center;
+		padding: 0 5%;
+		max-width: 720px;
+}
+/* ヒーロー各要素：ページロード時の逐次エントリーアニメーション */
+@keyframes hero-fade-up {
+		from { opacity: 0; transform: translateY(18px); }
+		to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* prefers-reduced-motion が無効なときだけアニメーションを適用 */
+@media not (prefers-reduced-motion: reduce) {
+			.hero-catch   { animation: hero-fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both; }
+			.hero-title   { animation: hero-fade-up 0.62s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both; }
+			.hero-sub-en  { animation: hero-fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.19s both; }
+			.hero-desc    { animation: hero-fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.26s both; }
+			.hero-cta-btn { animation: hero-fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.33s both; }
+			.hero-scroll  { animation: hero-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.40s both; }
+
+		/* ① JSで .hero-title--split が付いたときは親アニメーションを無効化し、
+		      代わりに各 .hero-char が1文字ずつドロップインする */
+		.hero-title.hero-title--split {
+				animation: none;
+				opacity: 1;
+				transform: none;
+		}
+		.hero-char {
+				display: inline-block;
+				opacity: 0;
+				transform: translateY(16px) rotateX(30deg);
+				animation: hero-char-drop 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+		}
+		@keyframes hero-char-drop {
+				to {
+						opacity: 1;
+						transform: translateY(0) rotateX(0deg);
+				}
+		}
+}
+
+.hero-catch {
+		font-size: 15px;
+		letter-spacing: 0.22em;
+		color: rgba(250, 247, 242, 0.55);
+		margin-bottom: 20px;
+		line-height: 1.8;
+		text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+		text-transform: uppercase;
+}
+.hero-title {
+		font-family: "Shippori Mincho", "Noto Serif JP", serif;
+		font-size: 88px;
+		font-weight: 700;
+		letter-spacing: 0.20em;
+		color: #faf7f2;
+		line-height: 1.15;
+		margin-bottom: 14px;
+		text-shadow: 0 2px 24px rgba(0, 0, 0, 0.50);
+}
+.hero-sub-en {
+		font-family: "Cormorant Garamond", serif;
+		font-size: 19px;
+		font-weight: 400;
+		letter-spacing: 0.28em;
+		color: rgba(250, 247, 242, 0.58);
+		margin-bottom: 28px;
+		text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+.hero-desc {
+		font-size: 15px;
+		line-height: 2;
+		color: rgba(250, 247, 242, 0.62);
+		letter-spacing: 0.12em;
+		margin-bottom: 44px;
+		text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+/* CTA: EXPLORE ボタン — アウトライン + 蜂蜜色アンダーライン */
+.hero-cta-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 14px;
+		font-family: "Cormorant Garamond", serif;
+		font-size: 15px;
+		font-weight: 600;
+		letter-spacing: 0.28em;
+		color: #faf7f2;
+		border: 1px solid rgba(250, 247, 242, 0.38);
+		padding: 18px 52px;
+		min-width: 240px;
+		justify-content: center;
+		position: relative;
+		overflow: hidden;
+		transition: background-color 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), letter-spacing 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+/* ボタン底辺に蜂蜜色のライン */
+.hero-cta-btn::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: 0;
+		height: 1px;
+		background-color: #bf8a24;
+		transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.hero-cta-btn:hover {
+		background-color: rgba(250, 247, 242, 0.08);
+		border-color: rgba(250, 247, 242, 0.70);
+		letter-spacing: 0.33em;
+		opacity: 1;
+}
+.hero-cta-btn:hover::after {
+		width: 100%;
+		left: 0;
+}
+.hero-scroll {
+		position: absolute;
+		bottom: 28px;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 3;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 5px;
+}
+.hero-scroll-text {
+		font-family: "Cormorant Garamond", serif;
+		font-size: 10px;
+		letter-spacing: 0.3em;
+		color: rgba(250, 247, 242, 0.3);
+}
+.hero-scroll-line {
+		display: block;
+		width: 1px;
+		height: 32px;
+		background: linear-gradient(180deg, rgba(250, 247, 242, 0.35) 0%, transparent 100%);
+		animation: scroll-anim 2s ease-in-out infinite;
+}
+@keyframes scroll-anim {
+		0% {
+				transform: scaleY(0);
+				transform-origin: top;
+		}
+		50% {
+				transform: scaleY(1);
+				transform-origin: top;
+		}
+		51% {
+				transform-origin: bottom;
+		}
+		100% {
+				transform: scaleY(0);
+				transform-origin: bottom;
+		}
+}
+/* ================================
+   ABOUT
+   ================================
+   カンプ：左にテキスト、右に縦長の写真。
+
+   【構造】
+   .about-section … 白背景のセクション全体
+     .about-inner … flexboxで左右に並べる
+       .about-text-area … 左側（ラベル・見出し・本文・リンク）
+       .about-image-area … 右側（写真1枚）
+   ================================ */
+.about-section {
+		padding: 100px 0;
+		background-color: #faf7f2;
+}
+.about-inner {
+		display: flex;
+		align-items: flex-start;
+		gap: 60px;
+		width: 90%;
+		max-width: 1080px;
+		margin: 0 auto;
+}
+.about-text-area {
+		flex: 1;
+		min-width: 0;
+		padding-top: 8px;
+}
+/* 本文。17pxに拡大（元は15px） */
+.about-body {
+		font-size: 17px;
+		line-height: 2.1;
+		letter-spacing: 0.04em;
+		color: #444;
+		margin-bottom: 32px;
+}
+.about-image-area {
+		flex: 0 0 38%;
+		max-width: 380px;
+}
+.about-image {
+		width: 100%;
+		aspect-ratio: 3 / 4;
+		object-fit: cover;
+		background-color: #e8e2d8;
+}
+/* ================================
+   TOURS
+   ================================ */
+.tour-section {
+		padding: 100px 0 80px;
+		background-color: #3d3d3d;
+}
+.tour-inner {
+		width: min(1260px, calc(100% - 40px));
+		max-width: none;
+		margin: 0 auto;
+		overflow: hidden;
+}
+.tour-grid {
+		display: grid;
+		grid-template-columns: 620px 310px 310px;
+		grid-template-rows: 275px 280px;
+		column-gap: 10px;
+		row-gap: 10px;
+		justify-content: center;
+		align-items: start;
+		margin-bottom: 32px;
+}
+/* ---- featured（左の大カード） ---- */
+.tour-featured {
+		grid-column: 1;
+		grid-row: 1 / 3;
+		height: 100%;
+		background-color: #faf7f2;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+}
+.tour-featured-thumb {
+		position: relative;
+		flex: 0 0 300px;
+		overflow: hidden;
+}
+.tour-featured-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		background-color: #e8e2d8;
+}
+.tour-featured-body {
+		flex: 1;
+		padding: 20px 22px 18px;
+		display: flex;
+		flex-direction: column;
+}
+/* タイトル 26pxに拡大（元は24px） */
+.tour-featured-title {
+		font-family: "Shippori Mincho", "Noto Serif JP", serif;
+		font-size: 26px;
+		font-weight: 700;
+		line-height: 1.4;
+		color: #2d2d2d;
+		margin: 0 0 6px;
+}
+/* 英語名 17pxに拡大（元は16px） */
+.tour-featured-en {
+		font-family: "Cormorant Garamond", serif;
+		font-size: 17px;
+		font-style: italic;
+		letter-spacing: 0.04em;
+		color: #8b8075;
+		margin: 0 0 14px;
+}
+/* 説明文 17pxに拡大（元は16px） */
+.tour-featured-desc {
+		font-size: 17px;
+		line-height: 1.8;
+		color: #5f564d;
+		margin: 0 0 14px;
+}
+/* meta情報 15pxに拡大（元は14px） */
+.tour-featured-meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0;
+		font-family: "Cormorant Garamond", serif;
+		font-size: 15px;
+		color: #7e756d;
+		margin: 0 0 18px;
+}
+/* DETAILS → ボタン 13pxに拡大（元は12px） */
+.tour-featured-btn {
+		display: inline-block;
+		align-self: flex-start;
+		font-family: "Cormorant Garamond", serif;
+		font-size: 13px;
+		font-weight: 600;
+		letter-spacing: 0.18em;
+		color: #faf7f2;
+		background-color: #a23b2c;
+		border: 1px solid #a23b2c;
+		padding: 10px 22px;
+}
+.tour-featured-btn:hover {
+		background-color: #8a3225;
+		border-color: #8a3225;
+		opacity: 1;
+}
+/* POPULAR バッジ 10pxに拡大（元は9px） */
+.tour-badge {
+		position: absolute;
+		top: 12px;
+		left: 12px;
+		z-index: 2;
+		display: inline-block;
+		font-family: "Cormorant Garamond", serif;
+		font-size: 10px;
+		font-weight: 600;
+		letter-spacing: 0.16em;
+		color: #faf7f2;
+		background-color: #a23b2c;
+		padding: 4px 12px;
+}
+.meta-divider {
+		margin: 0 6px;
+		color: #bbb;
+}
+/* ---- card-a, card-b（右上2枚） ---- */
+.tour-card-a {
+		grid-column: 2;
+		grid-row: 1;
+}
+.tour-card-b {
+		grid-column: 3;
+		grid-row: 1;
+}
+/* ---- カード共通スタイル ---- */
+.tour-card {
+		height: 100%;
+		background-color: #faf7f2;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+}
+.tour-card-thumb {
+		overflow: hidden;
+		background-color: #e8e2d8;
+}
+.tour-card-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		background-color: #e8e2d8;
+}
+.tour-card-body {
+		flex: 1;
+		padding: 14px 14px 12px;
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+}
+.tour-card-title, .tour-card-en, .tour-card-desc, .tour-card-meta, .tour-card-meta span {
+		min-width: 0;
+}
+/* カードタイトル 20pxに拡大（元は18px） */
+.tour-card-title {
+		font-family: "Shippori Mincho", "Noto Serif JP", serif;
+		font-size: 20px;
+		font-weight: 600;
+		line-height: 1.45;
+		color: #2d2d2d;
+		margin: 0 0 4px;
+		letter-spacing: 0;
+		word-break: keep-all;
+		overflow-wrap: anywhere;
+}
+/* カード英語名 14pxに拡大（元は13px） */
+.tour-card-en {
+		font-family: "Cormorant Garamond", serif;
+		font-size: 14px;
+		font-style: italic;
+		letter-spacing: 0.03em;
+		color: #8b8075;
+		margin: 0 0 auto;
+		line-height: 1.4;
+}
+/* カード説明文 14pxに拡大（元は12px） */
+.tour-card-desc {
+		font-size: 14px;
+		line-height: 1.75;
+		color: #675e55;
+		margin: 0 0 8px;
+		word-break: keep-all;
+		overflow-wrap: anywhere;
+}
+.tour-card-bottom {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 8px;
+		margin-top: auto;
+}
+/* カードmeta 14pxに拡大（元は13px） */
+.tour-card-meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0;
+		font-family: "Cormorant Garamond", serif;
+		font-size: 14px;
+		color: #7e756d;
+		line-height: 1.4;
+}
+/* DETAILS → ボタン 12pxに拡大（元は11px） */
+.tour-card-btn {
+		display: inline-block;
+		flex-shrink: 0;
+		font-family: "Cormorant Garamond", serif;
+		font-size: 12px;
+		font-weight: 600;
+		letter-spacing: 0.16em;
+		color: #faf7f2;
+		background-color: #a23b2c;
+		border: 1px solid #a23b2c;
+		padding: 6px 16px;
+		white-space: nowrap;
+}
+.tour-card-btn:hover {
+		background-color: #8a3225;
+		border-color: #8a3225;
+		opacity: 1;
+}
+/* ---- card-a, card-b 個別調整 ---- */
+.tour-card-a .tour-card-thumb, .tour-card-b .tour-card-thumb {
+		height: 160px;
+}
+.tour-card-a .tour-card-body, .tour-card-b .tour-card-body {
+		height: 115px;
+		padding: 12px 14px 10px;
+}
+/* ---- card-c 個別調整 ---- */
+.tour-card-c {
+		grid-column: 2 / 4;
+		grid-row: 2;
+		flex-direction: row;
+		background-color: #faf7f2;
+}
+.tour-card-c .tour-card-thumb {
+		flex: 0 0 310px;
+		max-width: 310px;
+		width: 310px;
+		height: 280px;
+}
+.tour-card-c .tour-card-body {
+		flex: 1;
+		background-color: #faf7f2;
+		padding: 28px 28px 22px;
+		justify-content: center;
+}
+/* card-cタイトル 24pxに拡大（元は22px） */
+.tour-card-c .tour-card-title {
+		font-size: 24px;
+		font-weight: 700;
+		margin-bottom: 4px;
+}
+/* card-c英語名 15pxに拡大（元は14px） */
+.tour-card-c .tour-card-en {
+		font-size: 15px;
+		margin-bottom: 12px;
+}
+/* card-c説明文 15pxに拡大（元は14px） */
+.tour-card-c .tour-card-desc {
+		font-size: 15px;
+		margin-bottom: 14px;
+}
+.tour-card-c .tour-card-bottom {
+		justify-content: space-between;
+}
+/* card-c meta 15pxに拡大（元は14px） */
+.tour-card-c .tour-card-meta {
+		font-size: 15px;
+}
+/* card-c ボタン 13pxに拡大（元は12px） */
+.tour-card-c .tour-card-btn {
+		font-size: 13px;
+		padding: 8px 20px;
+}
+/* VIEW ALL TOURS リンク */
+.tour-view-all {
+		text-align: center;
+		padding-top: 6px;
+}
+/* ================================
+   DISCOVER
+   ================================ */
+.discover-section {
+		padding: 100px 0;
+		background-color: #faf7f2;
+}
+.discover-inner {
+		width: 90%;
+		max-width: 1080px;
+		margin: 0 auto;
+}
+.discover-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 28px;
+}
+/* --- カード枠 --- */
+.discover-card {
+		background-color: #fff;
+		border: 1px solid #d6d0c6;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		transition: border-color 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.discover-card:hover {
+		border-color: #bf8a24;
+		transform: translateY(-6px);
+		box-shadow: 0 16px 40px rgba(45, 45, 45, 0.12);
+}
+.discover-card-thumb {
+		overflow: hidden;
+}
+.discover-card-img {
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		background-color: #e8e2d8;
+		transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.discover-card:hover .discover-card-img {
+		transform: scale(1.04);
+}
+/* --- カード内テキスト --- */
+.discover-card-body {
+		padding: 20px 20px 24px;
+		border-top: 2px solid #bf8a24;
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+}
+.discover-card-title {
+		display: flex;
+		align-items: baseline;
+		gap: 10px;
+		margin-bottom: 8px;
+}
+/* discover日本語 22px */
+.discover-ja {
+		font-family: "Shippori Mincho", "Noto Serif JP", serif;
+		font-size: 22px;
+		font-weight: 600;
+		color: #2d2d2d;
+}
+/* discover英語 16px */
+.discover-en {
+		font-family: "Cormorant Garamond", serif;
+		font-size: 16px;
+		font-weight: 400;
+		font-style: italic;
+		letter-spacing: 0.1em;
+		color: #a23b2c;
+}
+/* discover説明文 16px */
+.discover-card-text {
+		font-size: 16px;
+		color: #555;
+		line-height: 1.9;
+		margin-bottom: 16px;
+}
+/* EXPLORE リンクをカード下部に固定 */
+.discover-card .text-link {
+		margin-top: auto;
+}
+/* ================================
+   PLAN YOUR VISIT（モデルコース導線帯）
+   ================================
+   3種のモデルコースをカードで紹介し、各ツアー詳細へ誘導する。
+   白カード + 蜂蜜色トップボーダー + タグ + テキストリンク
+   ================================ */
+.course-section {
+	padding: 100px 0;
+	background-color: #faf7f2;
+}
+
+.course-inner {
+	width: 90%;
+	max-width: 1080px;
+	margin: 0 auto;
+}
+
+/* 3カラムグリッド */
+.course-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 24px;
+	margin-bottom: 48px;
+}
+
+/* カード枠 */
+.course-card {
+	background-color: #fff;
+	border: 1px solid #d6d0c6;
+	border-top: 3px solid #bf8a24;
+	padding: 28px 24px 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.course-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 24px rgba(45, 45, 45, 0.08);
+}
+
+/* カードヘッダ（タグ＋タイトル） */
+.course-card-head {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-bottom: 4px;
+}
+
+/* 時間帯タグ（半日 / 一日 / 夕方〜夜） */
+.course-tag {
+	display: inline-block;
+	font-family: "Cormorant Garamond", serif;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.18em;
+	color: #bf8a24;
+	border: 1px solid #bf8a24;
+	padding: 3px 10px;
+	width: fit-content;
+}
+
+/* カードタイトル */
+.course-card-title {
+	font-family: "Shippori Mincho", "Noto Serif JP", serif;
+	font-size: 20px;
+	font-weight: 700;
+	color: #2d2d2d;
+	letter-spacing: 0.04em;
+	line-height: 1.4;
+}
+
+/* コース内容（矢印フロー） */
+.course-card-flow {
+	font-family: "Noto Serif JP", serif;
+	font-size: 14px;
+	color: #444;
+	line-height: 1.8;
+	letter-spacing: 0.02em;
+}
+
+/* こんな方に向け文 */
+.course-card-note {
+	font-size: 13px;
+	color: #888;
+	line-height: 1.7;
+	flex: 1;
+}
+
+/* ツアーへのリンク */
+.course-card-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-family: "Cormorant Garamond", serif;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: 0.08em;
+	color: #a23b2c;
+	text-decoration: none;
+	margin-top: auto;
+	padding-top: 12px;
+	border-top: 1px solid #e8e2d8;
+	transition: gap 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.course-card-link:hover {
+	gap: 10px;
+	color: #7a2c20;
+}
+
+/* 下部「全ツアーを比較する」リンク */
+.course-view-all {
+	text-align: center;
+}
+
+
+/* ================================
+   SCENES（架空の体験モデル）
+   ================================
+   クリーム背景に5枚のカードを3+2グリッドで配置。
+   旅の場面を示す文字マーク + 説明 + モデル属性。
+   ================================ */
+.voice-section {
+	padding: 100px 0;
+	background-color: #faf7f2;
+}
+
+.voice-inner {
+	width: 90%;
+	max-width: 1080px;
+	margin: 0 auto;
+}
+
+.voice-disclaimer {
+	max-width: 720px;
+	margin-top: 20px;
+	padding: 14px 18px;
+	border-left: 3px solid #96691c;
+	background: #f1ece4;
+	color: #49433b;
+	font-size: 13px;
+	line-height: 1.8;
+}
+
+/* 3列グリッド（5枚目は中央寄せ） */
+.voice-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 24px;
+	margin-top: 48px;
+}
+
+/* 5枚目を中央列に */
+.voice-card:nth-child(4) {
+	grid-column: 1;
+}
+.voice-card:nth-child(5) {
+	grid-column: 2;
+}
+
+/* カード */
+.voice-card {
+	background-color: #fff;
+	border: 1px solid #d6d0c6;
+	border-top: 3px solid #bf8a24;
+	padding: 32px 24px 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	transition: box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.voice-card:hover {
+	box-shadow: 0 8px 24px rgba(45, 45, 45, 0.08);
+}
+
+/* 体験シーンの文字マーク */
+.voice-card-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 42px;
+	height: 42px;
+	border: 1px solid #a8751e;
+	border-radius: 50%;
+	font-family: "Cormorant Garamond", serif;
+	font-size: 19px;
+	font-weight: 600;
+	color: #805714;
+	line-height: 1;
+}
+
+/* 引用テキスト */
+.voice-card-text {
+	font-family: "Shippori Mincho", "游明朝", "Yu Mincho", serif;
+	font-size: 14px;
+	line-height: 1.9;
+	color: #444;
+	letter-spacing: 0.03em;
+	margin: 0;
+	flex: 1;
+	position: relative;
+	padding-left: 16px;
+}
+
+.voice-card-text::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 4px;
+	bottom: 4px;
+	width: 2px;
+	background-color: #bf8a24;
+	opacity: 0.5;
+}
+
+/* 名前・属性 */
+.voice-card-author {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding-top: 12px;
+	border-top: 1px solid #e8e2d8;
+}
+
+.voice-card-name {
+	font-family: "Shippori Mincho", "Noto Serif JP", serif;
+	font-size: 15px;
+	font-weight: 600;
+	color: #2d2d2d;
+	letter-spacing: 0.04em;
+}
+
+.voice-card-attr {
+	font-family: "Cormorant Garamond", serif;
+	font-size: 12px;
+	color: #666;
+	letter-spacing: 0.08em;
+}
+
+
+/* ================================
+   PAUSE（コンセプト帯）
+   ================================
+   「一湯一會」ブランドの核をもっとも強く打ち出すセクション。
+   格子柄の背景 + ロゴ透かし + 縦中央テキスト + CTAリンク
+   ================================ */
+.pause-section {
+		position: relative;
+		padding: 144px 5%;
+		background-color: #2d2d2d;
+		text-align: center;
+		overflow: hidden;
+		/* 格子模様を背景に重ねる */
+		background-image:
+				linear-gradient(rgba(250, 247, 242, 0.03) 1px, transparent 1px),
+				linear-gradient(90deg, rgba(250, 247, 242, 0.03) 1px, transparent 1px);
+		background-size: 40px 40px;
+}
+/* ロゴ透かし */
+.pause-section::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 400px;
+		height: 400px;
+		background: url("../svg/logo.svg") no-repeat center / contain;
+		opacity: 0.045;
+		filter: brightness(0) invert(1);
+		pointer-events: none;
+}
+/* 上下に細い蜂蜜色ライン */
+.pause-section::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background: linear-gradient(
+				90deg,
+				transparent 0%,
+				rgba(191, 138, 36, 0.45) 30%,
+				rgba(191, 138, 36, 0.45) 70%,
+				transparent 100%
+		);
+}
+.pause-content {
+		position: relative;
+		z-index: 1;
+		max-width: 640px;
+		margin: 0 auto;
+}
+/* pause タイトル */
+.pause-title {
+		font-family: "Shippori Mincho", "Noto Serif JP", serif;
+		font-size: 80px;
+		font-weight: 700;
+		letter-spacing: 0.22em;
+		color: #faf7f2;
+		line-height: 1.25;
+		margin-bottom: 12px;
+		/* 文字に微かな光のにじみ */
+		text-shadow: 0 0 40px rgba(191, 138, 36, 0.12);
+}
+/* pause サブ */
+.pause-sub {
+		font-family: "Cormorant Garamond", serif;
+		font-size: 18px;
+		font-weight: 400;
+		letter-spacing: 0.28em;
+		color: rgba(250, 247, 242, 0.45);
+		margin-bottom: 36px;
+}
+/* オーナメントライン */
+.pause-ornament {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto 36px;
+		max-width: 280px;
+}
+.pause-ornament::before,
+.pause-ornament::after {
+		content: "";
+		flex: 1;
+		height: 1px;
+		background-color: rgba(191, 138, 36, 0.38);
+}
+.pause-ornament-diamond {
+		display: inline-block;
+		width: 6px;
+		height: 6px;
+		border: 1px solid rgba(191, 138, 36, 0.55);
+		transform: rotate(45deg);
+		margin: 0 16px;
+		flex-shrink: 0;
+}
+/* pause 本文 */
+.pause-text {
+		font-size: 16px;
+		color: rgba(250, 247, 242, 0.58);
+		line-height: 2.3;
+		letter-spacing: 0.08em;
+		margin-bottom: 44px;
+}
+/* pause CTA リンク（ツアーへの誘導）*/
+.pause-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		font-family: "Cormorant Garamond", serif;
+		font-size: 13px;
+		font-weight: 500;
+		letter-spacing: 0.28em;
+		color: rgba(212, 168, 75, 0.80);
+		border-bottom: 1px solid rgba(212, 168, 75, 0.30);
+		padding-bottom: 4px;
+		transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), gap 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.pause-cta:hover {
+		color: #d4a84b;
+		border-color: rgba(212, 168, 75, 0.70);
+		gap: 16px;
+		opacity: 1;
+}
+.pause-icon {
+		font-size: 14px;
+		color: rgba(212, 168, 75, 0.25);
+		margin-top: 32px;
+}
+/* ================================
+   ACCESS
+   ================================ */
+.access-section {
+		padding: 100px 0;
+		background-color: #faf7f2;
+}
+.access-inner {
+		width: 90%;
+		max-width: 1080px;
+		margin: 0 auto;
+}
+.access-content {
+		display: flex;
+		gap: 48px;
+		align-items: flex-start;
+}
+.access-map {
+		flex: 1;
+		min-width: 0;
+}
+.access-map-placeholder {
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		background-color: #e5e0d6;
+		border: 1px solid #d6d0c6;
+		border-radius: 3px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: "Cormorant Garamond", serif;
+		font-size: 14px;
+		letter-spacing: 0.2em;
+		color: #999;
+}
+.access-map-wrap {
+		position: relative;
+		width: 100%;
+		padding-bottom: 75%;
+		overflow: hidden;
+}
+.access-map-wrap iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
+}
+.access-info {
+		flex: 1;
+		min-width: 0;
+		margin-left: 100px;
+}
+.access-info-list {
+		display: flex;
+		flex-direction: column;
+}
+.access-info-item {
+		padding: 16px 0;
+		border-bottom: 1px solid rgba(45, 45, 45, 0.08);
+}
+.access-info-item:first-child {
+		padding-top: 0;
+}
+/* access dt 15pxに拡大（元は13px） */
+.access-info-item dt {
+		font-size: 15px;
+		font-weight: 600;
+		color: #3d3d3d;
+		letter-spacing: 0.04em;
+		margin-bottom: 4px;
+}
+/* access dd 15pxに拡大（元は13px） */
+.access-info-item dd {
+		font-size: 15px;
+		color: #666;
+		line-height: 1.8;
+}
+/* ================================
+   CONTACT（CTAバンド）
+   ================================
+   単なる赤帯で終わらせない。
+   左：行動理由となるコピー＋安心感
+   右：ボタン＋電話
+   ← 「押したくなる設計」へ格上げ
+   ================================ */
+.contact-section {
+		position: relative;
+		padding: 72px 5%;
+		background-color: #a23b2c;
+		overflow: hidden;
+}
+/* 背景に薄い格子で奥行き感 */
+.contact-section::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image:
+				linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+				linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+		background-size: 32px 32px;
+		pointer-events: none;
+}
+.contact-inner {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 48px;
+		max-width: 1080px;
+		margin: 0 auto;
+}
+/* 左: コピーエリア */
+.contact-copy-area {
+		flex: 1;
+}
+.contact-heading {
+		font-family: "Shippori Mincho", "Noto Serif JP", serif;
+		font-size: 36px;
+		font-weight: 700;
+		letter-spacing: 0.10em;
+		color: #fff;
+		margin-bottom: 8px;
+}
+.contact-sub {
+		font-size: 14px;
+		color: rgba(255, 255, 255, 0.65);
+		letter-spacing: 0.06em;
+		line-height: 1.8;
+		margin-bottom: 0;
+}
+/* 安心感コピー（英語でも読みやすい補足文）*/
+.contact-assurance {
+		margin-top: 16px;
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		font-family: "Cormorant Garamond", serif;
+		font-size: 13px;
+		letter-spacing: 0.12em;
+		color: rgba(255,255,255,0.50);
+}
+.contact-assurance::before {
+		content: "";
+		display: inline-block;
+		width: 20px;
+		height: 1px;
+		background-color: rgba(255,255,255,0.38);
+		flex-shrink: 0;
+}
+/* 右: アクションエリア */
+.contact-cta-area {
+		flex-shrink: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 16px;
+}
+/* contact ボタン */
+.contact-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		font-family: "Cormorant Garamond", serif;
+		font-size: 15px;
+		font-weight: 600;
+		letter-spacing: 0.22em;
+		color: #a23b2c;
+		background-color: #fff;
+		padding: 18px 56px;
+		min-width: 260px;
+		border: 1px solid #fff;
+		position: relative;
+		overflow: hidden;
+		transition: background-color 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94), letter-spacing 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.32s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+/* ボタン底辺にアンダーライン */
+.contact-btn::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background-color: #bf8a24;
+		transition: width 0.38s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.contact-btn:hover {
+		background-color: transparent;
+		color: #fff;
+		letter-spacing: 0.27em;
+		opacity: 1;
+}
+.contact-btn:hover::after {
+		width: 100%;
+}
+/* contact 電話番号 */
+.contact-info-line {
+		font-family: "Cormorant Garamond", serif;
+		font-size: 13px;
+		letter-spacing: 0.10em;
+		color: rgba(255, 255, 255, 0.45);
+		text-align: center;
+}
+.contact-info-line a:hover {
+		color: rgba(255,255,255,0.80);
+		opacity: 1;
+}
+/* ================================================
+   ABOUT セクション：格子テクスチャ背景
+   ================================================ */
+.about-section {
+  position: relative;
+}
+.about-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(45, 45, 45, 0.027) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 45, 45, 0.027) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+  z-index: 0;
+}
+.about-inner {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ================================================
+   DISCOVER セクション：格子テクスチャ背景
+   ================================================ */
+.discover-section {
+  position: relative;
+}
+.discover-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(45, 45, 45, 0.024) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 45, 45, 0.024) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+  z-index: 0;
+}
+.discover-inner {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ================================================
+   ツアーカード：ホバー演出強化
+   ================================================ */
+
+/* featured カード：画像スケール */
+.tour-featured-img {
+  transition:
+    transform 0.60s cubic-bezier(0.22, 1, 0.36, 1),
+    filter    0.60s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.tour-featured:hover .tour-featured-img {
+  transform: scale(1.04);
+  filter: brightness(1.07);
+}
+/* featured カード：外枠リフト */
+.tour-featured {
+  transition: box-shadow 0.40s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.40s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.tour-featured:hover {
+  box-shadow: 0 20px 56px rgba(45, 45, 45, 0.15);
+  transform: translateY(-4px);
+}
+
+/* standard card：画像スケール */
+.tour-card-img {
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    filter    0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.tour-card:hover .tour-card-img {
+  transform: scale(1.05);
+  filter: brightness(1.06);
+}
+/* standard card：外枠リフト */
+.tour-card {
+  transition:
+    box-shadow 0.40s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform  0.40s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tour-card:hover {
+  box-shadow: 0 14px 40px rgba(45, 45, 45, 0.13);
+  transform: translateY(-5px);
+}
+
+
+/* ================================================
+   DISCOVER カード：ホバー演出強化
+   ================================================ */
+.discover-card {
+  transition:
+    border-color 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform    0.40s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow   0.40s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.discover-card:hover {
+  border-color: #bf8a24;
+  transform: translateY(-6px);
+  box-shadow: 0 18px 48px rgba(45, 45, 45, 0.12);
+}
+.discover-card-img {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.discover-card:hover .discover-card-img {
+  transform: scale(1.05);
+}
+
+
+/* ================================================
+   タブレット（1024px以下）
+   ================================ */
+@media screen and (max-width: 1024px) {
+		/* --- ABOUT --- */
+		.about-inner {
+				gap: 40px;
+		}
+		.about-image-area {
+				flex: 0 0 35%;
+				max-width: 320px;
+		}
+		/* --- TOURS --- */
+		.tour-grid {
+				grid-template-columns: 1fr 1fr;
+				grid-template-rows: auto auto;
+		}
+		.tour-card-a {
+				grid-column: 1;
+				grid-row: 1;
+		}
+		.tour-card-b {
+				grid-column: 2;
+				grid-row: 1;
+		}
+		.tour-featured {
+				grid-column: 1;
+				grid-row: 2;
+				flex-direction: column;
+		}
+		.tour-featured-thumb {
+				flex: none;
+				height: auto;
+		}
+		.tour-featured-img {
+				aspect-ratio: 16 / 10;
+				height: auto;
+		}
+		.tour-card-c {
+				grid-column: 2;
+				grid-row: 2;
+				flex-direction: column;
+		}
+		.tour-card-c .tour-card-thumb {
+				flex: none;
+				width: 100%;
+				max-width: none;
+				height: auto;
+		}
+		.tour-card-c .tour-card-img {
+				aspect-ratio: 16 / 10;
+				height: auto;
+				min-height: auto;
+		}
+		.tour-card-c .tour-card-body {
+				padding: 14px 14px 12px;
+		}
+		.tour-card-c .tour-card-title {
+				font-size: 20px;
+		}
+		.tour-card-c .tour-card-en {
+				font-size: 14px;
+		}
+		.tour-card-c .tour-card-desc {
+				font-size: 14px;
+		}
+		.tour-card-a .tour-card-thumb, .tour-card-b .tour-card-thumb {
+				height: auto;
+		}
+		.tour-card-a .tour-card-img, .tour-card-b .tour-card-img {
+				aspect-ratio: 16 / 10;
+				height: auto;
+		}
+		.tour-card-a .tour-card-body, .tour-card-b .tour-card-body {
+				height: auto;
+		}
+		/* --- DISCOVER --- */
+		.discover-grid {
+				grid-template-columns: repeat(3, 1fr);
+				gap: 20px;
+		}
+		.discover-card-text {
+				font-size: 14px;
+		}
+		.discover-ja {
+				font-size: 20px;
+		}
+		.discover-en {
+				font-size: 14px;
+		}
+		/* --- VOICE --- */
+		.voice-grid {
+				grid-template-columns: repeat(3, 1fr);
+				gap: 16px;
+		}
+		.voice-card {
+				padding: 24px 18px;
+		}
+		/* --- PAUSE --- */
+		.pause-title {
+				font-size: 56px;
+		}
+		/* --- ACCESS --- */
+		.access-content {
+				gap: 32px;
+		}
+		.access-info {
+				margin-left: 0;
+		}
+}
+/* ================================
+   SP（768px以下）
+   ================================ */
+@media screen and (max-width: 768px) {
+		/* --- HERO --- */
+		.hero-title {
+				font-size: 48px;
+		}
+		.hero-sub-en {
+				font-size: 15px;
+		}
+		.hero-catch {
+				font-size: 13px;
+		}
+		.hero-desc {
+				font-size: 14px;
+		}
+		.hero-cta-btn {
+				font-size: 15px;
+				padding: 16px 44px;
+				min-width: 220px;
+		}
+		/* --- ABOUT --- */
+		.about-section {
+				padding: 64px 0;
+		}
+		.about-inner {
+				flex-direction: column;
+				gap: 32px;
+		}
+		.about-text-area {
+				text-align: center;
+				padding-top: 0;
+		}
+		.about-section .section-label {
+				justify-content: center;
+		}
+		.about-section .section-heading-ja, .about-section .section-heading-sub {
+				text-align: center;
+		}
+		.about-body {
+				text-align: left;
+				font-size: 15px;
+		}
+		.about-section .text-link {
+				justify-content: center;
+		}
+		.about-image-area {
+				flex: none;
+				max-width: 100%;
+				width: 100%;
+		}
+		.about-image {
+				aspect-ratio: 16 / 10;
+		}
+		/* --- TOURS --- */
+		.tour-section {
+				padding: 64px 0 56px;
+		}
+		.tour-grid {
+				grid-template-columns: 1fr;
+				grid-template-rows: auto;
+				gap: 20px;
+		}
+		.tour-featured {
+				grid-column: 1;
+				grid-row: 1;
+				order: 1;
+		}
+		.tour-card-a {
+				grid-column: 1;
+				grid-row: 2;
+				order: 2;
+		}
+		.tour-card-b {
+				grid-column: 1;
+				grid-row: 3;
+				order: 3;
+		}
+		.tour-card-c {
+				grid-column: 1;
+				grid-row: 4;
+				order: 4;
+				flex-direction: column;
+		}
+		.tour-card-c .tour-card-thumb {
+				flex: none;
+				width: 100%;
+				max-width: none;
+				height: auto;
+		}
+		.tour-card-c .tour-card-img {
+				aspect-ratio: 16 / 10;
+				height: auto;
+				min-height: auto;
+		}
+		.tour-card-c .tour-card-body {
+				padding: 12px 14px;
+		}
+		.tour-card-c .tour-card-title,.tour-featured-title {
+				font-size: 20px;
+		}
+		.tour-card-c .tour-card-en {
+				font-size: 14px;
+		}
+		.tour-card-c .tour-card-desc,.tour-featured-desc {
+				/*font-size: 14px;*/
+			display: none;
+		}
+		.tour-featured {
+				flex-direction: column;
+		}
+		.tour-featured-thumb {
+				flex: none;
+				height: auto;
+				min-height: 180px;
+		}
+		.tour-featured-img {
+				aspect-ratio: 16 / 10;
+				height: auto;
+		}
+		.tour-card {
+				flex-direction: column;
+		}
+		.tour-card-thumb {
+				flex: none;
+				width: 100%;
+				height: auto;
+		}
+		.tour-card-img {
+				aspect-ratio: 16 / 10;
+				height: auto;
+				min-height: auto;
+		}
+		.tour-card-body {
+				padding: 12px 14px;
+		}
+		.tour-card-a .tour-card-thumb, .tour-card-b .tour-card-thumb {
+				height: auto;
+		}
+		.tour-card-a .tour-card-body, .tour-card-b .tour-card-body {
+				height: auto;
+		}
+		.tour-card-bottom {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 6px;
+		}
+		/* --- PLAN YOUR VISIT --- */
+		.course-section {
+				padding: 64px 0;
+		}
+		.course-grid {
+				grid-template-columns: 1fr;
+				gap: 16px;
+				margin-bottom: 32px;
+		}
+		.course-card {
+				padding: 20px 18px;
+		}
+		.course-card-title {
+				font-size: 18px;
+		}
+		/* --- DISCOVER --- */
+		.discover-section {
+				padding: 64px 0;
+		}
+		.discover-grid {
+				grid-template-columns: 1fr;
+				gap: 24px;
+		}
+		.discover-card-body {
+				padding: 16px 16px 20px;
+		}
+		.discover-ja {
+				font-size: 20px;
+		}
+		.discover-en {
+				font-size: 14px;
+		}
+		.discover-card-text {
+				font-size: 15px;
+		}
+		.discover-card-text br {
+				display: none;
+		}
+		/* --- VOICE --- */
+		.voice-section {
+				padding: 64px 0;
+		}
+		.voice-grid {
+				grid-template-columns: 1fr;
+				gap: 16px;
+				margin-top: 32px;
+		}
+		.voice-card:nth-child(4),
+		.voice-card:nth-child(5) {
+				grid-column: auto;
+		}
+		/* --- PAUSE --- */
+		.pause-section {
+				padding: 72px 5%;
+		}
+		.pause-title {
+				font-size: 40px;
+		}
+		.pause-sub {
+				font-size: 14px;
+		}
+		.pause-text {
+				font-size: 15px;
+		}
+		.pause-text br {
+				display: none;
+		}
+		/* --- ACCESS --- */
+		.access-section {
+				padding: 64px 0;
+		}
+		.access-content {
+				flex-direction: column;
+				gap: 32px;
+		}
+		.access-info {
+				margin-left: 0;
+		}
+		.access-map-wrap {
+				padding-bottom: 75%;
+				height: 0;
+		}
+		.access-map-wrap iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+		}
+		/* --- CONTACT --- */
+		.contact-section {
+				padding: 52px 5%;
+		}
+		.contact-inner {
+				flex-direction: column;
+				text-align: center;
+				gap: 32px;
+		}
+		.contact-copy-area {
+				text-align: center;
+		}
+		.contact-assurance {
+				justify-content: center;
+		}
+		.contact-heading {
+				font-size: 28px;
+		}
+		.contact-info-line {
+				font-size: 12px;
+		}
+		.contact-btn {
+				min-width: 220px;
+				padding: 16px 44px;
+		}
+
+		/* --- セクション区切り装飾 SP --- */
+		.section-divider {
+				width: 120px;
+		}
+
+		/* --- 湯気装飾 SP --- */
+		.pause-steam {
+				margin-bottom: 20px;
+				gap: 12px;
+		}
+		.pause-steam-line:nth-child(1) { height: 20px; }
+		.pause-steam-line:nth-child(2) { height: 30px; }
+		.pause-steam-line:nth-child(3) { height: 20px; }
+}
+
+
+/* ================================================
+   タッチデバイス：ホバーエフェクト無効化
+   ================================================
+   タッチ操作では :hover が「貼り付く」ため、
+   hover が使えるデバイス（マウス等）のみ有効にする。
+   ================================================ */
+@media (hover: none) {
+		.tour-featured:hover .tour-featured-img,
+		.tour-card:hover .tour-card-img,
+		.discover-card:hover .discover-card-img {
+				transform: none;
+				filter: none;
+		}
+		.tour-featured:hover,
+		.tour-card:hover,
+		.discover-card:hover {
+				transform: none;
+				box-shadow: none;
+				border-color: #d6d0c6;
+		}
+}
+
+
+/* ================================================
+   HERO CTA GROUP（複数CTA並列）
+   ================================================
+   「体験ツアーを比較する」（メインCTA）と
+   「空き状況・英語ガイドを問い合わせる」（サブCTA）を縦に並べる。
+   既存の .hero-cta-btn のスタイルを保持したまま、
+   .hero-cta-group でラップして余白を調整する。
+   ================================================ */
+.hero-cta-group {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 14px;
+}
+
+/* サブCTA：アンダーライン付きテキストリンク（白系） */
+.hero-cta-sub {
+		font-family: "Cormorant Garamond", serif;
+		font-size: 13px;
+		font-weight: 500;
+		letter-spacing: 0.18em;
+		color: rgba(250, 247, 242, 0.55);
+		text-decoration: underline;
+		text-decoration-color: rgba(250, 247, 242, 0.2);
+		text-underline-offset: 4px;
+		transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), text-decoration-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		line-height: 1.8;
+}
+
+.hero-cta-sub:hover {
+		color: rgba(250, 247, 242, 0.90);
+		text-decoration-color: rgba(191, 138, 36, 0.70);
+		opacity: 1;
+}
+
+/* SP */
+@media screen and (max-width: 768px) {
+		.hero-cta-group {
+				gap: 12px;
+		}
+		.hero-cta-sub {
+				font-size: 12px;
+				letter-spacing: 0.12em;
+		}
+}
+
+
+/* ================================================
+   TOUR QUICK INFO BAR（ヒーロー直下）
+   ================================================
+   4ツアー / ¥3,200〜 / 英語対応 / 問い合わせ
+   の4要素を横1列に並べる帯。
+   ================================================ */
+.tour-quick-bar {
+		background-color: #1e1e1e;
+		border-bottom: 1px solid rgba(191, 138, 36, 0.15);
+}
+
+.tour-quick-inner {
+		display: flex;
+		align-items: stretch;
+		justify-content: center;
+		width: 90%;
+		max-width: 1080px;
+		margin: 0 auto;
+		gap: 0;
+}
+
+.tour-quick-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 20px 32px;
+		gap: 3px;
+}
+
+.tour-quick-num {
+		font-family: "Cormorant Garamond", serif;
+		font-size: 22px;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		color: #d4a84b;
+		line-height: 1.2;
+}
+
+.tour-quick-label {
+		font-family: "Cormorant Garamond", serif;
+		font-size: 11px;
+		font-weight: 400;
+		letter-spacing: 0.16em;
+		color: rgba(250, 247, 242, 0.45);
+		white-space: nowrap;
+}
+
+.tour-quick-divider {
+		display: block;
+		width: 1px;
+		background-color: rgba(250, 247, 242, 0.10);
+		align-self: stretch;
+		margin: 12px 0;
+}
+
+/* 予約・問い合わせリンク */
+.tour-quick-contact {
+		font-family: "Cormorant Garamond", serif;
+		font-size: 13px;
+		font-weight: 600;
+		letter-spacing: 0.18em;
+		color: #d4a84b;
+		white-space: nowrap;
+		transition: color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), letter-spacing 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		line-height: 1.6;
+}
+
+.tour-quick-contact:hover {
+		color: #f0c060;
+		letter-spacing: 0.22em;
+		opacity: 1;
+}
+
+/* タブレット */
+@media screen and (max-width: 1024px) {
+		.tour-quick-item {
+				padding: 18px 20px;
+		}
+		.tour-quick-num {
+				font-size: 19px;
+		}
+}
+
+/* SP */
+@media screen and (max-width: 768px) {
+		.tour-quick-inner {
+				flex-wrap: wrap;
+				gap: 0;
+				justify-content: stretch;
+		}
+		.tour-quick-item {
+				flex: 1 1 45%;
+				padding: 16px 12px;
+				border-bottom: 1px solid rgba(250, 247, 242, 0.08);
+		}
+		.tour-quick-item:last-child {
+				flex: 1 1 100%;
+				border-bottom: none;
+				flex-direction: row;
+				gap: 0;
+				justify-content: center;
+				padding: 14px 12px;
+		}
+		.tour-quick-divider {
+				display: none;
+		}
+		.tour-quick-num {
+				font-size: 18px;
+		}
+		.tour-quick-label {
+				font-size: 10px;
+		}
+		.tour-quick-contact {
+				font-size: 12px;
+		}
+}

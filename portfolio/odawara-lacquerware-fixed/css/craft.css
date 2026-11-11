@@ -1,0 +1,209 @@
+@import "common.css?v=20260727-1";
+/* ============================================================
+   CRAFT ページ固有 — Direction B: Wabi Interface
+   ============================================================ */
+
+/* 動画セクション */
+.craft-video {
+	padding: 80px var(--pad-side);
+	background: var(--color-text);
+}
+.craft-video-inner {
+	max-width: var(--max-w);
+	margin: 0 auto;
+}
+.craft-video .accent-line { background: #f2f0eb; opacity: .4; }
+.craft-video h2 {
+	font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+	font-weight: 300;
+	letter-spacing: .18em;
+	color: #f2f0eb;
+	margin-bottom: 14px;
+	line-height: 1.6;
+}
+.craft-video > .craft-video-inner > p {
+	font-size: 14px;
+	color: rgba(242,240,235,.6);
+	margin-bottom: 36px;
+	letter-spacing: .06em;
+	font-family: var(--font-en);
+	font-style: italic;
+}
+.craft-rhythm {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	border-top: 1px solid rgba(242,240,235,.2);
+	border-bottom: 1px solid rgba(242,240,235,.2);
+}
+.craft-rhythm-item {
+	min-height: 240px;
+	padding: 40px 32px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border-right: 1px solid rgba(242,240,235,.2);
+}
+.craft-rhythm-item:last-child { border-right: 0; }
+.craft-rhythm-item span,
+.craft-rhythm-item small {
+	font-family: var(--font-en);
+	color: rgba(242,240,235,.58);
+	letter-spacing: .16em;
+}
+.craft-rhythm-item span { font-size: 12px; }
+.craft-rhythm-item strong {
+	font-size: clamp(1.15rem, 2.6vw, 1.8rem);
+	font-weight: 300;
+	letter-spacing: .15em;
+	color: #f2f0eb;
+	text-wrap: balance;
+}
+.craft-rhythm-item small { font-size: 10px; }
+@media (max-width: 768px) {
+	.craft-video { padding: 56px var(--pad-side); }
+	.craft-rhythm { grid-template-columns: 1fr; }
+	.craft-rhythm-item {
+		min-height: 132px;
+		padding: 24px 20px;
+		border-right: 0;
+		border-bottom: 1px solid rgba(242,240,235,.2);
+	}
+	.craft-rhythm-item:last-child { border-bottom: 0; }
+}
+
+.craft-overview {
+	max-width: var(--max-w);
+	margin: 0 auto;
+	padding: 0 var(--pad-side) 80px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+}
+.craft-card {
+	background: var(--color-bg);
+	border: 1px solid var(--color-line);
+	padding: 40px 28px 36px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;     /* 横：中央揃え */
+	justify-content: center; /* 縦：中央揃え */
+	text-align: center;
+	transition: background 0.35s ease;
+}
+.craft-card:hover { background: var(--color-bg-sub); }
+.craft-card .card-icon {
+	font-size: 1.6rem;
+	margin-bottom: 16px;
+	display: block;
+	opacity: .7;
+}
+.craft-card h3 {
+	font-size: 13px;
+	font-weight: 400;
+	color: var(--color-text);
+	margin-bottom: 12px;
+	letter-spacing: .08em;
+}
+.craft-card p {
+	font-size: 13px;
+	line-height: 2;
+	color: var(--color-sub);
+}
+
+/* 製造工程 */
+.craft-process {
+	max-width: var(--max-w-sm);
+	margin: 0 auto;
+	padding: 80px var(--pad-side);
+}
+.craft-process > h2 {
+	font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+	color: var(--color-text);
+	margin-bottom: 12px;
+	text-align: center;
+	font-weight: 300;
+	letter-spacing: .1em;
+}
+.craft-process > p {
+	text-align: center;
+	font-size: 14px;
+	margin-bottom: 56px;
+	line-height: 2;
+	color: var(--color-sub);
+}
+.process-steps {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+.process-steps::before {
+	content: '';
+	position: absolute;
+	top: 32px;
+	bottom: 32px;
+	left: 27px;
+	width: 1px;
+	background: var(--color-line);
+}
+.process-step {
+	display: flex;
+	align-items: flex-start;
+	gap: 32px;
+	padding: 28px 0;
+	position: relative;
+}
+.step-number {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	background: var(--color-bg);
+	border: 1px solid var(--color-line);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	position: relative;
+	z-index: 1;
+	font-family: var(--font-en);
+	font-size: .95rem;
+	font-weight: 300;
+	color: var(--color-muted);
+	letter-spacing: .04em;
+	transition: border-color 0.35s ease, color 0.35s ease, background 0.35s ease;
+}
+.process-step:hover .step-number {
+	border-color: var(--color-accent);
+	color: var(--color-accent);
+	background: var(--color-bg-sub);
+}
+.step-content {
+	flex: 1;
+	padding-top: 8px;
+}
+.step-content h3 {
+	font-size: 14px;
+	font-weight: 400;
+	color: var(--color-text);
+	margin-bottom: 8px;
+	letter-spacing: .04em;
+}
+.step-content p {
+	font-size: 13px;
+	line-height: 2.1;
+	color: var(--color-sub);
+}
+
+@media (max-width:768px) {
+	.craft-overview {
+		grid-template-columns: 1fr;
+		padding: 0 var(--pad-side) 56px;
+	}
+	.craft-process { padding: 56px var(--pad-side); }
+	.process-steps::before { left: 23px; }
+	.step-number { width: 48px; height: 48px; }
+}
+@media (max-width:480px) {
+	.process-step { gap: 20px; }
+	.step-number { width: 44px; height: 44px; font-size: .85rem; }
+	.process-steps::before { left: 21px; }
+}

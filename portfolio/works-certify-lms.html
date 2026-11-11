@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#D63426">
+<meta name="description" content="受講生・コーチ・管理者の3ロールを持つ資格学習プラットフォーム。既存コードへの機能追加と不具合修正を、チケット単位で進めた開発課題の記録です。">
+<meta name="robots" content="index,follow">
+<title>Certify LMS｜資格学習プラットフォームの機能追加・不具合修正 Case Study｜Riku</title>
+
+<link rel="canonical" href="https://rnportfolio.xsrv.jp/works-certify-lms.html">
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Riku｜Web Design &amp; Front-end">
+<meta property="og:title" content="Certify LMS｜資格学習プラットフォームの機能追加・不具合修正 Case Study｜Riku">
+<meta property="og:description" content="受講生・コーチ・管理者の3ロールを持つ資格学習プラットフォーム。既存コードへの機能追加と不具合修正を、チケット単位で進めた開発課題の記録です。">
+<meta property="og:url" content="https://rnportfolio.xsrv.jp/works-certify-lms.html">
+<meta property="og:image" content="https://rnportfolio.xsrv.jp/images/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Certify LMS｜資格学習プラットフォームの機能追加・不具合修正 Case Study｜Riku">
+<meta name="twitter:description" content="受講生・コーチ・管理者の3ロールを持つ資格学習プラットフォーム。既存コードへの機能追加と不具合修正を、チケット単位で進めた開発課題の記録です。">
+<meta name="twitter:image" content="https://rnportfolio.xsrv.jp/images/og.png">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23D63426'/></svg>">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rnportfolio.xsrv.jp/" },
+    { "@type": "ListItem", "position": 2, "name": "Works", "item": "https://rnportfolio.xsrv.jp/works.html" },
+    { "@type": "ListItem", "position": 3, "name": "Certify LMS", "item": "https://rnportfolio.xsrv.jp/works-certify-lms.html" }
+  ]
+}
+</script>
+
+
+<link rel="stylesheet" href="css/common.css?v=20261110-layout-2">
+<link rel="stylesheet" href="css/app-story.css?v=20261111-1">
+<link rel="stylesheet" href="css/project-story.css?v=20261110-3">
+</head>
+<body class="case-story cs-work cs-work--certify-lms"><a class="skip-link" href="#main">本文へスキップ</a><header class="header scrolled">
+		<div class="header__inner"><a href="index.html" class="header__logo"><span class="header__logo-dot" aria-hidden="true"></span>Riku</a>
+				<nav aria-label="グローバルナビゲーション">
+						<ul class="nav__list"><li><a href="index.html" class="nav__link">Home</a></li><li><a href="works.html" class="nav__link nav__link--active" aria-current="page">Works</a></li><li><a href="pricing.html" class="nav__link">Price</a></li><li><a href="about.html" class="nav__link">About</a></li><li><a href="contact.html" class="nav__link nav__link--cta">Contact</a></li></ul>
+				</nav>
+				<button type="button" class="hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-nav"><span class="hamburger__line" aria-hidden="true"></span><span class="hamburger__line" aria-hidden="true"></span><span class="hamburger__line" aria-hidden="true"></span></button>
+		</div>
+</header>
+<nav class="mobile-nav" id="mobile-nav" aria-label="モバイルメニュー"><a href="index.html" class="mobile-nav__link">Home</a><a href="works.html" class="mobile-nav__link" aria-current="page">Works</a><a href="pricing.html" class="mobile-nav__link">Price</a><a href="about.html" class="mobile-nav__link">About</a><a href="contact.html" class="mobile-nav__link mobile-nav__link--cta">Contact</a></nav>
+<main id="main" tabindex="-1"><header class="cs-hero cs-wrap"><p class="cs-kicker">提供コードへの機能追加・不具合修正</p><h1>Certify LMS</h1><p class="cs-hero__subtitle">面談予約の競合対策と外部API連携</p><p class="cs-hero__lead">提供コードを読み、面談の同時予約とコーチ割り当てを修正。Google Calendar・Stripeなどの外部連携、権限制御、回帰テストの追加にも取り組んだ開発課題です。</p><div class="cs-actions"><a class="cs-button cs-button--primary" href="https://github.com/rn1052289-oss/certify-lms">GitHubでコードを見る<svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="cs-button" href="#design-story">面談予約の修正を読む<svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><p class="cs-scope">2026年9〜11月 ／ 制作は一区切り ／ バックエンド実装・テスト</p><figure class="cs-hero-shot"><img src="images/case-studies/certify-reservation.png" alt="Certify LMSの既存の動作確認キャプチャ。検証用受講生の面談予約画面で10時から11時の枠を表示" width="2560" height="1600" fetchpriority="high" decoding="async"><figcaption>既存の動作確認時に撮影した画面。UIは提供されたもの、表示内容は検証用データです。</figcaption></figure></header><section class="cs-audience cs-wrap" aria-labelledby="audience-title"><div class="cs-audience__head"><h2 id="audience-title">ターゲット・ペルソナ</h2><p>設計上の想定</p></div><dl><div><dt>ターゲット</dt><dd>資格学習の受講生・コーチ・管理者</dd></div><div><dt>ペルソナ</dt><dd>教材で学びながら、残り回数と空き時間を確認してコーチとの面談を予約する受講生。</dd></div></dl></section><section class="cs-section cs-wrap cs-overview" id="design-story"><div><p class="cs-kicker">制作の背景</p><h2>既存システムの改修</h2></div><div class="cs-prose"><p>受講生・コーチ・管理者が使う資格学習アプリに、チケット単位で変更を加えました。画面デザインやベース機能の制作は担当範囲に含みません。</p><p>Issueごとに仕様と対象を確認し、既存コードを調べ、実装とテストを追加。判断した理由と動作確認の内容をPull Requestに残しながら進めました。</p></div></section><section class="cs-section cs-section--light"><div class="cs-wrap cs-detail-grid"><div class="cs-prose"><p class="cs-kicker">面談予約の不具合修正</p><h2>予約回数の超過を防ぐ</h2><p>同じ受講生が異なる時間枠へ同時に予約すると、両方の処理が残り回数を確認し、上限を超えて予約できる問題がありました。</p><p>DBトランザクションの中で受講生の行をロックしてから残数を読みます。先行する予約の消費結果を確認したうえで、次の処理が予約可能かを判断する順序です。</p><a class="cs-source" href="https://github.com/rn1052289-oss/certify-lms/blob/0bf3494ff2157dd83840dee5c19f301b57e37f2e/app/UseCases/Meeting/StoreAction.php#L67" target="_blank" rel="noopener noreferrer">予約処理の実装を見る<svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><figure class="cs-code-evidence"><figcaption>残数を読む前に、受講生の行をロック<span>app/UseCases/Meeting/StoreAction.php</span></figcaption><pre><code>$student = User::query()
+    -&gt;whereKey($student-&gt;id)
+    -&gt;lockForUpdate()
+    -&gt;firstOrFail();
+
+if ($this-&gt;quotaService
+    -&gt;remaining($student) &lt; 1) {
+    throw new InsufficientMeetingQuotaException;
+}</code></pre><p>既存コードの該当箇所を抜粋。ロックと残数確認を同じトランザクション内で行います。</p></figure></div></section><section class="cs-section cs-wrap cs-work-note"><h2>60分の空きを確認</h2><div class="cs-prose"><p>予約候補の表示とコーチの割り当てでは、開始時刻だけが空いていても不十分です。終了時刻まで対応できる枠を対象にし、Google Calendarの先約も確認します。</p><p>毎時00分から始まる60分の枠を展開し、コーチの対応可能時間の終了を超える枠は出しません。割り当て時にも60分全体が収まることを確認しています。<a class="cs-source" href="https://github.com/rn1052289-oss/certify-lms/blob/0bf3494ff2157dd83840dee5c19f301b57e37f2e/app/Services/MeetingAvailabilityService.php#L77" target="_blank" rel="noopener noreferrer">空き枠を生成する実装を見る<svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p></div><div class="cs-change-comparison" id="reservation-comparison"><figure class="cs-screen"><img src="images/case-studies/certify-slots-before-focused.jpg" width="1280" height="350" loading="lazy" alt="修正前：毎時00分開始の仕様に対し、9:30の枠が表示される。"><figcaption>修正前：毎時00分開始の仕様に対し、9:30の枠が表示される。</figcaption></figure><figure class="cs-screen"><img src="images/case-studies/certify-slots-after-focused.jpg" width="1280" height="350" loading="lazy" alt="修正後：10:00〜11:00の枠を表示。開始時刻の丸めと60分全体の空きを確認。"><figcaption>修正後：10:00〜11:00の枠を表示。開始時刻の丸めと60分全体の空きを確認。</figcaption></figure></div></section><section class="cs-section cs-section--light"><div class="cs-wrap cs-work-note"><h2>外部通信を分離したテスト</h2><div class="cs-prose"><p>Google Calendar・Gemini・Stripeのテストには代替の応答を用意し、意図しない外部通信を検出する仕組みを組み込んでいます。</p><p>同時予約のテストでは、残り1回の受講生から別プロセスで2件のリクエストを送り、予約と回数消費がそれぞれ1件に収まることを検証しています。コーチの割り当てや外部APIの異常時も、回帰テストの対象にしています。</p><div class="cs-source-list"><a class="cs-source" href="https://github.com/rn1052289-oss/certify-lms/blob/0bf3494ff2157dd83840dee5c19f301b57e37f2e/tests/Feature/Http/Meeting/MeetingQuotaConcurrencyTest.php" target="_blank" rel="noopener noreferrer">残数と同時予約のテスト<svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="cs-source" href="https://github.com/rn1052289-oss/certify-lms/blob/0bf3494ff2157dd83840dee5c19f301b57e37f2e/tests/TestCase.php#L23" target="_blank" rel="noopener noreferrer">外部通信を制御するテスト基盤<svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div></div></section><section class="cs-section cs-wrap cs-record"><div><p class="cs-kicker">制作範囲</p><h2>制作概要</h2></div><div><dl class="cs-facts"><div><dt>制作形態</dt><dd>提供されたベースコードと画面を使う開発課題（模擬案件）</dd></div><div><dt>担当</dt><dd>仕様確認・バックエンドの追加と修正・テスト。画面は必要な範囲で変更。</dd></div><div><dt>制作期間</dt><dd>2026年9〜11月。現在は制作に一区切りついています。</dd></div><div><dt>ほかの変更</dt><dd>Google Calendar連携、AI相談、追加面談の購入、修了証PDF、通知の非同期化、集計のキャッシュなど。</dd></div><div><dt>技術</dt><dd>PHP 8.5 / Laravel 10 / MySQL 8.4 / Docker / PHPUnit<br>Google Calendar API / Gemini API / Stripe</dd></div><div><dt>公開範囲</dt><dd>GitHubと既存の検証画面。操作できる公開デモはありません。</dd></div></dl><p class="cs-note">提供されたベースコードと画面を使う模擬案件です。商用運用の実績はありません。</p></div></section><section class="cs-end"><div class="cs-wrap"><p>修正内容とテストは、GitHubで確認できます。</p><div class="cs-actions"><a class="cs-button cs-button--primary" href="https://github.com/rn1052289-oss/certify-lms">GitHubでコードを見る<svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="cs-button" href="works-bookshelf.html">BookShelfを見る<svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div></section></main><footer class="cs-footer"><div class="cs-wrap"><a href="index.html" class="cs-footer__brand">Riku</a><p>© 2026 Riku</p><a href="works.html">Works一覧へ <svg viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></footer>
+<script src="js/common.js?v=20260719-2" defer></script>
+</body></html>

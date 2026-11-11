@@ -1,0 +1,184 @@
+@charset "utf-8";
+/* =========================
+   BEANS HERO VIDEO
+   ========================= */
+.c-page-hero.c-page-hero--video {
+		position: relative;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		background: #2B1D14; /* 動画が読み込まれる前の保険 */
+		padding: 0 20px;
+}
+.c-page-hero__video {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover; /* 画面いっぱいに敷く */
+		z-index: 0;
+}
+.c-page-hero__overlay {
+		position: absolute;
+		inset: 0;
+		background: rgba(43, 29, 20, 0.42); /* 文字を読みやすくする暗幕 */
+		z-index: 1;
+}
+/* BEANS PAGE */
+.beans-list {
+		padding: 100px 0;
+		background: #fff;
+}
+.beans-list__intro {
+		text-align: center;
+		font-size: 14px;
+		color: #666;
+		margin-bottom: 40px;
+}
+.beans-list__grid {
+		display: flex;
+		gap: 28px;
+		position: relative;
+		z-index: 1;
+}
+.beans-card {
+		flex: 1;
+		background: #fff;
+		border-radius: 12px;
+		overflow: hidden;
+		box-shadow: 0 4px 16px rgba(43, 29, 20, .06);
+		transition: transform .3s, box-shadow .3s;
+}
+.beans-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 12px 32px rgba(43, 29, 20, .12);
+}
+.beans-card__img {
+		height: 240px;
+		background: linear-gradient(135deg, #d4c5b0, #a89279);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #fff;
+		font-size: 14px;
+}
+.beans-card__body {
+		padding: 24px;
+}
+.beans-card__tag {
+		display: inline-block;
+		font-size: 11px;
+		font-weight: 700;
+		padding: 3px 12px;
+		border-radius: 20px;
+		margin-bottom: 8px;
+}
+.beans-card__tag--light {
+		background: #FFF3E0;
+		color: #C08050;
+}
+.beans-card__tag--medium {
+		background: #EFEBE9;
+		color: #8B5E3C;
+}
+.beans-card__tag--dark {
+		background: #3E2723;
+		color: #F2EADB;
+}
+.beans-card__name {
+		font-family: 'Noto Serif JP', serif;
+		font-size: 18px;
+		font-weight: 700;
+		margin-bottom: 8px;
+}
+.beans-card__detail {
+		font-size: 13px;
+		color: #666;
+		line-height: 1.8;
+}
+.beans-chart {
+		padding: 100px 0;
+		background: #F2EADB;
+}
+.beans-chart__table {
+		width: 100%;
+		max-width: 900px;
+		margin: 0 auto;
+		border-collapse: collapse;
+		background: #fff;
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: 0 2px 12px rgba(43, 29, 20, .06);
+}
+.beans-chart__table th, .beans-chart__table td {
+		padding: 14px 16px;
+		text-align: center;
+		border-bottom: 1px solid #e8e0d6;
+		font-size: 14px;
+}
+.beans-chart__table thead th {
+		background: #2B1D14;
+		color: #F2EADB;
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 1px;
+}
+.beans-chart__table tbody th {
+		background: #faf8f5;
+		font-family: 'Noto Serif JP', serif;
+		font-weight: 700;
+		text-align: left;
+		padding-left: 20px;
+}
+.beans-chart__table tbody tr:last-child td, .beans-chart__table tbody tr:last-child th {
+		border-bottom: none;
+}
+.beans-chart__note {
+		text-align: center;
+		font-size: 12px;
+		color: #A45A22;
+		margin-top: 12px;
+}
+#beans-cta {
+		background: #fff;
+}
+.c-cta-section__heading, .c-cta-section__text {
+		color: #232323;
+}
+@media screen and (max-width: 768px) {
+		.c-page-hero.c-page-hero--video {
+			width: 100%;
+				min-height: 30vh;
+		}
+		.beans-list, .beans-chart {
+				padding: 64px 0;
+		}
+		.beans-list__grid {
+				flex-direction: column;
+				align-items: flex-start;
+		}
+		.beans-card__img {
+				height: 180px;
+		}
+	.beans-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+		.beans-chart__table {
+				font-size: 12px;
+				display: block;
+				overflow-x: auto;
+		}
+		.beans-card {
+				flex: none;
+				width: 100%;
+				margin-bottom: 20px;
+		}
+		.beans-card:last-child {
+				margin-bottom: 0;
+		}
+}

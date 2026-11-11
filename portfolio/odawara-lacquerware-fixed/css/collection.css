@@ -1,0 +1,608 @@
+@import "common.css?v=20260727-1";
+
+/* ============================================================
+   EC共通スタイル — Direction B: Wabi Interface
+   ============================================================ */
+
+/* ショップイントロ */
+.shop-intro {
+	max-width: var(--max-w);
+	margin: 0 auto;
+	padding: 56px var(--pad-side) 24px;
+	text-align: center;
+}
+.shop-intro h2 {
+	font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+	color: var(--color-text);
+	letter-spacing: .14em;
+	margin-bottom: 14px;
+	font-weight: 300;
+}
+.shop-intro p {
+	font-size: 14px;
+	max-width: 560px;
+	margin: 0 auto;
+	line-height: 2.1;
+	color: var(--color-sub);
+}
+
+/* カテゴリフィルター */
+.category-filter {
+	max-width: var(--max-w);
+	margin: 0 auto;
+	padding: 20px var(--pad-side) 36px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+.filter-btn {
+	min-height: 44px;
+	padding: 8px 18px;
+	font-family: var(--font-jp);
+	font-size: 11px;
+	letter-spacing: .12em;
+	color: var(--color-muted);
+	background: transparent;
+	border: 1px solid var(--color-line);
+	border-radius: 1px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+.filter-btn:focus-visible {
+	outline: 1px solid var(--color-accent);
+	outline-offset: 3px;
+}
+.filter-btn:hover,
+.filter-btn.active {
+	color: var(--color-text);
+	border-color: var(--color-text);
+	background: transparent;
+}
+.filter-status {
+	max-width: var(--max-w);
+	margin: -20px auto 28px;
+	padding: 0 var(--pad-side);
+	text-align: center;
+	font-size: 11px;
+	letter-spacing: .08em;
+	color: var(--color-muted);
+}
+
+/* 商品グリッド */
+.product-grid {
+	max-width: var(--max-w);
+	margin: 0 auto;
+	padding: 0 var(--pad-side) 72px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 32px;
+}
+
+/* 商品カード */
+.product-card {
+	position: relative;
+	overflow: hidden;
+	background: transparent;
+	transition: opacity 0.35s ease;
+}
+.product-card[hidden] { display: none; }
+.product-card:hover { opacity: .85; }
+.product-card--preview:hover { opacity: 1; }
+.product-card .card-img {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	overflow: hidden;
+	background: var(--color-bg-sub);
+}
+.product-card .card-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.9s var(--ease);
+}
+.product-card:hover .card-img img { transform: scale(1.04); }
+
+/* バッジ */
+.card-badge {
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	padding: 3px 10px;
+	font-size: 10px;
+	font-weight: 400;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+	z-index: 2;
+	font-family: var(--font-en);
+}
+.card-badge.new {
+	background: var(--color-accent);
+	color: #f2f0eb;
+}
+.card-badge.limited {
+	background: var(--color-text);
+	color: #f2f0eb;
+}
+.card-badge.gift {
+	background: transparent;
+	color: var(--color-accent);
+	border: 1px solid var(--color-accent);
+}
+
+/* カードオーバーレイ — Wabi では非表示（opacityホバーで代替） */
+.card-overlay { display: none; }
+
+/* 商品情報 */
+.card-info { padding: 14px 0 20px; }
+.card-category {
+	font-size: 10px;
+	color: var(--color-muted);
+	letter-spacing: .14em;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+	font-family: var(--font-en);
+}
+.card-name {
+	font-size: 14px;
+	color: var(--color-text);
+	font-weight: 300;
+	letter-spacing: .04em;
+	margin-bottom: 7px;
+	line-height: 1.6;
+}
+.card-price {
+	font-size: 13px;
+	color: var(--color-sub);
+	font-weight: 400;
+	letter-spacing: .04em;
+}
+.card-price .tax {
+	font-size: 11px;
+	color: var(--color-muted);
+	font-weight: 400;
+	margin-left: 4px;
+}
+.card-availability {
+	margin-top: 8px;
+	font-size: 10px;
+	letter-spacing: .1em;
+	color: var(--color-muted);
+}
+
+/* 特集バナー */
+.ec-feature {
+	max-width: var(--max-w);
+	margin: 0 auto;
+	padding: 0 var(--pad-side) 72px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+}
+.ec-feature-top { padding-top: 56px; }
+.feature-banner {
+	position: relative;
+	overflow: hidden;
+	aspect-ratio: 16 / 7;
+	background: var(--color-bg-sub);
+	display: block;
+}
+.feature-banner img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.9s var(--ease);
+	opacity: .9;
+}
+.feature-banner:hover img {
+	transform: scale(1.03);
+	opacity: 1;
+}
+.feature-banner-text {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 24px 28px;
+	background: linear-gradient(transparent, rgba(0, 0, 0, .45));
+	color: #f2f0eb;
+}
+.feature-banner-text h2 {
+	font-size: clamp(.95rem, 1.8vw, 1.2rem);
+	font-weight: 300;
+	letter-spacing: .1em;
+	margin-bottom: 5px;
+}
+.feature-banner-text p {
+	font-size: 12px;
+	opacity: .75;
+	letter-spacing: .06em;
+	font-family: var(--font-en);
+	font-style: italic;
+}
+
+/* ショッピングガイド */
+.shop-guide {
+	max-width: var(--max-w);
+	margin: 0 auto;
+	padding: 56px var(--pad-side) 48px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1px;
+	background: var(--color-line);
+	border-top: 1px solid var(--color-line);
+	border-bottom: 1px solid var(--color-line);
+}
+.guide-item {
+	padding: 32px 16px;
+	text-align: center;
+	background: var(--color-bg);
+}
+.guide-icon {
+	font-size: 1.4rem;
+	margin-bottom: 10px;
+	display: block;
+	opacity: .65;
+}
+.guide-item .guide-title {
+	font-size: 11px;
+	font-weight: 400;
+	color: var(--color-text);
+	margin-bottom: 8px;
+	letter-spacing: .1em;
+}
+.guide-item p {
+	font-size: 12px;
+	line-height: 1.8;
+	color: var(--color-muted);
+}
+
+/* 商品詳細ページ */
+.product-detail {
+	max-width: var(--max-w);
+	margin: 0 auto;
+	padding: 48px var(--pad-side) 72px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 56px;
+	margin-top: 0;
+}
+.pd-gallery {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.pd-main-img {
+	width: 100%;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	background: var(--color-bg-sub);
+}
+.pd-thumbs {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 6px;
+}
+.pd-thumb {
+	display: block;
+	width: 100%;
+	padding: 0;
+	aspect-ratio: 1 / 1;
+	overflow: hidden;
+	cursor: pointer;
+	border: 1px solid transparent;
+	transition: border-color 0.3s ease, opacity 0.3s ease;
+	background: var(--color-bg-sub);
+	opacity: .6;
+}
+.pd-thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.pd-thumb:hover,
+.pd-thumb.active {
+	border-color: var(--color-accent);
+	opacity: 1;
+}
+.pd-thumb:focus-visible {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 2px;
+	opacity: 1;
+}
+.pd-info { display: flex; flex-direction: column; }
+.pd-breadcrumb {
+	font-size: 11px;
+	color: var(--color-muted);
+	margin-bottom: 20px;
+	letter-spacing: .08em;
+	font-family: var(--font-en);
+}
+.pd-breadcrumb a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 44px;
+	min-height: 44px;
+	padding: 0 4px;
+	transition: color 0.3s ease;
+}
+.pd-breadcrumb a:hover { color: var(--color-text); }
+.pd-name {
+	font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+	color: var(--color-text);
+	font-weight: 300;
+	letter-spacing: .1em;
+	line-height: 1.6;
+	margin-bottom: 8px;
+}
+.pd-name-en {
+	font-family: var(--font-en);
+	font-style: italic;
+	font-size: 13px;
+	color: var(--color-muted);
+	letter-spacing: .08em;
+	margin-bottom: 24px;
+}
+.pd-price {
+	font-size: 1.3rem;
+	color: var(--color-text);
+	font-weight: 300;
+	letter-spacing: .06em;
+	margin-bottom: 28px;
+	padding-bottom: 28px;
+	border-bottom: 1px solid var(--color-line);
+}
+.pd-price .tax {
+	font-size: 12px;
+	color: var(--color-muted);
+	font-weight: 400;
+}
+.pd-desc {
+	font-size: 14px;
+	line-height: 2.2;
+	margin-bottom: 28px;
+	padding-bottom: 28px;
+	border-bottom: 1px solid var(--color-line);
+	color: var(--color-sub);
+}
+.pd-actions {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin-bottom: 14px;
+}
+.qty-selector {
+	display: flex;
+	align-items: center;
+	border: 1px solid var(--color-line);
+}
+.qty-btn {
+	width: 44px;
+	height: 44px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.1rem;
+	color: var(--color-muted);
+	background: transparent;
+	cursor: pointer;
+	transition: color 0.3s ease;
+}
+.qty-btn:hover { color: var(--color-text); }
+.qty-btn:disabled {
+	cursor: not-allowed;
+	opacity: .35;
+}
+.qty-btn:focus-visible {
+	outline: 1px solid var(--color-accent);
+	outline-offset: -3px;
+}
+.qty-value {
+	width: 44px;
+	height: 44px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	font-weight: 400;
+	color: var(--color-text);
+	border-left: 1px solid var(--color-line);
+	border-right: 1px solid var(--color-line);
+}
+.add-to-cart {
+	flex: 1;
+	height: 44px;
+	background: var(--color-text);
+	color: var(--color-bg);
+	font-family: var(--font-jp);
+	font-size: 11px;
+	font-weight: 400;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 2px;
+	cursor: pointer;
+	transition: background .35s ease;
+}
+.add-to-cart:hover { background: var(--color-accent); }
+.add-to-cart:active { opacity: .8; }
+.buy-now {
+	width: 100%;
+	height: 44px;
+	background: transparent;
+	color: var(--color-accent);
+	border: 1px solid var(--color-accent);
+	border-radius: 2px;
+	font-family: var(--font-jp);
+	font-size: 11px;
+	font-weight: 400;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: background .35s ease, color .35s ease;
+	margin-bottom: 32px;
+}
+.buy-now:hover {
+	background: var(--color-accent);
+	color: var(--color-bg);
+}
+.pd-specs { border-top: 1px solid var(--color-line); padding-top: 28px; }
+.pd-specs h2 {
+	font-size: 10px;
+	font-weight: 400;
+	color: var(--color-muted);
+	letter-spacing: .2em;
+	text-transform: uppercase;
+	margin-bottom: 14px;
+}
+.pd-demo-note {
+	font-size: 11px;
+	line-height: 1.8;
+	color: var(--color-muted);
+	margin: 0 0 32px;
+}
+.spec-row {
+	display: flex;
+	padding: 10px 0;
+	font-size: 13px;
+	border-bottom: 1px solid var(--color-line);
+}
+.spec-row dt {
+	flex: 0 0 100px;
+	color: var(--color-muted);
+	font-size: 12px;
+}
+.spec-row dd {
+	flex: 1;
+	color: var(--color-sub);
+}
+
+/* ============================================================
+   EC レスポンシブ
+   ============================================================ */
+@media (max-width:1024px) {
+	.product-grid,
+	.ec-feature,
+	.shop-guide,
+	.product-detail,
+	.shop-intro,
+	.category-filter {
+		padding-left: var(--pad-side);
+		padding-right: var(--pad-side);
+	}
+}
+@media (max-width:768px) {
+	.product-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+		padding: 0 24px 56px;
+	}
+	.ec-feature {
+		grid-template-columns: 1fr;
+		padding: 0 24px 56px;
+	}
+	.shop-guide {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1px;
+		padding: 0;
+	}
+	.product-detail {
+		grid-template-columns: 1fr;
+		gap: 36px;
+		padding: 28px 24px 56px;
+		margin-top: 0;
+	}
+	.shop-intro { padding: 44px 24px 20px; }
+	.category-filter { padding: 12px 24px 28px; }
+	.filter-status { margin-top: -16px; padding: 0 24px; }
+	.first-guide-text p br,
+	.shop-intro p br,
+	.guide-item p br { display: none; }
+}
+@media (max-width:480px) {
+	.product-grid {
+		grid-template-columns: 1fr;
+		max-width: 380px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.shop-guide { grid-template-columns: 1fr; }
+	.pd-actions { flex-direction: column; }
+	.add-to-cart { width: 100%; }
+}
+
+/* ============================================================
+   はじめての漆器ガイドバナー
+   ============================================================ */
+.first-guide {
+	background: var(--color-bg-sub);
+	border-top: 1px solid var(--color-line);
+	border-bottom: 1px solid var(--color-line);
+	padding: 64px var(--pad-side);
+}
+.first-guide-inner {
+	max-width: var(--max-w);
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 56px;
+	align-items: center;
+}
+.first-guide-label {
+	font-family: var(--font-en);
+	font-style: italic;
+	font-size: 11px;
+	letter-spacing: .22em;
+	color: var(--color-accent);
+	display: block;
+	margin-bottom: 16px;
+}
+.first-guide-text h2 {
+	font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+	font-weight: 300;
+	letter-spacing: .1em;
+	color: var(--color-text);
+	margin-bottom: 18px;
+	line-height: 1.6;
+}
+.first-guide-text p {
+	font-size: 14px;
+	line-height: 2.2;
+	color: var(--color-sub);
+	margin-bottom: 24px;
+}
+.first-guide-points {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px 20px;
+	margin-bottom: 32px;
+}
+.first-guide-points span {
+	font-size: 12px;
+	color: var(--color-text);
+	letter-spacing: .04em;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+.first-guide-points .check-mark {
+	color: var(--color-accent);
+	font-size: .8rem;
+	font-weight: 600;
+	line-height: 1;
+}
+.first-guide-img img {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	display: block;
+}
+@media (max-width: 768px) {
+	.first-guide-inner {
+		grid-template-columns: 1fr;
+		gap: 32px;
+	}
+	.first-guide { padding: 48px var(--pad-side); }
+}

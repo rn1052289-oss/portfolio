@@ -1,0 +1,48 @@
+# Xserver / Apache configuration for the public document root.
+
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	# Serve one canonical HTTPS origin. Using a fixed host also prevents Host
+	# header values from being reflected into the redirect destination.
+	RewriteCond %{HTTPS} !=on [OR]
+	RewriteCond %{HTTP_HOST} !^rnportfolio\.xsrv\.jp$ [NC]
+	RewriteRule ^ https://rnportfolio.xsrv.jp%{REQUEST_URI} [R=301,L,NE]
+</IfModule>
+
+<IfModule mod_headers.c>
+	Header always set X-Content-Type-Options "nosniff"
+	Header always set X-Frame-Options "SAMEORIGIN"
+	Header always set Referrer-Policy "strict-origin-when-cross-origin"
+	Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+	Header always set Cross-Origin-Opener-Policy "same-origin"
+
+	# Apply the strict CSP only to this portfolio and its bundled demos. Other
+	# applications under the same public root (for example /syumatucoffee/ and
+	# /yuakari/) use their own external services and must not inherit this policy.
+	<IfModule mod_setenvif.c>
+		SetEnvIf Request_URI "^/(?:$|index\.html|works(?:-[a-z0-9-]+)?\.html|pricing\.html|about\.html|engineer\.html|contact\.html|contact-submit\.php|privacy\.html|juku_demo(?:/|$)|salon_demo(?:/|$)|kazecoffee(?:/|$)|odawara-lacquerware-fixed(?:/|$))" riku_portfolio_csp=1
+		SetEnvIf Request_URI "^/(?:syumatucoffee|yuakari)(?:/|$)" riku_wp_demo_noindex=1
+		Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self' https://docs.google.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; connect-src 'self'; upgrade-insecure-requests" env=riku_portfolio_csp
+		Header always set X-Robots-Tag "noindex, nofollow" env=riku_wp_demo_noindex
+	</IfModule>
+
+	# Browsers ignore HSTS received over plain HTTP. includeSubDomains is
+	# intentionally omitted because this project does not control their use.
+	Header always set Strict-Transport-Security "max-age=31536000"
+</IfModule>
+
+# Prevent common local or backup files from being downloaded if they are
+# accidentally uploaded with the site.
+<FilesMatch "^(\.DS_Store|\.env(?:\..*)?|.*\.(?:bak|backup|orig|sql|log))$">
+	Require all denied
+</FilesMatch>
+
+# Revalidate HTML so published updates are not kept as stale browser pages.
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header always set Cache-Control "no-cache, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>

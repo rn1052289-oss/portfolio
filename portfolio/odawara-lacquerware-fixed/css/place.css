@@ -1,0 +1,80 @@
+@import "common.css?v=20260727-1";
+/* ============================================================
+   PLACE ページ固有 — Direction B: Wabi Interface
+   ============================================================ */
+
+/* place ページの h2 は dark text（アクセントカラーは使わない） */
+.content-block.place-style .block-text h2 {
+	font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+	color: var(--color-text);
+	font-weight: 300;
+}
+.content-block.place-style .block-text p {
+	font-size: 14px;
+	line-height: 2.1;
+	margin-bottom: 14px;
+	color: var(--color-sub);
+}
+
+/* テキストセクション */
+.text-section {
+	text-align: center;
+	padding: 80px 56px;
+	max-width: 760px;
+	margin: 0 auto;
+}
+.text-section h2 {
+	font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+	font-weight: 300;
+	margin-bottom: 32px;
+	color: var(--color-text);
+	letter-spacing: .1em;
+	line-height: 1.7;
+}
+.text-section p {
+	font-size: 14px;
+	line-height: 2.3;
+	color: var(--color-sub);
+}
+.text-section .spacing-lg { margin-bottom: 40px; }
+.text-section .spacing-sm { margin-bottom: 16px; }
+.text-section .section-img {
+	margin: 64px auto 0;
+	max-width: 520px;
+}
+
+/* 使われてきた人の声 */
+.usevoice {
+	max-width: 760px;
+	margin: 0 auto;
+	padding: 80px 56px;
+}
+.usevoice h2 {
+	font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+	color: var(--color-text);
+	margin-bottom: 40px;
+	font-weight: 300;
+	letter-spacing: .1em;
+}
+.voice {
+	background: transparent;
+	border-top: 1px solid var(--color-line);
+	padding: 28px 0;
+	line-height: 2.1;
+	transition: opacity 0.35s ease;
+}
+.voice:last-child { border-bottom: 1px solid var(--color-line); }
+.voice:hover { opacity: .7; }
+.voice p {
+	font-size: 14px;
+	color: var(--color-sub);
+	text-align: left;
+}
+
+@media (max-width:768px) {
+	.text-section { padding: 56px 24px; }
+	.usevoice { padding: 56px 24px; }
+
+	/* text-section 内の <br> を非表示（全幅テキストでは不自然な折り返しになるため） */
+	.text-section p br { display: none; }
+}

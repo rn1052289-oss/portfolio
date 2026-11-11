@@ -1,0 +1,278 @@
+/* ================================================
+   faq.css
+   FAQ ページ・プライバシーポリシー ページ 共用スタイル
+   ================================================ */
+
+/* --------------------------------
+   PAGE HERO（タイトルエリア）
+   -------------------------------- */
+.faq-hero {
+  background: #FAF7F2;
+  padding: 80px 0 60px;
+  text-align: center;
+  border-bottom: 1px solid rgba(61,61,61,0.1);
+}
+
+.faq-hero-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.faq-hero-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: #805714;
+  margin-bottom: 16px;
+}
+
+.faq-hero-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 600;
+  color: #2D2D2D;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+}
+
+.faq-hero-line {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #BF8A24;
+  margin: 0 auto;
+}
+
+/* --------------------------------
+   FAQ SECTION（本文エリア）
+   -------------------------------- */
+.faq-section {
+  background: #FAF7F2;
+  padding: 80px 0 100px;
+}
+
+.faq-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.faq-demo-note {
+  margin-bottom: 56px;
+  padding: 18px 20px;
+  border-left: 3px solid #96691c;
+  background: #f1ece4;
+  color: #49433b;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+/* --------------------------------
+   FAQカテゴリ
+   -------------------------------- */
+.faq-category {
+  margin-bottom: 64px;
+}
+
+.faq-category-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  letter-spacing: 0.25em;
+  color: #805714;
+  border-bottom: 1px solid #BF8A24;
+  padding-bottom: 10px;
+  margin-bottom: 32px;
+  font-weight: 500;
+}
+
+/* --------------------------------
+   Q&Aアイテム
+   -------------------------------- */
+.faq-item {
+  border-bottom: 1px solid rgba(61,61,61,0.12);
+  padding-bottom: 28px;
+  margin-bottom: 28px;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.faq-question {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2D2D2D;
+  line-height: 1.7;
+  margin-bottom: 12px;
+  letter-spacing: 0.03em;
+}
+
+.faq-answer {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  color: #2D2D2D;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  padding-left: 16px;
+  border-left: 2px solid rgba(191,138,36,0.4);
+}
+
+/* --------------------------------
+   お問い合わせ誘導
+   -------------------------------- */
+.faq-contact-note {
+  margin-top: 60px;
+  padding: 40px;
+  background: #3D3D3D;
+  text-align: center;
+}
+
+.faq-contact-note p {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 15px;
+  color: #FAF7F2;
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+}
+
+.faq-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 14px 40px;
+  background: #A23B2C;
+  color: #FAF7F2;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.faq-contact-btn:hover {
+  background: #8a3124;
+}
+
+/* --------------------------------
+   プライバシーポリシー固有
+   -------------------------------- */
+.privacy-lead {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  color: #2D2D2D;
+  line-height: 1.9;
+  margin-bottom: 12px;
+}
+
+.privacy-note {
+  font-size: 13px;
+  color: #805714;
+  background: rgba(191,138,36,0.08);
+  padding: 10px 16px;
+  margin-bottom: 48px;
+  letter-spacing: 0.03em;
+  line-height: 1.7;
+}
+
+.privacy-section {
+  margin-bottom: 40px;
+}
+
+.privacy-heading {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2D2D2D;
+  border-left: 3px solid #A23B2C;
+  padding-left: 12px;
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+.privacy-body p {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  color: #2D2D2D;
+  line-height: 1.9;
+  margin-bottom: 8px;
+}
+
+.privacy-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+}
+
+.privacy-list li {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  color: #2D2D2D;
+  line-height: 1.9;
+  padding-left: 20px;
+  position: relative;
+}
+
+.privacy-list li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: #805714;
+}
+
+.privacy-contact {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  color: #2D2D2D;
+  line-height: 2;
+  margin-top: 12px;
+}
+
+.privacy-contact a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: #2D2D2D;
+  text-decoration: underline;
+}
+
+.privacy-contact a:hover {
+  color: #A23B2C;
+}
+
+.privacy-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  color: #626262;
+  letter-spacing: 0.1em;
+  margin-top: 60px;
+  text-align: right;
+}
+
+/* --------------------------------
+   レスポンシブ（SP）
+   -------------------------------- */
+@media (max-width: 768px) {
+  .faq-hero {
+    padding: 60px 0 48px;
+  }
+
+  .faq-section {
+    padding: 60px 0 80px;
+  }
+
+  .faq-category {
+    margin-bottom: 48px;
+  }
+
+  .faq-contact-note {
+    padding: 32px 24px;
+  }
+
+  .faq-answer {
+    padding-left: 12px;
+  }
+}

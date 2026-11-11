@@ -1,0 +1,374 @@
+/* ================================================
+   access.css
+   アクセスページ専用スタイル
+
+   【セクション構成】
+   1. ファーストビュー（ダーク帯）
+   2. パンくずリスト
+   3. マップ（フルワイド）
+   4. アクセス情報（3カラムカード）
+   5. CTA（お問い合わせ帯）← common.css の .contact-section をそのまま使用
+   6. レスポンシブ（タブレット1024px以下・SP768px以下）
+   ================================================ */
+
+
+/* 写真の上に暗いオーバーレイをかけて文字を読みやすくする */
+
+/* テキストをオーバーレイより前面に出す */
+
+
+/* 蜂蜜色の区切り線（カンプ Image 6 参照） */
+
+
+/* セパレーター（ / ）を :: after で生成 */
+
+
+/* 現在ページ（ACCESSテキスト）はリンクなし・グレー */
+
+
+/* ================================
+   3. マップ（フルワイド）
+   ================================
+   幅100%・高さはaspect-ratioで制御
+   カンプのマップは全幅・縦は約37vhほど
+   ================================ */
+.access-map-section {
+  width: 100%;
+  background-color: #e5e0d6;
+}
+
+.access-map-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  overflow: clip;
+}
+
+.access-map-demo {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  overflow: hidden;
+  background-color: #dcd7cb;
+  background-image:
+    linear-gradient(32deg, transparent 44%, rgba(126, 117, 94, 0.22) 45%, rgba(126, 117, 94, 0.22) 46%, transparent 47%),
+    linear-gradient(122deg, transparent 44%, rgba(126, 117, 94, 0.18) 45%, rgba(126, 117, 94, 0.18) 46%, transparent 47%),
+    repeating-radial-gradient(circle at 10% 120%, transparent 0 34px, rgba(89, 105, 80, 0.12) 35px 36px);
+}
+
+.access-map-river {
+  position: absolute;
+  top: -12%;
+  left: 42%;
+  width: 11%;
+  height: 130%;
+  background: rgba(103, 144, 155, 0.38);
+  transform: rotate(18deg) skewX(-9deg);
+  border-inline: 1px solid rgba(73, 113, 124, 0.28);
+}
+
+.access-map-road {
+  position: absolute;
+  left: -5%;
+  width: 110%;
+  height: 9px;
+  background: rgba(250, 247, 242, 0.82);
+  border-block: 1px solid rgba(70, 65, 55, 0.16);
+}
+
+.access-map-road--one { top: 44%; transform: rotate(-7deg); }
+.access-map-road--two { top: 68%; transform: rotate(9deg); }
+
+.access-map-pin {
+  position: absolute;
+  top: 46%;
+  left: 52%;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 2px solid #faf7f2;
+  border-radius: 50% 50% 50% 0;
+  background: #a23b2c;
+  box-shadow: 0 8px 24px rgba(30, 30, 30, 0.24);
+  transform: rotate(-45deg);
+}
+
+.access-map-pin span {
+  width: 13px;
+  height: 13px;
+  border: 2px solid #faf7f2;
+  border-radius: 50%;
+}
+
+.access-map-label {
+  position: absolute;
+  top: calc(46% + 56px);
+  left: 52%;
+  padding: 7px 10px;
+  color: #2d2d2d;
+  background: rgba(250, 247, 242, 0.9);
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  transform: translateX(-35%);
+}
+
+.access-map-label small {
+  font-size: 9px;
+  color: #6a5b3e;
+}
+
+.access-map-note {
+  position: absolute;
+  right: 5%;
+  bottom: 24px;
+  max-width: 580px;
+  padding: 12px 16px;
+  color: #36322c;
+  background: rgba(250, 247, 242, 0.94);
+  border-left: 3px solid #96691c;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+
+/* ================================
+   4. アクセス情報（3カラムカード）
+   ================================
+   背景：#faf7f2（白磁）
+   3列グリッドレイアウト
+   各カード：上部に蜂蜜色の太いボーダーライン
+   ラベル：蜂蜜色の小文字英語（TRAIN / BUS など）
+   見出し：明朝体、大きめ
+   本文：通常サイズ、行間ゆったり
+   ================================ */
+.access-info-section {
+  background-color: #faf7f2;
+  padding: 80px 0 100px;
+}
+
+.access-info-inner {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 40px;
+  /* カード間の横の溝。縦は0（カードの高さをそろえる） */
+}
+
+.access-fiction-note {
+  grid-column: 1 / -1;
+  margin-bottom: 28px;
+  padding: 14px 18px;
+  border-left: 3px solid #96691c;
+  background: #f1ece4;
+  color: #49433b;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* 各カード */
+.access-info-card {
+  padding: 28px 0 0;
+  /* 上部の蜂蜜ラインのためにpadding-topを確保 */
+  border-top: 3px solid #bf8a24;
+  /* カンプ上部の蜂蜜色の太い線（Image 11, 15参照） */
+}
+
+/* ラベル（TRAIN / BUS、CAR、HOURS / INFO） */
+.access-info-label {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: #bf8a24;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+/* 見出し（電車・バス、お車、営業情報） */
+.access-info-heading {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #2d2d2d;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+/* 本文エリア */
+.access-info-body {
+  font-size: 15px;
+  color: #2d2d2d;
+  line-height: 2.0;
+  letter-spacing: 0.04em;
+}
+
+.access-info-body p {
+  margin: 0;
+}
+
+.access-info-body br {
+  /* brタグで段落間にスペースを作る */
+  display: block;
+  content: "";
+  margin-top: 6px;
+}
+
+
+/* ================================
+   5. CTA帯（お問い合わせ）
+   ================================
+   style.css（TOP専用）に書いてある .contact-section を
+   access.css にも複製して適用する。
+   ================================ */
+.contact-section {
+  padding: 64px 5%;
+  background-color: #a23b2c;
+  text-align: center;
+}
+
+.contact-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-heading {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.contact-sub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.88);
+  letter-spacing: 0.06em;
+  margin-bottom: 28px;
+}
+
+.contact-btn {
+  display: inline-block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #a23b2c;
+  background-color: #fff;
+  padding: 18px 52px;
+  min-width: 240px;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: transparent;
+  color: #fff;
+  letter-spacing: 0.23em;
+  opacity: 1;
+}
+
+.contact-info-line {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.84);
+  margin-top: 18px;
+}
+
+
+/* ================================
+   タブレット（1024px以下）
+   ================================ */
+@media screen and (max-width: 1024px) {
+
+  /* ファーストビュー */
+
+
+  /* アクセス情報：3カラム → 1カラム */
+  .access-info-section {
+    padding: 64px 0 80px;
+  }
+
+  .access-info-inner {
+    grid-template-columns: 1fr;
+    gap: 40px 0;
+  }
+
+  .access-info-card {
+    padding-top: 24px;
+  }
+
+  .access-info-heading {
+    font-size: 26px;
+  }
+}
+
+
+/* ================================
+   SP（768px以下）
+   ================================ */
+@media screen and (max-width: 768px) {
+
+  .access-map-wrap,
+  .access-map-demo {
+    min-height: 360px;
+  }
+
+  .access-map-note {
+    right: 20px;
+    bottom: 18px;
+    left: 20px;
+    max-width: none;
+  }
+
+  /* ファーストビュー */
+
+
+  /* パンくず */
+
+
+  /* マップ：SP向けに縦長め */
+  .access-map-wrap {
+    padding-bottom: 65%;
+  }
+
+  /* アクセス情報 */
+  .access-info-section {
+    padding: 48px 0 64px;
+  }
+
+  .access-info-inner {
+    width: 90%;
+    grid-template-columns: 1fr;
+    gap: 36px 0;
+  }
+
+  .access-info-card {
+    padding-top: 20px;
+    border-top-width: 2px;
+  }
+
+  .access-info-label {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+  }
+
+  .access-info-heading {
+    font-size: 24px;
+    margin-bottom: 14px;
+  }
+
+  .access-info-body {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+}

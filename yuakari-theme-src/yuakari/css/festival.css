@@ -1,0 +1,725 @@
+/* ================================================
+   festival.css
+   Festivalページ専用スタイル
+
+   【構成】
+   0. Festival FV 差別化
+   1. パンくず
+   2. ファーストビュー（ダーク帯）
+   3. カードグリッド（3×2）
+   4. CTA帯（煉瓦色）
+   5. モーダル
+   6. タブレットレスポンシブ（1024px）
+   7. SPレスポンシブ（768px）
+
+   【カラーパレット（湯煙と格子）】
+   白磁 #FAF7F2 … ベース背景
+   濃鼠 #3D3D3D … ダークセクション背景
+   煉瓦 #A23B2C … CTAボタン専用
+   蜂蜜 #BF8A24 … ラベル・リンク・装飾線
+   炭   #2D2D2D … 本文テキスト
+   ================================================ */
+
+
+/* ================================================
+   Festival FV 差別化
+   ================================================
+   テーマ：季節感・夜の灯り・高揚感
+   ・オーバーレイの底に琥珀色のグラデーションで炎の気配
+   ・蜂蜜色のアクセントラインに発光エフェクト
+   ・タイトルを少し大きく、文字間を広げる
+   ・リード文で四季の体験を予告
+   ================================================ */
+
+/* FV 高さ */
+.festival-page .sub-firstview {
+  height: 540px;
+}
+
+/* オーバーレイ：底に琥珀色の熱を感じさせる */
+.festival-page .sub-firstview-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 7, 4,  0.52) 0%,
+    rgba(10, 7, 4,  0.26) 38%,
+    rgba(32, 14, 4, 0.74) 100%
+  );
+}
+
+/* タイトル：より大きく、祭りの高揚感 */
+.festival-page .sub-firstview-title {
+  font-size: 46px;
+  letter-spacing: 0.15em;
+  line-height: 1.3;
+}
+
+/* 蜂蜜線：少し長くして発光感を追加 */
+.festival-page .sub-firstview-line {
+  width: 72px;
+  box-shadow: 0 0 10px rgba(191, 138, 36, 0.55);
+}
+
+/* リード文：明るめで祭りの期待感 */
+.festival-page .sub-firstview-lead {
+  color: rgba(250, 247, 242, 0.78);
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  line-height: 1.9;
+}
+
+.festival-season-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0.3em 0.8em;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.festival-season-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 0.45em;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.festival-season-mark--spring { color: #f5b7c5; }
+.festival-season-mark--summer { color: #f5d46c; }
+.festival-season-mark--autumn { color: #e89461; }
+.festival-season-mark--winter { color: #a8d9ed; }
+
+/* FV 上部に細い蜂蜜グラデーションライン */
+.festival-page .sub-firstview::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(191, 138, 36, 0.7) 30%,
+    rgba(191, 138, 36, 0.9) 50%,
+    rgba(191, 138, 36, 0.7) 70%,
+    transparent 100%
+  );
+  z-index: 3;
+}
+
+/* SP */
+@media screen and (max-width: 768px) {
+  .festival-page .sub-firstview {
+    height: 360px;
+  }
+  .festival-page .sub-firstview-title {
+    font-size: 30px;
+  }
+}
+
+
+/* ================================
+   カードグリッドセクション
+   ================================ */
+.festival-grid-section {
+  background-color: #faf7f2;
+  padding: 72px 0 80px;
+}
+
+.festival-grid-inner {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- 3×2 グリッド --- */
+.festival-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 48px;
+}
+
+
+/* ================================
+   カード
+   ================================ */
+.festival-card {
+  background-color: #faf7f2;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.festival-card:hover {
+  /* カード全体は動かさない — 画像オーバーレイで演出 */
+}
+
+/* --- カード画像 --- */
+.festival-card-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background-color: #d5cfc5;
+}
+
+/* ホバー時の薄いオーバーレイ */
+.festival-card-thumb::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(45, 45, 45, 0.15);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.festival-card:hover .festival-card-thumb::after {
+  opacity: 1;
+}
+
+.festival-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.festival-card:hover .festival-card-img {
+  transform: scale(1.03);
+}
+
+/* --- カード本文 --- */
+.festival-card-body {
+  padding: 24px 24px 28px;
+  border-left: 1px solid #e5e0d8;
+  border-right: 1px solid #e5e0d8;
+  border-bottom: 1px solid #e5e0d8;
+}
+
+.festival-card-title {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  color: #2d2d2d;
+  margin-bottom: 4px;
+}
+
+.festival-card-en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  color: #888;
+  margin-bottom: 16px;
+}
+
+.festival-card-desc {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #555;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+
+/* --- DETAIL →（ボタン化したテキストリンク） --- */
+.festival-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #bf8a24;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.festival-card-btn:hover {
+  opacity: 1;
+}
+
+.festival-card-btn:focus-visible {
+  outline: 2px solid #bf8a24;
+  outline-offset: 2px;
+}
+
+
+/* ================================
+   CTA帯（煉瓦色）
+   ================================ */
+.cta-section {
+  background-color: #a23b2c;
+  padding: 72px 5%;
+  text-align: center;
+}
+
+.cta-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-heading {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #faf7f2;
+  margin-bottom: 12px;
+}
+
+.cta-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  color: rgba(250, 247, 242, 0.6);
+  margin-bottom: 32px;
+}
+
+.cta-btn {
+  display: inline-block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #2d2d2d;
+  background-color: #faf7f2;
+  padding: 18px 52px;
+  min-width: 240px;
+  border-radius: 2px;
+  /* 底面の影でボタンを「浮かせる」立体感（クリーム色ボタン用） */
+  box-shadow: 0 3px 0 #b8b2a8, 0 4px 10px rgba(0, 0, 0, 0.10);
+  transition: background-color 0.18s ease,
+              transform 0.18s ease,
+              box-shadow 0.18s ease,
+              opacity 0.18s ease;
+  /* シマーエフェクト用 */
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-btn:hover {
+  background-color: #f0ece4;
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #b8b2a8, 0 2px 6px rgba(0, 0, 0, 0.08);
+  opacity: 1;
+}
+
+.cta-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 0px 0 #b8b2a8, 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+
+/* ================================
+   モーダル
+   ================================ */
+.festival-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.festival-modal[hidden] {
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.festival-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* --- オーバーレイ --- */
+.festival-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* --- モーダルコンテンツ --- */
+.festival-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 720px;
+  max-height: 85vh;
+  background-color: #faf7f2;
+  overflow-y: auto;
+  z-index: 2001;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.festival-modal.is-open .festival-modal-content {
+  transform: translateY(0);
+}
+
+/* --- 閉じるボタン --- */
+.festival-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #faf7f2;
+  background-color: rgba(45, 45, 45, 0.5);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2002;
+  transition: background-color 0.3s ease;
+}
+
+.festival-modal-close:hover {
+  background-color: rgba(45, 45, 45, 0.8);
+}
+
+/* --- モーダル画像 --- */
+.festival-modal-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: #d5cfc5;
+}
+
+.festival-modal-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- モーダル本文 --- */
+.festival-modal-body {
+  padding: 32px 36px 40px;
+}
+
+.festival-modal-season {
+  display: inline-block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #bf8a24;
+  border: 1px solid #bf8a24;
+  padding: 3px 12px;
+  margin-bottom: 12px;
+}
+
+.festival-modal-title {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  color: #2d2d2d;
+  margin-bottom: 4px;
+}
+
+.festival-modal-en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  color: #888;
+  margin-bottom: 24px;
+}
+
+/* --- モーダル情報テーブル --- */
+.festival-modal-info {
+  border-top: 1px solid #e5e0d8;
+  margin-bottom: 24px;
+}
+
+.festival-modal-info-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e0d8;
+}
+
+.festival-modal-info-row dt {
+  flex-shrink: 0;
+  width: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #bf8a24;
+}
+
+.festival-modal-info-row dd {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #2d2d2d;
+}
+
+/* --- モーダル説明文 --- */
+.festival-modal-desc {
+  font-size: 15px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.festival-modal-note {
+  font-size: 13px;
+  color: #888;
+  letter-spacing: 0.04em;
+}
+
+/* --- ナビ現在地 --- */
+.global-nav-list a.is-current {
+  color: #a23b2c;
+}
+
+.global-nav-list a.is-current::after {
+  width: 100%;
+}
+
+
+/* ================================
+   タブレットレスポンシブ（1024px以下）
+   ================================ */
+@media screen and (max-width: 1024px) {
+
+
+  .festival-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .festival-card-title {
+    font-size: 20px;
+  }
+
+  .cta-heading {
+    font-size: 28px;
+  }
+}
+
+
+/* ================================
+   SPレスポンシブ（768px以下）
+   ================================ */
+@media screen and (max-width: 768px) {
+
+
+  /* --- カードグリッド --- */
+  .festival-grid-section {
+    padding: 48px 0 56px;
+  }
+
+  .festival-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 32px;
+  }
+
+  .festival-card-body {
+    padding: 20px 20px 24px;
+  }
+
+  .festival-card-title {
+    font-size: 20px;
+  }
+
+  .festival-card-en {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .festival-card-desc {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .festival-card-desc br {
+    display: none;
+  }
+
+  /* --- CTA帯 --- */
+  .cta-section {
+    padding: 48px 5%;
+  }
+
+  .cta-heading {
+    font-size: 24px;
+  }
+
+  .cta-sub {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .cta-btn {
+    font-size: 15px;
+    padding: 16px 40px;
+    min-width: 220px;
+  }
+
+  /* --- モーダル --- */
+  .festival-modal {
+    align-items: flex-start;
+    padding: 20px 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .festival-modal-content {
+    width: 95%;
+    max-height: none;
+    margin: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .festival-modal-close {
+    width: 36px;
+    height: 36px;
+    top: 12px;
+    right: 12px;
+    font-size: 16px;
+  }
+
+  .festival-modal-body {
+    padding: 24px 20px 32px;
+  }
+
+  .festival-modal-season {
+    font-size: 11px;
+    padding: 2px 10px;
+    margin-bottom: 10px;
+  }
+
+  .festival-modal-title {
+    font-size: 22px;
+  }
+
+  .festival-modal-en {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .festival-modal-info-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .festival-modal-info-row dt {
+    width: auto;
+    font-size: 12px;
+  }
+
+  .festival-modal-info-row dd {
+    font-size: 13px;
+  }
+
+  .festival-modal-desc {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .festival-modal-note {
+    font-size: 12px;
+  }
+}
+
+/* ================================
+   極小SP（480px以下）
+   ================================ */
+@media screen and (max-width: 480px) {
+
+  .festival-modal {
+    padding: 12px 0;
+  }
+
+  .festival-modal-content {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .festival-modal-body {
+    padding: 20px 16px 28px;
+  }
+
+  .festival-modal-title {
+    font-size: 20px;
+  }
+
+  .festival-modal-desc {
+    font-size: 13px;
+  }
+}
+
+/* ================================
+   CTAボタン シマーエフェクト
+   他ページの td-cta-btn と同様の演出
+   クリーム色ボタン用にウォームゴールドのシマーを使用
+   ================================ */
+@media not (prefers-reduced-motion: reduce) {
+  .cta-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(
+      105deg,
+      transparent,
+      rgba(180, 150, 80, 0.12),
+      transparent
+    );
+    transform: skewX(-20deg);
+    pointer-events: none;
+  }
+
+  .cta-btn:hover::after {
+    animation: cta-btn-shimmer 0.55s ease forwards;
+  }
+
+  @keyframes cta-btn-shimmer {
+    to { left: 160%; }
+  }
+}

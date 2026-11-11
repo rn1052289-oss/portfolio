@@ -1,0 +1,38 @@
+# Local OS and editor metadata
+.DS_Store
+**/.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+.agents/
+.codex/
+
+# Credentials and local runtime data
+.env
+.env.*
+!.env.example
+wp-config.php
+*.pem
+*.key
+*.p12
+*.sqlite
+*.sqlite3
+*.sql
+*.log
+node_modules/
+vendor/
+
+# Generated releases, backups, and verification output
+*.zip
+*.bak
+*.backup
+*.orig
+/.tmp/
+/artifacts/
+/outputs/
+/deploy-packages-*/
+/upload-*/
+/qa-*
+
+# School submission document; not website source
+/yuakari/卒業課題/

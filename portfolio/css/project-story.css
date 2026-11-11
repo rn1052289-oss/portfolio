@@ -1,0 +1,39 @@
+/* Completed screens lead the story; shared with the application case studies. */
+.cs-work--salon { --cs-accent: #80554b; }
+.cs-work--kaze-coffee { --cs-accent: #4c634e; }
+.cs-work--shumatsu-coffee { --cs-accent: #8f3f23; }
+.cs-work--yuakari { --cs-accent: #72532d; }
+.cs-work--urushi { --cs-accent: #8d382e; }
+.cs-work--juku { --cs-accent: #2b6549; }
+.cs-work--certify-lms { --cs-accent: #267365; }
+.cs-work .cs-hero h1 { font-size: clamp(38px, 5.2vw, 70px); }
+.cs-work .cs-hero-shot { margin-top: 42px; }
+.cs-work .cs-hero-shot img { display: block; }
+.cs-work-feature { display: grid; grid-template-columns: 1.55fr 1fr; gap: 60px; align-items: center; }
+.cs-work-feature .cs-prose h2 { font-size: clamp(25px, 2.5vw, 32px); }
+.cs-work-feature .cs-button { margin-top: 24px; font-size: 12px; }
+.cs-work-feature--wide { grid-template-columns: 1fr; gap: 28px; }
+.cs-work-feature--wide .cs-prose { grid-row: 1; max-width: 760px; }
+.cs-field-shot { max-width: 300px; margin-top: 24px; }
+.cs-work-note { display: grid; grid-template-columns: .8fr 1.1fr; gap: 100px; }
+.cs-work-note .cs-source { margin-top: 22px; }
+.cs-work-wide { grid-column: 1 / -1; }
+.cs-capture-frame { overflow: hidden; border: 1px solid #d1d3d5; }
+.cs-capture-frame img { border: 0; }
+.cs-work .cs-code-evidence pre { font-size: 12px; }
+.cs-change-comparison { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 8px; }
+@media (max-width: 1000px) {
+  .cs-work-feature { gap: 34px; grid-template-columns: 1.3fr 1fr; }
+  .cs-work-feature--wide { grid-template-columns: 1fr; }
+  .cs-work-note { gap: 54px; }
+}
+@media (max-width: 720px) {
+  .cs-work .cs-hero h1 { font-size: clamp(32px, 8.8vw, 48px); }
+  .cs-work .cs-hero-shot { margin-top: 30px; }
+  .cs-work-feature, .cs-work-note { display: flex; flex-direction: column; align-items: stretch; gap: 28px; }
+  .cs-work-feature .cs-prose { order: -1; }
+  .cs-work-feature .cs-prose h2 { font-size: 25px; }
+  .cs-work-feature .cs-button { margin-top: 20px; }
+  .cs-work .cs-code-evidence pre { font-size: 10px; }
+  .cs-change-comparison { grid-template-columns: 1fr; gap: 24px; margin-top: 0; }
+}

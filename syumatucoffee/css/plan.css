@@ -1,0 +1,238 @@
+@charset "utf-8";
+/* ============================================================
+   PLAN PAGE ── plan/index.html
+   ============================================================ */
+.c-page-hero.c-page-hero--video {
+		position: relative;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		background: #2B1D14; /* 動画が読み込まれる前の保険 */
+		padding: 0 20px;
+}
+.c-page-hero__video {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover; /* 画面いっぱいに敷く */
+		z-index: 0;
+}
+.c-page-hero__overlay {
+		position: absolute;
+		inset: 0;
+		background: rgba(43, 29, 20, 0.22); /* 文字を読みやすくする暗幕 */
+		z-index: 1;
+}
+/* ── PLAN TABLE ── */
+.plan-table {
+		padding: 100px 0;
+		background: #fff;
+}
+.plan-table__intro {
+		text-align: center;
+		font-size: 14px;
+		color: #666;
+		margin-bottom: 40px;
+}
+.plan-table__wrap {
+		overflow-x: auto;
+		position: relative;
+		z-index: 1;
+}
+.plan-table__table {
+		width: 100%;
+		max-width: 960px;
+		margin: 0 auto;
+		border-collapse: collapse;
+		background: #fff;
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: 0 4px 20px rgba(43, 29, 20, 0.08);
+}
+.plan-table__table thead th {
+		background: #2B1D14;
+		color: #F2EADB;
+		padding: 20px 16px;
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 1px;
+		text-align: center;
+		vertical-align: middle;
+}
+.plan-table__table thead th.plan-table__recommend {
+		background: #A45A22;
+}
+.plan-table__plan-name {
+		font-family: 'Noto Serif JP', serif;
+		font-size: 17px;
+		display: block;
+		margin-bottom: 2px;
+}
+.plan-table__plan-sub {
+		font-size: 11px;
+		font-weight: 400;
+		opacity: 0.7;
+}
+.plan-table__badge {
+		display: inline-block;
+		background: #F2EADB;
+		color: #A45A22;
+		font-size: 10px;
+		font-weight: 700;
+		padding: 2px 10px;
+		border-radius: 20px;
+		margin-bottom: 4px;
+}
+.plan-table__table tbody th {
+		background: #faf8f5;
+		font-weight: 700;
+		font-size: 14px;
+		padding: 16px 20px;
+		text-align: left;
+		border-bottom: 1px solid #e8e0d6;
+		white-space: nowrap;
+}
+.plan-table__table tbody td {
+		padding: 16px;
+		text-align: center;
+		font-size: 14px;
+		border-bottom: 1px solid #e8e0d6;
+		color: #555;
+}
+.plan-table__table tbody tr:last-child th, .plan-table__table tbody tr:last-child td {
+		border-bottom: none;
+}
+.plan-table__highlight {
+		font-weight: 700;
+		color: #A45A22;
+		font-size: 16px;
+}
+/* ── PLAN CARDS ── */
+.plan-detail {
+		padding: 100px 0;
+		background: #F2EADB;
+		position: relative;
+		overflow: hidden;
+}
+.plan-detail::before {
+		content: '';
+		position: absolute;
+		top: -100px;
+		left: -80px;
+		width: 320px;
+		height: 320px;
+		background: rgba(164, 90, 34, 0.04);
+		border-radius: 50%;
+		pointer-events: none;
+}
+.plan-detail__grid {
+		display: flex;
+		gap: 28px;
+		position: relative;
+		z-index: 1;
+}
+.plan-detail__card {
+		flex: 1;
+		background: #fff;
+		border: 2px solid #d4c5b0;
+		border-radius: 12px;
+		padding: 32px 24px;
+		text-align: center;
+		transition: transform 0.3s, box-shadow 0.3s;
+}
+.plan-detail__card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 24px rgba(43, 29, 20, 0.1);
+}
+.plan-detail__card--recommend {
+		border-color: #A45A22;
+		position: relative;
+}
+.plan-detail__card--recommend::before {
+		content: '人気 No.1';
+		position: absolute;
+		top: -12px;
+		left: 50%;
+		transform: translateX(-50%);
+		background: #A45A22;
+		color: #fff;
+		font-size: 11px;
+		font-weight: 700;
+		padding: 3px 16px;
+		border-radius: 20px;
+		white-space: nowrap;
+}
+.plan-detail__name {
+		font-family: 'Noto Serif JP', serif;
+		font-size: 20px;
+		font-weight: 700;
+		color: #2B1D14;
+		margin-bottom: 4px;
+}
+.plan-detail__price {
+		font-size: 32px;
+		font-weight: 700;
+		color: #A45A22;
+		margin-bottom: 4px;
+}
+.plan-detail__price-unit {
+		font-size: 14px;
+		font-weight: 400;
+		color: #888;
+}
+.plan-detail__desc {
+		font-size: 14px;
+		color: #666;
+		line-height: 1.8;
+		margin-top: 12px;
+}
+.plan-detail__features {
+		text-align: left;
+		margin-top: 16px;
+		padding-top: 16px;
+		border-top: 1px solid #e8e0d6;
+}
+.plan-detail__feature {
+		font-size: 13px;
+		color: #555;
+		padding: 6px 0;
+		padding-left: 20px;
+		position: relative;
+}
+.plan-detail__feature::before {
+		content: '✓';
+		position: absolute;
+		left: 0;
+		color: #A45A22;
+		font-weight: 700;
+}
+#plan-cta {
+		background: #fff;
+}
+.c-cta-section__heading, .c-cta-section__text {
+		color: #232323;
+}
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media screen and (max-width: 768px) {
+		.c-page-hero.c-page-hero--video {
+			width: 100%;
+				min-height: 30vh;
+		}
+		.plan-table, .plan-detail {
+				padding: 64px 0;
+		}
+		.plan-table__table {
+				min-width: 600px;
+		}
+		.plan-detail__grid {
+				flex-direction: column;
+		}
+		.plan-detail__card--recommend {
+				order: -1;
+		}
+}

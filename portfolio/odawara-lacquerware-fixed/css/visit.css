@@ -1,0 +1,28 @@
+@import "lower.css?v=20260727-1";
+
+/* ============================================================
+   VISIT ページ固有 — Direction B: Wabi Interface
+   ============================================================ */
+
+/* アクセス情報ブロック */
+.visit-info {
+	padding: 80px 56px;
+	background: var(--color-bg-sub);
+	border-top: 1px solid var(--color-line);
+	border-bottom: 1px solid var(--color-line);
+}
+.visit-info-inner {
+	max-width: 760px;
+	margin: 0 auto;
+}
+.visit-info h2 {
+	font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+	color: var(--color-text);
+	font-weight: 300;
+	letter-spacing: .1em;
+	margin-bottom: 32px;
+}
+
+@media (max-width:768px) {
+	.visit-info { padding: 56px 24px; }
+}
