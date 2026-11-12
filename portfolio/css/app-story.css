@@ -250,3 +250,28 @@ html { scroll-padding-top: calc(var(--header-h) + 20px); }
 @media (prefers-reduced-motion: reduce) {
   .cs-button { transition: none; }
 }
+/* Consultation block and footer links shared by every case study. */
+.cs-consult { padding-block: 72px; border-top: 1px solid var(--cs-line); background: #fffdf9; }
+.cs-consult h2 { font-size: clamp(25px, 2.8vw, 37px); line-height: 1.55; font-weight: 600; letter-spacing: -.02em; line-break: strict; }
+.cs-consult__text { margin-top: 14px; font-size: 15px; line-height: 1.9; color: var(--cs-text); }
+.cs-consult .cs-button--primary { background: #a5281f; border-color: #a5281f; }
+.cs-consult .cs-button--primary:hover { background: var(--cs-ink); border-color: var(--cs-ink); }
+.cs-footer .cs-footer__sub { display: inline-flex; align-items: center; min-height: 44px; color: var(--cs-ink); }
+.cs-footer p + .cs-footer__sub { margin-left: auto; }
+.cs-footer .cs-footer__sub ~ a:last-child { margin-left: 0; }
+@media (max-width: 720px) {
+  .cs-consult { padding-block: 48px; }
+  .cs-consult h2 { font-size: 25px; line-height: 1.65; }
+  .cs-consult__text { font-size: 13px; }
+  .cs-consult .cs-button { width: 100%; }
+  .cs-footer p + .cs-footer__sub { margin-left: 0; }
+}
+
+/* First-view project facts; no invented dates for projects without records. */
+.cs-summary { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 32px; margin:28px 0 36px; padding:0; border-top:1px solid var(--cs-line); }
+.cs-summary > div { padding:16px 0; border-bottom:1px solid var(--cs-line); min-width:0; }
+.cs-summary dt { font-size:12px; color:var(--cs-muted); margin-bottom:6px; }
+.cs-summary dd { margin:0; font-size:14px; line-height:1.8; }
+.cs-demo-note { font-size:13px; line-height:1.8; color:var(--cs-text); margin-top:12px; }
+.cs-hero--book .cs-hero-shot img { width:100%; height:auto; object-fit:contain; }
+@media(max-width:720px) { .cs-summary { grid-template-columns:1fr; margin-block:24px; } .cs-summary > div { padding:12px 0; } }

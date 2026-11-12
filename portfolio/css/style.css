@@ -418,17 +418,10 @@
 .about-prev__kine .k-gold {
 		color: #EBB424
 }
+/* The heading is always visible; its accent word uses the shared
+   registration motion (.misreg in common.css) instead of a slide-up. */
 .k-word {
-		display: inline-block;
-		overflow: hidden
-}
-.k-word span {
-		display: inline-block;
-		transform: translateY(110%);
-		transition: transform 1s cubic-bezier(.16, 1, .3, 1)
-}
-.k-word.visible span {
-		transform: translateY(0)
+		display: inline
 }
 .about-prev__sub {
 		margin-top: clamp(2rem, 4vw, 3rem);
@@ -663,3 +656,25 @@
 @media (max-width: 640px) {
  .skills .skill-card { grid-template-columns: minmax(0, 1fr); gap: .75rem; }
 }
+
+/* Japanese hero label, heading accent and section notes (2026-11 copy update). */
+.hero__label {
+		font-size: clamp(.68rem, 1.6vw, .78rem);
+		letter-spacing: .08em
+}
+.hero__accent--ja {
+		font-style: normal
+}
+.services__more {
+		margin-top: clamp(1.5rem, 3vw, 2.5rem)
+}
+.works__note {
+		margin-top: .75rem;
+		font-size: .8rem;
+		color: #686461
+}
+
+/* Preserve the screenshot while indicating the case-study link. */
+.work-card__ink { display:none; }
+.work-card__hover-info { background:linear-gradient(transparent 45%,rgba(45,41,38,.82)); transform:none; transition:opacity .2s ease; }
+@media(hover:none) { .work-card__hover-info { display:none; } }

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Works thumbnail template</title>
+<!--
+  Works card thumbnails for the portfolio, in the site's own print language:
+  the real screen is the "plate", with registration marks, a red stamp,
+  halftone dots and overprinted shapes around it.
+
+  Render with scripts/thumbnails/render.sh:
+    template.html?id=01          -> 1600x1000 (16:10, normal card)
+    template.html?id=01&wide=1   -> 2100x900  (21:9, featured card)
+-->
+<style>
+:root {
+	--paper: #F2EFE9;
+	--ink: #2D2926;
+	--red: #D63426;
+	--red-text: #A5281F;
+	--blue: #2B4C7E;
+	--yellow: #EBB424;
+	--mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0 }
+html, body { width: 1600px; height: 1000px; overflow: hidden }
+body { position: relative; background: var(--paper); font-family: var(--mono) }
+body.wide, html.wide { width: 2100px; height: 900px }
+
+/* Halftone plates (red + blue), stronger toward the sheet edges. */
+.dots, .dots::after {
+	position: absolute;
+	inset: 0;
+	background-image: radial-gradient(circle, rgba(214, 52, 38, .24) 2px, transparent 3px);
+	background-size: 26px 26px;
+	-webkit-mask-image: radial-gradient(ellipse 70% 66% at 52% 50%, transparent 48%, #000 100%);
+}
+.dots::after {
+	content: '';
+	background-image: radial-gradient(circle, rgba(43, 76, 126, .18) 2px, transparent 3px);
+	background-position: 13px 13px;
+	transform: translate(4px, 3px);
+	-webkit-mask-image: none;
+}
+
+/* Overprinted shapes (same colors and multiply as the home hero). */
+.shape { position: absolute; mix-blend-mode: multiply }
+.shape--circle { border-radius: 50%; background: var(--red); opacity: .78 }
+.shape--square { background: var(--yellow); opacity: .82 }
+.shape--triangle { width: 0; height: 0; background: none; border-style: solid; border-color: transparent transparent var(--blue); opacity: .74 }
+
+/* The screen, printed as a plate. The red outline is a second plate
+   slightly out of register. */
+.plate {
+	position: absolute;
+	background: #fff;
+	border: 3px solid var(--ink);
+	box-shadow: 20px 20px 0 rgba(45, 41, 38, .16);
+}
+.plate::before {
+	content: '';
+	position: absolute;
+	inset: -3px;
+	border: 3px solid var(--red);
+	transform: translate(-16px, -12px);
+	opacity: .6;
+	z-index: -1;
+}
+.plate img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0 }
+.plate--natural img { height: auto }
+
+/* Stamp: same construction as the site's .stamp label. */
+.stamp {
+	position: absolute;
+	top: 76px;
+	left: 92px;
+	padding: 14px 30px;
+	border: 3px solid var(--red-text);
+	color: var(--red-text);
+	background: var(--paper);
+	font-size: 30px;
+	font-weight: 600;
+	letter-spacing: .16em;
+	text-transform: uppercase;
+	transform: rotate(-1.4deg);
+	white-space: nowrap;
+	z-index: 3;
+}
+.stamp::before {
+	content: '';
+	position: absolute;
+	inset: -3px;
+	border: 2px solid var(--red-text);
+	opacity: .3;
+	transform: translate(5px, 5px);
+}
+
+/* Registration marks: crosshair with a target circle. */
+.reg { position: absolute; width: 60px; height: 60px; opacity: .55; z-index: 2 }
+.reg::before, .reg::after { content: ''; position: absolute; background: var(--ink) }
+.reg::before { left: 0; right: 0; top: 50%; height: 2px; margin-top: -1px }
+.reg::after { top: 0; bottom: 0; left: 50%; width: 2px; margin-left: -1px }
+.reg i { position: absolute; inset: 16px; border: 2px solid var(--ink); border-radius: 50% }
+.reg--tl { top: 26px; left: 26px }
+.reg--tr { top: 26px; right: 26px }
+.reg--bl { bottom: 26px; left: 26px }
+.reg--br { bottom: 26px; right: 26px }
+
+/* Color control strip, as printed on a proof sheet. */
+.strip { position: absolute; right: 120px; bottom: 40px; display: flex; gap: 6px; z-index: 2 }
+.strip span { width: 26px; height: 26px }
+
+/* Paper grain. */
+.grain {
+	position: absolute;
+	inset: 0;
+	opacity: .1;
+	mix-blend-mode: multiply;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+	background-size: 300px 300px;
+	pointer-events: none;
+	z-index: 4;
+}
+</style>
+</head>
+<body>
+<div class="dots"></div>
+<div id="shapes"></div>
+<div id="plate" class="plate"><img id="screen" alt=""></div>
+<div class="stamp" id="stamp"></div>
+<div class="reg reg--tl"><i></i></div><div class="reg reg--tr"><i></i></div>
+<div class="reg reg--bl"><i></i></div><div class="reg reg--br"><i></i></div>
+<div class="strip"><span style="background:#2D2926"></span><span style="background:#D63426"></span><span style="background:#2B4C7E"></span><span style="background:#EBB424"></span><span style="background:rgba(214,52,38,.35)"></span><span style="background:rgba(43,76,126,.3)"></span></div>
+<div class="grain"></div>
+<script>
+const IMG = '../../portfolio/images/case-studies/';
+// fit: "cover" fills the plate (site screens); "natural" keeps the
+// screenshot's own ratio (wide app crops) and centers it vertically.
+const WORKS = {
+	'01': { label: '01 — WordPress Theme', src: 'screens/shumatsu.jpg', set: 'a' },
+	'02': { label: '02 — Brand Site', src: 'screens/kaze.jpg', set: 'b' },
+	'03': { label: '03 — Landing Page', src: 'screens/nagi.jpg', set: 'b' },
+	'04': { label: '04 — Landing Page', src: 'screens/mirai.jpg', set: 'b' },
+	'05': { label: '05 — WordPress Theme', src: 'screens/yuakari.jpg', set: 'a' },
+	'06': { label: '06 — EC UI Demo', src: 'screens/urushi.jpg', set: 'a' },
+	'07': { label: '07 — Laravel / Fix', src: 'screens/certify-dashboard.jpg', set: 'c' },
+	'08': { label: '08 — Laravel App', src: '../../portfolio/images/app-clientwork-dashboard.webp', set: 'c' },
+	'09': { label: '09 — Laravel Backend', src: 'screens/bookshelf-report.jpg', set: 'c' },
+	'10': { label: '10 — Laravel Backend', src: 'screens/contact-admin.jpg', set: 'c' },
+};
+
+// Shape sets per kind of work, positioned in canvas pixels.
+// a: WordPress / commerce, b: sites and LPs, c: applications.
+const SETS = {
+	normal: {
+		plate: { left: 236, top: 186, width: 1200, height: 720 },
+		a: [['circle', { right: 40, top: 70, width: 520, height: 520 }], ['square', { left: 70, bottom: 70, width: 300, height: 300, transform: 'rotate(-8deg)' }]],
+		b: [['triangle', { left: 40, bottom: 50, borderWidth: '0 230px 400px 230px' }], ['circle', { right: 90, top: 60, width: 340, height: 340 }]],
+		c: [['square', { right: 60, top: 60, width: 380, height: 380, transform: 'rotate(7deg)' }], ['triangle', { right: 120, bottom: 40, borderWidth: '0 200px 340px 200px' }]],
+	},
+	wide: {
+		plate: { left: 600, top: 150, width: 1340, height: 640 },
+		a: [['circle', { left: 90, top: 260, width: 520, height: 520 }], ['square', { right: 50, top: 40, width: 260, height: 260, transform: 'rotate(-8deg)' }]],
+		b: [['triangle', { left: 70, bottom: 30, borderWidth: '0 250px 430px 250px' }], ['circle', { right: 60, top: 30, width: 300, height: 300 }]],
+		c: [['square', { left: 110, top: 240, width: 400, height: 400, transform: 'rotate(7deg)' }], ['triangle', { right: 80, bottom: 30, borderWidth: '0 180px 300px 180px' }]],
+	},
+};
+
+const params = new URLSearchParams(location.search);
+const work = WORKS[params.get('id') || '01'];
+const wide = params.get('wide') === '1';
+const layout = wide ? SETS.wide : SETS.normal;
+if (wide) { document.documentElement.classList.add('wide'); document.body.classList.add('wide'); }
+
+document.getElementById('stamp').textContent = work.label;
+
+const toPx = v => (typeof v === 'number' ? v + 'px' : v);
+for (const [kind, pos] of layout[work.set]) {
+	const el = document.createElement('div');
+	el.className = 'shape shape--' + kind;
+	for (const [k, v] of Object.entries(pos)) el.style[k] = toPx(v);
+	document.getElementById('shapes').appendChild(el);
+}
+
+const plate = document.getElementById('plate');
+const img = document.getElementById('screen');
+const p = work.fit === 'natural' ? { ...layout.plate, left: layout.plate.left - 40, width: layout.plate.width + 80 } : layout.plate;
+Object.assign(plate.style, { left: p.left + 'px', top: p.top + 'px', width: p.width + 'px' });
+if (work.fit === 'natural') {
+	plate.classList.add('plate--natural');
+	img.onload = () => {
+		const h = Math.min(p.height, Math.round(p.width * img.naturalHeight / img.naturalWidth));
+		plate.style.height = h + 'px';
+		plate.style.top = (p.top + Math.round((p.height - h) / 2)) + 'px';
+		document.body.dataset.ready = '1';
+	};
+} else {
+	plate.style.height = p.height + 'px';
+	if (work.pos) img.style.objectPosition = work.pos;
+	img.onload = () => { document.body.dataset.ready = '1'; };
+}
+img.src = work.src;
+</script>
+</body>
+</html>

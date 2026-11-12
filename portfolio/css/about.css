@@ -425,3 +425,8 @@
 
 .sd-card__description { margin-top: 20px; color: var(--muted-text); font-size: 14px; line-height: 1.9; }
 .sd-card__evidence { display: inline-flex; align-items: center; gap: 16px; min-height: 44px; margin-top: 12px; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; }
+/* Japanese main heading; the English label stays in the stamp above. */
+.about-hero__title--ja {
+		font-size: clamp(1.9rem, 4.2vw, 3.6rem);
+		line-height: 1.3
+}

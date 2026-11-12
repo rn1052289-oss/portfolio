@@ -198,3 +198,16 @@
 				padding-left: 0
 		}
 }
+
+/* Per-plan CTA: pre-selects the plan on the contact form via ?service=. */
+.pricing-card {
+		display: flex;
+		flex-direction: column
+}
+.pricing-card > :nth-last-child(2) {
+		margin-bottom: 1.75rem
+}
+.pricing-card__cta {
+		margin-top: auto;
+		align-self: flex-start
+}

@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const hb = document.querySelector('.hamburger');
 	const mn = document.querySelector('.mobile-nav');
 	if (hb && mn) {
-		const focusable = () => mn.querySelectorAll('a, button');
+		const focusable = () => [...mn.querySelectorAll('a, button'), hb];
 		let lastFocused = null;
 		let previousBodyOverflow = '';
 		mn.setAttribute('aria-hidden', 'true');
@@ -45,7 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
 			hb.setAttribute('aria-label', 'メニューを閉じる');
 			document.body.style.overflow = 'hidden';
 			const items = focusable();
-			if (items[0]) items[0].focus();
+			window.requestAnimationFrame(() => {
+				if (mn.classList.contains('active')) items[0]?.focus({ preventScroll: true });
+			});
 		};
 
 		hb.addEventListener('click', () => {
@@ -77,22 +79,48 @@ document.addEventListener('DOMContentLoaded', () => {
 		window.addEventListener('pagehide', () => close(false));
 	}
 
-	/* k-word reveal */
-	const kw = document.querySelectorAll('.k-word');
-	if (kw.length) {
-		if (prefersReduce || !('IntersectionObserver' in window)) {
-			kw.forEach(word => word.classList.add('visible'));
-		} else {
-			const ko = new IntersectionObserver(es => {
+	/* Print motion (see "Print motion" in common.css). Start states are only
+	   applied once .motion-ready is set, so no-JS and reduced-motion visitors
+	   always get the final, registered state. */
+	const printBg = document.querySelector('.print-bg');
+	if (!prefersReduce && 'IntersectionObserver' in window) {
+		const accentSelector = '.hero__accent, .k-red, .cta-red, main h2 span[style*="A5281F"]';
+		document.querySelectorAll(accentSelector).forEach(word => {
+			word.classList.add('misreg');
+			word.dataset.ink = word.textContent.trim();
+		});
+		const pressTargets = document.querySelectorAll('main .stamp, .misreg, .reg-mark');
+		if (pressTargets.length) {
+			document.documentElement.classList.add('motion-ready');
+			const po = new IntersectionObserver(es => {
 				es.forEach(en => {
-					if (en.isIntersecting) { en.target.classList.add('visible'); ko.unobserve(en.target); }
+					if (!en.isIntersecting) return;
+					en.target.classList.add(en.target.classList.contains('misreg') ? 'is-registered' : 'is-pressed');
+					po.unobserve(en.target);
 				});
-			}, { threshold: .2 });
-			kw.forEach((w, i) => {
-				const span = w.querySelector('span');
-				if (span) span.style.transitionDelay = `${i * .07}s`;
-				ko.observe(w);
-			});
+			}, { threshold: .6 });
+			// Wait one frame so the start state is painted before it can settle.
+			requestAnimationFrame(() => requestAnimationFrame(() => pressTargets.forEach(t => po.observe(t))));
+		}
+
+		if (printBg) {
+			// Plates start out of register, then follow scroll speed and settle.
+			let mis = 14, lastY = window.scrollY, ticking = false;
+			const step = () => {
+				mis *= .9;
+				if (Math.abs(mis) < .05) mis = 0;
+				printBg.style.setProperty('--mis', mis.toFixed(2));
+				ticking = mis !== 0;
+				if (ticking) requestAnimationFrame(step);
+			};
+			const kick = () => { if (!ticking) { ticking = true; requestAnimationFrame(step); } };
+			window.addEventListener('scroll', () => {
+				const y = window.scrollY;
+				mis = Math.max(-12, Math.min(12, mis + (y - lastY) * .12));
+				lastY = y;
+				kick();
+			}, { passive: true });
+			kick();
 		}
 	}
 

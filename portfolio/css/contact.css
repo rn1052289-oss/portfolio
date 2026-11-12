@@ -459,3 +459,9 @@
 	.contact-hero__title span,
 	.contact-hero__sub { animation: none; opacity: 1; transform: none }
 }
+
+/* Japanese main heading; the English label stays in the stamp above. */
+.contact-hero__title--ja {
+	font-size: clamp(2rem, 5vw, 4.2rem);
+	line-height: 1.25
+}

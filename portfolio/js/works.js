@@ -21,6 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
       button.setAttribute('aria-controls', grid.id);
       button.addEventListener('click', () => {
         const filter = button.dataset.filter || 'all';
+        const url = new URL(window.location.href);
+        if (filter === 'all') url.searchParams.delete('type');
+        else url.searchParams.set('type', filter);
+        history.replaceState(null, '', url);
         let visibleCount = 0;
 
         buttons.forEach(item => {
@@ -30,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         cards.forEach(card => {
-          const isVisible = filter === 'all' || card.dataset.category === filter;
+          const isVisible = filter === 'all' || (filter === 'site' ? card.dataset.category !== 'app' : card.dataset.category === filter);
           card.hidden = !isVisible;
           if (isVisible) visibleCount += 1;
         });
@@ -42,7 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const initialFilter = new URLSearchParams(window.location.search).get('type');
-  const initialButton = buttons.find(button => button.dataset.filter === initialFilter);
+  const compatibleFilter = ['wordpress','brand','landing'].includes(initialFilter) ? 'site' : initialFilter;
+  const initialButton = buttons.find(button => button.dataset.filter === compatibleFilter);
   if (initialButton) initialButton.click();
 
   const canUseInkEffect = window.matchMedia('(hover: hover) and (pointer: fine)').matches
