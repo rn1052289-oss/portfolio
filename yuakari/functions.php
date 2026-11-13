@@ -41,7 +41,7 @@ add_action( 'after_setup_theme', 'yuakari_theme_setup' );
 function yuakari_enqueue_assets() {
 
     $theme_uri = get_template_directory_uri();
-    $ver       = '1.3.0'; // キャッシュ更新用バージョン番号（2026/07 UI・アクセシビリティ・表示速度改善）
+    $ver       = '1.3.1'; // キャッシュ更新用バージョン番号（2026/11 文字色のコントラスト改善）
 
     /* --- Google Fonts --- */
     wp_enqueue_style(

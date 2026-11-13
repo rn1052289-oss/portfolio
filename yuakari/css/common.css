@@ -150,7 +150,7 @@ em {
   font-size: 28px;
   font-weight: 400;
   letter-spacing: 0.1em;
-  color: #bf8a24;
+  color: #8a6116;
 }
 
 .section-label-line {
@@ -167,7 +167,7 @@ em {
   font-weight: 400;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #bf8a24;
+  color: #8a6116;
 }
 
 /* 暗い背景用（Tours セクション等） */
@@ -204,12 +204,12 @@ em {
   font-weight: 400;
   font-style: italic;
   letter-spacing: 0.12em;
-  color: #888;
+  color: #666;
   margin-bottom: 32px;
 }
 
 .section-heading-sub-light {
-  color: #999;
+  color: #b5b0a8; /* #3d3d3d の上で約 5:1 */
 }
 
 
@@ -226,7 +226,7 @@ em {
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 0.12em;
-  color: #bf8a24;
+  color: #8a6116;
   transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -349,7 +349,7 @@ em {
   font-family: "Cormorant Garamond", serif;
   font-size: 14px;
   letter-spacing: 0.1em;
-  color: #888;
+  color: #666;
   display: flex;
   align-items: center;
   gap: 2px;
@@ -685,7 +685,7 @@ em {
 
   /* SP：現在ページは蜂蜜色でわかりやすく表示 */
   .global-nav-list a[aria-current="page"] {
-    color: #bf8a24;
+    color: #8a6116;
   }
 
   .header-actions {
@@ -805,7 +805,7 @@ em {
 
 .lang-other {
   font-weight: 400;
-  color: #888;
+  color: #666;
 }
 
 /* --- フッター言語リンクのアクティブ表示 --- */
@@ -846,11 +846,11 @@ em {
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.1em;
-  color: #888;
+  color: #666;
 }
 
 .sub-breadcrumb-link {
-  color: #bf8a24;
+  color: #8a6116;
   font-weight: 600;
   transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -872,7 +872,7 @@ em {
    見た目は通常テキストと同じ。クリック不可であることが自然に伝わるよう
    cursor をデフォルトに保つ。 */
 .sub-breadcrumb-nolink {
-  color: #999;
+  color: #666;
   cursor: default;
 }
 
@@ -1645,15 +1645,21 @@ em {
 /* ================================================
    B-4: 金色（蜂蜜色）テキストのコントラスト改善
    ================================================
-   #bf8a24 は白背景 (#faf7f2) に対してコントラスト比 ≈ 2.8:1。
-   WCAG AA の「大きい文字 (18pt / 14pt bold)」基準 3:1 を
-   装飾的な大見出しに限定して使用する方針。
-   小さい文字・本文・補助テキストには炭色 (#2d2d2d) を優先。
+   #bf8a24 は白背景 (#faf7f2) に対してコントラスト比 ≈ 2.86:1 で、
+   文字には使えない。文字・リンクには濃い金 #8a6116（≈ 5.2:1）を使い、
+   #bf8a24 は線・背景・フォーカス枠などの装飾だけに残す。
+   暗い背景 (#3d3d3d) の上の文字は明るい金 #d9a441（≈ 4.8:1）。
    ================================================ */
 
-/* パンくずリストのリンク: 小さいテキスト → コントラスト確保のため強化 */
+/* パンくずリストのリンク: 濃い金で約 5.2:1。
+   タップ領域を高さ 24px 以上にする（WCAG 2.2 2.5.8） */
 .sub-breadcrumb-link {
-  color: #96691c; /* より暗い金 → 白背景で約 4.1:1 */
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 0 4px;
+  margin: 0 -4px;
+  color: #8a6116;
 }
 
 /* フッターナビ見出しの金色: 暗い背景上なので維持 */

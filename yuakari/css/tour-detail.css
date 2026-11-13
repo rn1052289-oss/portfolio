@@ -66,7 +66,7 @@ display:block;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.18em;
-  color: #bf8a24;
+  color: #8a6116;
   text-transform: uppercase;
   margin-bottom: 8px;
 }
@@ -141,7 +141,7 @@ display:block;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.2em;
-  color: #bf8a24;
+  color: #8a6116;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -231,7 +231,7 @@ display:block;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.06em;
-  color: #888;
+  color: #666;
   white-space: nowrap;
 }
 
@@ -267,7 +267,7 @@ display:block;
 .td-timeline-en {
   font-family: "Cormorant Garamond", serif;
   font-size: 13px;
-  color: #8b8075;
+  color: #6b6158;
   margin-bottom: 8px;
 }
 
@@ -387,7 +387,7 @@ display:block;
 
 .td-reserve-label {
   font-size: 13px;
-  color: #888;
+  color: #666;
   margin-bottom: 4px;
 }
 
@@ -407,7 +407,7 @@ display:block;
 
 .td-reserve-per {
   font-size: 14px;
-  color: #888;
+  color: #666;
 }
 
 .td-reserve-field {
@@ -431,7 +431,7 @@ display:block;
   padding: 12px 14px;
   font-family: "Cormorant Garamond", serif;
   font-size: 15px;
-  color: #888;
+  color: #666;
   border: 1px solid #ddd;
   background-color: #fff;
   outline: none;
@@ -502,7 +502,7 @@ display:block;
 .td-reserve-notes p {
   font-size: 12px;
   line-height: 1.8;
-  color: #888;
+  color: #666;
 }
 
 .td-reserve-inquire {
@@ -588,14 +588,14 @@ display:block;
 .td-other-card-en {
   font-family: "Cormorant Garamond", serif;
   font-size: 11px;
-  color: #8b8075;
+  color: #6b6158;
   margin-bottom: 4px;
 }
 
 .td-other-card-meta {
   font-family: "Cormorant Garamond", serif;
   font-size: 13px;
-  color: #888;
+  color: #666;
   margin-bottom: 6px;
 }
 
@@ -631,6 +631,7 @@ display:block;
 .td-cta-section {
   padding: 64px 5% 58px;
   background-color: #a23b2c;
+  color: #faf7f2;
   text-align: center;
 }
 
@@ -657,7 +658,7 @@ display:block;
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0.03em;
-  color: rgba(250, 247, 242, 0.75);
+  color: rgba(250, 247, 242, 0.9);
 }
 
 .td-cta-buttons {
@@ -714,7 +715,7 @@ display:block;
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: 0.04em;
-  color: rgba(250, 247, 242, 0.62);
+  color: rgba(250, 247, 242, 0.9);
 }
 
 /* SP */
@@ -821,7 +822,7 @@ display:block;
   .td-info-label {
     margin-bottom: 4px;
     color: #d4a84b;
-    font-size: 9px;
+    font-size: 11px;
   }
 
   .td-info-value {
@@ -855,8 +856,8 @@ display:block;
   }
 
   .td-sp-reserve-label {
-    font-size: 11px;
-    color: #888;
+    font-size: 12px;
+    color: #666;
   }
 
   .td-sp-reserve-yen {
@@ -868,12 +869,12 @@ display:block;
 
   .td-sp-reserve-per {
     font-size: 12px;
-    color: #888;
+    color: #666;
   }
 
   .td-sp-reserve-note {
-    font-size: 10px;
-    color: #888;
+    font-size: 12px;
+    color: #666;
     width: 100%;
     order: 3;
   }

@@ -179,7 +179,7 @@
   font-size: 14px;
   font-style: italic;
   letter-spacing: 0.04em;
-  color: #8b8075;
+  color: #6b6158;
   margin-bottom: 14px;
   line-height: 1.4;
 }
@@ -209,6 +209,7 @@
    ================================ */
 .food-cta-section {
   background-color: #a23b2c;
+  color: #faf7f2;
   padding: 72px 5%;
   text-align: center;
 }
@@ -232,7 +233,7 @@
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 32px;
 }
 
@@ -442,7 +443,7 @@
   font-size: 15px;
   font-style: italic;
   letter-spacing: 0.04em;
-  color: #8b8075;
+  color: #6b6158;
   margin-bottom: 20px;
 }
 
@@ -476,7 +477,7 @@
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: #bf8a24;
+  color: #8a6116;
 }
 
 .food-modal-info-row dd {

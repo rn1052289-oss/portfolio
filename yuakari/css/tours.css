@@ -167,7 +167,7 @@
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.2em;
-  color: #bf8a24;
+  color: #8a6116;
   margin-bottom: 12px;
 }
 
@@ -188,7 +188,7 @@
   font-size: 18px;
   font-style: italic;
   letter-spacing: 0.04em;
-  color: #8b8075;
+  color: #6b6158;
   margin-bottom: 20px;
 }
 
@@ -208,7 +208,7 @@
   align-items: center;
   font-family: "Cormorant Garamond", serif;
   font-size: 15px;
-  color: #7e756d;
+  color: #6b6158;
   margin-bottom: 28px;
 }
 
@@ -357,7 +357,7 @@
   font-family: "Cormorant Garamond", serif;
   font-size: 15px;
   letter-spacing: 0.04em;
-  color: #8b8075;
+  color: #6b6158;
   margin-bottom: 16px;
 }
 
@@ -377,7 +377,7 @@
   align-items: center;
   font-family: "Cormorant Garamond", serif;
   font-size: 15px;
-  color: #7e756d;
+  color: #6b6158;
   margin-bottom: 20px;
 }
 
@@ -475,13 +475,13 @@
 
 /* ● 対応（蜂蜜色） */
 .tours-compare-en-yes {
-  color: #bf8a24;
+  color: #8a6116;
   font-weight: 500;
 }
 
 /* — 日本語のみ */
 .tours-compare-en-no {
-  color: #999;
+  color: #666;
 }
 
 /* ツアー名リンク（テーブル内） */
@@ -495,7 +495,7 @@
 }
 
 .tours-compare-name-link:hover {
-  color: #bf8a24;
+  color: #8a6116;
   text-decoration-color: #bf8a24;
   opacity: 1;
 }
@@ -506,7 +506,7 @@
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: #bf8a24;
+  color: #8a6116;
   transition: opacity 0.3s ease;
   white-space: nowrap;
 }
@@ -524,6 +524,7 @@
 .contact-section {
   padding: 64px 5%;
   background-color: #a23b2c;
+  color: #faf7f2;
   text-align: center;
 }
 
@@ -545,7 +546,7 @@
   font-family: "Cormorant Garamond", serif;
   font-size: 16px;
   font-style: italic;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.9);
   letter-spacing: 0.1em;
   margin-bottom: 28px;
 }
@@ -577,13 +578,13 @@
 /* TEL / Email ライン（煉瓦色背景上） */
 .tours-contact-info {
   margin-top: 16px;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 13px;
   letter-spacing: 0.08em;
 }
 
 .tours-contact-info a {
-  color: rgba(255, 255, 255, 0.70);
+  color: rgba(255, 255, 255, 0.9);
   transition: color 0.25s ease, opacity 0.25s ease;
 }
 
@@ -764,7 +765,7 @@
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.14em;
-    color: #8b8075;
+    color: #6b6158;
     text-transform: uppercase;
     white-space: nowrap;
     flex-shrink: 0;

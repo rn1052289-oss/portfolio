@@ -355,7 +355,7 @@
 		font-size: 17px;
 		font-style: italic;
 		letter-spacing: 0.04em;
-		color: #8b8075;
+		color: #6b6158;
 		margin: 0 0 14px;
 }
 /* 説明文 17pxに拡大（元は16px） */
@@ -373,7 +373,7 @@
 		gap: 0;
 		font-family: "Cormorant Garamond", serif;
 		font-size: 15px;
-		color: #7e756d;
+		color: #6b6158;
 		margin: 0 0 18px;
 }
 /* DETAILS → ボタン 13pxに拡大（元は12px） */
@@ -469,7 +469,7 @@
 		font-size: 14px;
 		font-style: italic;
 		letter-spacing: 0.03em;
-		color: #8b8075;
+		color: #6b6158;
 		margin: 0 0 auto;
 		line-height: 1.4;
 }
@@ -497,7 +497,7 @@
 		gap: 0;
 		font-family: "Cormorant Garamond", serif;
 		font-size: 14px;
-		color: #7e756d;
+		color: #6b6158;
 		line-height: 1.4;
 }
 /* DETAILS → ボタン 12pxに拡大（元は11px） */
@@ -721,7 +721,7 @@
 	font-size: 11px;
 	font-weight: 600;
 	letter-spacing: 0.18em;
-	color: #bf8a24;
+	color: #8a6116;
 	border: 1px solid #bf8a24;
 	padding: 3px 10px;
 	width: fit-content;
@@ -749,7 +749,7 @@
 /* こんな方に向け文 */
 .course-card-note {
 	font-size: 13px;
-	color: #888;
+	color: #666;
 	line-height: 1.7;
 	flex: 1;
 }
@@ -1071,7 +1071,7 @@
 		font-family: "Cormorant Garamond", serif;
 		font-size: 14px;
 		letter-spacing: 0.2em;
-		color: #999;
+		color: #666;
 }
 .access-map-wrap {
 		position: relative;
@@ -1129,6 +1129,7 @@
 		position: relative;
 		padding: 72px 5%;
 		background-color: #a23b2c;
+  color: #faf7f2;
 		overflow: hidden;
 }
 /* 背景に薄い格子で奥行き感 */
@@ -1166,7 +1167,7 @@
 }
 .contact-sub {
 		font-size: 14px;
-		color: rgba(255, 255, 255, 0.65);
+		color: rgba(255, 255, 255, 0.9);
 		letter-spacing: 0.06em;
 		line-height: 1.8;
 		margin-bottom: 0;
@@ -1180,7 +1181,7 @@
 		font-family: "Cormorant Garamond", serif;
 		font-size: 13px;
 		letter-spacing: 0.12em;
-		color: rgba(255,255,255,0.50);
+		color: rgba(255,255,255,0.9);
 }
 .contact-assurance::before {
 		content: "";
@@ -1242,7 +1243,7 @@
 		font-family: "Cormorant Garamond", serif;
 		font-size: 13px;
 		letter-spacing: 0.10em;
-		color: rgba(255, 255, 255, 0.45);
+		color: rgba(255, 255, 255, 0.9);
 		text-align: center;
 }
 .contact-info-line a:hover {
@@ -1865,7 +1866,7 @@
 		font-size: 11px;
 		font-weight: 400;
 		letter-spacing: 0.16em;
-		color: rgba(250, 247, 242, 0.45);
+		color: rgba(250, 247, 242, 0.7);
 		white-space: nowrap;
 }
 

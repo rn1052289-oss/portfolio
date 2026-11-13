@@ -41,7 +41,7 @@
         <span class="festival-season-tag"><span class="festival-season-mark festival-season-mark--summer" aria-hidden="true">夏</span>8月</span>
         <span class="festival-season-tag"><span class="festival-season-mark festival-season-mark--autumn" aria-hidden="true">秋</span>10〜11月</span>
         <span class="festival-season-tag"><span class="festival-season-mark festival-season-mark--winter" aria-hidden="true">冬</span>1〜2月</span>
-        <span style="font-size:.75rem;opacity:.6;padding:.3em 0;letter-spacing:.08em;">— 開催日程の詳細はお問い合わせください</span>
+        <span style="font-size:.75rem;color:#666;padding:.3em 0;letter-spacing:.08em;">— 開催日程の詳細はお問い合わせください</span>
       </div>
 
       <!-- 3×2 カードグリッド -->

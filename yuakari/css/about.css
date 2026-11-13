@@ -274,7 +274,7 @@
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: #bf8a24;
+  color: #d9a441;
   line-height: 1.6;
 }
 
@@ -415,7 +415,7 @@
   font-size: 14px;
   font-style: italic;
   letter-spacing: 0.04em;
-  color: #8b8075;
+  color: #6b6158;
   margin-bottom: 18px;
 }
 
@@ -436,7 +436,7 @@
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 0.18em;
-  color: #bf8a24;
+  color: #8a6116;
   background: none;
   border: none;
   padding: 10px 0;
@@ -509,7 +509,7 @@
   align-items: center;
   justify-content: center;
   font-size: 18px;
-  color: #888;
+  color: #666;
   background-color: rgba(250, 247, 242, 0.85);
   border: 1px solid #d6d0c6;
   border-radius: 50%;
@@ -557,7 +557,7 @@
   font-size: 16px;
   font-style: italic;
   letter-spacing: 0.06em;
-  color: #8b8075;
+  color: #6b6158;
   margin-bottom: 16px;
 }
 
@@ -632,6 +632,7 @@
 .about-cta-section {
   padding: 56px 5%;
   background-color: #a23b2c;
+  color: #faf7f2;
   text-align: center;
 }
 
@@ -654,7 +655,7 @@
   font-size: 15px;
   font-weight: 400;
   letter-spacing: 0.15em;
-  color: rgba(255, 255, 255, 0.86);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 28px;
 }
 
@@ -801,7 +802,7 @@
     font-family: "Shippori Mincho", "Noto Serif JP", serif;
     font-size: 13px;
     font-weight: 600;
-    color: #bf8a24;
+    color: #d9a441;
     letter-spacing: 0.04em;
     margin-bottom: 2px;
     display: block;
