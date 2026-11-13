@@ -3403,3 +3403,12 @@ h2 {
   .footer__inner { align-items: flex-start; flex-direction: column; gap: 22px; }
   .footer__copyright { font-size: 10px; }
 }
+
+/* 2026-11 改善：薄い緑の背景の上で 4.5:1 に届いていなかった文字色を濃くする。 */
+.access-route__school {
+  color:#2b6446;
+}
+
+.contact__copy .contact__demo {
+  color:#56625a;
+}

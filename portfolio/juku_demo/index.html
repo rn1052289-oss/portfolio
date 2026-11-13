@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;family=Zen+Maru+Gothic:wght@500;700;900&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261110-3">
+  <link rel="stylesheet" href="style.css?v=20261113-2">
 </head>
 <body id="top">
 <a class="skip-link" href="#main">本文へスキップ</a>
@@ -76,7 +76,7 @@
 <details><summary>体験の申込みは、このページからできますか？</summary><p>これはポートフォリオ用の架空サイトです。下のフォームでは入力チェックと完了表示のみ試せます。実際の授業予約や、入力内容の送信・保存は行いません。</p></details>
 </div></div></section>
 
-<section class="section contact" id="contact" aria-labelledby="contact-title"><div class="container contact__grid"><div class="contact__copy"><p class="section-label">体験フォーム・操作デモ</p><h2 id="contact-title">次の一歩を、<br>一緒に見つけよう。</h2><p>学年と、今気になっていることを教えてください。<br>コースが決まっていなくても大丈夫です。</p><p class="contact__demo">実際の予約はできません。<br>個人情報を入力せず、サンプルでお試しください。</p></div>        <div class="contact-form" id="trial-form" role="form" aria-labelledby="trial-form-title" aria-describedby="form-demo-note">
+<section class="section contact" id="contact" aria-labelledby="contact-title"><div class="container contact__grid"><div class="contact__copy"><p class="section-label">体験フォーム・操作デモ</p><h2 id="contact-title">次の一歩を、<br>一緒に見つけよう。</h2><p>学年と、今気になっていることを教えてください。<br>コースが決まっていなくても大丈夫です。</p><p class="contact__demo">実際の予約はできません。<br>個人情報を入力せず、サンプルでお試しください。</p></div>        <form class="contact-form" id="trial-form" action="#" novalidate aria-labelledby="trial-form-title" aria-describedby="form-demo-note">
           <div class="contact-form__head">
             <h3 id="trial-form-title">無料体験の希望を入力</h3>
             <p class="contact-form__note" id="form-demo-note">
@@ -149,7 +149,7 @@
           <p class="field-error" id="demo-confirm-error" aria-live="polite"></p>
 
           <div class="form-actions">
-            <button class="btn btn--primary" id="trial-form-submit" type="button">入力内容を確認する</button>
+            <button class="btn btn--primary" id="trial-form-submit" type="submit">入力内容を確認する</button>
             <p class="form-actions__microcopy">デモのため、外部への通信・保存は行いません。</p>
           </div>
 
@@ -157,7 +157,7 @@
             <strong>デモ操作が完了しました。</strong><br>
             入力内容は送信・保存されていません。実案件では、この後に確認画面または完了画面へ進む想定です。
           </div>
-        </div></div></section>
+        </form></div></section>
 </main><footer class="footer"><div class="container footer__inner"><a class="brand" href="#top" aria-label="みらい学習室 ホーム"><img class="brand__symbol" src="images/mirai-symbol.svg" alt="" width="64" height="64"><span class="brand__wordmark">みらい学習室<small>一人ひとりの、学びをひらく。</small></span></a><p class="footer__copyright">© 2026 みらい学習室</p></div></footer>
 <div class="mobile-cta" id="mobile-cta" inert><a class="btn btn--primary" href="#contact">無料体験のご案内 <svg class="button-icon" viewBox="0 0 28 20" fill="none" aria-hidden="true"><path d="M2 10h23M18 3l7 7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
   <script>
@@ -281,7 +281,6 @@
       });
 
       const form = document.getElementById('trial-form');
-      const formSubmit = document.getElementById('trial-form-submit');
       const formStatus = document.getElementById('form-status');
       const requiredFields = Array.from(form.querySelectorAll('[required]'));
 
@@ -302,12 +301,25 @@
         return !message;
       };
 
+      // 入力途中ではエラーを出さない。欄を離れたとき（選択肢は選んだとき）に確認し、
+      // 一度エラーになった欄だけは、直すそばからエラーを消せるよう入力中も確認する。
       requiredFields.forEach((field) => {
-        const eventName = field.tagName === 'SELECT' || field.type === 'checkbox' ? 'change' : 'input';
-        field.addEventListener(eventName, () => validateField(field));
+        if (field.tagName === 'SELECT' || field.type === 'checkbox') {
+          field.addEventListener('change', () => validateField(field));
+          return;
+        }
+
+        field.addEventListener('blur', () => {
+          if (field.value.trim()) validateField(field);
+        });
+        field.addEventListener('input', () => {
+          if (field.getAttribute('aria-invalid') === 'true') validateField(field);
+        });
       });
 
-      formSubmit.addEventListener('click', () => {
+      // Enter キーでも送信できるよう、ボタンのクリックではなくフォームの送信で検証する。
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
         formStatus.classList.remove('is-visible');
         const results = requiredFields.map(validateField);
         const firstInvalid = requiredFields.find((field, index) => !results[index]);
