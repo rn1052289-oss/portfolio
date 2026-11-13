@@ -2,362 +2,318 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f4efe6">
 <link rel="canonical" href="https://rnportfolio.xsrv.jp/kazecoffee/kazecoffee/">
-<title>KAZE COFFEE — 一杯の、静かな贅沢。</title>
-<meta name="description" content="路地裏の小さなコーヒースタンド。豆の個性を丁寧に引き出した一杯を、穏やかな時間とともにお届けします。">
-<meta property="og:title" content="KAZE COFFEE — 一杯の、静かな贅沢。">
-<meta property="og:description" content="スペシャルティコーヒー専門のカフェ KAZE COFFEE">
+<title>KAZE COFFEE — ふらっと寄れる、路地裏のコーヒースタンド（架空デモ）</title>
+<meta name="description" content="風見台駅から徒歩5分、カウンター6席の小さなコーヒースタンド。豆を選んで一杯ずつハンドドリップします。自主制作の架空デモサイトです。">
+<meta property="og:title" content="KAZE COFFEE — ふらっと寄れる、路地裏のコーヒースタンド">
+<meta property="og:description" content="風見台駅から徒歩5分の小さなコーヒースタンド（自主制作の架空デモ）">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="css/style.css?v=20260802-1">
+<link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&amp;family=Zen+Old+Mincho:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=20261113-r2">
+<script src="js/main.js?v=20261113-r2" defer></script>
 </head>
 <body id="top">
-
 <a class="skip-link" href="#main">本文へスキップ</a>
 
-<!-- ================================================================
-     01. HEADER
-     ================================================================ -->
-<header class="header" id="header">
-		<div class="header-inner"> <a href="#top" class="logo">KAZE COFFEE</a>
-    <ul class="nav-links">
-      <li><a href="#concept">ABOUT</a></li>
-      <li><a href="#menu">MENU</a></li>
-      <li><a href="#instagram">GALLERY</a></li>
-      <li><a href="#access">ACCESS</a></li>
-      <li><a href="#contact-section">CONTACT</a></li>
-    </ul>
-				<div class="nav-sns"> <a role="link" aria-disabled="true" tabindex="-1" data-demo-disabled="true" title="自主制作デモのため未実装です" aria-label="Instagram（デモのため未実装）">IG</a> <a role="link" aria-disabled="true" tabindex="-1" data-demo-disabled="true" title="自主制作デモのため未実装です" aria-label="X（デモのため未実装）">X</a> </div>
-    <button class="hamburger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu"> <span></span><span></span><span></span> </button>
+<header class="site-header" id="siteHeader">
+  <div class="site-header__inner">
+    <a class="logo" href="#top">KAZE COFFEE<span class="visually-hidden">（ページの先頭へ）</span></a>
+    <nav class="global-nav" aria-label="ページ内のメニュー">
+      <ul>
+        <li><a href="#about">お店について</a></li>
+        <li><a href="#menu">メニュー</a></li>
+        <li><a href="#space">店内</a></li>
+        <li><a href="#visit">行き方・営業時間</a></li>
+      </ul>
+    </nav>
+    <p class="header-status" data-today-short>10:00–19:00 ／ 水曜定休</p>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobileMenu">メニュー</button>
   </div>
 </header>
 
-<!-- Mobile Menu -->
-<nav class="mobile-menu" id="mobileMenu" aria-label="モバイルナビゲーション" aria-hidden="true" inert>
-  <button class="mobile-menu-close" type="button" aria-label="メニューを閉じる">✕</button>
-  <a href="#concept">ABOUT</a> <a href="#menu">MENU</a> <a href="#instagram">GALLERY</a> <a href="#access">ACCESS</a> <a href="#contact-section">CONTACT</a>
-		<div class="mobile-menu-sns"> <a role="link" aria-disabled="true" tabindex="-1" data-demo-disabled="true" title="自主制作デモのため未実装です">Instagram</a> <a role="link" aria-disabled="true" tabindex="-1" data-demo-disabled="true" title="自主制作デモのため未実装です">X</a> </div>
-</nav>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="サイト内のメニュー" inert>
+  <div class="mobile-menu__head">
+    <span class="logo">KAZE COFFEE</span>
+    <button class="mobile-menu__close" type="button">閉じる</button>
+  </div>
+  <nav aria-label="ページ内のメニュー（スマートフォン）">
+    <ul class="mobile-menu__list">
+      <li><a href="#about">お店について</a></li>
+      <li><a href="#menu">メニュー</a></li>
+      <li><a href="#space">店内とすごし方</a></li>
+      <li><a href="#visit">行き方・営業時間</a></li>
+    </ul>
+  </nav>
+  <p class="mobile-menu__note">10:00–19:00 ／ 水曜定休<br>風見台駅 西口から徒歩5分</p>
+</div>
 
 <main id="main" tabindex="-1">
 
-<!-- ================================================================
-     02. HERO
-     ================================================================ -->
-<section class="hero" aria-labelledby="hero-title">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <p class="hero-sub">Specialty Coffee Stand</p>
-    <h1 class="hero-title" id="hero-title">一杯の、<br>
-      静かな贅沢。</h1>
-    <p class="hero-desc">路地裏の小さなコーヒースタンド。<br>
-      豆の個性を丁寧に引き出した一杯を、<br>
-      穏やかな時間とともにお届けします。</p>
-    <div class="hero-actions"> <a href="#menu" class="btn-hero btn-hero-primary">メニューを見る →</a> <a href="#access" class="btn-hero btn-hero-outline">お店への行き方</a> </div>
-  </div>
-  <div class="hero-side-sns">
-    <div class="line"></div>
-						<a role="link" aria-disabled="true" tabindex="-1" data-demo-disabled="true" title="自主制作デモのため未実装です">Instagram</a> <a role="link" aria-disabled="true" tabindex="-1" data-demo-disabled="true" title="自主制作デモのため未実装です">X / Twitter</a> </div>
-  <div class="hero-scroll"> <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 class="hero__title" id="hero-title">ふらっと寄って、<br>一杯ぶんの深呼吸。</h1>
+    <figure class="hero__photo">
+      <img src="images/hero-pourover-960.webp"
+        srcset="images/hero-pourover-480.webp 480w, images/hero-pourover-960.webp 960w, images/hero-pourover-1440.webp 1440w"
+        sizes="(min-width: 900px) 46vw, 100vw"
+        width="960" height="1200" alt="ガラスのドリッパーに細くお湯を注ぎ、コーヒーを一杯ずつ抽出している手元" fetchpriority="high" decoding="async">
+    </figure>
+    <div class="hero__body">
+      <p class="hero__lead">風見台駅から一本入った路地の、カウンター6席の小さなコーヒースタンドです。豆を選んでいただき、一杯ずつハンドドリップでお淹れします。</p>
+      <div class="shop-card">
+        <p class="shop-card__status" id="todayStatus">営業時間 10:00–19:00（水曜定休）</p>
+        <dl class="shop-card__list">
+          <div><dt>場所</dt><dd>風見台駅 西口から徒歩5分</dd></div>
+          <div><dt>席</dt><dd>カウンター6席・窓辺のベンチ2席</dd></div>
+          <div><dt>今月の豆</dt><dd>エチオピア／コロンビア／KAZE ブレンド</dd></div>
+        </dl>
+      </div>
+      <p class="hero__links">
+        <a class="button" href="#menu">メニューと価格を見る</a>
+        <a class="text-link" href="#visit">行き方・営業時間</a>
+      </p>
+    </div>
+  </section>
 
-<!-- ================================================================
-     03. CONCEPT
-     ================================================================ -->
-<section class="concept" id="concept">
-  <div class="container">
-    <div class="concept-grid">
-      <div class="concept-img reveal"> <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&amp;q=80" alt="コーヒーを一杯ずつハンドドリップする様子" width="800" height="1000" loading="lazy" decoding="async"> </div>
-      <div class="reveal reveal-d2">
-        <div class="concept-label">Our Story</div>
-        <h2 class="concept-h2"><span>「風」のように、</span><span>ふらっと寄れる店。</span></h2>
-        <p class="concept-text">KAZE COFFEEは、日常の中にある小さな贅沢をコンセプトにしたスペシャルティコーヒー専門店です。</p>
-        <p class="concept-text">世界各地から届く個性豊かな豆を、一杯ずつ丁寧にハンドドリップ。忙しい毎日の中で、ほっと息をつける場所でありたいと願っています。</p>
-				<a class="concept-link" role="link" aria-disabled="true" tabindex="-1" data-demo-disabled="true" title="自主制作デモのため未実装です">もっと詳しく（デモ）</a> </div>
+  <section class="section about" id="about" aria-labelledby="about-title">
+    <div class="container about__grid">
+      <div class="about__body">
+        <h2 class="section-title" id="about-title">風のように、<br>ふらっと寄れる店。</h2>
+        <p>KAZE COFFEE は、通勤や散歩の途中に立ち寄れる店をめざして、2024年に開いたコーヒースタンドです。</p>
+        <p>豆は店の奥の小さな焙煎機で、毎週月曜と木曜に焼いています。注文を受けてから豆を挽き、お湯の温度と注ぐ速さを豆ごとに変えて淹れます。</p>
+        <p>どれを選べばいいか迷ったら、好きな味を一言お聞かせください。苦いのが好き、さっぱりしたい、ミルクに合うもの。そこから一緒に選びます。</p>
+        <dl class="about__facts">
+          <div><dt>焙煎</dt><dd>月・木曜、店内で少量ずつ</dd></div>
+          <div><dt>抽出</dt><dd>ご注文ごとにハンドドリップ</dd></div>
+          <div><dt>豆</dt><dd>季節ごとに3〜4種類</dd></div>
+        </dl>
+      </div>
+      <figure class="about__photo reveal">
+        <img src="images/story-pour-960.webp"
+          srcset="images/story-pour-480.webp 480w, images/story-pour-960.webp 960w, images/story-pour-1440.webp 1440w"
+          sizes="(min-width: 900px) 34vw, 100vw"
+          width="960" height="1200" alt="白いカップへ、抽出したてのコーヒーを注いでいるところ" loading="lazy" decoding="async">
+      </figure>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================================================================
-     04. MENU PICKUP
-     ================================================================ -->
-<section class="menu-section section" id="menu">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-en">Menu Pickup</div>
-      <div class="section-title">おすすめメニュー</div>
-      <div class="section-desc">季節ごとに変わるスペシャルティコーヒーをどうぞ。</div>
-    </div>
-    <div class="menu-grid">
-      <div class="menu-card reveal">
-        <div class="menu-card-img"> <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&amp;q=80" alt="エチオピア イルガチェフェのドリップコーヒー" width="600" height="600" loading="lazy" decoding="async"> </div>
-        <div class="menu-card-tag">Popular</div>
-        <div class="menu-card-name">エチオピア イルガチェフェ</div>
-        <div class="menu-card-price">¥550</div>
-        <div class="menu-card-desc">フルーティーな香りとクリーンな後味。当店の看板メニューです。</div>
+  <section class="section menu" id="menu" aria-labelledby="menu-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title" id="menu-title">メニュー</h2>
+        <p class="section-head__lead">2026年11月の品書きです。価格はすべて税込で、テイクアウトも同じ価格です。</p>
       </div>
-      <div class="menu-card reveal reveal-d1">
-        <div class="menu-card-img"> <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=600&amp;q=80" alt="きめ細かなミルクフォームのKAZEラテ" width="600" height="600" loading="lazy" decoding="async"> </div>
-        <div class="menu-card-name">KAZE ラテ</div>
-        <div class="menu-card-price">¥600</div>
-        <div class="menu-card-desc">自家焙煎の深煎りブレンドに、オーガニックミルクを合わせて。</div>
-      </div>
-      <div class="menu-card reveal reveal-d2">
-        <div class="menu-card-img"> <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&amp;q=80" alt="季節の素材を合わせた冷たいコーヒー" width="600" height="600" loading="lazy" decoding="async"> </div>
-        <div class="menu-card-tag">Seasonal</div>
-        <div class="menu-card-name">季節の冷たいコーヒー</div>
-        <div class="menu-card-price">¥650</div>
-        <div class="menu-card-desc">旬のフルーツを使った季節限定ドリンク。季節の彩りを楽しむ一杯です。</div>
-      </div>
-    </div>
-		<div class="menu-more reveal"> <a class="btn-outline" role="link" aria-disabled="true" tabindex="-1" data-demo-disabled="true" title="自主制作デモのため未実装です">すべてのメニューを見る（デモ）</a> </div>
-  </div>
-</section>
 
-<!-- ================================================================
-     05. INSTAGRAM
-     ================================================================ -->
-<section class="instagram" id="instagram">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-en">Gallery</div>
-      <div class="section-title">店内と、一杯の記録</div>
-      <div class="section-desc">店の空気や季節のメニューを、写真でご紹介します。</div>
-    </div>
-    <div class="insta-hashtag reveal"><span>#KAZECOFFEE</span></div>
-    <div class="insta-grid">
-      <div class="insta-item reveal"> <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=400&amp;q=80" alt="木のカウンターに置いたドリップコーヒー" width="400" height="400" loading="lazy" decoding="async"> </div>
-      <div class="insta-item reveal reveal-d1"> <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&amp;q=80" alt="コーヒー豆と抽出器具" width="400" height="400" loading="lazy" decoding="async"> </div>
-      <div class="insta-item reveal reveal-d2"> <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400&amp;q=80" alt="カフェラテを楽しむ店内のひととき" width="400" height="400" loading="lazy" decoding="async"> </div>
-      <div class="insta-item reveal reveal-d3"> <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefda?w=400&amp;q=80" alt="湯気の立つハンドドリップ" width="400" height="400" loading="lazy" decoding="async"> </div>
-      <div class="insta-item reveal"> <img src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?w=400&amp;q=80" alt="焼き菓子とコーヒーの組み合わせ" width="400" height="400" loading="lazy" decoding="async"> </div>
-      <div class="insta-item reveal reveal-d1"> <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=400&amp;q=80" alt="窓辺に置かれたコーヒーカップ" width="400" height="400" loading="lazy" decoding="async"> </div>
-      <div class="insta-item reveal reveal-d2"> <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400&amp;q=80" alt="ラテアートを施した一杯" width="400" height="400" loading="lazy" decoding="async"> </div>
-      <div class="insta-item reveal reveal-d3"> <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=400&amp;q=80" alt="路地裏の小さなコーヒースタンド" width="400" height="400" loading="lazy" decoding="async"> </div>
-    </div>
-		<div class="sns-buttons reveal"> <a class="btn-sns btn-ig" role="link" aria-disabled="true" tabindex="-1" data-demo-disabled="true" title="自主制作デモのため未実装です">📷 Instagram（デモ）</a> <a class="btn-sns btn-x" role="link" aria-disabled="true" tabindex="-1" data-demo-disabled="true" title="自主制作デモのため未実装です">𝕏 X（デモ）</a> </div>
-  </div>
-</section>
+      <div class="menu-board">
+        <section class="menu-board__col" aria-labelledby="menu-drip-title">
+          <h3 class="menu-board__title" id="menu-drip-title">ハンドドリップ<span>今月の豆</span></h3>
+          <figure class="menu-board__photo">
+            <img src="images/menu-drip-960.webp"
+              srcset="images/menu-drip-480.webp 480w, images/menu-drip-960.webp 960w"
+              sizes="(min-width: 900px) 40vw, 100vw"
+              width="960" height="1200" alt="ガラスのサーバーから、陶器のカップへドリップコーヒーを注いでいるところ" loading="lazy" decoding="async">
+          </figure>
+          <ul class="beans">
+            <li class="bean">
+              <p class="bean__line"><span class="bean__name">エチオピア イルガチェフェ</span><span class="leader" aria-hidden="true"></span><span class="bean__price">¥600</span></p>
+              <p class="bean__desc">浅煎り。ジャスミン、レモン、紅茶のような香り。すっきりとした酸味。</p>
+            </li>
+            <li class="bean">
+              <p class="bean__line"><span class="bean__name">コロンビア ウィラ</span><span class="leader" aria-hidden="true"></span><span class="bean__price">¥580</span></p>
+              <p class="bean__desc">中煎り。オレンジ、黒糖、ミルクチョコレート。甘さとコクのバランス。</p>
+            </li>
+            <li class="bean">
+              <p class="bean__line"><span class="bean__name">KAZE ブレンド</span><span class="leader" aria-hidden="true"></span><span class="bean__price">¥520</span></p>
+              <p class="bean__desc">深煎り。カカオ、ローストナッツ、キャラメル。ミルクにも合う苦味。</p>
+            </li>
+          </ul>
+          <p class="menu-board__note">1杯 約200ml。豆は100g（¥900〜¥1,100）からお持ち帰りいただけます。挽き目はご相談ください。</p>
+        </section>
 
-<!-- ================================================================
-     06. ACCESS
-     ================================================================ -->
-<section class="access" id="access">
-  <div class="container">
-    <div class="fiction-note">
-      ⚠️ <strong>デモサイトのご案内：</strong>このサイトはポートフォリオ用のコンセプトワークです。住所・電話番号・営業時間などの店舗情報はすべて仮のものです。掲載写真の一部にはUnsplashの配信素材を使用しています。
-    </div>
-    <div class="section-header reveal">
-      <div class="section-en">Access</div>
-      <div class="section-title">お店へのアクセス</div>
-    </div>
-    <div class="access-grid">
-      <div class="map-wrapper reveal" role="img" aria-label="架空の最寄り駅からKAZE COFFEEまで徒歩5分の案内図">
-        <span class="map-kicker">FICTIONAL WALK MAP</span>
-        <span class="map-street map-street--one" aria-hidden="true"></span>
-        <span class="map-street map-street--two" aria-hidden="true"></span>
-        <span class="map-station">○○駅</span>
-        <span class="map-route" aria-hidden="true"></span>
-        <span class="map-shop">KAZE<br>COFFEE</span>
-        <span class="map-time">徒歩5分・架空設定</span>
-      </div>
-      <div class="access-info reveal reveal-d2">
-        <h3>店舗情報</h3>
-        <table class="access-table">
-          <tr>
-            <th>住所</th>
-            <td>東京都目黒区○○ 1-2-3<br>
-              コーヒービル 1F</td>
-          </tr>
-          <tr>
-            <th>最寄り駅</th>
-            <td>東急東横線 ○○駅 徒歩5分</td>
-          </tr>
-          <tr>
-            <th>営業時間</th>
-            <td>10:00 – 19:00（L.O. 18:30）</td>
-          </tr>
-          <tr>
-            <th>定休日</th>
-            <td>毎週水曜日</td>
-          </tr>
-          <tr>
-            <th>駐車場</th>
-            <td>なし（近隣にコインパーキングあり）</td>
-          </tr>
-          <tr>
-            <th>SNS</th>
-            <td>Instagram / X : @kazecoffee</td>
-          </tr>
-        </table>
-				<div class="access-more"> <a class="btn-outline" role="link" aria-disabled="true" tabindex="-1" data-demo-disabled="true" title="自主制作デモのため未実装です">詳しいアクセス情報（デモ）</a> </div>
+        <div class="menu-board__col">
+          <section aria-labelledby="menu-milk-title">
+            <h3 class="menu-board__title" id="menu-milk-title">エスプレッソ・ミルク</h3>
+            <ul class="price-list">
+              <li><span>エスプレッソ</span><span class="leader" aria-hidden="true"></span><span>¥450</span></li>
+              <li><span>カフェラテ</span><span class="leader" aria-hidden="true"></span><span>¥600</span></li>
+              <li><span>カプチーノ</span><span class="leader" aria-hidden="true"></span><span>¥580</span></li>
+              <li><span>フラットホワイト</span><span class="leader" aria-hidden="true"></span><span>¥620</span></li>
+            </ul>
+            <p class="menu-board__note">オーツミルクへの変更は +¥60。デカフェの豆もあります。</p>
+          </section>
+
+          <figure class="menu-board__photo menu-board__photo--small">
+            <img src="images/menu-latte-480.webp"
+              srcset="images/menu-latte-480.webp 480w, images/menu-latte-960.webp 960w"
+              sizes="(min-width: 900px) 20vw, 50vw"
+              width="480" height="600" alt="リーフ模様のラテアートを描いたカフェラテを真上から見たところ" loading="lazy" decoding="async">
+          </figure>
+
+          <section aria-labelledby="menu-season-title">
+            <h3 class="menu-board__title" id="menu-season-title">季節のドリンク</h3>
+            <ul class="price-list">
+              <li><span>ほうじ茶と黒糖のオレ<small>ホット／アイス</small></span><span class="leader" aria-hidden="true"></span><span>¥650</span></li>
+              <li><span>水出しコーヒー<small>11月末まで</small></span><span class="leader" aria-hidden="true"></span><span>¥550</span></li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="menu-bake-title">
+            <h3 class="menu-board__title" id="menu-bake-title">焼き菓子</h3>
+            <ul class="price-list">
+              <li><span>シナモンロール</span><span class="leader" aria-hidden="true"></span><span>¥380</span></li>
+              <li><span>バスクチーズケーキ</span><span class="leader" aria-hidden="true"></span><span>¥480</span></li>
+              <li><span>和栗のスコーン<small>11月のみ</small></span><span class="leader" aria-hidden="true"></span><span>¥360</span></li>
+            </ul>
+            <p class="menu-board__note">近くのベーカリーから毎朝届きます。売り切れの際はご容赦ください。</p>
+          </section>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section class="section space" id="space" aria-labelledby="space-title">
+    <div class="container space__grid">
+      <figure class="space__main reveal">
+        <img src="images/space-counter-960.webp"
+          srcset="images/space-counter-480.webp 480w, images/space-counter-960.webp 960w, images/space-counter-1440.webp 1440w"
+          sizes="(min-width: 900px) 55vw, 100vw"
+          width="960" height="1200" alt="白いタイル張りのカウンターと、壁の棚に並ぶコーヒー器具" loading="lazy" decoding="async">
+      </figure>
+      <div class="space__body">
+        <h2 class="section-title" id="space-title">店内とすごし方</h2>
+        <p class="section-head__lead">白いタイルのカウンターと、窓辺のベンチだけの小さな店です。ひとりで本を読む方も、待ち合わせ前に一杯だけの方も歓迎します。</p>
+        <dl class="spec">
+          <div><dt>席</dt><dd>カウンター6席、窓辺のベンチ2席。混み合う時間は1時間ほどでお願いしています。</dd></div>
+          <div><dt>テイクアウト</dt><dd>すべてのドリンクが可能です。マイカップのご持参で50円引き。</dd></div>
+          <div><dt>電源・Wi-Fi</dt><dd>カウンター席に電源が2口。Wi-Fi のパスワードはレジでお伝えします。</dd></div>
+          <div><dt>お支払い</dt><dd>現金、クレジットカード、交通系IC、QRコード決済。</dd></div>
+        </dl>
+      </div>
+      <figure class="space__sub space__sub--a reveal">
+        <img src="images/space-plants-960.webp"
+          srcset="images/space-plants-480.webp 480w, images/space-plants-960.webp 960w, images/space-plants-1440.webp 1440w"
+          sizes="(min-width: 900px) 24vw, 50vw"
+          width="960" height="1200" alt="植物が吊り下がる明るい店内と、木のカウンター" loading="lazy" decoding="async">
+        <figcaption>大きな窓から光が入ります。</figcaption>
+      </figure>
+      <figure class="space__sub space__sub--b reveal">
+        <img src="images/space-window-960.webp"
+          srcset="images/space-window-480.webp 480w, images/space-window-960.webp 960w, images/space-window-1440.webp 1440w"
+          sizes="(min-width: 900px) 24vw, 50vw"
+          width="960" height="1200" alt="中庭が見える窓辺に置いたコーヒーと焼き菓子" loading="lazy" decoding="async">
+        <figcaption>窓辺のベンチ2席。</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section visit" id="visit" aria-labelledby="visit-title">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title" id="visit-title">行き方・営業時間</h2>
+        <p class="section-head__lead">ご予約は不要です。そのままお越しください。</p>
+      </div>
+
+      <div class="visit__grid">
+        <div class="visit__col">
+          <h3 class="visit__title">営業時間</h3>
+          <table class="hours">
+            <caption class="visually-hidden">曜日ごとの営業時間</caption>
+            <tbody>
+              <tr data-day="1"><th scope="row">月</th><td>10:00–19:00</td></tr>
+              <tr data-day="2"><th scope="row">火</th><td>10:00–19:00</td></tr>
+              <tr data-day="3" class="hours__closed"><th scope="row">水</th><td>定休日</td></tr>
+              <tr data-day="4"><th scope="row">木</th><td>10:00–19:00</td></tr>
+              <tr data-day="5"><th scope="row">金</th><td>10:00–20:00</td></tr>
+              <tr data-day="6"><th scope="row">土</th><td>9:00–18:00</td></tr>
+              <tr data-day="0"><th scope="row">日</th><td>9:00–18:00</td></tr>
+            </tbody>
+          </table>
+          <p class="visit__note">ラストオーダーは閉店の30分前です。祝日は曜日どおりに営業します。</p>
+
+          <h3 class="visit__title">お問い合わせ</h3>
+          <p class="tel">電話 <span class="tel__number">03-0000-0000</span></p>
+          <p class="visit__note">架空の番号です（実際にはつながりません）。受付は営業時間内です。豆の取り置きや、4名以上でのご来店はお電話でご相談ください。</p>
+        </div>
+
+        <div class="visit__col">
+          <h3 class="visit__title">場所</h3>
+          <p class="address">〒153-0000 東京都目黒区風見台 1-2-3 コーヒービル 1F</p>
+          <figure class="map">
+            <svg viewBox="0 0 360 260" role="img" aria-labelledby="map-title map-desc">
+              <title id="map-title">風見台駅から KAZE COFFEE までの簡易地図</title>
+              <desc id="map-desc">風見台駅の西口を出て、かざみ通りを西へ進み、郵便局のある角を北へ曲がり、1本目の路地を左に入った突き当たりに店があります。</desc>
+              <rect width="360" height="260" fill="#ebe4d6"/>
+              <g fill="none" stroke="#fffdf8" stroke-linecap="round">
+                <path d="M0 176H360" stroke-width="22"/>
+                <path d="M118 0V260" stroke-width="16"/>
+                <path d="M118 74H360" stroke-width="10"/>
+                <path d="M30 116H118" stroke-width="10"/>
+              </g>
+              <rect x="268" y="196" width="76" height="42" fill="#26231f"/>
+              <text x="306" y="222" fill="#fffdf8" font-size="13" text-anchor="middle" font-family="sans-serif">風見台駅</text>
+              <rect x="128" y="186" width="44" height="26" fill="#d3cab8"/>
+              <text x="150" y="203" fill="#26231f" font-size="11" text-anchor="middle" font-family="sans-serif">郵便局</text>
+              <text x="230" y="166" fill="#57514a" font-size="11" text-anchor="middle" font-family="sans-serif">かざみ通り</text>
+              <text x="262" y="230" fill="#57514a" font-size="11" text-anchor="end" font-family="sans-serif">西口</text>
+              <path d="M300 196V176H118V116H70" fill="none" stroke="#3f5a44" stroke-width="3" stroke-dasharray="6 6" stroke-linecap="round"/>
+              <rect x="24" y="102" width="46" height="28" fill="#3f5a44"/>
+              <text x="47" y="121" fill="#fffdf8" font-size="12" text-anchor="middle" font-family="serif">KAZE</text>
+            </svg>
+            <figcaption>架空の街並みを簡略化した地図です。</figcaption>
+          </figure>
+          <ol class="route">
+            <li>風見台駅の西口を出て、駅前の横断歩道を渡ります。</li>
+            <li>商店街「かざみ通り」を3分ほどまっすぐ進みます。</li>
+            <li>郵便局のある角を右へ。1本目の路地を左に入った突き当たり、白いタイルの店です。</li>
+          </ol>
+          <p class="visit__note">駐車場はありません。自転車は店の前に2台まで停められます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </main>
 
-<!-- ================================================================
-     07. SNS FOLLOW BANNER
-     ================================================================ -->
-<section class="sns-banner" id="contact-section">
-  <div class="sns-banner-inner">
-    <div class="sns-banner-en reveal">Follow Our Story</div>
-    <div class="sns-banner-title reveal">新メニューやイベント情報を<br>
-      SNSでお届けしています。</div>
-    <p class="sns-banner-desc reveal">フォローして、KAZE COFFEEの日常をお楽しみください。</p>
-		<div class="sns-buttons reveal"> <a class="btn-sns btn-ig" role="link" aria-disabled="true" tabindex="-1" data-demo-disabled="true" title="自主制作デモのため未実装です">📷 Instagram（デモ）</a> <a class="btn-sns btn-x" role="link" aria-disabled="true" tabindex="-1" data-demo-disabled="true" title="自主制作デモのため未実装です">𝕏 X（デモ）</a> </div>
-  </div>
-</section>
-
-<!-- ================================================================
-     08. FOOTER
-     ================================================================ -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-inner">
-      <div>
-        <div class="footer-logo">KAZE COFFEE</div>
-        <p class="footer-desc">路地裏の小さなコーヒースタンド。一杯の静かな贅沢を、穏やかな時間とともにお届けします。</p>
-      </div>
-      <div class="footer-nav">
-        <div>
-          <div class="footer-nav-heading">Menu</div>
-						<a href="#top">TOP</a> <a href="#concept">ABOUT</a> <a href="#menu">MENU</a> <a href="#access">ACCESS</a> <a href="#contact-section">CONTACT</a> </div>
-        <div>
-          <div class="footer-nav-heading">SNS</div>
-						<a role="link" aria-disabled="true" tabindex="-1" data-demo-disabled="true" title="自主制作デモのため未実装です">Instagram</a> <a role="link" aria-disabled="true" tabindex="-1" data-demo-disabled="true" title="自主制作デモのため未実装です">X (Twitter)</a> </div>
-      </div>
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div>
+      <p class="logo">KAZE COFFEE</p>
+      <p class="site-footer__meta">風見台駅 西口から徒歩5分<br>10:00–19:00 ／ 水曜定休</p>
     </div>
-    <div class="footer-bottom"> <span class="footer-copy">© <span id="footerYear">2026</span> KAZE COFFEE. All rights reserved.</span>
-				<div class="footer-social"> <a role="link" aria-disabled="true" tabindex="-1" data-demo-disabled="true" title="自主制作デモのため未実装です" aria-label="Instagram（デモのため未実装）">IG</a> <a role="link" aria-disabled="true" tabindex="-1" data-demo-disabled="true" title="自主制作デモのため未実装です" aria-label="X（デモのため未実装）">X</a> </div>
+    <nav aria-label="フッターのメニュー">
+      <ul class="site-footer__nav">
+        <li><a href="#about">お店について</a></li>
+        <li><a href="#menu">メニュー</a></li>
+        <li><a href="#space">店内とすごし方</a></li>
+        <li><a href="#visit">行き方・営業時間</a></li>
+      </ul>
+    </nav>
+    <div class="site-footer__fine">
+      <p>このサイトはポートフォリオ用の自主制作デモです。店舗・住所・電話番号・メニューはすべて架空で、実在する店舗とは関係ありません。</p>
+      <details class="credits">
+        <summary>写真のクレジット（Unsplash）</summary>
+        <ul>
+          <li>ハンドドリップ：<a href="https://unsplash.com/photos/x-8DF-Ry0Zo">Najib Kalil</a></li>
+          <li>カップへ注ぐ様子：<a href="https://unsplash.com/photos/irQsqR3vm8c">Gerson Cifuentes</a></li>
+          <li>ドリップコーヒー：<a href="https://unsplash.com/photos/2UF6Jloc8Qc">Luke Porter</a></li>
+          <li>カフェラテ：<a href="https://unsplash.com/photos/7zow7-ZranQ">Sepehr Moazed</a></li>
+          <li>カウンター：<a href="https://unsplash.com/photos/DOLym82QuQk">Skyler Smith</a></li>
+          <li>店内：<a href="https://unsplash.com/photos/TNfgr9yDOiI">Dragnar</a></li>
+          <li>窓辺の席：<a href="https://unsplash.com/photos/JlkyB9VH-hU">Ezgi Deliklitas</a></li>
+        </ul>
+        <p>写真は撮影者の作品で、KAZE COFFEE（架空）の店舗を撮影したものではありません。</p>
+      </details>
+      <p class="site-footer__copy">© <span id="footerYear">2026</span> KAZE COFFEE（架空）</p>
     </div>
   </div>
+  <a class="case-return" data-case-return href="../../works-kaze-coffee.html">← 制作事例へ戻る</a>
 </footer>
 
-<!-- ================================================================
-     SCRIPTS
-     ================================================================ --> 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // Keep the fixed header below the visible demo notice without leaving a gap
-  // after the notice has scrolled away.
-  const header = document.getElementById('header');
-  const syncHeader = () => {
-    const notice = document.getElementById('demo-notice');
-    const noticeBottom = notice ? Math.max(0, notice.getBoundingClientRect().bottom) : 0;
-    document.documentElement.style.setProperty('--notice-offset', `${noticeBottom}px`);
-    header.classList.toggle('scrolled', window.scrollY > 60);
-  };
-  window.addEventListener('scroll', syncHeader, { passive: true });
-  window.addEventListener('resize', syncHeader);
-  window.requestAnimationFrame(() => {
-    syncHeader();
-    const notice = document.getElementById('demo-notice');
-    if (notice && 'ResizeObserver' in window) {
-      new ResizeObserver(syncHeader).observe(notice);
-    }
-  });
-
-  // Reveal on scroll
-  const reveals = document.querySelectorAll('.reveal');
-  if (reduceMotion || !('IntersectionObserver' in window)) {
-    reveals.forEach(el => el.classList.add('visible'));
-  } else {
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(el => obs.observe(el));
-  }
-
-  // Mobile menu
-  const hamburger = document.querySelector('.hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileClose = document.querySelector('.mobile-menu-close');
-  const mobileLinks = mobileMenu.querySelectorAll('a[href]');
-  const desktopQuery = window.matchMedia('(min-width: 769px)');
-  let returnFocus = null;
-
-  const getFocusable = () => Array.from(mobileMenu.querySelectorAll('a[href], button:not([disabled])'));
-  const setMenu = (open, restoreFocus = true) => {
-    hamburger.setAttribute('aria-expanded', String(open));
-    hamburger.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
-    mobileMenu.classList.toggle('open', open);
-    mobileMenu.setAttribute('aria-hidden', String(!open));
-    mobileMenu.inert = !open;
-    document.body.classList.toggle('menu-open', open);
-
-    if (open) {
-      returnFocus = document.activeElement;
-      window.requestAnimationFrame(() => getFocusable()[0]?.focus());
-    } else if (restoreFocus && returnFocus instanceof HTMLElement) {
-      returnFocus.focus();
-    }
-  };
-
-  const openMenu = () => setMenu(true);
-  const closeMenu = (restoreFocus = true) => setMenu(false, restoreFocus);
-
-  hamburger?.addEventListener('click', openMenu);
-  mobileClose?.addEventListener('click', () => closeMenu());
-  mobileLinks.forEach(l => l.addEventListener('click', () => closeMenu(false)));
-  document.addEventListener('keydown', e => {
-    if (hamburger?.getAttribute('aria-expanded') !== 'true') return;
-    if (e.key === 'Escape') {
-      e.preventDefault();
-      closeMenu();
-      return;
-    }
-    if (e.key !== 'Tab') return;
-    const focusable = getFocusable();
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    if (e.shiftKey && document.activeElement === first) {
-      e.preventDefault();
-      last?.focus();
-    } else if (!e.shiftKey && document.activeElement === last) {
-      e.preventDefault();
-      first?.focus();
-    }
-  });
-  const onDesktopChange = e => {
-    if (e.matches && hamburger?.getAttribute('aria-expanded') === 'true') closeMenu(false);
-  };
-  if (typeof desktopQuery.addEventListener === 'function') desktopQuery.addEventListener('change', onDesktopChange);
-  else desktopQuery.addListener(onDesktopChange);
-
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const id = a.getAttribute('href');
-      if (id === '#') return;
-      const target = document.querySelector(id);
-      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' }); }
-    });
-  });
-
-  // Footer year
-  const y = document.getElementById('footerYear');
-  if (y) y.textContent = new Date().getFullYear();
-
-});
-</script>
 <script src="../../js/demo-notice.js"></script>
-<a data-case-return href="../../works-kaze-coffee.html" style="display:flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;background:#fff;color:#292623;border-block:1px solid #d8d3ca;font:600 13px/1.6 system-ui;text-decoration:underline;text-underline-offset:4px">← 制作事例へ戻る</a>
 </body>
 </html>
