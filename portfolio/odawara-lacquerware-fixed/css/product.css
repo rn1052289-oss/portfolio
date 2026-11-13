@@ -1,4 +1,4 @@
-@import "collection.css?v=20260727-1";
+@import "collection.css?v=20261113-1";
 
 /* 商品詳細では、共通CSSの読込状態にかかわらず購入UIの高さを確保する */
 .pd-actions .add-to-cart {

@@ -1,4 +1,4 @@
-@import "common.css?v=20260727-1";
+@import "common.css?v=20261113-1";
 
 /* ============================================================
    EC共通スタイル — Direction B: Wabi Interface
@@ -605,4 +605,25 @@
 		gap: 32px;
 	}
 	.first-guide { padding: 48px var(--pad-side); }
+}
+
+/* ============================================================
+   2026-11 改善：特集バナーの文字を読めるように、詳細の有無をカードで見分けられるように
+   ============================================================ */
+.feature-banner-text { background: linear-gradient(transparent, rgba(0, 0, 0, .74) 50%); }
+.feature-banner-text h2 { font-weight: 400; }
+.feature-banner-text p { opacity: .92; }
+.card-name { font-weight: 400; }
+.card-availability {
+	display: inline-block;
+	padding: 3px 8px;
+	border: 1px solid var(--color-line);
+	font-size: 11px;
+}
+.card-link-label {
+	margin-top: 8px;
+	font-size: 12px;
+	letter-spacing: .08em;
+	text-decoration: underline;
+	text-underline-offset: 4px;
 }

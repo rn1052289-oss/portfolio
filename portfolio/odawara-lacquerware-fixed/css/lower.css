@@ -1,4 +1,4 @@
-@import "common.css?v=20260727-1";
+@import "common.css?v=20261113-1";
 /* ============================================================
    下層ページ共通スタイル — Direction B: Wabi Interface
    ============================================================ */
@@ -324,4 +324,11 @@
 		gap: 4px;
 	}
 	.dl-row dt { flex: none; }
+}
+
+/* 2026-11 改善：プレースホルダーを背景に対して 4.5:1 以上にする */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+	color: #5f5b55;
+	opacity: 1;
 }

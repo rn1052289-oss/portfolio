@@ -907,3 +907,22 @@ header .cta-btn { flex-shrink: 0; }
 	}
 	.hero .img-hero { transform: none; }
 }
+
+/* ============================================================
+   2026-11 改善：ヒーローの文字を読める明るさに、細すぎる文字を標準の太さに
+   ============================================================ */
+/* 写真の左側（障子の明るい部分）に文字が載るため、左から暗くする */
+.hero-overlay {
+	background:
+		linear-gradient(90deg, rgba(24, 18, 12, .66) 0%, rgba(24, 18, 12, .42) 42%, rgba(24, 18, 12, 0) 75%),
+		linear-gradient(transparent 0%, rgba(0, 0, 0, .42) 100%);
+}
+.hero-overlay h1,
+.hero-overlay p {
+	font-weight: 400;
+	text-shadow: 0 1px 12px rgba(0, 0, 0, .35);
+}
+.hero-overlay p { opacity: .92; }
+.mobile-menu a,
+.vert-label,
+.quote-en { font-weight: 400; }
