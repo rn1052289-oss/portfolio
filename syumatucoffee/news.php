@@ -88,7 +88,7 @@ poster="<?php echo esc_url( get_template_directory_uri() ); ?>/images/newsfv.web
 <span class="c-sns-section__link is-demo-disabled" aria-hidden="true"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/youtube.svg" alt="" width="48" height="48"></span>
 </div>
 <p class="c-sns-section__names">X ・ Instagram ・ Youtube</p>
-<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/coffeebeans.svg" alt="コーヒー豆" width="512" height="512"></span></div>
+<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/coffeebeans.svg" alt="" width="512" height="512"></span></div>
 </div>
 </section>
 </main>

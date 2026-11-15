@@ -78,7 +78,7 @@
 
 .guide-steps__desc {
   font-size: 13px;
-  color: #888;
+  color: #6B6B6B;
   line-height: 1.6;
 }
 
@@ -153,7 +153,7 @@
 
 .guide-roast__flavor {
   font-size: 12px;
-  color: #888;
+  color: #6B6B6B;
   line-height: 1.6;
 }
 
@@ -200,7 +200,7 @@
   top: 16px;
   right: 16px;
   font-size: 24px;
-  color: #888;
+  color: #6B6B6B;
   cursor: pointer;
   background: none;
   line-height: 1;

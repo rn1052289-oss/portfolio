@@ -24,7 +24,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<section class="top-hero" id="hero">
 		<div class="top-hero__inner">
 			<h1 class="top-hero__catch"><span class="u-keep">金曜焙煎、</span><span class="u-keep">週末届く。</span></h1>
-			<p class="top-hero__sub"><span class="top-hero__treat">"かおりのピーク"</span>で届くコーヒー定期便</p>
+			<p class="top-hero__sub"><span class="top-hero__treat">"かおりのピーク"</span><span class="u-keep">で届くコーヒー定期便</span></p>
+			<div class="top-hero__actions">
+				<a href="<?php echo esc_url( home_url( '/plan/' ) ); ?>" class="top-hero__btn top-hero__btn--primary">プランを見る</a>
+				<a href="<?php echo esc_url( home_url( '/beans/' ) ); ?>" class="top-hero__btn">今月の豆を見る</a>
+			</div>
 		</div>
 	</section>
 
@@ -58,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				</div>
 			</div>
-			<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo get_template_directory_uri(); ?>/images/coffeebeans.svg" alt="コーヒー豆" width="512" height="512"></span></div>
+			<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo get_template_directory_uri(); ?>/images/coffeebeans.svg" alt="" width="512" height="512"></span></div>
 			<div class="top-about__btn-wrap">
 				<a href="<?php echo home_url('/about/'); ?>" class="c-btn">View more</a>
 			</div>
@@ -164,7 +168,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				</div>
 			</div>
-			<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo get_template_directory_uri(); ?>/images/coffeebeans.svg" alt="コーヒー豆" width="512" height="512"></span></div>
+			<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo get_template_directory_uri(); ?>/images/coffeebeans.svg" alt="" width="512" height="512"></span></div>
 			<div class="top-beans__btn-wrap">
 				<a href="<?php echo home_url('/beans/'); ?>" class="c-btn">View more</a>
 			</div>
@@ -197,7 +201,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<h3 class="top-howto__label">週末届く</h3>
 				</div>
 			</div>
-			<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo get_template_directory_uri(); ?>/images/coffeebeans.svg" alt="コーヒー豆" width="512" height="512"></span></div>
+			<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo get_template_directory_uri(); ?>/images/coffeebeans.svg" alt="" width="512" height="512"></span></div>
 			<div class="top-howto__btn-wrap">
 				<a href="<?php echo home_url('/guide/'); ?>" class="c-btn">View more</a>
 			</div>
@@ -227,7 +231,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<span class="c-sns-section__link is-demo-disabled" aria-hidden="true"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/youtube.svg" alt="" width="48" height="48"></span>
 			</div>
 			<p class="c-sns-section__names">X ・ Instagram ・ Youtube</p>
-			<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo get_template_directory_uri(); ?>/images/coffeebeans.svg" alt="コーヒー豆" width="512" height="512"></span></div>
+			<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo get_template_directory_uri(); ?>/images/coffeebeans.svg" alt="" width="512" height="512"></span></div>
 		</div>
 	</section>
 

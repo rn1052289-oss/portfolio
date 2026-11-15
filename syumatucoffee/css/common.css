@@ -272,18 +272,18 @@ section {
 		left: 0;
 		width: 0;
 		height: 2px;
-		background: #A45A22;
+		background: #F4A46B;
 		transition: width 0.3s ease;
 }
 .l-header__nav-link:hover {
-		color: #A45A22;
+		color: #F4A46B;
 		opacity: 1;
 }
 .l-header__nav-link:hover::after {
 		width: 100%;
 }
 .l-header__nav-link.is-current {
-		color: #A45A22;
+		color: #F4A46B;
 }
 .l-header__nav-link.is-current::after {
 		width: 100%;
@@ -305,6 +305,40 @@ section {
 .l-header__cta:hover {
 		background: #803D0B;
 		opacity: 1;
+}
+/* ── 中間幅: ナビとONLINE STOREが重ならないよう詰める ── */
+@media screen and (min-width: 769px) and (max-width: 1279px) {
+		.l-header__inner {
+				padding: 0 24px;
+				gap: 16px;
+		}
+		.l-header__nav ul {
+				gap: 22px;
+		}
+		.l-header__nav-link {
+				font-size: 17px;
+				letter-spacing: 1px;
+		}
+		.l-header__cta {
+				font-size: 17px;
+				padding: 10px 20px;
+		}
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+		.l-header__logo img {
+				height: 100px;
+		}
+		.l-header__nav ul {
+				gap: 14px;
+		}
+		.l-header__nav-link {
+				font-size: 15px;
+				letter-spacing: 0.5px;
+		}
+		.l-header__cta {
+				font-size: 15px;
+				padding: 10px 16px;
+		}
 }
 /* ── Hamburger (SP) ── */
 .l-header__hamburger {
@@ -506,7 +540,7 @@ section {
 		color: #F2EADB;
 }
 .l-footer__nav-link:hover {
-		color: #A45A22;
+		color: #F4A46B;
 		opacity: 1;
 }
 /* SNS横一列 */
@@ -556,7 +590,7 @@ section {
 }
 .l-footer__disclaimer {
 		font-size: 12px;
-		color: #A45A22;
+		color: #F4A46B;
 		margin-bottom: 8px;
 }
 .l-footer__copyright {
@@ -667,7 +701,7 @@ section {
 				border-bottom: 1px solid rgba(242, 234, 219, 0.1);
 		}
 		.l-drawer__nav-link:hover {
-				color: #A45A22;
+				color: #F4A46B;
 				opacity: 1;
 		}
 		.l-drawer__cta {

@@ -54,7 +54,7 @@ poster="<?php echo esc_url( get_template_directory_uri() ); ?>/images/aboutfirst
 <span class="c-section-heading__en">Commitment</span>
 <h2 class="c-section-heading__ja">3つのこだわり</h2>
 </div>
-<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/coffeebeans.svg" alt="コーヒー豆" width="512" height="512"></span></div>
+<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/coffeebeans.svg" alt="" width="512" height="512"></span></div>
 <div class="about-commitment__grid">
 <article class="about-commitment__item">
 <div class="about-commitment__img"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/aboutcard1.webp" alt="コーヒー売り場" width="1600" height="1195"></div>
@@ -100,7 +100,7 @@ poster="<?php echo esc_url( get_template_directory_uri() ); ?>/images/aboutfirst
 <p class="c-cta-section__heading">あなたに合ったプランを探す</p>
 <p class="c-cta-section__text">少量だから、気軽に始められる。<br>
 あなたにぴったりの一杯がきっと見つかります。</p>
-<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/coffeebeans.svg" alt="コーヒー豆" width="512" height="512"></span></div>
+<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/coffeebeans.svg" alt="" width="512" height="512"></span></div>
 <div style="text-align:center;">
 <a href="<?php echo esc_url( home_url('/plan/') ); ?>" class="c-btn">View plan</a>
 </div>

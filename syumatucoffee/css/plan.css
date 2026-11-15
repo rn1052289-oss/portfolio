@@ -72,9 +72,8 @@
 		margin-bottom: 2px;
 }
 .plan-table__plan-sub {
-		font-size: 11px;
+		font-size: 12px;
 		font-weight: 400;
-		opacity: 0.7;
 }
 .plan-table__badge {
 		display: inline-block;
@@ -181,7 +180,7 @@
 .plan-detail__price-unit {
 		font-size: 14px;
 		font-weight: 400;
-		color: #888;
+		color: #6B6B6B;
 }
 .plan-detail__desc {
 		font-size: 14px;

@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <span class="c-section-heading__en">Contact Form</span>
 <h1 class="c-section-heading__ja">お問い合わせ</h1>
 </div>
-<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/coffeebeans.svg" alt="コーヒー豆" width="512" height="512"></span></div>
+<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/coffeebeans.svg" alt="" width="512" height="512"></span></div>
 
 <form
 method="get"
@@ -115,7 +115,7 @@ aria-describedby="contact-form-note"
 <span class="c-section-heading__en">About This Demo</span>
 <h2 class="c-section-heading__ja">デモサイト情報</h2>
 </div>
-<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/coffeebeans.svg" alt="コーヒー豆" width="512" height="512"></span></div>
+<div class="c-deco-line"><span class="c-deco-line__icon"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/coffeebeans.svg" alt="" width="512" height="512"></span></div>
 
 <table class="contact-company__table">
 <tr><th>サイト区分</th><td>ポートフォリオ掲載用の自主制作デモ</td></tr>

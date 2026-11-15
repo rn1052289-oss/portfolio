@@ -49,6 +49,11 @@
 	transition: border-color 0.3s, box-shadow 0.3s;
 	font-family: 'Noto Sans JP', sans-serif;
 }
+.contact-form__input::placeholder,
+.contact-form__textarea::placeholder {
+	color: #6B6B6B;
+	opacity: 1;
+}
 .contact-form__input:focus,
 .contact-form__select:focus,
 .contact-form__textarea:focus {

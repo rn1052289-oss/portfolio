@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       <span class="c-deco-line__icon">
         <img
           src="<?php echo esc_url(get_template_directory_uri() . '/images/coffeebeans.svg'); ?>"
-          alt="コーヒー豆" width="512" height="512">
+          alt="" width="512" height="512">
       </span>
     </div>
 
