@@ -457,9 +457,6 @@ p, li, dd {
 		transition-delay: 0s
 }
 
-/* The home hero keeps its composition without running perpetual motion. */
-.hero__shape { animation: none !important; }
-
 /* Registration marks */
 .reg-mark {
 		position: absolute;
