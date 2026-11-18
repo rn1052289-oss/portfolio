@@ -241,14 +241,6 @@ p, li, dd {
 		gap: .5rem;
 		min-height: 44px
 }
-.header__logo-sub {
-		margin-left: .15rem;
-		padding-left: .55rem;
-		border-left: 1px solid rgba(45, 41, 38, .35);
-		font-size: .75rem;
-		font-weight: 600;
-		letter-spacing: .04em
-}
 .header__logo-dot {
 		width: 10px;
 		height: 10px;
@@ -403,7 +395,8 @@ p, li, dd {
 		white-space: nowrap
 }
 .nav__dropdown a:hover,
-.nav__dropdown a:focus-visible {
+.nav__dropdown a:focus-visible,
+.nav__dropdown a[aria-current="page"] {
 		background: rgba(214, 52, 38, .08);
 		color: var(--accent-text)
 }
@@ -474,6 +467,9 @@ p, li, dd {
 		gap: .7rem;
 		cursor: pointer
 }
+.mobile-nav__toggle.is-current {
+		color: var(--accent-text)
+}
 .mobile-nav__toggle .nav__menu-arrow {
 		width: .7rem;
 		height: .7rem;
@@ -497,7 +493,8 @@ p, li, dd {
 		font-weight: 600;
 		color: var(--muted-text)
 }
-.mobile-nav__sublink:hover {
+.mobile-nav__sublink:hover,
+.mobile-nav__sublink[aria-current="page"] {
 		color: var(--accent-text)
 }
 
