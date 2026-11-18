@@ -40,9 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const sourceLabels = {
-    'home-hero': 'トップページ',
+    'home-hero': 'Web制作ページ',
     'home-partner': '制作会社向けのご案内',
-    'home-footer': 'トップページ',
+    'home-footer': 'Web制作ページ',
     works: '制作事例一覧',
     'pricing-partner': '制作会社向け料金案内',
     pricing: '料金案内',

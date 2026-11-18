@@ -241,6 +241,14 @@ p, li, dd {
 		gap: .5rem;
 		min-height: 44px
 }
+.header__logo-sub {
+		margin-left: .15rem;
+		padding-left: .55rem;
+		border-left: 1px solid rgba(45, 41, 38, .35);
+		font-size: .75rem;
+		font-weight: 600;
+		letter-spacing: .04em
+}
 .header__logo-dot {
 		width: 10px;
 		height: 10px;
@@ -326,6 +334,80 @@ p, li, dd {
 		transform: rotate(-45deg) translate(4px, -5px)
 }
 
+/* Freelance dropdown */
+.nav__menu {
+		position: relative
+}
+.nav__menu-toggle {
+		gap: .45rem;
+		cursor: pointer
+}
+.nav__menu-arrow {
+		width: .4rem;
+		height: .4rem;
+		margin-top: -.2rem;
+		border-right: 1.5px solid currentColor;
+		border-bottom: 1.5px solid currentColor;
+		transform: rotate(45deg);
+		transition: transform .2s ease
+}
+[aria-expanded="true"] > .nav__menu-arrow {
+		margin-top: .2rem;
+		transform: rotate(225deg)
+}
+.nav__menu-toggle[aria-expanded="true"] {
+		color: #2D2926
+}
+.nav__menu-toggle[aria-expanded="true"]::after {
+		width: 100%
+}
+.nav__dropdown {
+		position: absolute;
+		top: 100%;
+		left: -1rem;
+		min-width: 11rem;
+		margin-top: .4rem;
+		padding: .35rem;
+		background: #F2EFE9;
+		border: 1.5px solid #2D2926;
+		box-shadow: 4px 4px 0 rgba(45, 41, 38, .14);
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-4px);
+		transition: opacity .15s ease, transform .15s ease, visibility 0s linear .15s
+}
+/* Keeps the pointer inside the menu while crossing the gap below the button. */
+.nav__dropdown::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: calc(-.4rem - 1.5px);
+		height: .4rem
+}
+.nav__menu.is-open .nav__dropdown,
+.nav__menu:not(.is-ready):hover .nav__dropdown,
+.nav__menu:not(.is-ready):focus-within .nav__dropdown {
+		opacity: 1;
+		visibility: visible;
+		transform: none;
+		transition-delay: 0s
+}
+.nav__dropdown a {
+		display: flex;
+		align-items: center;
+		min-height: 44px;
+		padding: .4rem .75rem;
+		font-size: .85rem;
+		font-weight: 600;
+		white-space: nowrap
+}
+.nav__dropdown a:hover,
+.nav__dropdown a:focus-visible {
+		background: rgba(214, 52, 38, .08);
+		color: var(--accent-text)
+}
+
 /* Mobile nav */
 .mobile-nav {
 		display: none;
@@ -386,6 +468,37 @@ p, li, dd {
 		color: var(--accent-text);
 		border: 1.5px solid var(--accent-text);
 		padding: .5rem 1.25rem
+}
+
+.mobile-nav__toggle {
+		gap: .7rem;
+		cursor: pointer
+}
+.mobile-nav__toggle .nav__menu-arrow {
+		width: .7rem;
+		height: .7rem;
+		border-width: 2.5px
+}
+.mobile-nav__sub {
+		display: grid;
+		justify-items: center;
+		gap: .15rem;
+		margin-top: -.5rem
+}
+.mobile-nav__sub[hidden] {
+		display: none
+}
+.mobile-nav__sublink {
+		display: inline-flex;
+		align-items: center;
+		min-height: 44px;
+		padding: 0 .75rem;
+		font-size: 1.05rem;
+		font-weight: 600;
+		color: var(--muted-text)
+}
+.mobile-nav__sublink:hover {
+		color: var(--accent-text)
 }
 
 /* Button */
@@ -882,7 +995,7 @@ main :is(h1, h2)[id] {
 /* Short menu feedback, with immediate keyboard access after opening. */
 .mobile-nav { transition:opacity .2s ease, visibility 0s linear .2s; }
 .mobile-nav__link { transform:translateY(8px); transition:opacity .2s ease, transform .2s ease; }
-@media(prefers-reduced-motion:reduce) { .mobile-nav,.mobile-nav__link { transition:none; transform:none; } }
+@media(prefers-reduced-motion:reduce) { .mobile-nav,.mobile-nav__link,.nav__dropdown,.nav__menu-arrow { transition:none; } .mobile-nav,.mobile-nav__link,.nav__dropdown { transform:none; } }
 
 /* Primary conversion CTA: solid red so it outranks the outline buttons beside it.
    isolation keeps the ink-wipe ::before above the red fill and below the label. */

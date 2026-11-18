@@ -4,27 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#D63426">
-<meta name="description" content="RikuのWebアプリ開発スキル。PHP / Laravelで制作した4つのアプリと、認証・認可、データ整合性、外部サービス連携、自動テストの取り組みをまとめています。">
+<meta name="description" content="Rikuの開発スキル。HTML / CSS / JavaScriptでの画面実装と、PHP / Laravelで制作した4つのアプリ、認証・認可、データ整合性、外部サービス連携、自動テストの取り組みをまとめています。">
 <meta name="robots" content="noindex,follow">
-<title>Engineering Profile｜PHP / Laravel の開発スキルと制作アプリ｜Riku</title>
+<title>Engineering Profile｜フロントエンド・PHP / Laravelの開発スキル｜Riku</title>
 
 <link rel="canonical" href="https://rnportfolio.xsrv.jp/engineer.html">
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:site_name" content="Riku｜Web Design &amp; Front-end">
-<meta property="og:title" content="Engineering Profile｜PHP / Laravel の開発スキルと制作アプリ｜Riku">
-<meta property="og:description" content="RikuのWebアプリ開発スキル。PHP / Laravelで制作した4つのアプリと、認証・認可、データ整合性、外部サービス連携、自動テストの取り組みをまとめています。">
+<meta property="og:site_name" content="Riku｜Portfolio">
+<meta property="og:title" content="Engineering Profile｜フロントエンド・PHP / Laravelの開発スキル｜Riku">
+<meta property="og:description" content="Rikuの開発スキル。HTML / CSS / JavaScriptでの画面実装と、PHP / Laravelで制作した4つのアプリ、認証・認可、データ整合性、外部サービス連携、自動テストの取り組みをまとめています。">
 <meta property="og:url" content="https://rnportfolio.xsrv.jp/engineer.html">
-<meta property="og:image" content="https://rnportfolio.xsrv.jp/images/og.png">
+<meta property="og:image" content="https://rnportfolio.xsrv.jp/images/og-career.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Engineering Profile｜PHP / Laravel の開発スキルと制作アプリ｜Riku">
-<meta name="twitter:description" content="RikuのWebアプリ開発スキル。PHP / Laravelで制作した4つのアプリと、認証・認可、データ整合性、外部サービス連携、自動テストの取り組みをまとめています。">
-<meta name="twitter:image" content="https://rnportfolio.xsrv.jp/images/og.png">
+<meta name="twitter:title" content="Engineering Profile｜フロントエンド・PHP / Laravelの開発スキル｜Riku">
+<meta name="twitter:description" content="Rikuの開発スキル。HTML / CSS / JavaScriptでの画面実装と、PHP / Laravelで制作した4つのアプリ、認証・認可、データ整合性、外部サービス連携、自動テストの取り組みをまとめています。">
+<meta name="twitter:image" content="https://rnportfolio.xsrv.jp/images/og-career.png">
 
-<link rel="stylesheet" href="css/common.css?v=20261112-thumbs-2">
+<link rel="stylesheet" href="css/common.css?v=20261118-nav">
 <link rel="stylesheet" href="css/app-case.css?v=20261110-layout-2">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23D63426'/></svg>">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
@@ -36,8 +36,7 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rnportfolio.xsrv.jp/" },
-    { "@type": "ListItem", "position": 2, "name": "About", "item": "https://rnportfolio.xsrv.jp/about.html" },
-    { "@type": "ListItem", "position": 3, "name": "Engineering Profile", "item": "https://rnportfolio.xsrv.jp/engineer.html" }
+    { "@type": "ListItem", "position": 2, "name": "Engineering Profile", "item": "https://rnportfolio.xsrv.jp/engineer.html" }
   ]
 }
 </script>
@@ -46,26 +45,26 @@
 <a class="skip-link" href="#main">本文へスキップ</a>
 <div class="grain" aria-hidden="true"></div><div class="print-bg" aria-hidden="true"></div>
 <header class="header scrolled">
-		<div class="header__inner"><a href="./" class="header__logo"><span class="header__logo-dot" aria-hidden="true"></span>Riku</a>
+		<div class="header__inner"><a href="index.html" class="header__logo"><span class="header__logo-dot" aria-hidden="true"></span>Riku</a>
 				<nav aria-label="グローバルナビゲーション">
-						<ul class="nav__list"><li><a href="./" class="nav__link">Home</a></li><li><a href="works.html" class="nav__link">Works</a></li><li><a href="pricing.html" class="nav__link">Price</a></li><li><a href="about.html" class="nav__link">About</a></li><li><a href="engineer.html" class="nav__link nav__link--active" aria-current="page">Engineering</a></li><li><a href="contact.html" class="nav__link nav__link--cta">Contact</a></li></ul>
+						<ul class="nav__list"><li><a href="index.html" class="nav__link">Home</a></li><li><a href="works.html" class="nav__link">Works</a></li><li><a href="engineer.html" class="nav__link nav__link--active" aria-current="page">Engineering</a></li><li><a href="about.html" class="nav__link">About</a></li><li class="nav__menu" data-nav-menu><button type="button" class="nav__link nav__menu-toggle" aria-expanded="false" aria-controls="freelance-menu">Freelance<span class="nav__menu-arrow" aria-hidden="true"></span></button><ul class="nav__dropdown" id="freelance-menu"><li><a href="freelance.html">サービス内容</a></li><li><a href="works.html?type=site#works-list-title">制作事例</a></li><li><a href="pricing.html">料金</a></li><li><a href="contact.html">お問い合わせ</a></li></ul></li><li><a href="index.html#contact" class="nav__link nav__link--cta">Contact</a></li></ul>
 				</nav>
 				<button type="button" class="hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-nav"><span class="hamburger__line" aria-hidden="true"></span><span class="hamburger__line" aria-hidden="true"></span><span class="hamburger__line" aria-hidden="true"></span></button>
 		</div>
 </header>
-<nav class="mobile-nav" id="mobile-nav" aria-label="モバイルメニュー"><a href="./" class="mobile-nav__link">Home</a><a href="works.html" class="mobile-nav__link">Works</a><a href="pricing.html" class="mobile-nav__link">Price</a><a href="about.html" class="mobile-nav__link">About</a><a href="engineer.html" class="mobile-nav__link" aria-current="page">Engineering</a><a href="contact.html" class="mobile-nav__link mobile-nav__link--cta">Contact</a></nav>
+<nav class="mobile-nav" id="mobile-nav" aria-label="モバイルメニュー"><a href="index.html" class="mobile-nav__link">Home</a><a href="works.html" class="mobile-nav__link">Works</a><a href="engineer.html" class="mobile-nav__link" aria-current="page">Engineering</a><a href="about.html" class="mobile-nav__link">About</a><button type="button" class="mobile-nav__link mobile-nav__toggle" aria-expanded="false" aria-controls="mobile-freelance-menu">Freelance<span class="nav__menu-arrow" aria-hidden="true"></span></button><div class="mobile-nav__sub" id="mobile-freelance-menu" hidden><a href="freelance.html" class="mobile-nav__sublink">サービス内容</a><a href="works.html?type=site#works-list-title" class="mobile-nav__sublink">制作事例</a><a href="pricing.html" class="mobile-nav__sublink">料金</a><a href="contact.html" class="mobile-nav__sublink">お問い合わせ</a></div><a href="index.html#contact" class="mobile-nav__link mobile-nav__link--cta">Contact</a></nav>
 <main id="main">
 <section class="app-hero" aria-labelledby="page-title">
 	<div class="reg-mark reg-mark--tl" aria-hidden="true"></div>
 	<div class="reg-mark reg-mark--tr" aria-hidden="true"></div>
 	<div class="container">
 		<div class="stamp">Engineering Profile</div>
-		<h1 class="app-hero__title" id="page-title">画面の先にある、<br><em>データと処理</em>まで。</h1>
-		<p class="app-hero__lead">PHP / Laravel を中心に、Webアプリケーションを開発しています。画面を作って終わりにせず、権限の管理、データの整合性、外部サービスとの連携、自動テストまでを一続きで実装することを大切にしています。</p>
-		<div class="app-hero__actions"><a href="#sec-2" class="btn btn--red">制作アプリを見る <span class="btn__arrow" aria-hidden="true">→</span></a><a href="https://github.com/rn1052289-oss" target="_blank" rel="noopener noreferrer" class="btn">GitHub <span class="btn__arrow" aria-hidden="true">↗</span></a></div>
+		<h1 class="app-hero__title" id="page-title"><em>画面</em>から、<br><em>データと処理</em>まで。</h1>
+		<p class="app-hero__lead">HTML / CSS / JavaScriptでの画面実装と、PHP / LaravelでのWebアプリケーション開発に取り組んでいます。使いやすい画面から、権限の管理、データの整合性、外部サービスとの連携、自動テストまでを一続きで実装することを大切にしています。</p>
+		<div class="app-hero__actions"><a href="#sec-2" class="btn btn--red">制作アプリを見る <span class="btn__arrow" aria-hidden="true">→</span></a><a href="works.html?type=site#works-list-title" class="btn">フロントエンドの制作物 <span class="btn__arrow" aria-hidden="true">→</span></a><a href="https://github.com/rn1052289-oss" target="_blank" rel="noopener noreferrer" class="btn">GitHub <span class="btn__arrow" aria-hidden="true">↗</span></a></div>
 		<p class="app-note">掲載しているアプリは、自主制作・学習プロジェクト・開発課題です。<strong>実在クライアントの案件や、商用運用の実績ではありません。</strong>それぞれの位置づけは各ページに明記しています。</p>
 		<div class="engineer-bio">
-<p class="engineer-bio__focus">PHP / Laravelで、業務を支えるWebアプリケーションを開発しています。</p>
+<p class="engineer-bio__focus">画面の実装からデータと処理まで、Webアプリケーションを開発しています。</p>
 <p>千葉県を拠点に、オンラインで対応しています。2025年10月からWeb制作を学び、2026年6月からLaravelでのアプリ開発に取り組んでいます。</p>
 <p class="engineer-bio__qualification">Webクリエイター能力認定試験 エキスパート取得</p>
 </div>
@@ -79,7 +78,7 @@
 			<h2 class="app-section__title" id="sec-1">できることを、<br>根拠と一緒に。</h2>
 		</div>
 		<div class="app-section__body">
-<div class="app-cells"><div class="app-cell"><p class="app-cell__tag">Authorization</p><h3 class="app-cell__title">権限とデータの境界を守る</h3><p class="app-cell__text">Fortify / Sanctum による認証と、Policyによる所有者・ロールごとの認可。他のユーザーのデータが一覧や集計に混ざらないことをテストで確認しています。<a href="works-clientwork-manager.html">ClientWork Manager</a></p></div><div class="app-cell"><p class="app-cell__tag">Consistency</p><h3 class="app-cell__title">同時に起きる処理でも、データをずらさない</h3><p class="app-cell__text">DBトランザクション、行ロック、unique制約を使い分けます。同時予約で残り回数を超えてしまう不具合を、原因の特定から修正まで行いました。<a href="works-certify-lms.html">Certify LMS</a></p></div><div class="app-cell"><p class="app-cell__tag">Integration</p><h3 class="app-cell__title">外部サービスとつなぐ</h3><p class="app-cell__text">Stripe（決済・Webhook）、Google Calendar、Gemini、Google Books の各APIを連携。相手側の通信が失敗したときの動きまで決めています。</p></div><div class="app-cell"><p class="app-cell__tag">Testing</p><h3 class="app-cell__title">異常な場合を、自動テストで確かめる</h3><p class="app-cell__text">PHPUnitでFeature / Unitテストを作成。権限のない操作、不正な入力、重複した通知など、うまくいかない場合を重点的に確認します。外部サービスには接続せずに実行できます。</p></div><div class="app-cell"><p class="app-cell__tag">Existing Code</p><h3 class="app-cell__title">既存のコードを読んで、最小限で直す</h3><p class="app-cell__text">すでに動いているコードの仕様を確認し、影響範囲を絞って変更します。変更の理由と根拠を文書に残します。</p></div><div class="app-cell"><p class="app-cell__tag">Front-end</p><h3 class="app-cell__title">設計から画面まで、一人でつなげる</h3><p class="app-cell__text">Figmaでの設計、HTML / CSS / JavaScript、WordPressテーマ化まで対応できます。<a href="works.html">Webサイトの制作事例</a></p></div></div>
+<div class="app-cells"><div class="app-cell"><p class="app-cell__tag">Front-end</p><h3 class="app-cell__title">設計から、操作しやすい画面まで</h3><p class="app-cell__text">Figmaでの設計、HTML / CSS / JavaScript、レスポンシブ対応、フォーカス制御や入力検証、WordPressテーマ化まで対応できます。<a href="works.html?type=site#works-list-title">Webサイトの制作事例</a></p></div><div class="app-cell"><p class="app-cell__tag">Authorization</p><h3 class="app-cell__title">権限とデータの境界を守る</h3><p class="app-cell__text">Fortify / Sanctum による認証と、Policyによる所有者・ロールごとの認可。他のユーザーのデータが一覧や集計に混ざらないことをテストで確認しています。<a href="works-clientwork-manager.html">ClientWork Manager</a></p></div><div class="app-cell"><p class="app-cell__tag">Consistency</p><h3 class="app-cell__title">同時に起きる処理でも、データをずらさない</h3><p class="app-cell__text">DBトランザクション、行ロック、unique制約を使い分けます。同時予約で残り回数を超えてしまう不具合を、原因の特定から修正まで行いました。<a href="works-certify-lms.html">Certify LMS</a></p></div><div class="app-cell"><p class="app-cell__tag">Integration</p><h3 class="app-cell__title">外部サービスとつなぐ</h3><p class="app-cell__text">Stripe（決済・Webhook）、Google Calendar、Gemini、Google Books の各APIを連携。相手側の通信が失敗したときの動きまで決めています。</p></div><div class="app-cell"><p class="app-cell__tag">Testing</p><h3 class="app-cell__title">異常な場合を、自動テストで確かめる</h3><p class="app-cell__text">PHPUnitでFeature / Unitテストを作成。権限のない操作、不正な入力、重複した通知など、うまくいかない場合を重点的に確認します。外部サービスには接続せずに実行できます。</p></div><div class="app-cell"><p class="app-cell__tag">Existing Code</p><h3 class="app-cell__title">既存のコードを読んで、最小限で直す</h3><p class="app-cell__text">すでに動いているコードの仕様を確認し、影響範囲を絞って変更します。変更の理由と根拠を文書に残します。</p></div></div>
 		</div>
 	</div>
 </section>
@@ -101,7 +100,7 @@
 			<h2 class="app-section__title" id="sec-3">使用技術</h2>
 		</div>
 		<div class="app-section__body">
-<dl class="app-spec"><div class="app-spec__row"><dt>Backend</dt><dd>PHP / Laravel 10（Eloquent、FormRequest、Policy、Service、Notification、Queue、Scheduler）</dd></div><div class="app-spec__row"><dt>Database</dt><dd>MySQL（リレーション設計、外部キー・unique制約、トランザクション、行ロック）</dd></div><div class="app-spec__row"><dt>Auth</dt><dd>Laravel Fortify / Laravel Sanctum</dd></div><div class="app-spec__row"><dt>External API</dt><dd>Stripe / Google Calendar API / Gemini API / Google Books API / Pusher</dd></div><div class="app-spec__row"><dt>Test</dt><dd>PHPUnit（Feature / Unit）、外部APIのfake・mock</dd></div><div class="app-spec__row"><dt>Frontend</dt><dd>HTML / CSS / JavaScript / Blade / Tailwind CSS / Alpine.js / Vite</dd></div><div class="app-spec__row"><dt>Design / CMS</dt><dd>Figma / WordPress（オリジナルテーマ）</dd></div><div class="app-spec__row"><dt>Dev</dt><dd>Docker（Laravel Sail）/ Git / GitHub Issues・Pull Requests / Laravel Pint</dd></div><div class="app-spec__row"><dt>Learning</dt><dd>AWS / インフラ / React</dd></div></dl>
+<dl class="app-spec"><div class="app-spec__row"><dt>Frontend</dt><dd>HTML / CSS / JavaScript / レスポンシブ実装 / キーボード操作・読み上げへの配慮 / Blade / Tailwind CSS / Alpine.js / Vite</dd></div><div class="app-spec__row"><dt>Design / CMS</dt><dd>Figma / 情報設計 / WordPress（オリジナルテーマ）</dd></div><div class="app-spec__row"><dt>Backend</dt><dd>PHP / Laravel 10（Eloquent、FormRequest、Policy、Service、Notification、Queue、Scheduler）</dd></div><div class="app-spec__row"><dt>Database</dt><dd>MySQL（リレーション設計、外部キー・unique制約、トランザクション、行ロック）</dd></div><div class="app-spec__row"><dt>Auth</dt><dd>Laravel Fortify / Laravel Sanctum</dd></div><div class="app-spec__row"><dt>External API</dt><dd>Stripe / Google Calendar API / Gemini API / Google Books API / Pusher</dd></div><div class="app-spec__row"><dt>Test</dt><dd>PHPUnit（Feature / Unit）、外部APIのfake・mock</dd></div><div class="app-spec__row"><dt>Dev</dt><dd>Docker（Laravel Sail）/ Git / GitHub Issues・Pull Requests / Laravel Pint</dd></div><div class="app-spec__row"><dt>Learning</dt><dd>AWS / インフラ / React</dd></div></dl>
 		</div>
 	</div>
 </section>
@@ -122,7 +121,7 @@
 	<div class="container">
 		<h2 class="app-cta__title" id="cta-title">コードと設計について、<br>直接お話しできます。</h2>
 		<p class="app-cta__text">制作の経緯、設計の判断、苦労した点など、どのアプリについてもご説明します。</p>
-		<div class="app-cta__actions btn-group"><a href="mailto:r.n1052289@gmail.com?subject=Engineering%20Profile%E3%82%92%E8%A6%8B%E3%81%BE%E3%81%97%E3%81%9F" class="btn btn--red">メールで連絡する <span class="btn__arrow" aria-hidden="true">→</span></a><a href="https://github.com/rn1052289-oss" target="_blank" rel="noopener noreferrer" class="btn">GitHub <span class="btn__arrow" aria-hidden="true">↗</span></a><a href="contact.html?service=other#contact-intro" class="btn">制作の相談 <span class="btn__arrow" aria-hidden="true">→</span></a></div>
+		<div class="app-cta__actions btn-group"><a href="mailto:r.n1052289@gmail.com?subject=Engineering%20Profile%E3%82%92%E8%A6%8B%E3%81%BE%E3%81%97%E3%81%9F" class="btn btn--red">メールで連絡する <span class="btn__arrow" aria-hidden="true">→</span></a><a href="https://github.com/rn1052289-oss" target="_blank" rel="noopener noreferrer" class="btn">GitHub <span class="btn__arrow" aria-hidden="true">↗</span></a><a href="freelance.html" class="btn">Web制作のご依頼 <span class="btn__arrow" aria-hidden="true">→</span></a></div>
 	</div>
 </section>
 </main>
@@ -130,9 +129,9 @@
 		<div class="footer__inner">
 				<div>
 						<div class="footer__brand"><span aria-hidden="true" style="display:inline-block;width:8px;height:8px;background:#D63426;border-radius:50%;margin-right:.4rem"></span>Riku</div>
-							<p class="footer__tagline">世界観を大切にしたWebサイトを、設計からWordPressテーマ化まで。</p>
+							<p class="footer__tagline">画面の実装からデータと処理まで、Webアプリケーションを開発しています。</p>
 				</div>
-				<nav class="footer__links" aria-label="フッターナビゲーション"><a href="./" class="footer__link">Home</a><a href="works.html" class="footer__link">Works</a><a href="pricing.html" class="footer__link">Price</a><a href="about.html" class="footer__link">About</a><a href="contact.html" class="footer__link">Contact</a><a href="privacy.html" class="footer__link">Privacy</a><a href="https://x.com/torisugari0110" target="_blank" rel="noopener noreferrer" class="footer__link footer__link--icon" aria-label="X (旧Twitter) を新しいタブで開く"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+				<nav class="footer__links" aria-label="フッターナビゲーション"><a href="index.html" class="footer__link">Home</a><a href="works.html" class="footer__link">Works</a><a href="engineer.html" class="footer__link">Engineering</a><a href="about.html" class="footer__link">About</a><a href="freelance.html" class="footer__link">Freelance</a><a href="index.html#contact" class="footer__link">Contact</a><a href="privacy.html" class="footer__link">Privacy</a><a href="https://x.com/torisugari0110" target="_blank" rel="noopener noreferrer" class="footer__link footer__link--icon" aria-label="X (旧Twitter) を新しいタブで開く"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
   <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
 </svg></a><a href="https://www.instagram.com/riku_designworks/" target="_blank" rel="noopener noreferrer" class="footer__link footer__link--icon" aria-label="Instagram を新しいタブで開く"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
   <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
@@ -142,7 +141,7 @@
 		</div>
 		<div class="footer__bottom"><span>© 2026 Riku.</span><span>Designed &amp; Coded by Riku</span></div>
 </footer>
-<script src="js/common.js?v=20261112-print-2" defer></script>
+<script src="js/common.js?v=20261118-nav" defer></script>
 <!-- Bootstrap Icons v1.13.1 — https://github.com/twbs/icons
 The MIT License (MIT)
 

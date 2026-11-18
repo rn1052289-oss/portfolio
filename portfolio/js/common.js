@@ -10,11 +10,68 @@ document.addEventListener('DOMContentLoaded', () => {
 		window.addEventListener('scroll', onScroll, { passive: true });
 	}
 
+	/* Freelance dropdown: hover, click and keyboard all share one open state. */
+	document.querySelectorAll('[data-nav-menu]').forEach(menu => {
+		const toggle = menu.querySelector('.nav__menu-toggle');
+		const links = [...menu.querySelectorAll('.nav__dropdown a')];
+		const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+		let openedByHover = false;
+		let closeTimer = 0;
+
+		const setOpen = open => {
+			window.clearTimeout(closeTimer);
+			menu.classList.toggle('is-open', open);
+			toggle.setAttribute('aria-expanded', String(open));
+			if (!open) openedByHover = false;
+		};
+		const isOpen = () => menu.classList.contains('is-open');
+		const focusLink = index => links[(index + links.length) % links.length].focus();
+
+		menu.classList.add('is-ready');
+		toggle.addEventListener('click', () => {
+			if (isOpen() && openedByHover) { openedByHover = false; return; }
+			setOpen(!isOpen());
+		});
+		if (canHover) {
+			menu.addEventListener('mouseenter', () => {
+				window.clearTimeout(closeTimer);
+				if (!isOpen()) { setOpen(true); openedByHover = true; }
+			});
+			menu.addEventListener('mouseleave', () => {
+				if (openedByHover) closeTimer = window.setTimeout(() => setOpen(false), 160);
+			});
+		}
+		menu.addEventListener('keydown', e => {
+			const current = links.indexOf(document.activeElement);
+			if (e.key === 'Escape' && isOpen()) { setOpen(false); toggle.focus(); return; }
+			if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+			e.preventDefault();
+			setOpen(true);
+			const step = e.key === 'ArrowDown' ? 1 : -1;
+			// The links become focusable once the open state has been applied.
+			window.requestAnimationFrame(() => focusLink(current < 0 ? (step > 0 ? 0 : -1) : current + step));
+		});
+		menu.addEventListener('focusout', e => {
+			if (e.relatedTarget instanceof Node && !menu.contains(e.relatedTarget)) setOpen(false);
+		});
+		document.addEventListener('click', e => {
+			if (isOpen() && !menu.contains(e.target)) setOpen(false);
+		});
+	});
+
 	/* Hamburger / mobile nav with focus trap */
 	const hb = document.querySelector('.hamburger');
 	const mn = document.querySelector('.mobile-nav');
 	if (hb && mn) {
-		const focusable = () => [...mn.querySelectorAll('a, button'), hb];
+		const focusable = () => [...mn.querySelectorAll('a, button'), hb].filter(item => !item.closest('[hidden]'));
+		const subToggle = mn.querySelector('.mobile-nav__toggle');
+		const subMenu = subToggle && document.getElementById(subToggle.getAttribute('aria-controls'));
+		const setSubMenu = open => {
+			if (!subToggle || !subMenu) return;
+			subToggle.setAttribute('aria-expanded', String(open));
+			subMenu.hidden = !open;
+		};
+		if (subToggle) subToggle.addEventListener('click', () => setSubMenu(subMenu.hidden));
 		let lastFocused = null;
 		let previousBodyOverflow = '';
 		mn.setAttribute('aria-hidden', 'true');
@@ -28,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			hb.setAttribute('aria-label', 'メニューを開く');
 			mn.setAttribute('aria-hidden', 'true');
 			mn.inert = true;
+			setSubMenu(false);
 			document.body.style.overflow = previousBodyOverflow;
 			focusable().forEach(item => { item.style.transitionDelay = ''; });
 			if (wasOpen && restoreFocus && lastFocused instanceof HTMLElement) lastFocused.focus();

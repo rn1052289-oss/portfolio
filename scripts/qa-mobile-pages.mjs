@@ -10,6 +10,7 @@ const widths = (process.env.QA_WIDTHS || '320,390').split(',').map(Number);
 const captureScreenshots = process.env.QA_CAPTURE === '1';
 const captureFiles = new Set((process.env.QA_CAPTURE_FILES || [
   'index.html',
+  'freelance.html',
   'works.html',
   'pricing.html',
   'about.html',

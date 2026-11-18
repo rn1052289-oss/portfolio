@@ -302,9 +302,9 @@ $budgetToGoogle = [
 ];
 
 $sourceLabels = [
-    'home-hero' => 'トップページ',
-    'home-partner' => 'トップページ（制作会社向け案内）',
-    'home-footer' => 'トップページ下部',
+    'home-hero' => 'Web制作ページ',
+    'home-partner' => 'Web制作ページ（制作会社向け案内）',
+    'home-footer' => 'Web制作ページ下部',
     'works' => '制作事例一覧',
     'pricing-partner' => '料金ページ（外部パートナー）',
     'pricing' => '料金ページ',
