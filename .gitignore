@@ -34,5 +34,9 @@ vendor/
 /upload-*/
 /qa-*
 
+# Local-only storage: past deploy packages (deploy/), pages kept for later
+# (freelance/), and work on hold (on-hold/)
+/_local/
+
 # School submission document; not website source
 /yuakari/卒業課題/
