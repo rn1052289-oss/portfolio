@@ -1169,3 +1169,61 @@ main :is(h1, h2)[id] {
 		.works-full-grid:has(.work-card[data-category="wordpress"][hidden]) .work-card--featured .thumb-wide { display: none }
 		.works-full-grid:has(.work-card[data-category="wordpress"][hidden]) .work-card--featured .thumb-std { display: block }
 }
+
+/* Breadcrumb: shown right under the fixed header on every page except Home. */
+.breadcrumb {
+		padding-top: calc(var(--header-h) + clamp(.75rem, 2vw, 1.25rem))
+}
+.case-story .breadcrumb {
+		padding-top: clamp(.75rem, 2vw, 1.25rem)
+}
+.breadcrumb__list {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		list-style: none;
+		font-family: var(--font-mono);
+		font-size: .75rem;
+		line-height: 1.6;
+		letter-spacing: .06em;
+		color: var(--muted-text)
+}
+.breadcrumb__item {
+		display: inline-flex;
+		align-items: center;
+		min-width: 0
+}
+.breadcrumb__item + .breadcrumb__item::before {
+		content: "/";
+		content: "/" / "";
+		margin: 0 .65rem;
+		color: rgba(45, 41, 38, .35)
+}
+.breadcrumb__link {
+		display: inline-flex;
+		align-items: center;
+		min-height: 2rem;
+		color: inherit;
+		text-decoration: underline;
+		text-decoration-color: rgba(45, 41, 38, .3);
+		text-underline-offset: .3em;
+		transition: color .2s ease, text-decoration-color .2s ease
+}
+.breadcrumb__link:hover {
+		color: var(--accent-text);
+		text-decoration-color: currentColor
+}
+.breadcrumb__link:focus-visible {
+		outline: 2px solid var(--accent-text);
+		outline-offset: 2px
+}
+.breadcrumb__current {
+		color: #2d2926;
+		overflow-wrap: anywhere
+}
+.breadcrumb + :is(.page-hero, .about-hero, .privacy-hero) {
+		padding-top: max(1.5rem, calc(var(--section-y) - 2.5rem))
+}
+.breadcrumb + .cs-hero {
+		padding-top: clamp(24px, 4vw, 44px)
+}
