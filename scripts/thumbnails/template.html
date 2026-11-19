@@ -136,17 +136,19 @@ body.wide, html.wide { width: 2100px; height: 900px }
 const IMG = '../../portfolio/images/case-studies/';
 // fit: "cover" fills the plate (site screens); "natural" keeps the
 // screenshot's own ratio (wide app crops) and centers it vertically.
+// The ids are file names only. The stamp number is the card's position on
+// works.html (top to bottom); render.sh passes ?num= for the home page order.
 const WORKS = {
-	'01': { label: '01 — WordPress Theme', src: 'screens/shumatsu.jpg', set: 'a' },
-	'02': { label: '02 — Brand Site', src: 'screens/kaze.jpg', set: 'b' },
-	'03': { label: '03 — Landing Page', src: 'screens/nagi.jpg', set: 'b' },
-	'04': { label: '04 — Landing Page', src: 'screens/mirai.jpg', set: 'b' },
-	'05': { label: '05 — WordPress Theme', src: 'screens/yuakari.jpg', set: 'a' },
-	'06': { label: '06 — EC UI Demo', src: 'screens/urushi.jpg', set: 'a' },
-	'07': { label: '07 — Laravel / Fix', src: 'screens/certify-dashboard.jpg', set: 'c' },
-	'08': { label: '08 — Laravel App', src: '../../portfolio/images/app-clientwork-dashboard.webp', set: 'c' },
-	'09': { label: '09 — Laravel Backend', src: 'screens/bookshelf-report.jpg', set: 'c' },
-	'10': { label: '10 — Laravel Backend', src: 'screens/contact-admin.jpg', set: 'c' },
+	'01': { label: '05 — WordPress Theme', src: 'screens/shumatsu.jpg', set: 'a' },
+	'02': { label: '06 — Brand Site', src: 'screens/kaze.jpg', set: 'b' },
+	'03': { label: '07 — Landing Page', src: 'screens/nagi.jpg', set: 'b' },
+	'04': { label: '08 — Landing Page', src: 'screens/mirai.jpg', set: 'b' },
+	'05': { label: '09 — WordPress Theme', src: 'screens/yuakari.jpg', set: 'a' },
+	'06': { label: '10 — EC UI Demo', src: 'screens/urushi.jpg', set: 'a' },
+	'07': { label: '02 — Laravel / Fix', src: 'screens/certify-dashboard.jpg', set: 'c' },
+	'08': { label: '01 — Laravel App', src: '../../portfolio/images/app-clientwork-dashboard.webp', set: 'c' },
+	'09': { label: '03 — Laravel Backend', src: 'screens/bookshelf-report.jpg', set: 'c' },
+	'10': { label: '04 — Laravel Backend', src: 'screens/contact-admin.jpg', set: 'c' },
 };
 
 // Shape sets per kind of work, positioned in canvas pixels.
@@ -172,7 +174,8 @@ const wide = params.get('wide') === '1';
 const layout = wide ? SETS.wide : SETS.normal;
 if (wide) { document.documentElement.classList.add('wide'); document.body.classList.add('wide'); }
 
-document.getElementById('stamp').textContent = work.label;
+const num = params.get('num');
+document.getElementById('stamp').textContent = num ? work.label.replace(/^\d+/, num) : work.label;
 
 const toPx = v => (typeof v === 'number' ? v + 'px' : v);
 for (const [kind, pos] of layout[work.set]) {

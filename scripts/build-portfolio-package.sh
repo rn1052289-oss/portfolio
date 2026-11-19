@@ -23,7 +23,7 @@ trap cleanup EXIT
 mkdir -p "$staging_dir"
 cp -R "$site_dir/." "$staging_dir/"
 
-if [[ ! -f "$staging_dir/.htaccess" || ! -f "$staging_dir/contact-submit.php" ]]; then
+if [[ ! -f "$staging_dir/.htaccess" ]]; then
 	echo "Required deployment files are missing." >&2
 	exit 1
 fi
