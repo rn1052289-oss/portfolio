@@ -15,6 +15,10 @@ ErrorDocument 404 /404.html
 	RewriteCond %{HTTP_HOST} !^rnportfolio\.xsrv\.jp$ [NC]
 	RewriteRule ^ https://rnportfolio.xsrv.jp%{REQUEST_URI} [R=301,L,NE]
 
+	# The Engineering page was merged into the home page. Keep old links and
+	# bookmarks working by sending them to the matching section there.
+	RewriteRule ^engineer(?:\.html)?$ /#strengths [R=301,L,NE]
+
 	# Serve the portfolio's top-level pages without ".html" (e.g. /works).
 	# Only files directly under this root are affected; the demo sites in
 	# subdirectories keep their own URLs.

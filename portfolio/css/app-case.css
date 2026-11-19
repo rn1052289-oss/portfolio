@@ -535,16 +535,6 @@
 	}
 }
 
-.engineer-bio {
- max-width: 46rem;
- margin-top: 2.5rem;
- padding-top: 1.5rem;
- border-top: 1px solid rgba(45, 41, 38, .25);
- color: var(--body-text);
-}
-.engineer-bio > p + p { margin-top: 1rem; }
-.engineer-bio__focus { font-weight: 700; }
-.engineer-bio__qualification { font-size: .85rem; color: var(--muted-text); }
 .app-section__body > :is(.app-flow, .app-spec) + p { margin-top: 1.5rem; }
 .app-facts__value { overflow-wrap: anywhere; }
 @media (max-width: 640px) {
