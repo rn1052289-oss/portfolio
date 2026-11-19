@@ -1,0 +1,137 @@
+/* Screen gallery for app case studies: a scroll-snap slider whose images open
+   in a modal. Without JavaScript the slider still scrolls and each image links
+   to its full-size file. Pairs with js/screen-gallery.js. */
+.screen-gallery {
+  --sg-ink: #2d2926;
+  --sg-muted: #686461;
+  --sg-line: #cfcac1;
+  --sg-accent: #a5281f;
+  --sg-slide: min(82%, 980px);
+}
+
+.screen-gallery__track {
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 4px 0 18px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sg-line) transparent;
+}
+.screen-gallery__track:focus-visible { outline: 2px solid var(--sg-accent); outline-offset: 4px; }
+
+.screen-gallery__slide {
+  flex: 0 0 var(--sg-slide);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.screen-gallery__link {
+  position: relative;
+  display: block;
+  border: 1px solid #d1d3d5;
+  background: #fff;
+  cursor: zoom-in;
+}
+.screen-gallery__link img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.screen-gallery__link:focus-visible { outline: 2px solid var(--sg-accent); outline-offset: 3px; }
+.screen-gallery__zoom {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(45, 41, 38, .82);
+  color: #fff;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.screen-gallery__zoom svg { width: 18px; height: 18px; }
+.screen-gallery__link:hover .screen-gallery__zoom,
+.screen-gallery__link:focus-visible .screen-gallery__zoom { opacity: 1; }
+@media (hover: none) { .screen-gallery__zoom { opacity: 1; } }
+
+.screen-gallery__caption { display: flex; gap: 12px; margin-top: 12px; font-size: 13px; line-height: 1.8; color: var(--sg-ink); }
+.screen-gallery__caption > span:first-child,
+.screen-modal__caption > span:first-child { flex: none; font-family: var(--font-mono, monospace); font-size: 12px; letter-spacing: .06em; padding-top: 1px; }
+.screen-gallery__caption > span:first-child { color: var(--sg-accent); }
+.screen-gallery__caption small { display: block; font-size: 12px; color: var(--sg-muted); }
+.screen-gallery__source { margin-top: 18px; }
+/* In the case study hero, the slider replaces the single screenshot. The hero
+   image rules would add a second border and change the fit, so reset them. */
+.cs-hero-shot--gallery .screen-gallery__link img { border: 0; object-fit: cover; }
+.cs-hero-shot--gallery .screen-gallery__source { margin-top: 10px; font-size: 12px; line-height: 1.85; color: #686461; }
+@media (max-width: 720px) { .cs-hero-shot--gallery .screen-gallery__source { font-size: 10px; } }
+
+.screen-gallery__controls { display: flex; align-items: center; gap: 12px; margin-top: 6px; }
+.screen-gallery__count { min-width: 4.5em; font-family: var(--font-mono, monospace); font-size: 12px; letter-spacing: .08em; color: var(--sg-muted); }
+.screen-gallery__btn,
+.screen-modal__btn {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--sg-ink, #2d2926);
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: background .18s, color .18s, opacity .18s;
+}
+.screen-gallery__btn svg,
+.screen-modal__btn svg { width: 18px; height: 18px; }
+.screen-gallery__btn:hover:not(:disabled) { background: var(--sg-ink); color: #fff; }
+.screen-gallery__btn:disabled { opacity: .3; cursor: default; }
+.screen-gallery__btn:focus-visible,
+.screen-modal__btn:focus-visible { outline: 2px solid var(--sg-accent, #a5281f); outline-offset: 3px; }
+.screen-gallery__note { margin-left: auto; font-size: 12px; color: var(--sg-muted); }
+/* The buttons and counter only work with JavaScript. */
+.screen-gallery:not(.is-ready) .screen-gallery__controls { display: none; }
+
+/* Modal */
+.screen-modal {
+  width: min(1240px, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  overflow: visible;
+}
+.screen-modal::backdrop { background: rgba(26, 23, 21, .94); }
+.screen-modal__body { display: grid; gap: 14px; }
+.screen-modal__figure { margin: 0; }
+.screen-modal__img { display: block; width: 100%; height: auto; max-height: calc(100dvh - 150px); object-fit: contain; background: #fff; }
+.screen-modal__bar { display: flex; align-items: center; gap: 12px; }
+.screen-modal__caption { display: flex; gap: 12px; flex: 1; min-width: 0; font-size: 14px; line-height: 1.7; }
+.screen-modal__caption > span:first-child { color: #f0a49c; }
+.screen-modal__caption small { display: block; font-size: 12px; color: rgba(255, 255, 255, .72); }
+.screen-modal__count { font-family: var(--font-mono, monospace); font-size: 12px; letter-spacing: .08em; color: rgba(255, 255, 255, .72); }
+.screen-modal__btn { border-color: rgba(255, 255, 255, .7); }
+.screen-modal__btn:hover { background: #fff; color: #2d2926; }
+.screen-modal__close { margin-left: 8px; }
+
+@media (max-width: 720px) {
+  .screen-gallery { --sg-slide: 88%; }
+  .screen-gallery__track { gap: 12px; }
+  .screen-gallery__caption { font-size: 12px; gap: 10px; }
+  .screen-gallery__caption small { font-size: 11px; }
+  .screen-gallery__note { display: none; }
+  .screen-modal { width: calc(100% - 20px); }
+  .screen-modal__img { max-height: calc(100dvh - 190px); }
+  .screen-modal__bar { flex-wrap: wrap; }
+  .screen-modal__caption { flex-basis: 100%; order: -1; font-size: 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screen-gallery__track { scroll-behavior: auto; }
+}
