@@ -543,6 +543,13 @@ p, li, dd {
 .btn:hover .btn__arrow {
 		transform: translateX(5px)
 }
+/* Logo in place of the arrow (GitHub buttons); follows the text color on hover. */
+.btn__icon {
+		width: 1.15em;
+		height: 1.15em;
+		flex: none;
+		fill: currentColor
+}
 
 /* Content is visible by default; scrolling never gates access to it. */
 .reveal {

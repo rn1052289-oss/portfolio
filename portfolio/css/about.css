@@ -141,7 +141,7 @@
 
 /* Profile */
 .profile {
-		padding: var(--section-y) 0
+		padding: clamp(2.5rem, 5vw, 4.5rem) 0
 }
 .profile__grid {
 		display: grid;
@@ -155,16 +155,19 @@
 		position: sticky;
 		top: calc(var(--header-h) + 1.5rem)
 }
+/* Compact two-column sheet; the long lists (Focus / Workflow) take a full row. */
 .profile__details {
 		display: grid;
-		gap: clamp(2rem, 4vw, 3rem)
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		column-gap: clamp(1.5rem, 3vw, 3rem);
+		border-top: 1.5px solid #2D2926
 }
 .profile__item {
-		padding-bottom: clamp(2rem, 4vw, 3rem);
-		border-bottom: .5px solid rgba(45, 41, 38, .06)
+		padding: .9rem 0;
+		border-bottom: 1px solid rgba(45, 41, 38, .15)
 }
-.profile__item:last-child {
-		border: none
+.profile__item--wide {
+		grid-column: 1 / -1
 }
 .profile__label {
 		font-family: 'DM Mono', monospace;
@@ -172,7 +175,12 @@
 		letter-spacing: .12em;
 		text-transform: uppercase;
 		color: var(--accent-text);
-		margin-bottom: .5rem
+		margin-bottom: .2rem
+}
+@media(max-width:600px) {
+		.profile__details {
+				grid-template-columns: minmax(0, 1fr)
+		}
 }
 .profile__value {
 		font-size: clamp(.95rem, 1.2vw, 1.05rem);
@@ -426,8 +434,15 @@
 .sd-card__description { margin-top: 20px; color: var(--muted-text); font-size: 14px; line-height: 1.9; }
 .sd-card__evidence { display: inline-flex; align-items: center; gap: 16px; min-height: 44px; margin-top: 12px; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; }
 /* Japanese main heading; the English label stays in the stamp above. */
+/* One line: the size is chosen so the 11 characters fit the column at every width. */
 .about-hero__title--ja {
-		font-size: clamp(1.9rem, 4.2vw, 3.6rem);
+		font-size: clamp(1.6rem, 3.6vw, 3.2rem);
 		line-height: 1.3;
+		white-space: nowrap;
 		margin-bottom: clamp(1rem, 2vw, 1.5rem)
+}
+@media(max-width:991px) {
+		.about-hero__title--ja {
+				font-size: clamp(1.6rem, 7.4vw, 3rem)
+		}
 }
