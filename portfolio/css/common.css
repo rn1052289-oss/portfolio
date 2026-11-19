@@ -755,6 +755,8 @@ p, li, dd {
 				gap: .25rem
 		}
 		.footer__link { width: 100%; }
+		/* Keep the 44px round tap area, but line the icon up with the text links. */
+		.footer__link--icon { width: 44px; margin-left: -12px; }
 		.reg-mark--tl,
 		.reg-mark--bl {
 				top: auto;
